@@ -19,14 +19,14 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     BsDropdownModule.forRoot(),
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
   ],
   providers: [ {
     provide: PERFECT_SCROLLBAR_CONFIG,

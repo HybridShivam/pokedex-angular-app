@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
+import {DOCUMENT} from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -141,10 +142,12 @@ export class SidebarService {
       type: 'simple'
     }
   ];
-  constructor() { }
+
+  constructor(@Inject(DOCUMENT) private document: Document) {
+  }
 
   toggle() {
-    this.toggled = ! this.toggled;
+    this.toggled = !this.toggled;
   }
 
   getSidebarState() {
@@ -153,6 +156,11 @@ export class SidebarService {
 
   setSidebarState(state: boolean) {
     this.toggled = state;
+    if (this.toggled !== true) {
+      this.document.body.classList.add('FixScrolling');
+    } else {
+      this.document.body.classList.remove('FixScrolling');
+    }
   }
 
   getMenuList() {
