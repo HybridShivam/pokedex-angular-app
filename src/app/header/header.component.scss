@@ -8,6 +8,25 @@
   transform: scaleX(-1);
 }
 
+.navbar{
+  -webkit-box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
+  -moz-box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
+  box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
+  z-index: 995;
+}
+
+.navbar-brand{
+  font-size: xx-large;
+  padding: 0;
+}
+
+.nav-link{
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: x-large;
+  vertical-align: middle;
+}
+
 //.toggleButton{
 //  height: 30px;
 //  width: 30px;
