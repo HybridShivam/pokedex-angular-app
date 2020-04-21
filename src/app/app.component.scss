@@ -1,3 +1,15 @@
+.fa {
+  transition: 0.5s transform ease-in-out;
+}
+.collapsed .fa{
+  -webkit-transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+
+
 .page-wrapper {
   height: 100vh;
 
@@ -8,7 +20,7 @@
     transition: padding-left .3s ease;
 
     @media screen and (min-width: 768px) {
-      padding-left: 300px;
+      padding-left: 260px;
     }
 
     .overlay {

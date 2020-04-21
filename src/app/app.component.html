@@ -4,7 +4,9 @@
       <div class="container-fluid">
           <div class="row">
               <div class="form-group col-md-12">
-                  <a href="#" class="btn btn-outline-secondary mr-1 mb-1" (click)="toggleSidebar()">=</a>
+                  <a href="#" class="btn btn-outline-secondary mr-1 mb-1 toggleButton" (click)="toggleSidebar()" [ngClass]="{'collapsed':getSideBarState()}">
+                    <i class="fa fa-chevron-left" aria-hidden="true" ></i>
+                  </a>
                   <a href="#" class="btn btn-outline-secondary mr-1 mb-1" (click)="toggleBackgroundImage()">BackGround</a>
               </div>
           </div>
