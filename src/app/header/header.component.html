@@ -1,0 +1,16 @@
+<nav class="navbar bg-light navbar-light navbar-expand-sm sticky-top" id="header">
+  <div class="navbar-collapse coolFont" id="nav" >
+    <ul class="nav navbar-nav mt-2">
+      <li><a class="btn btn-outline-secondary mr-1 mb-1 toggleButton" (click)="toggleSidebar()" [ngClass]="{'collapsed':getSideBarState()}">
+        <i class="fa fa-chevron-left" aria-hidden="true" ></i>
+      </a></li>
+      <li>
+        <a class="btn btn-outline-secondary mr-1 mb-1" (click)="toggleBackgroundImage()"><i class="fa fa-tree"></i></a>
+      </li>
+      <li class="nav-item"><a class="nav-link" routerLink="/recipes" routerLinkActive="active">Recipes</a>
+      </li>
+      <li class="nav-item"><a class="nav-link" routerLink="/shopping-list" routerLinkActive="active">Shopping List</a>
+      </li>
+    </ul>
+  </div>
+</nav>
