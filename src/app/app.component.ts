@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { SidebarService } from './sidebar/sidebar.service';
+import {Component} from '@angular/core';
+import {SidebarService} from './sidebar/sidebar.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +8,18 @@ import { SidebarService } from './sidebar/sidebar.service';
 })
 export class AppComponent {
   title = 'pokedex';
-  constructor(public sidebarservice: SidebarService) { }
+
+  constructor(public sidebarservice: SidebarService) {
+  }
+
   toggleSidebar() {
     this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState());
   }
+
   toggleBackgroundImage() {
     this.sidebarservice.hasBackgroundImage = !this.sidebarservice.hasBackgroundImage;
   }
+
   getSideBarState() {
     return this.sidebarservice.getSidebarState();
   }
