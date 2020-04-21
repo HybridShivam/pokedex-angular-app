@@ -1,4 +1,4 @@
-import {Inject, Injectable} from '@angular/core';
+import {Inject, Injectable, OnInit} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 
 @Injectable({
@@ -144,7 +144,16 @@ export class SidebarService {
   ];
 
   constructor(@Inject(DOCUMENT) private document: Document) {
+    if (screen.width <= 768) {
+      this.toggled = true;
+      if (this.toggled !== true) {
+        this.document.body.classList.add('FixScrolling');
+      } else {
+        this.document.body.classList.remove('FixScrolling');
+      }
+    }
   }
+
 
   toggle() {
     this.toggled = !this.toggled;
