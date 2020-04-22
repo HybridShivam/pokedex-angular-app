@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Pokemon} from '../shared/pokemon.model';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonListComponent implements OnInit {
 
-  constructor() { }
+
+  pokemons: Pokemon[] = [new Pokemon('Pikachu', 1), new Pokemon('Raichu', 2)];
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

@@ -1,1 +1,5 @@
 <p>pokemon-list works!</p>
+<ul class="list-group">
+  <li class="list-group-item disabled" *ngFor="let pokemon of pokemons;"><app-pokemon-item [pokemon]="pokemon"></app-pokemon-item></li>
+</ul>
+
