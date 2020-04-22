@@ -3,9 +3,7 @@
   <main class="page-content">
     <app-header></app-header>
       <div class="container-fluid">
-          <div class="row">
               <app-pokemon-list></app-pokemon-list>
-          </div>
       </div>
       <div class="overlay" (click)="toggleSidebar()" [ngClass]="{'show' : !getSideBarState()}"></div>
   </main>

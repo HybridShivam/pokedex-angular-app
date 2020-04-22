@@ -1,5 +1,10 @@
-<p>pokemon-list works!</p>
-<ul class="list-group">
-  <li class="list-group-item disabled" *ngFor="let pokemon of pokemons;"><app-pokemon-item [pokemon]="pokemon"></app-pokemon-item></li>
-</ul>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 col-lg-1.5 list-group-item" *ngFor="let pokemon of pokemons">
+      <app-pokemon-item [pokemon]="pokemon"></app-pokemon-item>
+    </div>
+  </div>
+</div>
+
+
 

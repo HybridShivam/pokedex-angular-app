@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Pokemon} from '../shared/pokemon.model';
+import {PokemonService} from '../shared/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -9,12 +10,17 @@ import {Pokemon} from '../shared/pokemon.model';
 export class PokemonListComponent implements OnInit {
 
 
-  pokemons: Pokemon[] = [new Pokemon('Pikachu', 1), new Pokemon('Raichu', 2)];
+  pokemons: Pokemon[] = [];
 
-  constructor() {
+  constructor(private pokemonService: PokemonService) {
   }
 
   ngOnInit(): void {
+    this.pokemonService.pokemonsListChanged.subscribe(
+      (response) => {
+        this.pokemons = response;
+      }
+    );
   }
 
 }
