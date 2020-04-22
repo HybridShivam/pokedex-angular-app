@@ -7,7 +7,7 @@
           <div class="text-capitalize text-left" style="font-size: medium; padding: 0">{{pokemon.name}}</div>
         </div>
         <div class="col-3" style="padding: 0">
-          <ng-container *ngFor="let type of pokemon.types">
+          <ng-container *ngFor="let type of pokemon.types.reverse()">
             <ng-container [ngSwitch]="type['type']['name']">
               <div class="icon bug" *ngSwitchCase="'bug'"><img src="assets/type-icons/bug.svg"></div>
               <div class="icon dark" *ngSwitchCase="'dark'"><img src="assets/type-icons/dark.svg"></div>
