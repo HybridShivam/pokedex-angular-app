@@ -21,7 +21,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.pokemonListSubscription = this.pokemonService.pokemonsListChanged.subscribe(
       (response) => {
-        this.pokemons = response;
+        this.pokemons = response.slice(0, this.noOfPokemonLoaded);
       }
     );
     this.noOfLoadedPokemonSubscription = this.pokemonService.newPokemonsLoaded.subscribe(

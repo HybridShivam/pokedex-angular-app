@@ -1,10 +1,16 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-3 col-md-2 col-lg-1.5 list-group-item" *ngFor="let pokemon of pokemons; let i = index;">
-      <app-pokemon-item [pokemon]="pokemon" *ngIf="i<noOfPokemonLoaded"></app-pokemon-item>
-    </div>
+  <div class="row" style="padding: 0">
+      <app-pokemon-item *ngFor="let pokemon of pokemons; let i = index;" [pokemon]="pokemon"></app-pokemon-item>
   </div>
 </div>
+<!--<div class="container-fluid">-->
+<!--  <div class="row">-->
+<!--    <span class="col-sm-3 col-md-2 col-lg-1.5 list-group-item" *ngFor="let pokemon of pokemons; let i = index;">-->
+<!--      <app-pokemon-item [pokemon]="pokemon"></app-pokemon-item>-->
+<!--    </span>-->
+<!--  </div>-->
+<!--</div>-->
+
 
 
 

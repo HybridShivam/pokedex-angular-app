@@ -29,7 +29,6 @@ export class PokemonService {
         for (const pokemon of pokemons) {
           if (pokemon.url === 'https://pokeapi.co/api/v2/pokemon/807/') {
             this.getPokemon(pokemon.url, null);
-            console.log('Last Pokemon');
             return;
           } else {
             this.getPokemon(pokemon.url, response.next);
@@ -47,16 +46,17 @@ export class PokemonService {
         this.pokemons[+response.id - 1] = new Pokemon(response.name, response.id, response['sprites']['front_default']);
         this.responseCounter++;
         this.totalCounter++;
-        console.log(this.totalCounter);
         if (this.totalCounter === 807) {
+          this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 7;
+          this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
+          this.pokemonsListChanged.next(this.pokemons);
           return;
         }
         if (this.responseCounter === 50) {
           this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 50;
           this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
-          this.responseCounter = 0;
-
           this.pokemonsListChanged.next(this.pokemons);
+          this.responseCounter = 0;
           if (morePokemons != null) {
             this.getPokemonList(morePokemons);
           }
