@@ -8,41 +8,58 @@ import {Subject} from 'rxjs';
 })
 export class PokemonService {
 
-  pokemons: Pokemon[] = new Array<Pokemon>(20);
+  pokemons: Pokemon[] = new Array<Pokemon>(50);
   pokemonsListChanged = new Subject<Pokemon[]>();
+  noOfPokemonsLoaded = 0;
+  newPokemonsLoaded = new Subject<number>();
   responseCounter = 0;
+  totalCounter = 0;
 
 
   constructor(private http: HttpClient) {
-    this.getPokemonList('https://pokeapi.co/api/v2/pokemon');
+    this.getPokemonList('https://pokeapi.co/api/v2/pokemon/?limit=50?');
   }
 
 
-  getPokemonList(url) {
+  getPokemonList(url: string) {
     this.http.get<{ count: string, next: string, previous: string, results: { name: string, url: string }[] }>
     (url).subscribe(
       (response) => {
         const pokemons: { name: string, url: string }[] = response.results;
         for (const pokemon of pokemons) {
-          this.getPokemon(pokemon.url);
-        }
-        if (response.next != null) {
-          this.getPokemonList(response.next);
+          if (pokemon.url === 'https://pokeapi.co/api/v2/pokemon/807/') {
+            this.getPokemon(pokemon.url, null);
+            console.log('Last Pokemon');
+            return;
+          } else {
+            this.getPokemon(pokemon.url, response.next);
+          }
         }
       }
     );
   }
 
 
-  getPokemon(url: string) {
+  getPokemon(url: string, morePokemons) {
     this.http.get<{ name: string, id: string }>
     (url).subscribe(
       (response) => {
         this.pokemons[+response.id - 1] = new Pokemon(response.name, response.id, response['sprites']['front_default']);
         this.responseCounter++;
-        if (this.responseCounter === 20) {
+        this.totalCounter++;
+        console.log(this.totalCounter);
+        if (this.totalCounter === 807) {
+          return;
+        }
+        if (this.responseCounter === 50) {
+          this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 50;
+          this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
           this.responseCounter = 0;
+
           this.pokemonsListChanged.next(this.pokemons);
+          if (morePokemons != null) {
+            this.getPokemonList(morePokemons);
+          }
         }
       }
     );

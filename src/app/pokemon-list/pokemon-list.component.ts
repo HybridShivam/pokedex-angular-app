@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Pokemon} from '../shared/pokemon.model';
 import {PokemonService} from '../shared/pokemon.service';
 
@@ -7,20 +7,32 @@ import {PokemonService} from '../shared/pokemon.service';
   templateUrl: './pokemon-list.component.html',
   styleUrls: ['./pokemon-list.component.scss']
 })
-export class PokemonListComponent implements OnInit {
+export class PokemonListComponent implements OnInit, OnDestroy {
 
 
   pokemons: Pokemon[] = [];
+  noOfPokemonLoaded: number;
+  pokemonListSubscription;
+  noOfLoadedPokemonSubscription;
 
   constructor(private pokemonService: PokemonService) {
   }
 
   ngOnInit(): void {
-    this.pokemonService.pokemonsListChanged.subscribe(
+    this.pokemonListSubscription = this.pokemonService.pokemonsListChanged.subscribe(
       (response) => {
         this.pokemons = response;
       }
     );
+    this.noOfLoadedPokemonSubscription = this.pokemonService.newPokemonsLoaded.subscribe(
+      (response) => {
+        this.noOfPokemonLoaded = response;
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.pokemonListSubscription.unsubscribe();
   }
 
 }
