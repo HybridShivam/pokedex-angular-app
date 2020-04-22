@@ -13,6 +13,7 @@ import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import {HeaderComponent} from './header/header.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
+import { PokemonItemComponent } from './pokemon-list/pokemon-item/pokemon-item.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -24,6 +25,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     SidebarComponent,
     HeaderComponent,
     PokemonListComponent,
+    PokemonItemComponent,
   ],
   imports: [
     BrowserModule,

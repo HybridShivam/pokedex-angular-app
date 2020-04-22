@@ -4,8 +4,7 @@
     <app-header></app-header>
       <div class="container-fluid">
           <div class="row">
-              <div class="form-group col-md-12">
-              </div>
+              <app-pokemon-list></app-pokemon-list>
           </div>
       </div>
       <div class="overlay" (click)="toggleSidebar()" [ngClass]="{'show' : !getSideBarState()}"></div>
