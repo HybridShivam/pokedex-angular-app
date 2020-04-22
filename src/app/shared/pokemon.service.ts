@@ -51,6 +51,14 @@ export class PokemonService {
         );
         this.responseCounter++;
         this.totalCounter++;
+        // Only For testing Purpose
+        if (this.totalCounter === 50) {
+          this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 50;
+          this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
+          this.pokemonsListChanged.next(this.pokemons);
+          return;
+        }
+        // Testing End
         if (this.totalCounter === 807) {
           this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 7;
           this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);

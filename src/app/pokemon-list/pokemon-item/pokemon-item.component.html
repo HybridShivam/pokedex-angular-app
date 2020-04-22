@@ -18,7 +18,7 @@
 
       <ng-container *ngFor="let type of pokemon.types">
         <ng-container [ngSwitch]="type['type']['name']">
-          <div class="icon bug" *ngSwitchCase="'bug'"><img src="assets/type-icons/bug.svg"></div>
+          <span class="icon bug" *ngSwitchCase="'bug'"><img src="assets/type-icons/bug.svg"></span>
           <div class="icon dark" *ngSwitchCase="'dark'"><img src="assets/type-icons/dark.svg"></div>
           <div class="icon dragon" *ngSwitchCase="'dragon'"><img src="assets/type-icons/dragon.svg"></div>
           <div class="icon electric" *ngSwitchCase="'electric'"><img src="assets/type-icons/electric.svg"></div>
@@ -30,7 +30,7 @@
           <div class="icon grass" *ngSwitchCase="'grass'"><img src="assets/type-icons/grass.svg"></div>
           <div class="icon ground" *ngSwitchCase="'ground'"><img src="assets/type-icons/ground.svg"></div>
           <div class="icon ice" *ngSwitchCase="'ice'"><img src="assets/type-icons/ice.svg"></div>
-          <div class="icon normal" *ngSwitchCase="'ice'"><img src="assets/type-icons/normal.svg"></div>
+          <div class="icon normal" *ngSwitchCase="'normal'"><img src="assets/type-icons/normal.svg"></div>
           <div class="icon poison" *ngSwitchCase="'poison'"><img src="assets/type-icons/poison.svg"></div>
           <div class="icon psychic" *ngSwitchCase="'psychic'"><img src="assets/type-icons/psychic.svg"></div>
           <div class="icon rock" *ngSwitchCase="'rock'"><img src="assets/type-icons/rock.svg"></div>
