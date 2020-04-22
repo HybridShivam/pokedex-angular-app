@@ -13,8 +13,10 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
   border-radius: 100%;
   height:30px;
   width: 30px;
-  margin:auto;
+  margin-left: auto;
   transition: 200ms all;
+  display: inline-flex;
+  text-align: right;
 }
 
 .icon:hover{
