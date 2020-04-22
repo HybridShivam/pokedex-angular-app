@@ -14,17 +14,20 @@ export class PokemonService {
 
 
   constructor(private http: HttpClient) {
-    this.getPokemonList();
+    this.getPokemonList('https://pokeapi.co/api/v2/pokemon');
   }
 
 
-  getPokemonList() {
+  getPokemonList(url) {
     this.http.get<{ count: string, next: string, previous: string, results: { name: string, url: string }[] }>
-    ('https://pokeapi.co/api/v2/pokemon').subscribe(
+    (url).subscribe(
       (response) => {
         const pokemons: { name: string, url: string }[] = response.results;
         for (const pokemon of pokemons) {
           this.getPokemon(pokemon.url);
+        }
+        if (response.next != null) {
+          this.getPokemonList(response.next);
         }
       }
     );
