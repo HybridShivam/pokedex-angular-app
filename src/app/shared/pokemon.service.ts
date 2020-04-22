@@ -40,10 +40,15 @@ export class PokemonService {
 
 
   getPokemon(url: string, morePokemons) {
-    this.http.get<{ name: string, id: string }>
+    this.http.get<{ name: string, id: number }>
     (url).subscribe(
       (response) => {
-        this.pokemons[+response.id - 1] = new Pokemon(response.name, response.id, response['sprites']['front_default']);
+        this.pokemons[+response.id - 1] = new Pokemon(
+          response.name,
+          response.id,
+          response['sprites']['front_default'],
+          response['types']
+        );
         this.responseCounter++;
         this.totalCounter++;
         if (this.totalCounter === 807) {

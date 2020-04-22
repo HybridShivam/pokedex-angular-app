@@ -1,27 +1,54 @@
-<!--<div class="col-sm-3 col-md-2 col-lg-1.5 card">-->
-<!--  <span class="small -pull-left">-->
-<!--    {{pokemon.id}}<br>-->
-<!--    {{pokemon.name}}</span>-->
-<!--    <img class="-pull-right" src="{{pokemon.sprite}}" alt="Sprite">-->
-<!--</div>-->
-<!--<div class="col-sm-3 col-md-2 col-lg-1.5">-->
-<!--  <div class="card">-->
-<!--    <div class="card-body">-->
-<!--      <h5 class="card-title">{{pokemon.id}}</h5>-->
-<!--      <h6 class="card-subtitle mb-2 text-muted">{{pokemon.name}}</h6>-->
-<!--      &lt;!&ndash;    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>&ndash;&gt;-->
-<!--      &lt;!&ndash;    <a href="#" class="card-link">Card link</a>&ndash;&gt;-->
-<!--      &lt;!&ndash;    <a href="#" class="card-link">Another link</a>&ndash;&gt;-->
-<!--&lt;!&ndash;      <div class="card-img"><img class="-pull-right" src="{{pokemon.sprite}}" alt="Sprite"></div>&ndash;&gt;-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
 <div class="col-sm-12" style="padding: 0">
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">{{pokemon.id}}</h5>
       <p class="card-text">{{pokemon.name}}</p>
       <div class="card-img"><img class="-pull-right" src="{{pokemon.sprite}}" alt="Sprite"></div>
+      <!--      <container-element [ngSwitch]="switch_expression">-->
+      <!--        <some-element *ngSwitchCase="match_expression_1">...</some-element>-->
+      <!--        <some-element *ngSwitchCase="match_expression_2">...</some-element>-->
+      <!--        <some-other-element *ngSwitchCase="match_expression_3">...</some-other-element>-->
+      <!--        <ng-container *ngSwitchCase="match_expression_3">-->
+      <!--          &lt;!&ndash; use a ng-container to group multiple root nodes &ndash;&gt;-->
+      <!--          <inner-element></inner-element>-->
+      <!--          <inner-other-element></inner-other-element>-->
+      <!--        </ng-container>-->
+      <!--        <some-element *ngSwitchDefault>...</some-element>-->
+      <!--      </container-element>-->
+
+      <ng-container *ngFor="let type of pokemon.types">
+        <ng-container [ngSwitch]="type['type']['name']">
+          <div class="icon bug" *ngSwitchCase="'bug'"><img src="assets/type-icons/bug.svg"></div>
+          <div class="icon dark" *ngSwitchCase="'dark'"><img src="assets/type-icons/dark.svg"></div>
+          <div class="icon dragon" *ngSwitchCase="'dragon'"><img src="assets/type-icons/dragon.svg"></div>
+          <div class="icon electric" *ngSwitchCase="'electric'"><img src="assets/type-icons/electric.svg"></div>
+          <div class="icon fire" *ngSwitchCase="'fire'"><img src="assets/type-icons/fire.svg"></div>
+          <div class="icon fairy" *ngSwitchCase="'fairy'"><img src="assets/type-icons/fairy.svg"></div>
+          <div class="icon fighting" *ngSwitchCase="'fighting'"><img src="assets/type-icons/fighting.svg"></div>
+          <div class="icon flying" *ngSwitchCase="'flying'"><img src="assets/type-icons/flying.svg"></div>
+          <div class="icon ghost" *ngSwitchCase="'ghost'"><img src="assets/type-icons/ghost.svg"></div>
+          <div class="icon grass" *ngSwitchCase="'grass'"><img src="assets/type-icons/grass.svg"></div>
+          <div class="icon ground" *ngSwitchCase="'ground'"><img src="assets/type-icons/ground.svg"></div>
+          <div class="icon ice" *ngSwitchCase="'ice'"><img src="assets/type-icons/ice.svg"></div>
+          <div class="icon normal" *ngSwitchCase="'ice'"><img src="assets/type-icons/normal.svg"></div>
+          <div class="icon poison" *ngSwitchCase="'poison'"><img src="assets/type-icons/poison.svg"></div>
+          <div class="icon psychic" *ngSwitchCase="'psychic'"><img src="assets/type-icons/psychic.svg"></div>
+          <div class="icon rock" *ngSwitchCase="'rock'"><img src="assets/type-icons/rock.svg"></div>
+          <div class="icon steel" *ngSwitchCase="'steel'"><img src="assets/type-icons/steel.svg"></div>
+          <div class="icon water" *ngSwitchCase="'water'"><img src="assets/type-icons/water.svg"></div>
+        </ng-container>
+      </ng-container>
     </div>
   </div>
 </div>
+<!--<container-element [ngSwitch]="switch_expression">-->
+<!--  <some-element *ngSwitchCase="match_expression_1">...</some-element>-->
+<!--  <some-element *ngSwitchCase="match_expression_2">...</some-element>-->
+<!--  <some-other-element *ngSwitchCase="match_expression_3">...</some-other-element>-->
+<!--  <ng-container *ngSwitchCase="match_expression_3">-->
+<!--    &lt;!&ndash; use a ng-container to group multiple root nodes &ndash;&gt;-->
+<!--    <inner-element></inner-element>-->
+<!--    <inner-other-element></inner-other-element>-->
+<!--  </ng-container>-->
+<!--  <some-element *ngSwitchDefault>...</some-element>-->
+<!--</container-element>-->
