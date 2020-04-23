@@ -1,7 +1,8 @@
 <!--<div class="container-fluid">-->
+<router-outlet>
   <div class="row justify-content-center">
       <app-pokemon-item *ngFor="let pokemon of pokemons | filter: searchItem; let i = index;" [pokemon]="pokemon"></app-pokemon-item>
   </div>
 <!--</div>-->
-
+</router-outlet>
 
