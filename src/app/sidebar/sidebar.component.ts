@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
-import { SidebarService } from './sidebar.service';
+import {Component, DoCheck, OnInit} from '@angular/core';
+import {trigger, state, style, transition, animate} from '@angular/animations';
+import {SidebarService} from './sidebar.service';
+
 // import { MenusService } from './menus.service';
 
 @Component({
@@ -9,19 +10,27 @@ import { SidebarService } from './sidebar.service';
   styleUrls: ['./sidebar.component.scss'],
   animations: [
     trigger('slide', [
-      state('up', style({ height: 0 })),
-      state('down', style({ height: '*' })),
+      state('up', style({height: 0})),
+      state('down', style({height: '*'})),
       transition('up <=> down', animate(200))
     ])
   ]
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, DoCheck {
   menus = [];
+  searchItem = '';
+
+
   constructor(public sidebarservice: SidebarService) {
     this.menus = sidebarservice.getMenuList();
-   }
+  }
 
   ngOnInit() {
+  }
+
+  ngDoCheck(): void {
+    console.log(this.searchItem);
+    this.sidebarservice.searchItemSubject.next(this.searchItem);
   }
 
   getSideBarState() {

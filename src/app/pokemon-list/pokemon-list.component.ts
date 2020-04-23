@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Pokemon} from '../shared/pokemon.model';
 import {PokemonService} from '../shared/pokemon.service';
+import {SidebarService} from '../sidebar/sidebar.service';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -14,8 +15,10 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   noOfPokemonLoaded: number;
   pokemonListSubscription;
   noOfLoadedPokemonSubscription;
+  searchItem: string;
+  searchItemSubscription;
 
-  constructor(private pokemonService: PokemonService) {
+  constructor(private pokemonService: PokemonService, private sidebarService: SidebarService) {
   }
 
   ngOnInit(): void {
@@ -29,10 +32,17 @@ export class PokemonListComponent implements OnInit, OnDestroy {
         this.noOfPokemonLoaded = response;
       }
     );
+    this.searchItemSubscription = this.sidebarService.searchItemSubject.subscribe(
+      (response) => {
+        this.searchItem = response;
+        console.log('Received ITem' + response);
+      }
+    );
   }
 
   ngOnDestroy(): void {
     this.pokemonListSubscription.unsubscribe();
+    this.searchItemSubscription.unsubscribe();
   }
 
 }

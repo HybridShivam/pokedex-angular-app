@@ -1,5 +1,6 @@
-import {Inject, Injectable, OnInit} from '@angular/core';
+import {DoCheck, Inject, Injectable, OnDestroy, OnInit, Output} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,8 @@ import {DOCUMENT} from '@angular/common';
 export class SidebarService {
   toggled = false;
   _hasBackgroundImage = true;
+  @Output() searchItemSubject: Subject<string> = new Subject<string>();
+
   menus = [
     {
       title: 'general',

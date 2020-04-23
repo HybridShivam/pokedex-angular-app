@@ -24,6 +24,7 @@
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.5",
     "jquery": "^3.4.1",
+    "ng2-search-filter": "^0.5.1",
     "ngx-bootstrap": "^5.6.1",
     "ngx-perfect-scrollbar": "^9.0.0",
     "popper.js": "^1.16.1",
