@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {PokemonService} from '../shared/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -9,8 +10,9 @@ import {ActivatedRoute} from '@angular/router';
 export class PokemonDetailComponent implements OnInit {
   pokemonId;
   pokemon;
+  pokemonImageUrl;
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, private pokemonService: PokemonService) {
   }
 
   ngOnInit(): void {
@@ -19,6 +21,16 @@ export class PokemonDetailComponent implements OnInit {
         this.pokemonId = params['id'];
       }
     );
+    this.pokemon = this.pokemonService.pokemons[this.pokemonId - 1];
+    this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/pokemon.json/master/images/' +
+      this.pad(this.pokemon.id, 3) + '.png';
   }
 
+  pad(number, length) {
+    let str = '' + number;
+    while (str.length < length) {
+      str = '0' + str;
+    }
+    return str;
+  }
 }
