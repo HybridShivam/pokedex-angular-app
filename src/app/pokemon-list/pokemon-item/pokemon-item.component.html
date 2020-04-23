@@ -1,15 +1,15 @@
 <div class="col-sm-12" style="padding: 0;">
-  <div class="card" style="width: 8rem;">
+  <div class="card" style="width: 9rem;">
     <div class="card-body">
       <div class="row">
-        <div class="col-9" style="padding: 0">
-          <span class="card-title" style="font-size: x-large">{{pokemon.id}}</span>
+        <div class="col-9" style="size: auto">
+          <span class="card-title" style="font-size: xx-large; margin: 0">{{pokemon.id}}</span>
           <div class="text-capitalize text-left" style="font-size: medium; padding: 0">{{pokemon.name}}</div>
         </div>
         <div class="col-3" style="padding: 0">
           <ng-container *ngFor="let type of pokemon.types.reverse()">
             <ng-container [ngSwitch]="type['type']['name']">
-              <div class="icon bug" *ngSwitchCase="'bug'"><img src="assets/type-icons/bug.svg"></div>
+              <div class="icon bug" *ngSwitchCase="'bug'" style="position: absolute;bottom: 0"><img src="assets/type-icons/bug.svg"></div>
               <div class="icon dark" *ngSwitchCase="'dark'"><img src="assets/type-icons/dark.svg"></div>
               <div class="icon dragon" *ngSwitchCase="'dragon'"><img src="assets/type-icons/dragon.svg"></div>
               <div class="icon electric" *ngSwitchCase="'electric'"><img src="assets/type-icons/electric.svg"></div>
