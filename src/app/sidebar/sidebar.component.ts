@@ -29,7 +29,6 @@ export class SidebarComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck(): void {
-    console.log(this.searchItem);
     this.sidebarservice.searchItemSubject.next(this.searchItem);
   }
 

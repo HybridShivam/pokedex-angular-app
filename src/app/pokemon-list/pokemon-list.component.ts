@@ -34,8 +34,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
     );
     this.searchItemSubscription = this.sidebarService.searchItemSubject.subscribe(
       (response) => {
-        this.searchItem = response;
-        console.log('Received ITem' + response);
+        this.searchItem = response;;
       }
     );
   }
