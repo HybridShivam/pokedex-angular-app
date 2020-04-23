@@ -13,8 +13,8 @@ export class SidebarService {
       type: 'header'
     },
     {
-      title: 'Dashboard',
-      icon: 'fa fa-tachometer-alt',
+      title: 'All Pokémons',
+      icon: 'fas fa-list-ul',
       active: false,
       type: 'dropdown',
       badge: {
@@ -23,23 +23,23 @@ export class SidebarService {
       },
       submenus: [
         {
-          title: 'Dashboard 1',
+          title: 'Gen 1',
           badge: {
             text: 'Pro ',
             class: 'badge-success'
           }
         },
         {
-          title: 'Dashboard 2'
+          title: 'Gen 2'
         },
         {
-          title: 'Dashboard 3'
+          title: 'Gen 3'
         }
       ]
     },
     {
-      title: 'E-commerce',
-      icon: 'fa fa-shopping-cart',
+      title: 'Favorites',
+      icon: 'fas fa-heart',
       active: false,
       type: 'dropdown',
       badge: {
@@ -59,7 +59,7 @@ export class SidebarService {
       ]
     },
     {
-      title: 'Components',
+      title: 'Types',
       icon: 'far fa-gem',
       active: false,
       type: 'dropdown',
@@ -82,8 +82,8 @@ export class SidebarService {
       ]
     },
     {
-      title: 'Charts',
-      icon: 'fa fa-chart-line',
+      title: 'Moves',
+      icon: 'fas fa-compact-disc',
       active: false,
       type: 'dropdown',
       submenus: [
@@ -102,8 +102,8 @@ export class SidebarService {
       ]
     },
     {
-      title: 'Maps',
-      icon: 'fa fa-globe',
+      title: 'Team Builder',
+      icon: 'fas fa-address-card',
       active: false,
       type: 'dropdown',
       submenus: [
@@ -120,8 +120,8 @@ export class SidebarService {
       type: 'header'
     },
     {
-      title: 'Documentation',
-      icon: 'fa fa-book',
+      title: 'About',
+      icon: 'fas fa-crown',
       active: false,
       type: 'simple',
       badge: {
@@ -130,17 +130,11 @@ export class SidebarService {
       },
     },
     {
-      title: 'Calendar',
-      icon: 'fa fa-calendar',
+      title: 'Home',
+      icon: 'fas fa-home',
       active: false,
       type: 'simple'
     },
-    {
-      title: 'Examples',
-      icon: 'fa fa-folder',
-      active: false,
-      type: 'simple'
-    }
   ];
 
   constructor(@Inject(DOCUMENT) private document: Document) {
