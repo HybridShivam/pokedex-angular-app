@@ -7,6 +7,16 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 @import '~@fortawesome/fontawesome-free/scss/regular';
 @import '~perfect-scrollbar/css/perfect-scrollbar.css';
 
+//Prevent Body Text Selection
+/* Prevent text selection of a <body> element in all major browsers */
+body {
+  -youbkit-touch-callout: none; /* iOS Safari */
+  -youbkit-user-select: none;   /* Chrome 6.0+, Safari 3.1+, Edge & Opera 15+ */
+  -moz-user-select: none;       /* Firefox */
+  -ms-user-select: none;        /* IE 10+ and Edge */
+  user-select: none;            /* Non-prefixed version,
+								  currently supported by Chrome and Opera */
+}
 
 //For Type Icons
 .icon {
