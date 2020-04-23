@@ -46,8 +46,21 @@ export class PokemonService {
         this.pokemons[+response.id - 1] = new Pokemon(
           response.name,
           response.id,
-          // response['sprites']['front_default'],
-          response['types']
+          response['sprites'],
+          response['types'],
+          response['abilities'],
+          response['height'],
+          response['weight'],
+          response['base_experience'],
+          response['forms'],
+          response['held_items'],
+          response['game_indices'],
+          response['is_default'],
+          response['location'],
+          response['moves'],
+          response['order'],
+          response['stats'],
+          response['species']
         );
         this.responseCounter++;
         this.totalCounter++;
