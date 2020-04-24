@@ -16,11 +16,13 @@ export class PokemonDetailComponent implements OnInit {
   heightInFeetInches;
   weightInKgs;
   weightInPounds;
+  pokemonStats;
 
   constructor(private activatedRoute: ActivatedRoute, private pokemonService: PokemonService) {
   }
 
   ngOnInit(): void {
+    // Write Logic after Pokemon Fetching in Both If and Else Conditions
     this.activatedRoute.params.subscribe(
       (params) => {
         this.pokemonId = params['id'];
