@@ -94,7 +94,7 @@ export class PokemonService {
 
 
   getPokemonById(Id) {
-    let url = 'https://pokeapi.co/api/v2/pokemon/807/';
+    const url = 'https://pokeapi.co/api/v2/pokemon/' + Id + '/';
     return this.http.get(url);
   }
 }
