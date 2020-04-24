@@ -2,7 +2,7 @@
   <button type="button" class="btn" routerLink="../"><i class="fa fa-backward"></i></button>
   <h1 class="text-center text-capitalize">{{pokemon.name}}</h1>
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-4">
       <table class="table table-borderless">
 <!--        <thead>-->
 <!--        </thead>-->
@@ -24,8 +24,8 @@
         </tr>
         <tr>
           <td class="text-right font-weight-bold">Type</td>
-          <td><span class="text-capitalize"
-                    *ngFor="let type of pokemon.types.reverse()">
+          <td><div class="row">
+            <div class="text-capitalize" *ngFor="let type of pokemon.types.reverse()">
             <ng-container [ngSwitch]="type['type']['name']">
               <div class="icon bug" *ngSwitchCase="'bug'"><img src="assets/type-icons/bug.svg"></div>
               <div class="icon dark" *ngSwitchCase="'dark'"><img src="assets/type-icons/dark.svg"></div>
@@ -36,16 +36,18 @@
               <div class="icon fighting" *ngSwitchCase="'fighting'"><img src="assets/type-icons/fighting.svg"></div>
               <div class="icon flying" *ngSwitchCase="'flying'"><img src="assets/type-icons/flying.svg"></div>
               <div class="icon ghost" *ngSwitchCase="'ghost'"><img src="assets/type-icons/ghost.svg"></div>
-              <div class="row icon grass" *ngSwitchCase="'grass'"><span class="col-8 text-white">Grass</span><div class="col-4"><img src="assets/type-icons/grass.svg"></div></div>
+              <span class="row icon grass" *ngSwitchCase="'grass'"><span class="col-8 text-white">Fighting</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/grass.svg"></span></span>
               <div class="icon ground" *ngSwitchCase="'ground'"><img src="assets/type-icons/ground.svg"></div>
               <div class="icon ice" *ngSwitchCase="'ice'"><img src="assets/type-icons/ice.svg"></div>
               <div class="icon normal" *ngSwitchCase="'normal'"><img src="assets/type-icons/normal.svg"></div>
-              <div class="row icon poison" *ngSwitchCase="'poison'"><span class="col-8 text-white">Poison</span><div class="col-4"><img src="assets/type-icons/poison.svg"></div></div>
+              <span class="row icon poison" *ngSwitchCase="'poison'"><span class="col-8 text-white">Electric</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/poison.svg"></span></span>
               <div class="icon psychic" *ngSwitchCase="'psychic'"><img src="assets/type-icons/psychic.svg"></div>
               <div class="icon rock" *ngSwitchCase="'rock'"><img src="assets/type-icons/rock.svg"></div>
               <div class="icon steel" *ngSwitchCase="'steel'"><img src="assets/type-icons/steel.svg"></div>
               <div class="icon water -pull-right" *ngSwitchCase="'water'"><img src="assets/type-icons/water.svg"></div>
-            </ng-container></span>
+            </ng-container>
+            </div>
+          </div>
           </td>
         </tr>
 <!--        </tbody>-->
@@ -54,7 +56,7 @@
     <div class="col-lg-4">
       <img class="img-fluid" src="{{pokemonImageUrl}}" alt="">
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-4">
       Text
     </div>
   </div>
