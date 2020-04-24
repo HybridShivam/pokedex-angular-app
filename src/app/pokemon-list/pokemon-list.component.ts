@@ -24,11 +24,11 @@ export class PokemonListComponent implements OnInit, OnDestroy {
       this.pokemons = this.pokemonService.pokemons;
       this.noOfPokemonLoaded = this.pokemonService.noOfPokemonsLoaded;
     } else {
-      console.log('New Subscriptions Created');
+      console.log('New PokemonListSubscription Created');
       this.pokemonListSubscription = this.pokemonService.pokemonsListChanged.subscribe(
         (response) => {
-          this.pokemons = response.slice(0, 50);
-          console.log('From pokemon list subsc');
+          this.pokemons = response.slice(0, this.noOfPokemonLoaded);
+          console.log('Pokemon List Subsciption : List Updated');
         }
       );
       this.noOfLoadedPokemonSubscription = this.pokemonService.newPokemonsLoaded.subscribe(

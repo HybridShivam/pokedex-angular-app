@@ -27,7 +27,9 @@
   vertical-align: middle;
 }
 
-//.toggleButton{
-//  height: 30px;
-//  width: 30px;
-//}
+
+@media (max-width: 575px){
+  .nav-link{
+    display: none;
+  }
+}

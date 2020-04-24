@@ -4,22 +4,22 @@
   <div class="row">
     <div class="col-lg-4">
       <table class="table table-borderless">
-<!--        <thead>-->
-<!--        </thead>-->
-<!--        <tbody>-->
         <tr>
           <td class="text-right font-weight-bold">Height</td>
-          <td>{{heightInMetres + "m " + heightInFeetInches}}</td>
+          <td>{{heightInMetres + "m ( " + heightInFeetInches+" )"}}</td>
           <td></td>
         </tr>
         <tr>
           <td class="text-right font-weight-bold">Weight</td>
-          <td>{{weightInKgs + "kg " + weightInPounds + "lbs."}}</td>
+          <td>{{weightInKgs + "kg ( " + weightInPounds + "lbs. )"}}</td>
         </tr>
         <tr>
           <td class="text-right font-weight-bold">Abilities</td>
-          <td><span class="text-capitalize"
-            *ngFor="let ability of pokemon.abilities.reverse()">{{ability['ability']['name']}} </span>
+          <td>
+            <span class="text-capitalize ability"
+            *ngFor="let ability of pokemon.abilities.reverse()">
+              <ng-container >{{ability['ability']['name']}} </ng-container>
+          </span>
           </td>
         </tr>
         <tr>
@@ -50,7 +50,6 @@
           </div>
           </td>
         </tr>
-<!--        </tbody>-->
       </table>
     </div>
     <div class="col-lg-4">
