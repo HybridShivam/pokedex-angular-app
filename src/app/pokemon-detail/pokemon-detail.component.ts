@@ -17,6 +17,7 @@ export class PokemonDetailComponent implements OnInit {
   weightInKgs;
   weightInPounds;
   pokemonStats;
+  maxStat;
 
   constructor(private activatedRoute: ActivatedRoute, private pokemonService: PokemonService) {
   }
@@ -36,6 +37,16 @@ export class PokemonDetailComponent implements OnInit {
       this.heightInFeetInches = Math.floor(this.heightInMetres * 3.2808) + '"' + Math.round(((this.heightInMetres * 3.2808) % 1) * 12) + '\'';
       this.weightInKgs = (this.pokemon.weight * 0.1).toFixed(1);
       this.weightInPounds = (this.weightInKgs * 2.205).toFixed(1);
+      this.pokemonStats = [
+        this.pokemon.stats[5]['base_stat'],
+        this.pokemon.stats[4]['base_stat'],
+        this.pokemon.stats[3]['base_stat'],
+        this.pokemon.stats[2]['base_stat'],
+        this.pokemon.stats[1]['base_stat'],
+        this.pokemon.stats[0]['base_stat']
+      ];
+      this.maxStat = Math.max(...this.pokemonStats);
+      console.log(this.maxStat);
     } else {
       this.pokemon = this.pokemonService.getPokemonById(this.pokemonId).subscribe(
         (response) => {
@@ -64,6 +75,16 @@ export class PokemonDetailComponent implements OnInit {
           this.heightInFeetInches = Math.floor(this.heightInMetres * 3.2808) + '"' + Math.round(((this.heightInMetres * 3.2808) % 1) * 12) + '\'';
           this.weightInKgs = (this.pokemon.weight * 0.1).toFixed(1);
           this.weightInPounds = (this.weightInKgs * 2.205).toFixed(1);
+          this.pokemonStats = [
+            this.pokemon.stats[5]['base_stat'],
+            this.pokemon.stats[4]['base_stat'],
+            this.pokemon.stats[3]['base_stat'],
+            this.pokemon.stats[2]['base_stat'],
+            this.pokemon.stats[1]['base_stat'],
+            this.pokemon.stats[0]['base_stat']
+          ];
+          this.maxStat = Math.max(...this.pokemonStats);
+          console.log(this.maxStat);
         });
     }
   }
