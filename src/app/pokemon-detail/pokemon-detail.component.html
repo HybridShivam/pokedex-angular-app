@@ -6,7 +6,7 @@
       <table class="table table-borderless">
         <tr>
           <td class="text-right font-weight-bold">Height</td>
-          <td>{{heightInMetres + "m ( " + heightInFeetInches+" )"}}</td>
+          <td>{{heightInMetres + "m ( " + heightInFeetInches + " )"}}</td>
           <td></td>
         </tr>
         <tr>
@@ -17,46 +17,106 @@
           <td class="text-right font-weight-bold">Abilities</td>
           <td>
             <span class="text-capitalize ability"
-            *ngFor="let ability of pokemon.abilities.reverse()">
-              <ng-container >{{ability['ability']['name']}} </ng-container>
+                  *ngFor="let ability of pokemon.abilities.reverse()">
+              <ng-container>{{ability['ability']['name']}} </ng-container>
           </span>
           </td>
         </tr>
         <tr>
           <td class="text-right font-weight-bold" style="vertical-align: middle;">Type</td>
-          <td><div class="row">
-            <div class="text-capitalize" *ngFor="let type of pokemon.types.reverse()">
-            <ng-container [ngSwitch]="type['type']['name']">
-              <div class="row icon bug" *ngSwitchCase="'bug'"><span class="col-8 text-white">Bug</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/bug.svg"></span></div>
-              <div class="row icon dark" *ngSwitchCase="'dark'"><span class="col-8 text-white">Dark</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/dark.svg"></span></div>
-              <div class="row icon dragon" *ngSwitchCase="'dragon'"><span class="col-8 text-white">Dragon</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/dragon.svg"></span></div>
-              <div class="row icon electric" *ngSwitchCase="'electric'"><span class="col-8 text-white">Electric</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/electric.svg"></span></div>
-              <div class="row icon fire" *ngSwitchCase="'fire'"><span class="col-8 text-white">Fire</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/fire.svg"></span></div>
-              <div class="row icon fairy" *ngSwitchCase="'fairy'"><span class="col-8 text-white">Fairy</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/fairy.svg"></span></div>
-              <div class="row icon fighting" *ngSwitchCase="'fighting'"><span class="col-8 text-white">Fighting</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/fighting.svg"></span></div>
-              <div class="row icon flying" *ngSwitchCase="'flying'"><span class="col-8 text-white">Flying</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/flying.svg"></span></div>
-              <div class="row icon ghost" *ngSwitchCase="'ghost'"><span class="col-8 text-white">Ghost</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/ghost.svg"></span></div>
-              <div class="row icon grass" *ngSwitchCase="'grass'"><span class="col-8 text-white">Grass</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/grass.svg"></span></div>
-              <div class="row icon ground" *ngSwitchCase="'ground'"><span class="col-8 text-white">Ground</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/ground.svg"></span></div>
-              <div class="row icon ice" *ngSwitchCase="'ice'"><span class="col-8 text-white">Ice</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/ice.svg"></span></div>
-              <div class="row icon normal" *ngSwitchCase="'normal'"><span class="col-8 text-white">Normal</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/normal.svg"></span></div>
-              <div class="row icon poison" *ngSwitchCase="'poison'"><span class="col-8 text-white">Poison</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/poison.svg"></span></div>
-              <div class="row icon psychic" *ngSwitchCase="'psychic'"><span class="col-8 text-white">Psychic</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/psychic.svg"></span></div>
-              <div class="row icon rock" *ngSwitchCase="'rock'"><span class="col-8 text-white">Rock</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/rock.svg"></span></div>
-              <div class="row icon steel" *ngSwitchCase="'steel'"><span class="col-8 text-white">Steel</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/steel.svg"></span></div>
-              <div class="row icon water" *ngSwitchCase="'water'"><span class="col-8 text-white">Water</span><span class="col-4"><img class="img-fluid" src="assets/type-icons/water.svg"></span></div>
-            </ng-container>
+          <td>
+            <div class="row">
+              <div class="text-capitalize" *ngFor="let type of pokemon.types.reverse()">
+                <ng-container [ngSwitch]="type['type']['name']">
+                  <div class="row icon bug" *ngSwitchCase="'bug'"><span class="col-8 text-white">Bug</span><span
+                    class="col-4"><img class="img-fluid" src="assets/type-icons/bug.svg"></span></div>
+                  <div class="row icon dark" *ngSwitchCase="'dark'"><span class="col-8 text-white">Dark</span><span
+                    class="col-4"><img class="img-fluid" src="assets/type-icons/dark.svg"></span></div>
+                  <div class="row icon dragon" *ngSwitchCase="'dragon'"><span
+                    class="col-8 text-white">Dragon</span><span class="col-4"><img class="img-fluid"
+                                                                                   src="assets/type-icons/dragon.svg"></span>
+                  </div>
+                  <div class="row icon electric" *ngSwitchCase="'electric'"><span
+                    class="col-8 text-white">Electric</span><span class="col-4"><img class="img-fluid"
+                                                                                     src="assets/type-icons/electric.svg"></span>
+                  </div>
+                  <div class="row icon fire" *ngSwitchCase="'fire'"><span class="col-8 text-white">Fire</span><span
+                    class="col-4"><img class="img-fluid" src="assets/type-icons/fire.svg"></span></div>
+                  <div class="row icon fairy" *ngSwitchCase="'fairy'"><span class="col-8 text-white">Fairy</span><span
+                    class="col-4"><img class="img-fluid" src="assets/type-icons/fairy.svg"></span></div>
+                  <div class="row icon fighting" *ngSwitchCase="'fighting'"><span
+                    class="col-8 text-white">Fighting</span><span class="col-4"><img class="img-fluid"
+                                                                                     src="assets/type-icons/fighting.svg"></span>
+                  </div>
+                  <div class="row icon flying" *ngSwitchCase="'flying'"><span
+                    class="col-8 text-white">Flying</span><span class="col-4"><img class="img-fluid"
+                                                                                   src="assets/type-icons/flying.svg"></span>
+                  </div>
+                  <div class="row icon ghost" *ngSwitchCase="'ghost'"><span class="col-8 text-white">Ghost</span><span
+                    class="col-4"><img class="img-fluid" src="assets/type-icons/ghost.svg"></span></div>
+                  <div class="row icon grass" *ngSwitchCase="'grass'"><span class="col-8 text-white">Grass</span><span
+                    class="col-4"><img class="img-fluid" src="assets/type-icons/grass.svg"></span></div>
+                  <div class="row icon ground" *ngSwitchCase="'ground'"><span
+                    class="col-8 text-white">Ground</span><span class="col-4"><img class="img-fluid"
+                                                                                   src="assets/type-icons/ground.svg"></span>
+                  </div>
+                  <div class="row icon ice" *ngSwitchCase="'ice'"><span class="col-8 text-white">Ice</span><span
+                    class="col-4"><img class="img-fluid" src="assets/type-icons/ice.svg"></span></div>
+                  <div class="row icon normal" *ngSwitchCase="'normal'"><span
+                    class="col-8 text-white">Normal</span><span class="col-4"><img class="img-fluid"
+                                                                                   src="assets/type-icons/normal.svg"></span>
+                  </div>
+                  <div class="row icon poison" *ngSwitchCase="'poison'"><span
+                    class="col-8 text-white">Poison</span><span class="col-4"><img class="img-fluid"
+                                                                                   src="assets/type-icons/poison.svg"></span>
+                  </div>
+                  <div class="row icon psychic" *ngSwitchCase="'psychic'"><span
+                    class="col-8 text-white">Psychic</span><span class="col-4"><img class="img-fluid"
+                                                                                    src="assets/type-icons/psychic.svg"></span>
+                  </div>
+                  <div class="row icon rock" *ngSwitchCase="'rock'"><span class="col-8 text-white">Rock</span><span
+                    class="col-4"><img class="img-fluid" src="assets/type-icons/rock.svg"></span></div>
+                  <div class="row icon steel" *ngSwitchCase="'steel'"><span class="col-8 text-white">Steel</span><span
+                    class="col-4"><img class="img-fluid" src="assets/type-icons/steel.svg"></span></div>
+                  <div class="row icon water" *ngSwitchCase="'water'"><span class="col-8 text-white">Water</span><span
+                    class="col-4"><img class="img-fluid" src="assets/type-icons/water.svg"></span></div>
+                </ng-container>
+              </div>
             </div>
-          </div>
           </td>
         </tr>
       </table>
     </div>
     <div class="col-lg-4">
-      <img class="img-fluid" src="{{pokemonImageUrl}}" alt="">
+      <img class="img-fluid mx-auto d-block" src="{{pokemonImageUrl}}" alt="">
     </div>
     <div class="col-lg-4">
-      Text
+      <h4>Stats</h4>
+      <ul class="list-group">
+        <li class="list-group-item">
+          HP :
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                 aria-valuenow="10" aria-valuemin="0" aria-valuemax="255"
+                 style="width:{{pokemon.stats[2]['base_stat']/255*100}}%"></div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          Attack : {{pokemon.stats[4]['base_stat']}}
+        </li>
+        <li class="list-group-item">
+          Defence : {{pokemon.stats[3]['base_stat']}}
+        </li>
+        <li class="list-group-item">
+          Special Attack : {{pokemon.stats[2]['base_stat']}}
+        </li>
+        <li class="list-group-item">
+          Special Defence : {{pokemon.stats[1]['base_stat']}}
+        </li>
+        <li class="list-group-item">
+          Speed : {{pokemon.stats[0]['base_stat']}}
+        </li>
+      </ul>
     </div>
   </div>
 
