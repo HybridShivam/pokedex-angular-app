@@ -6,7 +6,8 @@ import {Subject} from 'rxjs';
   providedIn: 'root'
 })
 export class SidebarService {
-  toggled = false;
+  toggled = true;
+  // Default Value
   _hasBackgroundImage = true;
   @Output() searchItemSubject: Subject<string> = new Subject<string>();
 
