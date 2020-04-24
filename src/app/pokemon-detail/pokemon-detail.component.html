@@ -7,7 +7,6 @@
         <tr>
           <td class="text-right font-weight-bold">Height</td>
           <td>{{heightInMetres + "m ( " + heightInFeetInches + " )"}}</td>
-          <td></td>
         </tr>
         <tr>
           <td class="text-right font-weight-bold">Weight</td>
@@ -92,11 +91,31 @@
     </div>
     <div class="col-lg-4">
       <h4>Stats</h4>
+      <table class="table table-borderless">
+        <tr>
+          <td class="text-right font-weight-bold">HP</td>
+          <td>{{heightInMetres + "m ( " + heightInFeetInches + " )"}}</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="text-right font-weight-bold">Weight</td>
+          <td>{{weightInKgs + "kg ( " + weightInPounds + "lbs. )"}}</td>
+        </tr>
+        <tr>
+          <td class="text-right font-weight-bold">Abilities</td>
+          <td>
+            <span class="text-capitalize ability"
+                  *ngFor="let ability of pokemon.abilities.reverse()">
+              <ng-container>{{ability['ability']['name']}} </ng-container>
+          </span>
+          </td>
+        </tr>
+      </table>
       <ul class="list-group">
         <li class="list-group-item">
           HP :
           <div class="progress">
-            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+            <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
                  aria-valuenow="10" aria-valuemin="0" aria-valuemax="255"
                  style="width:{{pokemon.stats[2]['base_stat']/255*100}}%"></div>
           </div>
