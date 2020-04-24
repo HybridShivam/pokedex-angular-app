@@ -8,15 +8,16 @@
         </thead>
         <tbody>
         <tr>
-          <td>Height :</td>
-          <td>{{pokemon.height}}</td>
+          <td class="text-right">Height</td>
+          <td>{{heightInMetres + "m " + heightInFeetInches}}</td>
+          <td></td>
         </tr>
         <tr>
-          <td>Weight</td>
-          <td>{{pokemon.weight}}</td>
+          <td class="text-right">Weight</td>
+          <td>{{weightInKgs + "kg " + weightInPounds+"lbs."}}</td>
         </tr>
         <tr>
-          <td>Abilities</td>
+          <td class="text-right">Abilities</td>
           <td>{{pokemon.abilities[1]['ability']['name']}} {{pokemon.abilities[0]['ability']['name']}}</td>
         </tr>
         </tbody>
