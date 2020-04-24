@@ -1,4 +1,4 @@
-<div class="col-12">
+<div class="col-12" style="font-family: 'Roboto', sans-serif;">
   <button type="button" class="btn" routerLink="../"><i class="fa fa-backward"></i></button>
   <h1 class="text-center text-capitalize">{{pokemon.name}}</h1>
   <div class="row">
@@ -8,17 +8,45 @@
         </thead>
         <tbody>
         <tr>
-          <td class="text-right">Height</td>
+          <td class="text-right font-weight-bold">Height</td>
           <td>{{heightInMetres + "m " + heightInFeetInches}}</td>
           <td></td>
         </tr>
         <tr>
-          <td class="text-right">Weight</td>
-          <td>{{weightInKgs + "kg " + weightInPounds+"lbs."}}</td>
+          <td class="text-right font-weight-bold">Weight</td>
+          <td>{{weightInKgs + "kg " + weightInPounds + "lbs."}}</td>
         </tr>
         <tr>
-          <td class="text-right">Abilities</td>
-          <td>{{pokemon.abilities[1]['ability']['name']}} {{pokemon.abilities[0]['ability']['name']}}</td>
+          <td class="text-right font-weight-bold">Abilities</td>
+          <td><span class="text-capitalize"
+            *ngFor="let ability of pokemon.abilities.reverse()">{{ability['ability']['name']}} </span>
+          </td>
+        </tr>
+        <tr>
+          <td class="text-right font-weight-bold">Type</td>
+          <td><span class="text-capitalize"
+                    *ngFor="let type of pokemon.types.reverse()">
+            <ng-container [ngSwitch]="type['type']['name']">
+              <div class="icon bug" *ngSwitchCase="'bug'"><img src="assets/type-icons/bug.svg"></div>
+              <div class="icon dark" *ngSwitchCase="'dark'"><img src="assets/type-icons/dark.svg"></div>
+              <div class="icon dragon" *ngSwitchCase="'dragon'"><img src="assets/type-icons/dragon.svg"></div>
+              <div class="icon electric" *ngSwitchCase="'electric'"><img src="assets/type-icons/electric.svg"></div>
+              <div class="icon fire" *ngSwitchCase="'fire'"><img src="assets/type-icons/fire.svg"></div>
+              <div class="icon fairy" *ngSwitchCase="'fairy'"><img src="assets/type-icons/fairy.svg"></div>
+              <div class="icon fighting" *ngSwitchCase="'fighting'"><img src="assets/type-icons/fighting.svg"></div>
+              <div class="icon flying" *ngSwitchCase="'flying'"><img src="assets/type-icons/flying.svg"></div>
+              <div class="icon ghost" *ngSwitchCase="'ghost'"><img src="assets/type-icons/ghost.svg"></div>
+              <div class="row icon grass" *ngSwitchCase="'grass'"><div class="col-8 text-white">Grass</div><div class="col-4"><img src="assets/type-icons/grass.svg"></div></div>
+              <div class="icon ground" *ngSwitchCase="'ground'"><img src="assets/type-icons/ground.svg"></div>
+              <div class="icon ice" *ngSwitchCase="'ice'"><img src="assets/type-icons/ice.svg"></div>
+              <div class="icon normal" *ngSwitchCase="'normal'"><img src="assets/type-icons/normal.svg"></div>
+              <div class="row icon poison" *ngSwitchCase="'poison'"><div class="col-8 text-white">Poison</div><div class="col-4"><img src="assets/type-icons/poison.svg"></div></div>
+              <div class="icon psychic" *ngSwitchCase="'psychic'"><img src="assets/type-icons/psychic.svg"></div>
+              <div class="icon rock" *ngSwitchCase="'rock'"><img src="assets/type-icons/rock.svg"></div>
+              <div class="icon steel" *ngSwitchCase="'steel'"><img src="assets/type-icons/steel.svg"></div>
+              <div class="icon water -pull-right" *ngSwitchCase="'water'"><img src="assets/type-icons/water.svg"></div>
+            </ng-container></span>
+          </td>
         </tr>
         </tbody>
       </table>

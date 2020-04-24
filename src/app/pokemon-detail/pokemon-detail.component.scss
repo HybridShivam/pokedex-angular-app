@@ -1,0 +1,40 @@
+//Type Box
+.icon {
+  border-radius: 4px;
+  height: 30px;
+  width: 90px;
+  filter: saturate(100%) brightness(110%);
+  //display: inline-grid;
+  //margin-left: auto;
+  transition: 200ms all;
+  //margin-right: 2px;margin-top: 4px
+  //display: inline-flex;
+  //text-align: right;
+}
+
+.icon span {
+  color: white;
+}
+
+.icon .col-4 {
+  padding: 0;
+  justify-content: center;
+}
+
+.icon .col-8 {
+  padding-top: 4px;
+  justify-content: center;
+}
+
+.icon:hover {
+  filter: saturate(125%) brightness(125%);
+  transform: scale(1.01) rotate3d(0,1,0,360deg);
+  cursor: pointer;
+}
+
+.icon img {
+  height: 60%;
+  width: 60%;
+  //margin: 0;
+  //margin-left: auto;
+}
