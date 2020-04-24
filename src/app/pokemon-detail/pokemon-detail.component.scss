@@ -7,6 +7,8 @@
   //display: inline-grid;
   //margin-left: auto;
   transition: 200ms all;
+  padding: 2px 2px;
+  margin: auto;
   //margin-right: 2px;margin-top: 4px
   //display: inline-flex;
   //text-align: right;
@@ -18,17 +20,16 @@
 
 .icon .col-4 {
   padding: 0;
-  justify-content: center;
 }
 
 .icon .col-8 {
   padding-top: 4px;
-  justify-content: center;
 }
 
 .icon:hover {
   filter: saturate(125%) brightness(125%);
-  transform: scale(1.01) rotate3d(0,1,0,360deg);
+  transform: scale(1.01);
+  //transform: scale(1.01) rotate3d(0,1,0,360deg);
   cursor: pointer;
 }
 
