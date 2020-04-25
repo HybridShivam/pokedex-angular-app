@@ -14,6 +14,7 @@ export class PokemonService {
   newPokemonsLoaded = new Subject<number>();
   responseCounter = 0;
   totalCounter = 0;
+  activePokemon;
 
 
   constructor(private http: HttpClient) {

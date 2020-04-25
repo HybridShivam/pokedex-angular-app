@@ -26,10 +26,11 @@ export class PokemonDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Initialize Logic after Pokemon Fetching in Both If and Else Conditions
+    // Initialization Logic after Pokemon Fetching in Both If and Else Conditions
     this.activatedRoute.params.subscribe(
       (params) => {
         this.pokemonId = params['id'];
+        this.pokemonService.activePokemon = this.pokemonId;
       }
     );
     if (this.pokemonService.pokemons[0]) {
@@ -42,7 +43,6 @@ export class PokemonDetailComponent implements OnInit {
       );
 
     } else {
-      console.log('Before FOrk');
       forkJoin([this.pokemonService.getPokemonById(this.pokemonId),
         this.pokemonService.getPokemonSpeciesById(this.pokemonId)]).subscribe(
         results => {
@@ -67,7 +67,6 @@ export class PokemonDetailComponent implements OnInit {
             results[1]['color']['name']
           );
           this.initializePokemonFields();
-          console.log('Fprk COmple');
         }
       );
       // this.pokemon = this.pokemonService.getPokemonById(this.pokemonId).subscribe(

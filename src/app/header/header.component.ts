@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SidebarService} from '../sidebar/sidebar.service';
+import {PokemonService} from '../shared/pokemon.service';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +8,14 @@ import {SidebarService} from '../sidebar/sidebar.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  
+  color;
+
 
   ngOnInit(): void {
+    this.color = this.pokemonService.activePokemon.color;
   }
 
-  constructor(public sidebarservice: SidebarService) {
+  constructor(public sidebarservice: SidebarService, private pokemonService: PokemonService) {
   }
 
   toggleSidebar() {
