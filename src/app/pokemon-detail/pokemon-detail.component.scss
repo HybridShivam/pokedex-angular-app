@@ -51,16 +51,14 @@
   padding: 2px;
 }
 
-#test p {
-  margin-top: 25px;
-  font-size: 21px;
-  text-align: center;
-
+// Fade-In Effect For Image
+.PokemonImage {
   -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 2s; /* Firefox < 16 */
   -ms-animation: fadein 2s; /* Internet Explorer */
   -o-animation: fadein 2s; /* Opera < 12.1 */
   animation: fadein 2s;
+  //animation-delay: 1s;
 }
 
 @keyframes fadein {
@@ -93,7 +91,7 @@
 }
 
 // Perspective only for desktops
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 992px) {
   // BioDIv
   .bioDiv {
     perspective: 400px;
