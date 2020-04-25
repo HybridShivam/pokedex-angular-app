@@ -13,6 +13,7 @@
   -moz-box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
   box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
   z-index: 995;
+  //background-image: url("https://www.transparenttextures.com/patterns/light-wool.png");
 }
 
 .navbar-brand{
@@ -81,6 +82,7 @@
 }
 .yellow{
   background-color: #ffd600 !important;
+  //background-image: url("https://www.transparenttextures.com/patterns/light-wool.png");
   color: white !important;
   transition: background-color 1000ms ease-in;
 }
