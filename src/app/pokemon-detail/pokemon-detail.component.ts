@@ -75,7 +75,6 @@ export class PokemonDetailComponent implements OnInit {
       this.pokemon.stats[0]['base_stat']
     ];
     this.maxStat = Math.max(...this.pokemonStats);
-    console.log(this.maxStat);
   }
 
   pad(number, length) {
