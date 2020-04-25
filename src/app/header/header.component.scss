@@ -40,8 +40,14 @@
 }
 
 @media (max-width: 575px){
+  .navbar{
+    height: 2.5rem;
+  }
   .nav-link{
     display: none;
+  }
+  .navbar-brand{
+    font-size: 1.2rem;
   }
 }
 
@@ -86,15 +92,3 @@
   background-color: #ffd600 !important;
   color: white !important;
 }
-//.default{
-//  transition: background-color,color 1000ms ease-out;
-//}
-
-//.navbarColor{
-//  -webkit-box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
-//  -moz-box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
-//  box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
-//  z-index: 995;
-//  font-family: 'AlleynW01-Regular', sans-serif;
-//  //background-image: url("https://www.transparenttextures.com/patterns/light-wool.png");
-//}
