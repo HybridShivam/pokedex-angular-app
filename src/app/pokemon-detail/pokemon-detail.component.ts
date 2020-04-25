@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {PokemonService} from '../shared/pokemon.service';
 import {Pokemon} from '../shared/pokemon.model';
+import {forkJoin} from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -35,29 +36,61 @@ export class PokemonDetailComponent implements OnInit {
       this.pokemon = this.pokemonService.pokemons[this.pokemonId - 1];
       this.initializePokemonFields();
     } else {
-      this.pokemon = this.pokemonService.getPokemonById(this.pokemonId).subscribe(
-        (response) => {
+      forkJoin([this.pokemonService.getPokemonById(this.pokemonId),
+        this.pokemonService.getPokemonColorById(this.pokemonId)]).subscribe(
+        results => {
           this.pokemon = new Pokemon(
-            response['name'],
-            response['id'],
-            response['sprites'],
-            response['types'],
-            response['abilities'],
-            response['height'],
-            response['weight'],
-            response['base_experience'],
-            response['forms'],
-            response['held_items'],
-            response['game_indices'],
-            response['is_default'],
-            response['location'],
-            response['moves'],
-            response['order'],
-            response['stats'],
-            response['species']
+            results[0]['name'],
+            results[0]['id'],
+            results[0]['sprites'],
+            results[0]['types'],
+            results[0]['abilities'],
+            results[0]['height'],
+            results[0]['weight'],
+            results[0]['base_experience'],
+            results[0]['forms'],
+            results[0]['held_items'],
+            results[0]['game_indices'],
+            results[0]['is_default'],
+            results[0]['location'],
+            results[0]['moves'],
+            results[0]['order'],
+            results[0]['stats'],
+            results[0]['species'],
+            results[1]['name']
           );
           this.initializePokemonFields();
-        });
+        }
+      );
+      // this.pokemon = this.pokemonService.getPokemonById(this.pokemonId).subscribe(
+      //   (response) => {
+      //     this.pokemon = new Pokemon(
+      //       response['name'],
+      //       response['id'],
+      //       response['sprites'],
+      //       response['types'],
+      //       response['abilities'],
+      //       response['height'],
+      //       response['weight'],
+      //       response['base_experience'],
+      //       response['forms'],
+      //       response['held_items'],
+      //       response['game_indices'],
+      //       response['is_default'],
+      //       response['location'],
+      //       response['moves'],
+      //       response['order'],
+      //       response['stats'],
+      //       response['species'],
+      //       null
+      //     );
+      //     this.pokemonService.getPokemonColorById(this.pokemonId).subscribe(
+      //       (color) => {
+      //         this.pokemon.color = color['color'];
+      //       }
+      //     );
+      //     this.initializePokemonFields();
+      //   });
     }
   }
 
@@ -89,6 +122,6 @@ export class PokemonDetailComponent implements OnInit {
 
   imagePreload() {
     this.imageLoading = false;
-    console.log('ImageLoaded');
+    // console.log('ImageLoaded');
   }
 }

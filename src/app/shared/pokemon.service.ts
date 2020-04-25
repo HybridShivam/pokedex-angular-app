@@ -60,7 +60,8 @@ export class PokemonService {
           response['moves'],
           response['order'],
           response['stats'],
-          response['species']
+          response['species'],
+          null
         );
         this.responseCounter++;
         this.totalCounter++;
@@ -95,6 +96,11 @@ export class PokemonService {
 
   getPokemonById(Id) {
     const url = 'https://pokeapi.co/api/v2/pokemon/' + Id + '/';
+    return this.http.get(url);
+  }
+
+  getPokemonColorById(Id) {
+    const url = 'https://pokeapi.co/api/v2/pokemon-color/' + Id + '/';
     return this.http.get(url);
   }
 }
