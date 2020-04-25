@@ -1,5 +1,8 @@
 .card{
   font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+  -webkit-font-smoothing: antialiased;
+  color: gray;
   transition: background-color 3000ms ease;
 }
 .card:hover{
