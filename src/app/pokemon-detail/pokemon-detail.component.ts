@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {PokemonService} from '../shared/pokemon.service';
 import {Pokemon} from '../shared/pokemon.model';
@@ -9,7 +9,7 @@ import {forkJoin} from 'rxjs';
   templateUrl: './pokemon-detail.component.html',
   styleUrls: ['./pokemon-detail.component.scss']
 })
-export class PokemonDetailComponent implements OnInit {
+export class PokemonDetailComponent implements OnInit, OnDestroy {
   pokemonId;
   pokemon;
   pokemonImageUrl;
@@ -103,5 +103,9 @@ export class PokemonDetailComponent implements OnInit {
   imagePreload() {
     this.imageLoading = false;
     // console.log('ImageLoaded');
+  }
+
+  ngOnDestroy() {
+    this.pokemonService.activePokemon.next(null);
   }
 }

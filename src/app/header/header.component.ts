@@ -14,7 +14,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.color = this.pokemonService.activePokemon.subscribe(
       response => {
-        this.color = response.color;
+        if (response === null) {
+          this.color = 'default';
+        } else {
+          this.color = response.color;
+        }
       }
     );
   }
