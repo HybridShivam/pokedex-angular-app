@@ -45,10 +45,11 @@
   margin-right: 6px;
 }
 
-span .ability:hover {
-  //display: inline-block;
-  transform: scale(1.05);
-}
+//span .ability:hover {
+//  display: inline-block;
+//  transform: scale(1.05);
+//  transition: transform 1000ms ease-in;
+//}
 
 .hiddenAbility {
   color: white;
