@@ -19,6 +19,8 @@ export class PokemonDetailComponent implements OnInit {
   pokemonStats;
   maxStat;
 
+  imageLoading = true;
+
   constructor(private activatedRoute: ActivatedRoute, private pokemonService: PokemonService) {
   }
 
@@ -83,5 +85,10 @@ export class PokemonDetailComponent implements OnInit {
       str = '0' + str;
     }
     return str;
+  }
+
+  imagePreload() {
+    this.imageLoading = false;
+    console.log('ImageLoaded');
   }
 }
