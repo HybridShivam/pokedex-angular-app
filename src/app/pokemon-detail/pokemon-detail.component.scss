@@ -92,40 +92,42 @@
   to   { opacity: 1; }
 }
 
-// Perspective
-// BioDIv
-.bioDiv {
-  perspective: 400px;
-  margin: 4em auto;
-  width: 37em;
-}
+// Perspective only for desktops
+@media only screen and (min-width: 1025px) {
+  // BioDIv
+  .bioDiv {
+    perspective: 400px;
+    margin: 4em auto;
+    width: 37em;
+  }
 
-.bioDiv:hover .inner {
-  transform: rotate(0)
+  .bioDiv:hover .inner {
+    transform: rotate(0)
 
-}
+  }
 
-.bioDiv .inner {
-  transition: .3s;
-  transform: rotateY(30deg);
-}
-// statDiv
-.statDiv {
-  perspective: 400px;
-  margin: 4em auto;
-  width: 37em;
-  padding-left: 0;
-  padding-right: 70px;
-  //margin-right: 30px;
-}
+  .bioDiv .inner {
+    transition: .3s;
+    transform: rotateY(30deg);
+  }
+  // statDiv
+  .statDiv {
+    perspective: 400px;
+    margin: 4em auto;
+    width: 37em;
+    padding-left: 0;
+    padding-right: 70px;
+    //margin-right: 30px;
+  }
 
-.statDiv:hover .inner {
-  transform: rotate(0)
+  .statDiv:hover .inner {
+    transform: rotate(0)
 
-}
+  }
 
-.statDiv .inner {
-  transition: .3s;
-  transform: rotateY(-30deg);
+  .statDiv .inner {
+    transition: .3s;
+    transform: rotateY(-30deg);
+  }
 }
 
