@@ -33,12 +33,22 @@
   height: 60%;
   width: 60%;
 }
-
-.ability:hover {
+// Abilities Styling
+.abilities:hover {
   cursor: pointer;
 }
+.ability{
+  color: white;
+  background-color: black;
+  border-radius: 2px;
+  padding: 2px;
+  margin-right: 2px;
+}
 .hiddenAbility{
-  background-color: #4b4b4b;
+  color: white;
+  background-color: #bdbdbd;
+  border-radius: 2px;
+  padding: 2px;
 }
 
 #test p {
