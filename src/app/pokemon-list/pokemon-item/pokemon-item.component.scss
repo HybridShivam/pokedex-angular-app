@@ -12,6 +12,10 @@
   background-color: #dbdbdb;
   transition: background-color 300ms ease;
 }
+.card-title{
+  font-size: 1.7rem;
+  margin: 0;
+}
 .PokemonImage{
   height: 88px;
 }
@@ -38,6 +42,10 @@
     margin-top: 4px
     //display: inline-flex;
     //text-align: right;
+  }
+  .card-title{
+    font-size: 1.4rem;
+    margin: 0;
   }
 }
 //End of type icons
