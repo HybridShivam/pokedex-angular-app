@@ -1,3 +1,4 @@
+// Sidebar Button
 .fa {
   transition: 0.5s transform ease-in-out;
 }
@@ -7,12 +8,14 @@
   -o-transform: scaleX(-1);
   transform: scaleX(-1);
 }
+//
 
 .navbar{
   -webkit-box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
   -moz-box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
   box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
   z-index: 995;
+  background-color: white;
   font-family: 'AlleynW01-Regular', sans-serif;
   //background-image: url("https://www.transparenttextures.com/patterns/light-wool.png");
 }
@@ -20,6 +23,7 @@
 .navbar-brand{
   font-size: xx-large;
   padding: 0;
+  transition: color 250ms linear !important;
 }
 
 .nav-link{
@@ -89,10 +93,10 @@
   transition: background-color,color 1000ms ease-in;
 }
 .default{
-  transition: background-color,color 1000ms ease-out;
+  transition: background-color,color 400ms ease-out;
 }
 
-.navbar{
+.navbarColor{
   -webkit-box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
   -moz-box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
   box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
