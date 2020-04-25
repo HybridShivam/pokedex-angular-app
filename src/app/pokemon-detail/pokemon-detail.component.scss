@@ -52,18 +52,36 @@
 }
 
 // Fade-In Effect For Image
-.imagePreload{
- animation-play-state: paused !important;
-}
-.PokemonImage {
+//.imagePreload{
+// animation-play-state: paused !important;
+//}
+.fadeInOut {
+  -moz-transition: opacity 2s ease-out;
+  -o-transition: opacity 2s ease-out;
+  -webkit-transition: opacity 2s ease-out;
+  transition: opacity 2s ease-out;
   opacity: 0;
-  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 2s; /* Firefox < 16 */
-  -o-animation: fadein 2s; /* Opera < 12.1 */
-  animation: fadein 2s;
+  //-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  //-moz-animation: fadein 2s; /* Firefox < 16 */
+  //-o-animation: fadein 2s; /* Opera < 12.1 */
+  //animation: fadein 2s;
+  //animation-name: fadein;
+  //animation-play-state: running;
+  ////animation-delay: 1s;
+}
+
+.fade{
+  opacity: 1;
+}
+
+// Fade-In Effect For Other Elements
+.fadeIn{
+  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 1s; /* Firefox < 16 */
+  -o-animation: fadein 1s; /* Opera < 12.1 */
+  animation: fadein 1s;
   animation-name: fadein;
   animation-play-state: running;
-  //animation-delay: 1s;
 }
 
 @keyframes fadein {

@@ -1,4 +1,4 @@
-<div class="col-12" style="font-family: 'Roboto', sans-serif;" *ngIf="pokemon.name!=undefined">
+<div class="col-12 fadeIn" style="font-family: 'Roboto', sans-serif;" *ngIf="pokemon.name!=undefined">
   <button type="button" class="btn" routerLink="../"><i class="fa fa-backward"></i></button>
   <h1 class="text-center text-capitalize">{{pokemon.name}}</h1>
   <div class="row">
@@ -89,7 +89,7 @@
       </div>
     </div>
     <div class="col-lg-4">
-      <img class="img-fluid mx-auto d-block" src="{{pokemonImageUrl}}" alt="" (load)="imagePreload()" [ngClass]="{PokemonImage: !imageLoading}">
+      <img class="img-fluid mx-auto d-block fadeInOut" src="{{pokemonImageUrl}}" alt="" (load)="imagePreload()" [ngClass]="{fade: !imageLoading}">
     </div>
     <div class="col-lg-4 statDiv">
       <div class="inner">
