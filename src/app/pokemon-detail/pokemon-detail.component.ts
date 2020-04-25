@@ -30,9 +30,9 @@ export class PokemonDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe(
       (params) => {
         this.pokemonId = params['id'];
-        this.pokemonService.activePokemon = this.pokemonId;
       }
     );
+    // From List
     if (this.pokemonService.pokemons[0]) {
       this.pokemon = this.pokemonService.pokemons[this.pokemonId - 1];
       this.initializePokemonFields();
@@ -41,7 +41,7 @@ export class PokemonDetailComponent implements OnInit {
           this.pokemon.color = response['color']['name'];
         }
       );
-
+      // Directly From Link
     } else {
       forkJoin([this.pokemonService.getPokemonById(this.pokemonId),
         this.pokemonService.getPokemonSpeciesById(this.pokemonId)]).subscribe(
@@ -69,35 +69,6 @@ export class PokemonDetailComponent implements OnInit {
           this.initializePokemonFields();
         }
       );
-      // this.pokemon = this.pokemonService.getPokemonById(this.pokemonId).subscribe(
-      //   (response) => {
-      //     this.pokemon = new Pokemon(
-      //       response['name'],
-      //       response['id'],
-      //       response['sprites'],
-      //       response['types'],
-      //       response['abilities'],
-      //       response['height'],
-      //       response['weight'],
-      //       response['base_experience'],
-      //       response['forms'],
-      //       response['held_items'],
-      //       response['game_indices'],
-      //       response['is_default'],
-      //       response['location'],
-      //       response['moves'],
-      //       response['order'],
-      //       response['stats'],
-      //       response['species'],
-      //       null
-      //     );
-      //     this.pokemonService.getPokemonColorById(this.pokemonId).subscribe(
-      //       (color) => {
-      //         this.pokemon.color = color['color'];
-      //       }
-      //     );
-      //     this.initializePokemonFields();
-      //   });
     }
   }
 
