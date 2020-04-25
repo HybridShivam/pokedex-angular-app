@@ -17,7 +17,7 @@
           <td>
             <span class="text-capitalize ability"
                   *ngFor="let ability of pokemon.abilities.reverse()">
-              <ng-container>{{ability['ability']['name']}} </ng-container>
+              <span [ngClass]="{hiddenAbility:ability['is_hidden']===true}">{{ability['ability']['name']}} </span>
           </span>
           </td>
         </tr>

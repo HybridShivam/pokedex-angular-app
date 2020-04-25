@@ -23,7 +23,7 @@ export class PokemonDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Write Logic after Pokemon Fetching in Both If and Else Conditions
+    // Initialize Logic after Pokemon Fetching in Both If and Else Conditions
     this.activatedRoute.params.subscribe(
       (params) => {
         this.pokemonId = params['id'];
@@ -31,22 +31,7 @@ export class PokemonDetailComponent implements OnInit {
     );
     if (this.pokemonService.pokemons[0]) {
       this.pokemon = this.pokemonService.pokemons[this.pokemonId - 1];
-      this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/pokemon.json/master/images/' +
-        this.pad(this.pokemon.id, 3) + '.png';
-      this.heightInMetres = (this.pokemon.height * 0.1).toFixed(1);
-      this.heightInFeetInches = Math.floor(this.heightInMetres * 3.2808) + '"' + Math.round(((this.heightInMetres * 3.2808) % 1) * 12) + '\'';
-      this.weightInKgs = (this.pokemon.weight * 0.1).toFixed(1);
-      this.weightInPounds = (this.weightInKgs * 2.205).toFixed(1);
-      this.pokemonStats = [
-        this.pokemon.stats[5]['base_stat'],
-        this.pokemon.stats[4]['base_stat'],
-        this.pokemon.stats[3]['base_stat'],
-        this.pokemon.stats[2]['base_stat'],
-        this.pokemon.stats[1]['base_stat'],
-        this.pokemon.stats[0]['base_stat']
-      ];
-      this.maxStat = Math.max(...this.pokemonStats);
-      console.log(this.maxStat);
+      this.initializePokemonFields();
     } else {
       this.pokemon = this.pokemonService.getPokemonById(this.pokemonId).subscribe(
         (response) => {
@@ -69,24 +54,28 @@ export class PokemonDetailComponent implements OnInit {
             response['stats'],
             response['species']
           );
-          this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/pokemon.json/master/images/' +
-            this.pad(this.pokemon.id, 3) + '.png';
-          this.heightInMetres = (this.pokemon.height * 0.1).toFixed(1);
-          this.heightInFeetInches = Math.floor(this.heightInMetres * 3.2808) + '"' + Math.round(((this.heightInMetres * 3.2808) % 1) * 12) + '\'';
-          this.weightInKgs = (this.pokemon.weight * 0.1).toFixed(1);
-          this.weightInPounds = (this.weightInKgs * 2.205).toFixed(1);
-          this.pokemonStats = [
-            this.pokemon.stats[5]['base_stat'],
-            this.pokemon.stats[4]['base_stat'],
-            this.pokemon.stats[3]['base_stat'],
-            this.pokemon.stats[2]['base_stat'],
-            this.pokemon.stats[1]['base_stat'],
-            this.pokemon.stats[0]['base_stat']
-          ];
-          this.maxStat = Math.max(...this.pokemonStats);
-          console.log(this.maxStat);
+          this.initializePokemonFields();
         });
     }
+  }
+
+  initializePokemonFields() {
+    this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/pokemon.json/master/images/' +
+      this.pad(this.pokemon.id, 3) + '.png';
+    this.heightInMetres = (this.pokemon.height * 0.1).toFixed(1);
+    this.heightInFeetInches = Math.floor(this.heightInMetres * 3.2808) + '"' + Math.round(((this.heightInMetres * 3.2808) % 1) * 12) + '\'';
+    this.weightInKgs = (this.pokemon.weight * 0.1).toFixed(1);
+    this.weightInPounds = (this.weightInKgs * 2.205).toFixed(1);
+    this.pokemonStats = [
+      this.pokemon.stats[5]['base_stat'],
+      this.pokemon.stats[4]['base_stat'],
+      this.pokemon.stats[3]['base_stat'],
+      this.pokemon.stats[2]['base_stat'],
+      this.pokemon.stats[1]['base_stat'],
+      this.pokemon.stats[0]['base_stat']
+    ];
+    this.maxStat = Math.max(...this.pokemonStats);
+    console.log(this.maxStat);
   }
 
   pad(number, length) {
