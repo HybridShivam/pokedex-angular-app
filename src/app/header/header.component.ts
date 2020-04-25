@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
     this.color = this.pokemonService.activePokemon.subscribe(
       response => {
         if (response === null) {
-          this.color = 'default';
+          this.color = 'navbar';
         } else {
           this.color = response.color;
         }

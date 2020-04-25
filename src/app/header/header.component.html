@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-sm sticky-top" id="header" [ngClass]="color">
     <ul class="navbar-nav mt-2">
-      <li class="nav-link"><a class="btn btn-sm btn-outline-secondary toggleButton" (click)="toggleSidebar()" [ngClass]="{'collapsed':getSideBarState()}">
+      <li class="nav-link"><a class="btn btn-sm toggleButton" (click)="toggleSidebar()" [ngClass]="{'collapsed':getSideBarState()}">
         <i class="fa fa-chevron-left" aria-hidden="true" ></i>
       </a></li>
       <li class="nav-link">
-        <a class="btn btn-sm btn-outline-secondary" (click)="toggleBackgroundImage()"><i class="fa fa-tree"></i></a>
+        <a class="btn btn-sm" (click)="toggleBackgroundImage()"><i class="fa fa-tree"></i></a>
       </li>
       <li class="nav-item"><a class="nav-link">All Pokémons</a>
     </ul>

@@ -16,6 +16,11 @@
   box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
   z-index: 995;
   background-color: white;
+  color: gray;
+  transition: background-color 1000ms ease-in,color 1000ms ease-in;
+  //-webkit-transition: background-color,color 1000ms linear;
+  //-o-transition: background-color,color 1000ms linear;
+  //-moz-transition: background-color,color 1000ms linear;
   font-family: 'AlleynW01-Regular', sans-serif;
   //background-image: url("https://www.transparenttextures.com/patterns/light-wool.png");
 }
@@ -23,7 +28,7 @@
 .navbar-brand{
   font-size: xx-large;
   padding: 0;
-  transition: color 250ms linear !important;
+  //transition: color 250ms linear !important;
 }
 
 .nav-link{
@@ -44,63 +49,52 @@
 .black{
   background-color: #607d8b !important;
   color: white !important;
-  transition: background-color,color 1000ms ease-in;
 }
 .blue{
   background-color: #81d4fa !important;
   color: white !important;
-  transition: background-color,color 1000ms ease-in;
 }
 .brown{
   background-color: #bcaaa4 !important;
   color: white !important;
-  transition: background-color,color 1000ms ease-in;
 }
 .gray{
   background-color: #e0e0e0 !important;
   color: white !important;
-  transition: background-color,color 1000ms ease-in;
 }
 .green{
   background-color: #81c784 !important;
   color: white !important;
-  transition: background-color,color 1000ms ease-in;
 }
 .pink{
   background-color: #f8bbd0 !important;
   color: white !important;
-  transition: background-color,color 1000ms ease-in;
 }
 .purple{
   background-color: #e1bee7 !important;
   color: white !important;
-  transition: background-color,color 1000ms ease-in;
 }
 .red{
   background-color: #ff8a80 !important;
   color: white !important;
-  transition: background-color,color 1000ms ease-in-out;
 }
 .white{
   background-color: #e0e0e0 !important;
   color: dimgray !important;
-  transition: background-color,color 1000ms ease-in;
 }
 .yellow{
   background-color: #ffd600 !important;
-  //background-image: url("https://www.transparenttextures.com/patterns/light-wool.png");
   color: white !important;
-  transition: background-color,color 1000ms ease-in;
 }
-.default{
-  transition: background-color,color 400ms ease-out;
-}
+//.default{
+//  transition: background-color,color 1000ms ease-out;
+//}
 
-.navbarColor{
-  -webkit-box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
-  -moz-box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
-  box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
-  z-index: 995;
-  font-family: 'AlleynW01-Regular', sans-serif;
-  //background-image: url("https://www.transparenttextures.com/patterns/light-wool.png");
-}
+//.navbarColor{
+//  -webkit-box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
+//  -moz-box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
+//  box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
+//  z-index: 995;
+//  font-family: 'AlleynW01-Regular', sans-serif;
+//  //background-image: url("https://www.transparenttextures.com/patterns/light-wool.png");
+//}
