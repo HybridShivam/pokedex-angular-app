@@ -36,8 +36,9 @@ export class PokemonDetailComponent implements OnInit {
       this.pokemon = this.pokemonService.pokemons[this.pokemonId - 1];
       this.initializePokemonFields();
     } else {
+      console.log('Before FOrk');
       forkJoin([this.pokemonService.getPokemonById(this.pokemonId),
-        this.pokemonService.getPokemonColorById(this.pokemonId)]).subscribe(
+        this.pokemonService.getPokemonSpeciesById(this.pokemonId)]).subscribe(
         results => {
           this.pokemon = new Pokemon(
             results[0]['name'],
@@ -57,9 +58,10 @@ export class PokemonDetailComponent implements OnInit {
             results[0]['order'],
             results[0]['stats'],
             results[0]['species'],
-            results[1]['name']
+            results[1]['color']['name']
           );
           this.initializePokemonFields();
+          console.log('Fprk COmple');
         }
       );
       // this.pokemon = this.pokemonService.getPokemonById(this.pokemonId).subscribe(

@@ -99,8 +99,8 @@ export class PokemonService {
     return this.http.get(url);
   }
 
-  getPokemonColorById(Id) {
-    const url = 'https://pokeapi.co/api/v2/pokemon-color/' + Id + '/';
+  getPokemonSpeciesById(Id) {
+    const url = 'https://pokeapi.co/api/v2/pokemon-species/' + Id + '/';
     return this.http.get(url);
   }
 }
