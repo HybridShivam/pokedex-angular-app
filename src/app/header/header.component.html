@@ -1,12 +1,20 @@
-<nav class="navbar navbar-expand-sm sticky-top" id="header" [ngClass]="color">
+<nav class="navbar sticky-top navbar-expand" id="header" [ngClass]="color">
     <ul class="navbar-nav mt-2">
-      <li class="nav-link"><a class="btn btn-sm toggleButton" (click)="toggleSidebar()" [ngClass]="{'collapsed':getSideBarState()}">
+      <li class="nav-link"><a class="mx-auto" (click)="toggleSidebar()" [ngClass]="{'collapsed':getSideBarState()}">
         <i class="fa fa-chevron-left" aria-hidden="true" ></i>
       </a></li>
       <li class="nav-link">
-        <a class="btn btn-sm" (click)="toggleBackgroundImage()"><i class="fa fa-tree"></i></a>
+        <a class="" (click)="toggleBackgroundImage()"><i class="fa fa-tree"></i></a>
       </li>
       <li class="nav-item"><a class="nav-link">All Pokémons</a>
     </ul>
   <a class="navbar-brand ml-auto">PokéDex</a>
 </nav>
+<!--<nav class="navbar navbar-expand navbar-dark bg-primary">-->
+<!--  <span class="navbar-brand text-white">Title</span>-->
+<!--  <div class="navbar-nav">-->
+<!--    <a class="nav-item nav-link text-white" href="#">Home</a>-->
+<!--    <a class="nav-item nav-link text-white" href="#">Features</a>-->
+<!--    <a class="nav-item nav-link text-white" href="#">Pricing</a>-->
+<!--  </div>-->
+<!--</nav>-->
