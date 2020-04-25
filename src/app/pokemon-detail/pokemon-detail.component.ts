@@ -39,6 +39,7 @@ export class PokemonDetailComponent implements OnInit {
       this.pokemonService.getPokemonSpeciesById(this.pokemonId).subscribe(
         response => {
           this.pokemon.color = response['color']['name'];
+          this.pokemonService.activePokemon.next(this.pokemon);
         }
       );
       // Directly From Link
@@ -66,6 +67,7 @@ export class PokemonDetailComponent implements OnInit {
             results[0]['species'],
             results[1]['color']['name']
           );
+          this.pokemonService.activePokemon.next(this.pokemon);
           this.initializePokemonFields();
         }
       );

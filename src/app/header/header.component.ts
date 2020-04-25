@@ -12,7 +12,11 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.color = this.pokemonService.activePokemon.color;
+    this.color = this.pokemonService.activePokemon.subscribe(
+      response => {
+        this.color = response.color;
+      }
+    );
   }
 
   constructor(public sidebarservice: SidebarService, private pokemonService: PokemonService) {
