@@ -33,16 +33,24 @@
   height: 60%;
   width: 60%;
 }
+
 // Abilities Styling
 .abilities:hover {
   cursor: pointer;
 }
-.ability{
+
+.ability {
   border-radius: 2px;
-  padding: 2px;
-  margin-right: 2px;
+  padding: 2px 3px;
+  margin-right: 6px;
 }
-.hiddenAbility{
+
+span .ability:hover {
+  //display: inline-block;
+  transform: scale(1.05);
+}
+
+.hiddenAbility {
   color: white;
   background-color: #bdbdbd;
   border-radius: 2px;
@@ -59,12 +67,12 @@
   opacity: 0;
 }
 
-.fade{
+.fade {
   opacity: 1;
 }
 
 // Fade-In Effect For Other Elements
-.fadeIn{
+.fadeIn {
   -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 1s; /* Firefox < 16 */
   -o-animation: fadein 1s; /* Opera < 12.1 */
@@ -74,39 +82,59 @@
 }
 
 @keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Firefox < 16 */
 @-moz-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Internet Explorer */
 @-ms-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Opera < 12.1 */
 @-o-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 // Perspective only for desktops
 @media only screen and (min-width: 992px) {
   // BioDIv
   .bioDiv {
-    perspective: 400px;// Increases Effect
+    perspective: 400px; // Increases Effect
     margin: 4em auto;
     width: 37em;
   }
@@ -143,57 +171,67 @@
 
 
 // Colors
-.black{
+.black {
   background-color: #607d8b !important;
   color: white !important;
   transition: background-color 1000ms ease-in;
 }
-.blue{
+
+.blue {
   background-color: #81d4fa !important;
   color: white !important;
   transition: background-color 1000ms ease-in;
 }
-.brown{
+
+.brown {
   background-color: #bcaaa4 !important;
   color: white !important;
   transition: background-color 1000ms ease-in;
 }
-.gray{
+
+.gray {
   background-color: #e0e0e0 !important;
   color: white !important;
   transition: background-color 1000ms ease-in;
 }
-.green{
+
+.green {
   background-color: #81c784 !important;
   color: white !important;
   transition: background-color 1000ms ease-in;
 }
-.pink{
+
+.pink {
   background-color: #f8bbd0 !important;
   color: white !important;
   transition: background-color 1000ms ease-in;
 }
-.purple{
+
+.purple {
   background-color: #e1bee7 !important;
   color: white !important;
   transition: background-color 1000ms ease-in;
 }
-.red{
+
+.red {
   background-color: #ff8a80 !important;
   color: white !important;
   transition: background-color 1000ms ease-in;
 }
-.white{
+
+.white {
   background-color: #e0e0e0 !important;
   color: dimgray !important;
   transition: background-color 1000ms ease-in;
 }
-.yellow{
+
+.yellow {
   background-color: #e6ee9c !important;
   color: dimgrey !important;
   transition: background-color 1000ms ease-in;
 }
-.default{
+
+.default {
   transition: background-color 1000ms ease-out;
 }
 
