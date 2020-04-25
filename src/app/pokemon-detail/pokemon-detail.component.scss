@@ -52,8 +52,6 @@
 }
 
 // Fade-In Effect For Image
-//.imagePreload{
-// animation-play-state: paused !important;
 //}
 .fadeInOut {
   -moz-transition: opacity 2s ease-out;
@@ -61,13 +59,6 @@
   -webkit-transition: opacity 2s ease-out;
   transition: opacity 2s ease-out;
   opacity: 0;
-  //-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-  //-moz-animation: fadein 2s; /* Firefox < 16 */
-  //-o-animation: fadein 2s; /* Opera < 12.1 */
-  //animation: fadein 2s;
-  //animation-name: fadein;
-  //animation-play-state: running;
-  ////animation-delay: 1s;
 }
 
 .fade{
@@ -117,7 +108,7 @@
 @media only screen and (min-width: 992px) {
   // BioDIv
   .bioDiv {
-    perspective: 400px;
+    perspective: 400px;// Increases Effect
     margin: 4em auto;
     width: 37em;
   }
