@@ -35,6 +35,12 @@ export class PokemonDetailComponent implements OnInit {
     if (this.pokemonService.pokemons[0]) {
       this.pokemon = this.pokemonService.pokemons[this.pokemonId - 1];
       this.initializePokemonFields();
+      this.pokemonService.getPokemonSpeciesById(this.pokemonId).subscribe(
+        response => {
+          this.pokemon.color = response['color']['name'];
+        }
+      );
+
     } else {
       console.log('Before FOrk');
       forkJoin([this.pokemonService.getPokemonById(this.pokemonId),
