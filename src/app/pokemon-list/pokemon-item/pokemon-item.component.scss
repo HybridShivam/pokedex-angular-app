@@ -23,10 +23,13 @@
 
 @media (max-width: 500px) {
   .card {
-    width: 6rem;
+    max-width: 25vw;
     height: 8rem;
     font-size: xx-small;
   }
+  //.card-body{
+  //  padding: 0;
+  //}
   .PokemonImage {
     height: 60px;
   }

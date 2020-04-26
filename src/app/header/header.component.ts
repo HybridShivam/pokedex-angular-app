@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {SidebarService} from '../sidebar/sidebar.service';
 import {PokemonService} from '../shared/pokemon.service';
+import {Meta} from '@angular/platform-browser';
+import {consoleTestResultHandler} from 'tslint/lib/test';
 
 @Component({
   selector: 'app-header',
@@ -23,7 +25,7 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  constructor(public sidebarservice: SidebarService, private pokemonService: PokemonService) {
+  constructor(public sidebarservice: SidebarService, private pokemonService: PokemonService, private meta: Meta) {
   }
 
   toggleSidebar() {
@@ -40,6 +42,12 @@ export class HeaderComponent implements OnInit {
 
   hideSidebar() {
     this.sidebarservice.setSidebarState(true);
+  }
+
+  setTitleBarColor() {
+    this.meta.updateTag({name: 'theme-color', content:});
+    this.meta.updateTag({name: 'msapplication-navbutton-color', content:});
+    this.meta.updateTag({name: 'apple-mobile-web-app-status-bar-style', content:});
   }
 
 }
