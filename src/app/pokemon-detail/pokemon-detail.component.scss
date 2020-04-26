@@ -177,10 +177,19 @@
 }
 
 //Initial Stat Bar Color
+.progress{
+  //height: 20px;
+}
 .progress-bar{
  background-color: white;
   width: 0;
+  //height: 20px;
+  font-size: 1rem;
+  text-align: right;
   //transition: width 1s ease-in;
+}
+.progress-bar span{
+  padding-right: 4px;
 }
 
 // Colors
