@@ -98,7 +98,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
     // this.calculateStats();
     setTimeout(() => {
       this.calculateStats();
-    }, 0);
+    }, 500);
   }
 
   pad(number, length) {
