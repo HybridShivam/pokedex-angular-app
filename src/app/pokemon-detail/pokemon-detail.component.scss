@@ -180,68 +180,68 @@
 .progress-bar{
  background-color: white;
   width: 0;
-  transition: width 1s ease-in;
+  //transition: width 1s ease-in;
 }
 
 // Colors
 .black {
   background-color: #607d8b !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in;
+  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
 }
 
 .blue {
   background-color: #81d4fa !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in;
+  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
 }
 
 .brown {
   background-color: #bcaaa4 !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in;
+  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
 }
 
 .gray {
   background-color: #e0e0e0 !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in;
+  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
 }
 
 .green {
   background-color: #81c784 !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in;
+  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
 }
 
 .pink {
   background-color: #f8bbd0 !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in;
+  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
 }
 
 .purple {
   background-color: #e1bee7 !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in;
+  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
 }
 
 .red {
   background-color: #ff8a80 !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-out;
+  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
 }
 
 .white {
   background-color: #e0e0e0 !important;
   color: dimgray !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in;
+  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
 }
 
 .yellow {
   background-color: #ffd600 !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in;
+  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
 }
 
 
