@@ -38,6 +38,12 @@
   vertical-align: middle;
   //color: darkgray;
 }
+.nav-link:hover{
+  color: #2b2b2b;
+}
+.navbar-brand:hover{
+  color: #2b2b2b;
+}
 
 @media (max-width: 575px){
   .navbar{
