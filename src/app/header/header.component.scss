@@ -2,22 +2,24 @@
 .fa {
   transition: 0.5s transform ease-in-out;
 }
-.collapsed .fa{
+
+.collapsed .fa {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
   -o-transform: scaleX(-1);
   transform: scaleX(-1);
 }
+
 //
 
-.navbar{
-  -webkit-box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
-  -moz-box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
-  box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.18);
+.navbar {
+  -webkit-box-shadow: 0px 0px 40px 8px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 0px 0px 40px 8px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 0px 40px 8px rgba(0, 0, 0, 0.18);
   z-index: 995;
   background-color: white;
   color: gray;
-  transition: background-color 1000ms ease-in,color 1000ms ease-in;
+  transition: background-color 1000ms ease-in, color 1000ms ease-in;
   //-webkit-transition: background-color,color 1000ms linear;
   //-o-transition: background-color,color 1000ms linear;
   //-moz-transition: background-color,color 1000ms linear;
@@ -25,77 +27,90 @@
   //background-image: url("https://www.transparenttextures.com/patterns/light-wool.png");
 }
 
-.navbar-brand{
+.navbar-brand {
   font-size: xx-large;
   padding: 0;
   //transition: color 250ms linear !important;
 }
 
-.nav-link{
+.nav-link {
   padding-top: 0;
   padding-bottom: 0;
   font-size: x-large;
   vertical-align: middle;
   //color: darkgray;
 }
-.nav-link:hover{
+
+.nav-link:hover {
   color: #2b2b2b;
-}
-.navbar-brand:hover{
-  color: #2b2b2b;
+  cursor: pointer;
 }
 
-@media (max-width: 575px){
-  .navbar{
+.navbar-brand:hover {
+  color: #2b2b2b;
+  cursor: pointer;
+}
+
+@media (max-width: 575px) {
+  .navbar {
     height: 2.5rem;
   }
-  .nav-link{
+  .nav-link {
     font-size: 1.1rem;
     padding-bottom: 0.2rem;
   }
-  .navbar-brand{
+  .navbar-brand {
     font-size: 1.3rem;
   }
 }
 
 // Colors
-.black{
+.black {
   background-color: #607d8b !important;
   color: white !important;
 }
-.blue{
+
+.blue {
   background-color: #81d4fa !important;
   color: white !important;
 }
-.brown{
+
+.brown {
   background-color: #bcaaa4 !important;
   color: white !important;
 }
-.gray{
+
+.gray {
   background-color: #e0e0e0 !important;
   color: white !important;
 }
-.green{
+
+.green {
   background-color: #81c784 !important;
   color: white !important;
 }
-.pink{
+
+.pink {
   background-color: #f8bbd0 !important;
   color: white !important;
 }
-.purple{
+
+.purple {
   background-color: #e1bee7 !important;
   color: white !important;
 }
-.red{
+
+.red {
   background-color: #ff8a80 !important;
   color: white !important;
 }
-.white{
+
+.white {
   background-color: #e0e0e0 !important;
   color: dimgray !important;
 }
-.yellow{
+
+.yellow {
   background-color: #ffd600 !important;
   color: white !important;
 }
