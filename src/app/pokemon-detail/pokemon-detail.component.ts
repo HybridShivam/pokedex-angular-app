@@ -114,8 +114,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   calculateStats() {
-    for (let i = 5; i > -1; i--) {
-      this.stats[i] = (this.pokemon.stats[i]['base_stat'] / this.maxStat * 100) + '%';
+    for (let i = 0; i < 6; i++) {
+      this.stats[i] = (this.pokemonStats[i] / this.maxStat * 100) + '%';
     }
   }
 
