@@ -63,6 +63,31 @@
     font-size: 1.3rem;
   }
 }
+@media (max-width: 316px) {
+  .navbar {
+    height: 2.3rem;
+  }
+  .nav-link {
+    font-size: 0.8rem;
+    padding-bottom: 0.2rem;
+  }
+  .navbar-brand {
+    font-size: 1.0rem;
+  }
+}
+@media (max-width: 270px) {
+  .navbar {
+    height: 2.0rem;
+  }
+  .nav-link {
+    font-size: 0.5rem;
+    padding-bottom: 0.2rem;
+  }
+  .navbar-brand {
+    font-size: 0.9rem;
+  }
+}
+
 
 // Colors
 .black {
