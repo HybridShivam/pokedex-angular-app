@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
         } else {
           this.color = response.color;
         }
+        this.setTitleBarColor(this.color);
       }
     );
   }
@@ -44,10 +45,57 @@ export class HeaderComponent implements OnInit {
     this.sidebarservice.setSidebarState(true);
   }
 
-  setTitleBarColor() {
-    this.meta.updateTag({name: 'theme-color', content:});
-    this.meta.updateTag({name: 'msapplication-navbutton-color', content:});
-    this.meta.updateTag({name: 'apple-mobile-web-app-status-bar-style', content:});
+  setTitleBarColor(color: string) {
+    let hexColor = '#FFFFFF';
+    switch (color) {
+      case 'black': {
+        hexColor = '#607d8b';
+        break;
+      }
+      case 'blue': {
+        hexColor = '#81d4fa';
+        break;
+      }
+      case 'brown': {
+        hexColor = '#bcaaa4';
+        break;
+      }
+      case 'gray': {
+        hexColor = '#e0e0e0';
+        break;
+      }
+      case 'green': {
+        hexColor = '#81c784';
+        break;
+      }
+      case 'pink': {
+        hexColor = '#f8bbd0';
+        break;
+      }
+      case 'purple': {
+        hexColor = '#e1bee7';
+        break;
+      }
+      case 'red': {
+        hexColor = '#ff8a80';
+        break;
+      }
+      case 'white': {
+        hexColor = '#e0e0e0';
+        break;
+      }
+      case 'yellow': {
+        hexColor = '#ffd600';
+        break;
+      }
+      default: {
+        hexColor = '#FFFFFF';
+      }
+
+    }
+    this.meta.updateTag({name: 'theme-color', content: hexColor});
+    this.meta.updateTag({name: 'msapplication-navbutton-color', content: hexColor});
+    this.meta.updateTag({name: 'apple-mobile-web-app-status-bar-style', content: hexColor});
   }
 
 }
