@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {PokemonService} from '../shared/pokemon.service';
 import {Pokemon} from '../shared/pokemon.model';
@@ -9,7 +9,7 @@ import {forkJoin} from 'rxjs';
   templateUrl: './pokemon-detail.component.html',
   styleUrls: ['./pokemon-detail.component.scss']
 })
-export class PokemonDetailComponent implements OnInit, OnDestroy {
+export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit {
   pokemonId;
   pokemon;
   pokemonImageUrl;
@@ -19,10 +19,19 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   weightInPounds;
   pokemonStats;
   maxStat;
-
+  stats: string[];
   imageLoading = true;
 
-  constructor(private activatedRoute: ActivatedRoute, private pokemonService: PokemonService) {
+  @ViewChild('hp', {static: false}) hp: ElementRef;
+  @ViewChild('attack', {static: false}) attack: ElementRef;
+  @ViewChild('defence', {static: false}) defence: ElementRef;
+  @ViewChild('sAttack', {static: false}) sAttack: ElementRef;
+  @ViewChild('sDefence', {static: false}) sDefence: ElementRef;
+  @ViewChild('speed', {static: false}) speed: ElementRef;
+
+  constructor(private activatedRoute: ActivatedRoute,
+              private pokemonService: PokemonService,
+              private renderer2: Renderer2) {
   }
 
   ngOnInit(): void {
@@ -72,6 +81,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         }
       );
     }
+    this.calculateStats();
+  }
+
+  ngAfterViewInit(): void {
+    // this.setStat();
   }
 
   initializePokemonFields() {
@@ -103,6 +117,25 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   imagePreload() {
     this.imageLoading = false;
     // console.log('ImageLoaded');
+  }
+
+  setStat() {
+    console.log('CLicked');
+    setTimeout(() => {
+      this.renderer2.setStyle(this.hp.nativeElement, 'width', (this.pokemon.stats[5]['base_stat'] / this.maxStat * 100) + '%');
+      this.renderer2.setStyle(this.attack.nativeElement, 'width', (this.pokemon.stats[4]['base_stat'] / this.maxStat * 100) + '%');
+      this.renderer2.setStyle(this.defence.nativeElement, 'width', (this.pokemon.stats[3]['base_stat'] / this.maxStat * 100) + '%');
+      this.renderer2.setStyle(this.sAttack.nativeElement, 'width', (this.pokemon.stats[2]['base_stat'] / this.maxStat * 100) + '%');
+      this.renderer2.setStyle(this.sDefence.nativeElement, 'width', (this.pokemon.stats[1]['base_stat'] / this.maxStat * 100) + '%');
+      this.renderer2.setStyle(this.speed.nativeElement, 'width', (this.pokemon.stats[0]['base_stat'] / this.maxStat * 100) + '%');
+    }, 10000);
+  }
+
+
+  calculateStats() {
+    for (let i = 0; i < 6; i++) {
+      this.stats[i] = (this.pokemon.stats[i]['base_stat'] / this.maxStat * 100) + '%';
+    }
   }
 
   ngOnDestroy() {

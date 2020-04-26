@@ -1,164 +1,164 @@
 <div class="col-12 fadeIn MainDiv" *ngIf="pokemon!==undefined">
   <button type="button" class="btn" routerLink="../"><i class="fa fa-arrow-left"></i></button>
-  <h1 class="text-center text-capitalize">{{pokemon.name}}</h1>
+  <h1 class="text-center text-capitalize" (click)="setStat()" >{{pokemon.name}}</h1>
   <div class="row">
     <div class="col-lg-4 bioDiv">
       <div class="inner">
-      <table class="table table-borderless">
-        <tr>
-          <td class="text-right font-weight-bold">Height</td>
-          <td>{{heightInMetres + "m ( " + heightInFeetInches + " )"}}</td>
-        </tr>
-        <tr>
-          <td class="text-right font-weight-bold">Weight</td>
-          <td>{{weightInKgs + "kg ( " + weightInPounds + "lbs. )"}}</td>
-        </tr>
-        <tr>
-          <td class="text-right font-weight-bold">Abilities</td>
-          <td>
+        <table class="table table-borderless">
+          <tr>
+            <td class="text-right font-weight-bold">Height</td>
+            <td>{{heightInMetres + "m ( " + heightInFeetInches + " )"}}</td>
+          </tr>
+          <tr>
+            <td class="text-right font-weight-bold">Weight</td>
+            <td>{{weightInKgs + "kg ( " + weightInPounds + "lbs. )"}}</td>
+          </tr>
+          <tr>
+            <td class="text-right font-weight-bold">Abilities</td>
+            <td>
             <span class="text-capitalize abilities"
                   *ngFor="let ability of pokemon.abilities.reverse()">
               <span class="ability" [ngClass]="pokemon.color">{{ability['ability']['name']}} </span>
           </span>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-right font-weight-bold">Color</td>
-          <td class="text-capitalize">{{pokemon.color}}</td>
-        </tr>
-        <tr>
-          <td class="text-right font-weight-bold" style="vertical-align: middle;">Type</td>
-          <td>
-            <div class="row">
-              <div class="text-capitalize" *ngFor="let type of pokemon.types.reverse()">
-                <ng-container [ngSwitch]="type['type']['name']">
-                  <div class="row icon bug" *ngSwitchCase="'bug'"><span class="col-8 text-white">Bug</span><span
-                    class="col-4"><img class="img-fluid" src="assets/type-icons/bug.svg"></span></div>
-                  <div class="row icon dark" *ngSwitchCase="'dark'"><span class="col-8 text-white">Dark</span><span
-                    class="col-4"><img class="img-fluid" src="assets/type-icons/dark.svg"></span></div>
-                  <div class="row icon dragon" *ngSwitchCase="'dragon'"><span
-                    class="col-8 text-white">Dragon</span><span class="col-4"><img class="img-fluid"
-                                                                                   src="assets/type-icons/dragon.svg"></span>
-                  </div>
-                  <div class="row icon electric" *ngSwitchCase="'electric'"><span
-                    class="col-8 text-white">Electric</span><span class="col-4"><img class="img-fluid"
-                                                                                     src="assets/type-icons/electric.svg"></span>
-                  </div>
-                  <div class="row icon fire" *ngSwitchCase="'fire'"><span class="col-8 text-white">Fire</span><span
-                    class="col-4"><img class="img-fluid" src="assets/type-icons/fire.svg"></span></div>
-                  <div class="row icon fairy" *ngSwitchCase="'fairy'"><span class="col-8 text-white">Fairy</span><span
-                    class="col-4"><img class="img-fluid" src="assets/type-icons/fairy.svg"></span></div>
-                  <div class="row icon fighting" *ngSwitchCase="'fighting'"><span
-                    class="col-8 text-white">Fighting</span><span class="col-4"><img class="img-fluid"
-                                                                                     src="assets/type-icons/fighting.svg"></span>
-                  </div>
-                  <div class="row icon flying" *ngSwitchCase="'flying'"><span
-                    class="col-8 text-white">Flying</span><span class="col-4"><img class="img-fluid"
-                                                                                   src="assets/type-icons/flying.svg"></span>
-                  </div>
-                  <div class="row icon ghost" *ngSwitchCase="'ghost'"><span class="col-8 text-white">Ghost</span><span
-                    class="col-4"><img class="img-fluid" src="assets/type-icons/ghost.svg"></span></div>
-                  <div class="row icon grass" *ngSwitchCase="'grass'"><span class="col-8 text-white">Grass</span><span
-                    class="col-4"><img class="img-fluid" src="assets/type-icons/grass.svg"></span></div>
-                  <div class="row icon ground" *ngSwitchCase="'ground'"><span
-                    class="col-8 text-white">Ground</span><span class="col-4"><img class="img-fluid"
-                                                                                   src="assets/type-icons/ground.svg"></span>
-                  </div>
-                  <div class="row icon ice" *ngSwitchCase="'ice'"><span class="col-8 text-white">Ice</span><span
-                    class="col-4"><img class="img-fluid" src="assets/type-icons/ice.svg"></span></div>
-                  <div class="row icon normal" *ngSwitchCase="'normal'"><span
-                    class="col-8 text-white">Normal</span><span class="col-4"><img class="img-fluid"
-                                                                                   src="assets/type-icons/normal.svg"></span>
-                  </div>
-                  <div class="row icon poison" *ngSwitchCase="'poison'"><span
-                    class="col-8 text-white">Poison</span><span class="col-4"><img class="img-fluid"
-                                                                                   src="assets/type-icons/poison.svg"></span>
-                  </div>
-                  <div class="row icon psychic" *ngSwitchCase="'psychic'"><span
-                    class="col-8 text-white">Psychic</span><span class="col-4"><img class="img-fluid"
-                                                                                    src="assets/type-icons/psychic.svg"></span>
-                  </div>
-                  <div class="row icon rock" *ngSwitchCase="'rock'"><span class="col-8 text-white">Rock</span><span
-                    class="col-4"><img class="img-fluid" src="assets/type-icons/rock.svg"></span></div>
-                  <div class="row icon steel" *ngSwitchCase="'steel'"><span class="col-8 text-white">Steel</span><span
-                    class="col-4"><img class="img-fluid" src="assets/type-icons/steel.svg"></span></div>
-                  <div class="row icon water" *ngSwitchCase="'water'"><span class="col-8 text-white">Water</span><span
-                    class="col-4"><img class="img-fluid" src="assets/type-icons/water.svg"></span></div>
-                </ng-container>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-right font-weight-bold">Color</td>
+            <td class="text-capitalize">{{pokemon.color}}</td>
+          </tr>
+          <tr>
+            <td class="text-right font-weight-bold" style="vertical-align: middle;">Type</td>
+            <td>
+              <div class="row">
+                <div class="text-capitalize" *ngFor="let type of pokemon.types.reverse()">
+                  <ng-container [ngSwitch]="type['type']['name']">
+                    <div class="row icon bug" *ngSwitchCase="'bug'"><span class="col-8 text-white">Bug</span><span
+                      class="col-4"><img class="img-fluid" src="assets/type-icons/bug.svg"></span></div>
+                    <div class="row icon dark" *ngSwitchCase="'dark'"><span class="col-8 text-white">Dark</span><span
+                      class="col-4"><img class="img-fluid" src="assets/type-icons/dark.svg"></span></div>
+                    <div class="row icon dragon" *ngSwitchCase="'dragon'"><span
+                      class="col-8 text-white">Dragon</span><span class="col-4"><img class="img-fluid"
+                                                                                     src="assets/type-icons/dragon.svg"></span>
+                    </div>
+                    <div class="row icon electric" *ngSwitchCase="'electric'"><span
+                      class="col-8 text-white">Electric</span><span class="col-4"><img class="img-fluid"
+                                                                                       src="assets/type-icons/electric.svg"></span>
+                    </div>
+                    <div class="row icon fire" *ngSwitchCase="'fire'"><span class="col-8 text-white">Fire</span><span
+                      class="col-4"><img class="img-fluid" src="assets/type-icons/fire.svg"></span></div>
+                    <div class="row icon fairy" *ngSwitchCase="'fairy'"><span class="col-8 text-white">Fairy</span><span
+                      class="col-4"><img class="img-fluid" src="assets/type-icons/fairy.svg"></span></div>
+                    <div class="row icon fighting" *ngSwitchCase="'fighting'"><span
+                      class="col-8 text-white">Fighting</span><span class="col-4"><img class="img-fluid"
+                                                                                       src="assets/type-icons/fighting.svg"></span>
+                    </div>
+                    <div class="row icon flying" *ngSwitchCase="'flying'"><span
+                      class="col-8 text-white">Flying</span><span class="col-4"><img class="img-fluid"
+                                                                                     src="assets/type-icons/flying.svg"></span>
+                    </div>
+                    <div class="row icon ghost" *ngSwitchCase="'ghost'"><span class="col-8 text-white">Ghost</span><span
+                      class="col-4"><img class="img-fluid" src="assets/type-icons/ghost.svg"></span></div>
+                    <div class="row icon grass" *ngSwitchCase="'grass'"><span class="col-8 text-white">Grass</span><span
+                      class="col-4"><img class="img-fluid" src="assets/type-icons/grass.svg"></span></div>
+                    <div class="row icon ground" *ngSwitchCase="'ground'"><span
+                      class="col-8 text-white">Ground</span><span class="col-4"><img class="img-fluid"
+                                                                                     src="assets/type-icons/ground.svg"></span>
+                    </div>
+                    <div class="row icon ice" *ngSwitchCase="'ice'"><span class="col-8 text-white">Ice</span><span
+                      class="col-4"><img class="img-fluid" src="assets/type-icons/ice.svg"></span></div>
+                    <div class="row icon normal" *ngSwitchCase="'normal'"><span
+                      class="col-8 text-white">Normal</span><span class="col-4"><img class="img-fluid"
+                                                                                     src="assets/type-icons/normal.svg"></span>
+                    </div>
+                    <div class="row icon poison" *ngSwitchCase="'poison'"><span
+                      class="col-8 text-white">Poison</span><span class="col-4"><img class="img-fluid"
+                                                                                     src="assets/type-icons/poison.svg"></span>
+                    </div>
+                    <div class="row icon psychic" *ngSwitchCase="'psychic'"><span
+                      class="col-8 text-white">Psychic</span><span class="col-4"><img class="img-fluid"
+                                                                                      src="assets/type-icons/psychic.svg"></span>
+                    </div>
+                    <div class="row icon rock" *ngSwitchCase="'rock'"><span class="col-8 text-white">Rock</span><span
+                      class="col-4"><img class="img-fluid" src="assets/type-icons/rock.svg"></span></div>
+                    <div class="row icon steel" *ngSwitchCase="'steel'"><span class="col-8 text-white">Steel</span><span
+                      class="col-4"><img class="img-fluid" src="assets/type-icons/steel.svg"></span></div>
+                    <div class="row icon water" *ngSwitchCase="'water'"><span class="col-8 text-white">Water</span><span
+                      class="col-4"><img class="img-fluid" src="assets/type-icons/water.svg"></span></div>
+                  </ng-container>
+                </div>
               </div>
-            </div>
-          </td>
-        </tr>
-      </table>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
     <div class="col-lg-4">
-      <img class="img-fluid mx-auto d-block fadeInOut" src="{{pokemonImageUrl}}" alt="" (load)="imagePreload()" [ngClass]="{fade: !imageLoading}">
+      <img class="img-fluid mx-auto d-block fadeInOut" src="{{pokemonImageUrl}}" alt="" (load)="imagePreload()"
+           [ngClass]="{fade: !imageLoading}">
     </div>
     <div class="col-lg-4 statDiv">
       <div class="inner">
-      <table class="table table-borderless">
-        <tr>
-          <td class="text-right font-weight-bold">HP</td>
-          <td style="width: 250px">
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
-                   aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
-                   style="width:{{pokemon.stats[5]['base_stat']/maxStat*100}}%"></div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-right font-weight-bold">Attack</td>
-          <td>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
-                   aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
-                   style="width:{{pokemon.stats[4]['base_stat']/maxStat*100}}%"></div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-right font-weight-bold">Defence</td>
-          <td>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
-                   aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
-                   style="width:{{pokemon.stats[3]['base_stat']/maxStat*100}}%"></div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-right font-weight-bold">Sp. Attack</td>
-          <td>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
-                   aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
-                   style="width:{{pokemon.stats[2]['base_stat']/maxStat*100}}%"></div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-right font-weight-bold">Sp. Defence</td>
-          <td>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
-                   aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
-                   style="width:{{pokemon.stats[1]['base_stat']/maxStat*100}}%"></div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-right font-weight-bold">Speed</td>
-          <td>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
-                   aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
-                   style="width:{{pokemon.stats[0]['base_stat']/maxStat*100}}%"></div>
-            </div>
-          </td>
-        </tr>
-      </table>
+        <table class="table table-borderless">
+          <tr>
+            <td class="text-right font-weight-bold">HP</td>
+            <td style="width: 250px">
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
+                     aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
+                     style="width:{{pokemon.stats[5]['base_stat']/maxStat*100}}%" #hp></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-right font-weight-bold">Attack</td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
+                     aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
+                     style="width:{{pokemon.stats[4]['base_stat']/maxStat*100}}%" #attack></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-right font-weight-bold">Defence</td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
+                     aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
+                     style="width:{{pokemon.stats[3]['base_stat']/maxStat*100}}%" #defence></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-right font-weight-bold">Sp. Attack</td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
+                     aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
+                     style="width:{{pokemon.stats[2]['base_stat']/maxStat*100}}%" #sAttack></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-right font-weight-bold">Sp. Defence</td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
+                     aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
+                     style="width:{{pokemon.stats[1]['base_stat']/maxStat*100}}%" #sDefence></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-right font-weight-bold">Speed</td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
+                     aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color" #Speed></div>
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
