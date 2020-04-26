@@ -100,8 +100,15 @@
       <div class="inner">
         <table class="table table-borderless">
           <tr>
+            <td></td>
+            <td>
+              <button class="btn-primary">Base</button></td>
+            <td>Min</td>
+            <td>Max</td>
+          </tr>
+          <tr>
             <td class="text-right font-weight-bold">HP</td>
-            <td style="width: 300px">
+            <td style="width: 300px" colspan="3">
               <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
                      aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
@@ -111,7 +118,7 @@
           </tr>
           <tr>
             <td class="text-right font-weight-bold">Attack</td>
-            <td>
+            <td colspan="3">
               <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
                      aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
@@ -121,7 +128,7 @@
           </tr>
           <tr>
             <td class="text-right font-weight-bold">Defence</td>
-            <td>
+            <td colspan="3">
               <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
                      aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
@@ -131,7 +138,7 @@
           </tr>
           <tr>
             <td class="text-right font-weight-bold">Sp. Attack</td>
-            <td>
+            <td colspan="3">
               <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
                      aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
@@ -141,7 +148,7 @@
           </tr>
           <tr>
             <td class="text-right font-weight-bold">Sp. Defence</td>
-            <td>
+            <td colspan="3">
               <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
                      aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
@@ -151,7 +158,7 @@
           </tr>
           <tr>
             <td class="text-right font-weight-bold">Speed</td>
-            <td>
+            <td colspan="3">
               <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
                      aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color" style="width:{{stats[5]}}"><span>{{pokemonStats[5]}}</span></div>
