@@ -1,6 +1,6 @@
 <div class="col-12 fadeIn MainDiv" *ngIf="pokemon!==undefined">
   <button type="button" class="btn" routerLink="../"><i class="fa fa-arrow-left"></i></button>
-  <h1 class="text-center text-capitalize" (click)="setStat()" >{{pokemon.name}}</h1>
+  <h1 class="text-center text-capitalize">{{pokemon.name}}</h1>
   <div class="row">
     <div class="col-lg-4 bioDiv">
       <div class="inner">
@@ -105,7 +105,7 @@
               <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
                      aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
-                     style="width:{{pokemon.stats[5]['base_stat']/maxStat*100}}%" #hp></div>
+                     style="width:{{stats[5]}}"></div>
               </div>
             </td>
           </tr>
@@ -115,7 +115,7 @@
               <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
                      aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
-                     style="width:{{pokemon.stats[4]['base_stat']/maxStat*100}}%" #attack></div>
+                     style="width:{{stats[4]}}"></div>
               </div>
             </td>
           </tr>
@@ -125,7 +125,7 @@
               <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
                      aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
-                     style="width:{{pokemon.stats[3]['base_stat']/maxStat*100}}%" #defence></div>
+                     style="width:{{stats[3]}}"></div>
               </div>
             </td>
           </tr>
@@ -135,7 +135,7 @@
               <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
                      aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
-                     style="width:{{pokemon.stats[2]['base_stat']/maxStat*100}}%" #sAttack></div>
+                     style="width:{{stats[2]}}"></div>
               </div>
             </td>
           </tr>
@@ -145,7 +145,7 @@
               <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
                      aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
-                     style="width:{{pokemon.stats[1]['base_stat']/maxStat*100}}%" #sDefence></div>
+                     style="width:{{stats[1]}}"></div>
               </div>
             </td>
           </tr>
@@ -154,7 +154,7 @@
             <td>
               <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
-                     aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color" #Speed></div>
+                     aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color" style="width:{{stats[0]}}"></div>
               </div>
             </td>
           </tr>
