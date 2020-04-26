@@ -23,9 +23,9 @@
 
 @media (max-width: 500px) {
   .card {
-    max-width: 33.33vw;
+    max-width: 25vw;
     height: 8rem;
-    font-size: xx-small;
+    font-size: x-small;
   }
   //.card-body{
   //  padding: 0;
@@ -43,6 +43,14 @@
   .card-title{
     font-size: 1.4rem;
     margin: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .card {
+    max-width: 33.33vw;
+    height: 8rem;
+    font-size: x-small;
   }
 }
 //End of type icons
