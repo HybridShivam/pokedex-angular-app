@@ -95,7 +95,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
       this.pokemon.stats[0]['base_stat']
     ];
     this.maxStat = Math.max(...this.pokemonStats);
-    // this.calculateStats();
     setTimeout(() => {
       this.calculateStats();
     }, 500);
