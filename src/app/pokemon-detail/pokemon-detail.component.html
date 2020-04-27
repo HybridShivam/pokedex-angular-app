@@ -18,10 +18,16 @@
             <td>
             <span class="text-capitalize abilities"
                   *ngFor="let ability of pokemon.abilities.reverse()">
-              <span class="ability" [ngClass]="pokemon.color">{{ability['ability']['name']}} </span>
+              <span class="ability" [ngClass]="pokemon.color" data-toggle="dropdown" role="button" aria-expanded="false" aria-controls="collapseExample">{{ability['ability']['name']}} </span>
+              <div class="dropdown-menu">Hello</div>
           </span>
             </td>
           </tr>
+<!--          <tr><td></td><td><div class="collapse" id="collapseExample">-->
+<!--            <div class="card card-body small" style="max-width: 200px">-->
+<!--              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.-->
+<!--            </div>-->
+<!--          </div></td></tr>-->
           <tr>
             <td class="text-right font-weight-bold">Color</td>
             <td class="text-capitalize">{{pokemon.color}}</td>
@@ -96,7 +102,7 @@
       <img class="img-fluid mx-auto d-block fadeInOut" src="{{pokemonImageUrl}}" alt="" (load)="imagePreload()"
            [ngClass]="{fade: !imageLoading}">
     </div>
-    <div class="col-lg-4 statDiv my-auto">
+    <div class="col-lg-4 statDiv">
       <div class="inner">
         <table class="table table-borderless">
           <tr>
