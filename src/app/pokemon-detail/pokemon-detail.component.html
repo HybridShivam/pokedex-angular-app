@@ -192,7 +192,7 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content" *ngIf="noOfAbilitiesReceived>=2">
+    <div class="modal-content" *ngIf="allAbilitiesReceived">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Ability</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -200,7 +200,6 @@
         </button>
       </div>
       <div class="modal-body">
-        {{noOfAbilitiesReceived}}
         {{abilities[abilitySelected]['name']}}
         In battle
         Wonder Guard makes the Pokémon with this Ability immune to damaging moves that are not super effective.
