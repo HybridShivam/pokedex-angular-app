@@ -153,17 +153,17 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
     switch (type) {
       case 'base': {
         stats = this.pokemonStats;
-        maxStat = this.pokemonStats;
+        maxStat = this.maxStat;
         break;
       }
       case 'max': {
         stats = this.maxPokemonStats;
-        maxStat = this.maxPokemonStats;
+        maxStat = this.maxMaxStat;
         break;
       }
       case 'min': {
         stats = this.minPokemonStats;
-        maxStat = this.minPokemonStats;
+        maxStat = this.maxMinStat;
       }
     }
     for (let i = 0; i < 6; i++) {
