@@ -55,13 +55,13 @@
 //  transition: transform 1000ms ease-in;
 //}
 
-.hiddenAbility {
-  //color: white;
-  //background-color: black;
-  border-radius: 2px;
-  padding: 2px;
-  filter: brightness(50%);
-}
+//.hiddenAbility {
+//  //color: white;
+//  //background-color: black;
+//  border-radius: 2px;
+//  padding: 2px;
+//  filter: brightness(50%);
+//}
 
 // Fade-In Effect For Image
 //}
@@ -263,4 +263,11 @@
   -webkit-box-shadow: 0px 0px 9px 4px rgba(0,0,0,0.13);
   -moz-box-shadow: 0px 0px 9px 4px rgba(0,0,0,0.13);
   box-shadow: 0px 0px 9px 4px rgba(0,0,0,0.13);
+}
+.hiddenAbility {
+  //color: white;
+  //background-color: black;
+  border-radius: 2px;
+  padding: 2px;
+  filter: brightness(120%) saturate(10%);
 }
