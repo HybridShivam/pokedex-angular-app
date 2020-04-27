@@ -16,10 +16,10 @@
           <tr style="transition: position 1s ease-in;">
             <td class="text-right font-weight-bold">Abilities</td>
             <td>
-            <span class="text-capitalize abilities"
+            <span class="abilities"
                   *ngFor="let ability of pokemon.abilities; let i=index">
-              <a class="ability" [ngClass]="pokemon.color" role="button" (click)="abilitySelect(i)"
-                 data-toggle="modal" data-target="#exampleModalCenter">{{ability['ability']['name']}}</a>
+              <a class="ability text-capitalize" [ngClass]="pokemon.color" role="button" (click)="abilitySelect(i)"
+                 data-toggle="modal" data-target="#abilityModal">{{ability['ability']['name']}}</a>
 <!--              <span class="dropdown-menu">Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </span>-->
           </span>
             </td>
@@ -189,8 +189,8 @@
     </div>
   </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<!-- Ability Modal -->
+<div class="modal fade" id="abilityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content" *ngIf="allAbilitiesReceived">
       <div class="modal-header">
