@@ -30,7 +30,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   abilities = [];
   abilitySelected = 0;
   allAbilitiesReceived = false;
-  noOfAbilitiesReceived = 0;
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -192,21 +191,21 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   requestAbilityDetails() {
+    const requests = [];
     for (const ability of this.pokemon.abilities.reverse()) {
-      this.pokemonService.getAbility(ability['ability']['url']).subscribe(
-        (response) => {
-          console.log(response);
-          this.abilities.push(response);
-          console.log(this.abilities);
-          this.noOfAbilitiesReceived++;
-          console.log(this.noOfAbilitiesReceived);
-        });
+      requests.push(this.pokemonService.getAbility(ability['ability']['url']));
     }
+    forkJoin(...requests).subscribe(
+      (responses) => {
+        for (let i = 0; i < responses.length; i++) {
+          this.abilities[i] = responses[i];
+        }
+        this.allAbilitiesReceived = true;
+      });
   }
 
 
   abilitySelect(no: number) {
-    console.log(this.abilities);
     this.abilitySelected = no;
   }
 
