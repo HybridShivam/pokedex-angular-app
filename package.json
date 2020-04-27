@@ -23,6 +23,7 @@
     "@ng-bootstrap/ng-bootstrap": "^6.0.3",
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.5",
+    "focus-visible": "^5.1.0",
     "jquery": "^3.4.1",
     "ng2-search-filter": "^0.5.1",
     "ngx-bootstrap": "^5.6.1",
