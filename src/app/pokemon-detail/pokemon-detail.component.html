@@ -103,17 +103,17 @@
             <td></td>
             <td>
               <button class="btn rounded-pill" (click)="showStats('base')"
-                      [ngClass]="{ 'pokemonColor': true }">Base
+                      [ngClass]="selectedStat=='base' ? pokemon.color : null">Base
               </button>
             </td>
             <td>
               <button class="btn rounded-pill" (click)="showStats('min')"
-                      [ngClass]="{ pokemonColor : selectedStat=='min'}">Min
+                      [ngClass]="selectedStat=='min' ? pokemon.color : null">Min
               </button>
             </td>
             <td>
               <button class="btn rounded-pill" (click)="showStats('max')"
-                      [ngClass]="{ pokemonColor : selectedStat=='max'}">Max
+                      [ngClass]="selectedStat=='max' ? pokemon.color : null">Max
               </button>
             </td>
           </tr>
