@@ -90,16 +90,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   initializePokemonFields() {
-    for (const ability of this.pokemon.abilities.reverse()) {
-      this.pokemonService.getAbility(ability['ability']['url']).subscribe(
-        (response) => {
-          console.log(response);
-          this.abilities.push(response);
-          console.log(this.abilities);
-          this.noOfAbilitiesReceived++;
-          console.log(this.noOfAbilitiesReceived);
-        });
-    }
+    this.requestAbilityDetails();
     this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/pokemon.json/master/images/' +
       this.pad(this.pokemon.id, 3) + '.png';
     this.heightInMetres = (this.pokemon.height * 0.1).toFixed(1);
@@ -197,6 +188,19 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
         calculatedStat = 10;
         this.stats[i] = calculatedStat + '%';
       }
+    }
+  }
+
+  requestAbilityDetails() {
+    for (const ability of this.pokemon.abilities.reverse()) {
+      this.pokemonService.getAbility(ability['ability']['url']).subscribe(
+        (response) => {
+          console.log(response);
+          this.abilities.push(response);
+          console.log(this.abilities);
+          this.noOfAbilitiesReceived++;
+          console.log(this.noOfAbilitiesReceived);
+        });
     }
   }
 
