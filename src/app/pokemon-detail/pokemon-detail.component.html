@@ -18,7 +18,7 @@
             <td>
             <span class="abilities text-uppercase" *ngFor="let ability of pokemon.abilities; let i=index">
               <ng-container *ngIf="i==2"><br></ng-container>
-              <span class="ability {{pokemon.color}}" [ngClass]="{'hiddenAbility': ability['is_hidden']}" role="button" (click)="abilitySelect(i)"
+              <span class="ability" [ngClass]="ability['is_hidden']?'hiddenAbility':pokemon.color" role="button" (click)="abilitySelect(i)"
                     data-toggle="modal" data-target="#abilityModal">{{ability['ability']['name']}}</span>
               <!--              <span class="dropdown-menu">Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </span>-->
           </span>
