@@ -17,7 +17,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   heightInFeetInches;
   weightInKgs;
   weightInPounds;
-  pokemonColor;
   pokemonStats;
   maxPokemonStats = [];
   minPokemonStats = [];
@@ -87,7 +86,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   initializePokemonFields() {
-    this.pokemonColor = this.pokemon.color;
     this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/pokemon.json/master/images/' +
       this.pad(this.pokemon.id, 3) + '.png';
     this.heightInMetres = (this.pokemon.height * 0.1).toFixed(1);
