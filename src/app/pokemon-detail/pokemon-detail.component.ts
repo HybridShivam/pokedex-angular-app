@@ -50,6 +50,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
         response => {
           this.pokemon.color = response['color']['name'];
           this.pokemonService.activePokemon.next(this.pokemon);
+          this.pokemon.genera = response['genera'];
+          console.log(response['genera']);
         }
       );
       // Directly From Link
@@ -78,6 +80,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
             results[1]['color']['name'],
             results[1]['genera']
           );
+          console.log(this.pokemon);
           this.pokemonService.activePokemon.next(this.pokemon);
           this.initializePokemonFields();
         }
