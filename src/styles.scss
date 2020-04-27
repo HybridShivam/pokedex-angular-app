@@ -20,7 +20,9 @@ body {
 
 .modal-backdrop{
   z-index: 995 !important;
-  opacity:0.1 !important;
+  opacity: 0 !important;
+  //filter: blur(1px);
+  //transition: opacity 1000ms linear !important;
   //display: none !important;
 }
 .fade{
