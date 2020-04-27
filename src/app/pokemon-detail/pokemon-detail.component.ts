@@ -18,7 +18,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   weightInKgs;
   weightInPounds;
   pokemonStats;
-  maxPokemonStats;
+  maxPokemonStats = [];
   minPokemonStats;
   maxStat;
   stats: string[] = ['0%', '0%', '0%', '0%', '0%', '0%'];
