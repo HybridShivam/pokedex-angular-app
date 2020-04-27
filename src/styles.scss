@@ -21,12 +21,13 @@ body {
 /**
  * Custom cross-browser styles for keyboard :focus overrides defaults.
  */
-//*:focus {
-//  outline: 0 !important;
-//  box-shadow:
-//    0 0 0 .2rem #fff,
-//    0 0 0 .35rem #069 !important;
-//}
+*:focus {
+  //outline: 0 !important;
+  //  //box-shadow:
+  //  //  0 0 0 .2rem #fff,
+  //  //  0 0 0 .35rem #069 !important;
+  z-index: 900;
+}
 
 /**
  * Remove focus styles for non-keyboard :focus.
