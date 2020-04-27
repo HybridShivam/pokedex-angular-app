@@ -20,6 +20,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   pokemonStats;
   maxPokemonStats = [];
   minPokemonStats = [];
+  statsToShow = [];
   maxStat;
   maxMaxStat;
   maxMinStat;
