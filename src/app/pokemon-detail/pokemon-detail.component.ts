@@ -88,9 +88,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
 
   initializePokemonFields() {
     for (const ability of this.pokemon['abilities']) {
-      this.pokemonService.getAbility(ability['url']).subscribe(
+      console.log(ability['ability']['url']);
+      this.pokemonService.getAbility(ability['ability']['url']).subscribe(
         (response) => {
           this.abilities.push(response);
+          console.log(response);
         });
     }
     this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/pokemon.json/master/images/' +
