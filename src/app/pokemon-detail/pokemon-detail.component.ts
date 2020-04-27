@@ -125,8 +125,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
         this.stats[i] = calculatedStat + '%';
       }
     }
-    this.calculateMaxStats();
-    this.calculateMinStats();
   }
 
   calculateMaxStats() {
@@ -134,7 +132,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
     for (let i = 1; i < 6; i++) {
       this.maxPokemonStats[i] = Math.floor(Math.floor((2 * this.pokemonStats[i] + 31 + 63) * 100 / 100 + 5) * 1.1);
     }
-    console.log(this.maxPokemonStats);
   }
 
   calculateMinStats() {
@@ -142,7 +139,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
     for (let i = 1; i < 6; i++) {
       this.minPokemonStats[i] = Math.floor(Math.floor((2 * this.pokemonStats[i]) * 100 / 100 + 5) * 0.9);
     }
-    console.log(this.minPokemonStats);
   }
 
   ngOnDestroy() {
