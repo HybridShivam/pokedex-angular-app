@@ -27,6 +27,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   selectedStat = 'base';
   stats: string[] = ['0%', '0%', '0%', '0%', '0%', '0%'];
   imageLoading = true;
+  abilities = [];
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -86,6 +87,12 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   initializePokemonFields() {
+    for (const ability of this.pokemon['abilities']) {
+      this.pokemonService.getAbility(ability['url']).subscribe(
+        (response) => {
+          this.abilities.push(response);
+        });
+    }
     this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/pokemon.json/master/images/' +
       this.pad(this.pokemon.id, 3) + '.png';
     this.heightInMetres = (this.pokemon.height * 0.1).toFixed(1);
