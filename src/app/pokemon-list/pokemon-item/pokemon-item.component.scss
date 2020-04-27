@@ -54,3 +54,8 @@
   }
 }
 //End of type icons
+
+// Modal BackDrop Fix
+.modal-backdrop {
+  z-index: -1;
+}
