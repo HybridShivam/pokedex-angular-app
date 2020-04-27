@@ -104,4 +104,8 @@ export class PokemonService {
     const url = 'https://pokeapi.co/api/v2/pokemon-species/' + Id + '/';
     return this.http.get(url);
   }
+
+  getAbility(url: string) {
+    return this.http.get(url);
+  }
 }
