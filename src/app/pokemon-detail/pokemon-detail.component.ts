@@ -19,7 +19,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   weightInPounds;
   pokemonStats;
   maxPokemonStats = [];
-  minPokemonStats;
+  minPokemonStats = [];
   maxStat;
   stats: string[] = ['0%', '0%', '0%', '0%', '0%', '0%'];
   imageLoading = true;
@@ -126,6 +126,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
       }
     }
     this.calculateMaxStats();
+    this.calculateMinStats();
   }
 
   calculateMaxStats() {
@@ -137,7 +138,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   calculateMinStats() {
-
+    this.minPokemonStats[0] = Math.floor((2 * this.pokemonStats[0]) * 100 / 100 + 100 + 10);
+    for (let i = 1; i < 6; i++) {
+      this.minPokemonStats[i] = Math.floor(Math.floor((2 * this.pokemonStats[i]) * 100 / 100 + 5) * 0.9);
+    }
+    console.log(this.minPokemonStats);
   }
 
   ngOnDestroy() {
