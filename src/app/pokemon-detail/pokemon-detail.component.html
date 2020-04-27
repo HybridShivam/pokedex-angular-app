@@ -192,14 +192,14 @@
   <div class="modal fade" id="abilityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
        aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content" *ngIf="allAbilitiesReceived">
-        <div class="modal-header">
+      <div class="modal-content text-center" *ngIf="allAbilitiesReceived">
+        <div class="modal-header text-center">
           <h5 class="modal-title text-capitalize" id="exampleModalLongTitle">{{abilities[abilitySelected]['name']}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body justify-content-center text-center">
           <span class="{{pokemon.color}} rounded text-center font-weight-bolder" style="padding: 2px 2px; font-size: larger">EFFECT</span>
           <p>{{abilities[abilitySelected]['effect_entries'][0]['short_effect']}}</p>
           <span class="{{pokemon.color}} rounded text-center font-weight-bolder" style="padding: 2px 2px; font-size: larger">IN-DEPTH EFFECT</span>
