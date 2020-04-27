@@ -24,6 +24,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   maxStat;
   maxMaxStat;
   maxMinStat;
+  selectedStat = 'base';
   stats: string[] = ['0%', '0%', '0%', '0%', '0%', '0%'];
   imageLoading = true;
 

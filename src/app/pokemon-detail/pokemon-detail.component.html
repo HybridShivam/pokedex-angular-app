@@ -102,9 +102,20 @@
           <tr>
             <td></td>
             <td>
-              <button class="btn selected rounded-pill" (click)="showStats('base')">Base</button></td>
-            <td><button class="btn" (click)="showStats('min')">Min</button></td>
-            <td><button class="btn" (click)="showStats('max')">Max</button></td>
+              <button class="btn selected rounded-pill" (click)="showStats('base')"
+                      ngClass="{ {{pokemon.color}} : selectedStat==='base'}">Base
+              </button>
+            </td>
+            <td>
+              <button class="btn rounded-pill" (click)="showStats('min')" [ngClass]="pokemon.color"
+                      ngClass="{ {{pokemon.color}} : selectedStat==='min'}">Min
+              </button>
+            </td>
+            <td>
+              <button class="btn rounded-pill" (click)="showStats('max')" [ngClass]="pokemon.color"
+                      ngClass="{ {{pokemon.color}} : selectedStat==='min'}">Max
+              </button>
+            </td>
           </tr>
           <tr>
             <td class="text-right font-weight-bold">HP</td>
@@ -161,7 +172,8 @@
             <td colspan="3">
               <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
-                     aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color" style="width:{{stats[5]}}"><span>{{statsToShow[5]}}</span></div>
+                     aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
+                     style="width:{{stats[5]}}"><span>{{statsToShow[5]}}</span></div>
               </div>
             </td>
           </tr>
