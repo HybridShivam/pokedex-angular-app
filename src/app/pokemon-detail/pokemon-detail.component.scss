@@ -56,10 +56,11 @@
 //}
 
 .hiddenAbility {
-  color: white;
-  background-color: black;
+  //color: white;
+  //background-color: black;
   border-radius: 2px;
   padding: 2px;
+  filter: brightness(50%);
 }
 
 // Fade-In Effect For Image
