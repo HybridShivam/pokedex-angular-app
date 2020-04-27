@@ -21,6 +21,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   maxPokemonStats = [];
   minPokemonStats = [];
   maxStat;
+  maxMaxStat;
+  maxMinStat;
   stats: string[] = ['0%', '0%', '0%', '0%', '0%', '0%'];
   imageLoading = true;
 
@@ -132,12 +134,26 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
     for (let i = 1; i < 6; i++) {
       this.maxPokemonStats[i] = Math.floor(Math.floor((2 * this.pokemonStats[i] + 31 + 63) * 100 / 100 + 5) * 1.1);
     }
+    this.maxMaxStat = Math.max(...this.maxPokemonStats);
   }
 
   calculateMinStats() {
     this.minPokemonStats[0] = Math.floor((2 * this.pokemonStats[0]) * 100 / 100 + 100 + 10);
     for (let i = 1; i < 6; i++) {
       this.minPokemonStats[i] = Math.floor(Math.floor((2 * this.pokemonStats[i]) * 100 / 100 + 5) * 0.9);
+    }
+    this.maxMinStat = Math.max(...this.minPokemonStats);
+  }
+
+  showStats(type: string) {
+    for (let i = 0; i < 6; i++) {
+      let calculatedStat = this.pokemonStats[i] / this.maxStat * 100;
+      if (calculatedStat > 10) {
+        this.stats[i] = calculatedStat + '%';
+      } else {
+        calculatedStat = 10;
+        this.stats[i] = calculatedStat + '%';
+      }
     }
   }
 
