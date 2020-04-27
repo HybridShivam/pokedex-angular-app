@@ -49,7 +49,7 @@ export class PokemonService {
           response.id,
           response['sprites'],
           response['types'],
-          response['abilities'],
+          response['abilities'].reverse(),
           response['height'],
           response['weight'],
           response['base_experience'],

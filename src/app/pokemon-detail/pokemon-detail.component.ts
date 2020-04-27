@@ -192,7 +192,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
 
   requestAbilityDetails() {
     const requests = [];
-    for (const ability of this.pokemon.abilities.reverse()) {
+    for (const ability of this.pokemon.abilities) {
       requests.push(this.pokemonService.getAbility(ability['ability']['url']));
     }
     forkJoin(...requests).subscribe(
