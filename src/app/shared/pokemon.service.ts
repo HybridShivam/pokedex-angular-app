@@ -62,6 +62,7 @@ export class PokemonService {
           response['order'],
           response['stats'],
           response['species'],
+          null,
           null
         );
         this.responseCounter++;
