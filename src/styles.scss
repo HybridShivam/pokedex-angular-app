@@ -18,6 +18,15 @@ body {
 								  currently supported by Chrome and Opera */
 }
 
+.modal-backdrop{
+  z-index: 1000;
+  opacity:0.5 !important;
+  display: none !important;
+}
+.modal{
+  z-index: 1002;
+}
+
 /**
  * Custom cross-browser styles for keyboard :focus overrides defaults.
  */

@@ -260,10 +260,10 @@
 // Colors For Abilities
 
 // Modal Fix
-.modal-backdrop {
-  z-index: 1000;
+.modal-backdrop{
+  z-index: 900;
   opacity:0.5 !important;
 }
 .modal{
-  z-index: 1001;
+  z-index: 1002;
 }
