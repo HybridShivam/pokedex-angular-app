@@ -127,6 +127,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
         this.stats[i] = calculatedStat + '%';
       }
     }
+    this.calculateMinStats();
+    this.calculateMaxStats();
   }
 
   calculateMaxStats() {
@@ -146,8 +148,26 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   showStats(type: string) {
+    let stats;
+    let maxStat;
+    switch (type) {
+      case 'base': {
+        stats = this.pokemonStats;
+        maxStat = this.pokemonStats;
+        break;
+      }
+      case 'max': {
+        stats = this.maxPokemonStats;
+        maxStat = this.maxPokemonStats;
+        break;
+      }
+      case 'min': {
+        stats = this.minPokemonStats;
+        maxStat = this.minPokemonStats;
+      }
+    }
     for (let i = 0; i < 6; i++) {
-      let calculatedStat = this.pokemonStats[i] / this.maxStat * 100;
+      let calculatedStat = stats[i] / maxStat * 100;
       if (calculatedStat > 10) {
         this.stats[i] = calculatedStat + '%';
       } else {
