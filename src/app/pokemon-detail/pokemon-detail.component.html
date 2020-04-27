@@ -17,7 +17,7 @@
             <td class="text-right font-weight-bold">Abilities</td>
             <td>
             <span class="abilities text-uppercase" *ngFor="let ability of pokemon.abilities; let i=index">
-              <ng-container *ngIf="i==2"><br></ng-container>
+<!--              <ng-container *ngIf="i==2"><br></ng-container>-->
               <span class="ability {{pokemon.color}}" [ngClass]="{'hiddenAbility':ability['is_hidden']}" role="button"
                     (click)="abilitySelect(i)"
                     data-toggle="modal" data-target="#abilityModal">{{ability['ability']['name']}}</span>
@@ -100,11 +100,11 @@
         </table>
       </div>
     </div>
-    <div class="col-lg-4">
-      <img class="img-fluid mx-auto d-block fadeInOut" src="{{pokemonImageUrl}}" alt="" (load)="imagePreload()"
+    <div class="col-lg-3">
+      <img class="img-fluid mx-auto my-auto d-block fadeInOut" src="{{pokemonImageUrl}}" alt="" (load)="imagePreload()"
            [ngClass]="{fade: !imageLoading}">
     </div>
-    <div class="col-lg-4 statDiv my-auto">
+    <div class="col-lg-4 statDiv my-auto mx-auto">
       <div class="inner">
         <table class="table table-borderless">
           <tr>
