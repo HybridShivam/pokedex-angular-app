@@ -271,3 +271,16 @@
   padding: 2px;
   filter: brightness(110%) saturate(50%);
 }
+
+.fade {
+  transform: scale(0);
+  opacity: 0;
+  -webkit-transition: all .25s linear;
+  -o-transition: all .25s linear;
+  transition: all .25s linear;
+}
+
+.fade.in {
+  opacity: 1;
+  transform: scale(1);
+}
