@@ -17,17 +17,18 @@
             <td class="text-right font-weight-bold">Abilities</td>
             <td>
             <span class="text-capitalize abilities"
-                  *ngFor="let ability of pokemon.abilities.reverse()">
-              <a class="ability" [ngClass]="pokemon.color" role="button" data-toggle="modal" data-target="#exampleModalCenter">{{ability['ability']['name']}} </a>
+                  *ngFor="let ability of pokemon.abilities; let i=index">
+              <a class="ability" [ngClass]="pokemon.color" role="button" (click)="abilitySelect(i)"
+                 data-toggle="modal" data-target="#exampleModalCenter">{{ability['ability']['name']}} {{i}}</a>
 <!--              <span class="dropdown-menu">Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </span>-->
           </span>
             </td>
           </tr>
-          <tr><td></td><td><div class="collapse" id="collapseExample">
-            <div class="card card-body small" style="max-width: 200px">
-              This Pokémon cannot be paralyzed. If a Pokémon is paralyzed and acquires this ability, its paralysis is healed; this includes when regaining a lost ability upon leaving battle.
-            </div>
-          </div></td></tr>
+<!--          <tr><td></td><td><div class="collapse" id="collapseExample">-->
+<!--            <div class="card card-body small" style="max-width: 200px">-->
+<!--              This Pokémon cannot be paralyzed. If a Pokémon is paralyzed and acquires this ability, its paralysis is healed; this includes when regaining a lost ability upon leaving battle.-->
+<!--            </div>-->
+<!--          </div></td></tr>-->
           <tr>
             <td class="text-right font-weight-bold">Color</td>
             <td class="text-capitalize">{{pokemon.color}}</td>
@@ -191,7 +192,7 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+    <div class="modal-content" *ngIf="noOfAbilitiesReceived>=2">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Ability</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -199,7 +200,8 @@
         </button>
       </div>
       <div class="modal-body">
-<!--        {{abilities[0]['name']}}-->
+        {{noOfAbilitiesReceived}}
+        {{abilities[abilitySelected]['name']}}
         In battle
         Wonder Guard makes the Pokémon with this Ability immune to damaging moves that are not super effective.
         It does not prevent confusion damage. It does not affect status moves, such as Tail Whip or Poison Powder. It does not prevent any indirect damage, such as from burn, weather, recoil, and entry hazards.

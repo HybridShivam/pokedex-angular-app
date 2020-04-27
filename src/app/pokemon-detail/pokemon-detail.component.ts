@@ -28,6 +28,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   stats: string[] = ['0%', '0%', '0%', '0%', '0%', '0%'];
   imageLoading = true;
   abilities = [];
+  abilitySelected = 0;
+  allAbilitiesReceived = false;
+  noOfAbilitiesReceived = 0;
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -87,12 +90,14 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   initializePokemonFields() {
-    for (const ability of this.pokemon['abilities']) {
-      console.log(ability['ability']['url']);
+    for (const ability of this.pokemon.abilities.reverse()) {
       this.pokemonService.getAbility(ability['ability']['url']).subscribe(
         (response) => {
-          this.abilities.push(response);
           console.log(response);
+          this.abilities.push(response);
+          console.log(this.abilities);
+          this.noOfAbilitiesReceived++;
+          console.log(this.noOfAbilitiesReceived);
         });
     }
     this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/pokemon.json/master/images/' +
@@ -193,6 +198,12 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
         this.stats[i] = calculatedStat + '%';
       }
     }
+  }
+
+
+  abilitySelect(no: number) {
+    console.log(this.abilities);
+    this.abilitySelected = no;
   }
 
   ngOnDestroy() {
