@@ -102,18 +102,18 @@
           <tr>
             <td></td>
             <td>
-              <button class="btn selected rounded-pill" (click)="showStats('base')"
-                      ngClass="{ {{pokemon.color}} : selectedStat==='base'}">Base
+              <button class="btn rounded-pill" (click)="showStats('base')"
+                      [ngClass]="{ 'pokemonColor': true }">Base
               </button>
             </td>
             <td>
-              <button class="btn rounded-pill" (click)="showStats('min')" [ngClass]="pokemon.color"
-                      ngClass="{ {{pokemon.color}} : selectedStat==='min'}">Min
+              <button class="btn rounded-pill" (click)="showStats('min')"
+                      [ngClass]="{ pokemonColor : selectedStat=='min'}">Min
               </button>
             </td>
             <td>
-              <button class="btn rounded-pill" (click)="showStats('max')" [ngClass]="pokemon.color"
-                      ngClass="{ {{pokemon.color}} : selectedStat==='min'}">Max
+              <button class="btn rounded-pill" (click)="showStats('max')"
+                      [ngClass]="{ pokemonColor : selectedStat=='max'}">Max
               </button>
             </td>
           </tr>
