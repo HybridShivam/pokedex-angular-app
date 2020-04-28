@@ -19,7 +19,8 @@
   padding-left: 5rem;
   margin-right: 0;
 }
-.bioDiv .inner{
+
+.bioDiv .inner {
   padding-left: 2rem;
 }
 
@@ -303,26 +304,39 @@
 //  //transform: scale(1);
 //  //transition: all 0.1s linear !important;
 //}
-@media(max-width: 991px){
-  .bioDiv{
+@media(max-width: 991px) {
+  .bioDiv {
     padding-left: 0 !important;
   }
-  .bioDiv .inner{
+  .bioDiv .inner {
     padding: 0 !important;
   }
   .ability {
     white-space: pre !important;
   }
-  table td{
+  table td {
     padding: 0.50rem;
   }
 }
 
-@media(max-width: 500px){
-  table td{
+@media(max-width: 500px) {
+  table td {
     padding: 0.50rem;
   }
-  .abilities{
+  .abilities {
     font-size: small !important;
+  }
+  .statDiv .inner{
+    padding-top: 1rem;
+  }
+}
+
+@media(max-width: 320px) {
+  .abilities {
+    font-size: x-small !important;
+  }
+  .statDiv .inner{
+    font-size: x-small !important;
+    padding-top: 1rem;
   }
 }
