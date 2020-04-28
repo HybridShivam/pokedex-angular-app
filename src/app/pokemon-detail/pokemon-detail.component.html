@@ -24,7 +24,7 @@
               <ng-container *ngIf="i==2"><br></ng-container>
               <span class="ability {{pokemon.color}}" [ngClass]="{'hiddenAbility':ability['is_hidden']}" role="button"
                     (click)="abilitySelect(i)" style="white-space:nowrap;"
-                    [ngStyle]="{'display':i==2?'inline-block':'unset','margin-top':i==2?'6px':'0px'}"
+                    [ngStyle]="{'display':i==2?'inline-block':'unset','margin-top':i==2?'5px':'0px'}"
                     data-toggle="modal" data-target="#abilityModal">{{ability['ability']['name']}}</span>
               <!--              <span class="dropdown-menu">Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </span>-->
           </span>
