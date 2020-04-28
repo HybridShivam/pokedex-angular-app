@@ -13,6 +13,10 @@
 
 }
 
+.bioDiv{
+  padding-right: 0;
+}
+
 .icon span {
   color: white;
 }
@@ -142,6 +146,7 @@
   .bioDiv {
     perspective: 400px; // Increases Effect
     margin: 4em auto;
+    padding-right: revert;
     width: 37em;
   }
 
