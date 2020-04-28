@@ -16,11 +16,11 @@
 
 .bioDiv {
   padding-right: 0;
-  padding-left: 0;
+  padding-left: 5rem;
   margin-right: 0;
 }
 .bioDiv .inner{
-  padding-left: 5rem;
+  padding-left: 2rem;
 }
 
 .icon span {
@@ -172,7 +172,7 @@
     margin: 4em auto;
     width: 37em;
     padding-left: 0;
-    padding-right: 70px;
+    padding-right: 5rem;
     -webkit-font-smoothing: antialiased !important;
     //-webkit-filter: blur(0);
     //-webkit-backface-visibility: hidden;
@@ -188,9 +188,6 @@
   .statDiv .inner {
     transition: .3s;
     transform: rotateY(-30deg);
-  }
-  .ability {
-    white-space: revert;
   }
 }
 
@@ -308,6 +305,12 @@
 //}
 @media(max-width: 991px){
   .bioDiv{
-    padding-right: revert;
+    padding-left: 0 !important;
+  }
+  .bioDiv .inner{
+    padding: 0 !important;
+  }
+  .ability {
+    white-space: pre !important;
   }
 }

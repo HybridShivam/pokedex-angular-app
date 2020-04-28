@@ -1,7 +1,10 @@
 <div class="col-12 fadeIn MainDiv" *ngIf="pokemon!==undefined">
   <button type="button" class="btn" routerLink="../"><i class="fa fa-arrow-left"></i></button>
   <h1 class="text-center text-capitalize">{{pokemon.name}}</h1>
-  <div class="justify-content-center text-center" style="margin-bottom: 20px"><span style="padding: 4px" class="text-capitalize {{pokemon.color}} rounded" *ngIf="pokemon.genera!=undefined">{{pokemon.genera[2]['genus']}}</span></div>
+  <div class="justify-content-center text-center" style="margin-bottom: 20px"><span style="padding: 4px"
+                                                                                    class="text-capitalize {{pokemon.color}} rounded"
+                                                                                    *ngIf="pokemon.genera!=undefined">{{pokemon.genera[2]['genus']}}</span>
+  </div>
   <div class="row">
     <div class="col-lg-4 bioDiv d-flex flex-wrap justify-content-center">
       <div class="inner">
@@ -18,9 +21,9 @@
             <td class="text-right font-weight-bold">Abilities</td>
             <td>
             <span class="abilities text-uppercase" *ngFor="let ability of pokemon.abilities; let i=index">
-<!--              <ng-container *ngIf="i==2"><br></ng-container>-->
+              <ng-container *ngIf="i==2"><br></ng-container>
               <span class="ability {{pokemon.color}}" [ngClass]="{'hiddenAbility':ability['is_hidden']}" role="button"
-                    (click)="abilitySelect(i)" style="white-space:nowrap;"
+                    (click)="abilitySelect(i)" style="white-space:nowrap;margin-top: 4px; display: inline-block;"
                     data-toggle="modal" data-target="#abilityModal">{{ability['ability']['name']}}</span>
               <!--              <span class="dropdown-menu">Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </span>-->
           </span>
@@ -103,7 +106,7 @@
     </div>
     <div class="col-lg-3 d-flex flex-wrap align-items-center">
       <img class="img-fluid mx-auto my-auto d-block fadeInOut" src="{{pokemonImageUrl}}" alt="" (load)="imagePreload()"
-           [ngClass]="{fade: !imageLoading}">
+           [ngClass]="{fade: !imageLoading}" style="z-index: 994!important;">
     </div>
     <div class="col-lg-4 statDiv my-auto mx-auto d-flex flex-wrap justify-content-center">
       <div class="inner">
@@ -128,7 +131,7 @@
           </tr>
           <tr>
             <td class="text-right font-weight-bold" style="white-space:nowrap;">HP</td>
-            <td style="width: 300px" colspan="3">
+            <td style="width: auto" colspan="3">
               <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
                      aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
