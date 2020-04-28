@@ -193,7 +193,7 @@ body {
 }
 
 // angular perfect scrollbar style
-@media(min-width: 476px) {
+@media (pointer:fine){
   .sidebar .ps.ps--scrolling-y > .ps__rail-y,
   .sidebar > .ps.ps--scrolling-x > .ps__rail-x,
   .ps .ps__rail-x:hover,
@@ -218,24 +218,24 @@ body {
     opacity: .5;
 
   }
-}
 
-////ScrollBar
-::-webkit-scrollbar {
-  width: 6px;
-}
+  ////ScrollBar
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 }
