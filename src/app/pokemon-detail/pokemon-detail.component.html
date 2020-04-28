@@ -1,7 +1,7 @@
 <div class="col-12 fadeIn MainDiv" *ngIf="pokemon!==undefined">
   <button type="button" class="btn" routerLink="../"><i class="fa fa-arrow-left"></i></button>
   <h1 class="text-center text-capitalize">{{pokemon.name}}</h1>
-  <h3 class="text-center text-capitalize">{{pokemon.genera[2]['genus']}}</h3>
+  <h3 class="text-center text-capitalize" *ngIf="pokemon.genera!=undefined">{{pokemon.genera[2]['genus']}}</h3>
   <div class="row">
     <div class="col-lg-4 bioDiv">
       <div class="inner">
@@ -201,10 +201,10 @@
               <h5 class="col-12 text-uppercase text-center"
                   id="exampleModalLongTitle">{{abilities[abilitySelected]['name']}}</h5>
             </div>
-<!--            <div class="row" *ngIf="pokemon.abilities[abilitySelected]['is_hidden']">-->
-              <span class="{{pokemon.color}} rounded justify-content-center" style="padding: 4px 6px"
-                    *ngIf="pokemon.abilities[abilitySelected]['is_hidden']">HIDDEN</span>
-<!--            </div>-->
+            <!--            <div class="row" *ngIf="pokemon.abilities[abilitySelected]['is_hidden']">-->
+            <span class="{{pokemon.color}} rounded justify-content-center" style="padding: 4px 6px"
+                  *ngIf="pokemon.abilities[abilitySelected]['is_hidden']">HIDDEN</span>
+            <!--            </div>-->
           </div>
           <hr style="margin-top: 10px;margin-bottom: 5px">
         </div>
