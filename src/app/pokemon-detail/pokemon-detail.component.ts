@@ -51,8 +51,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
           this.pokemon.color = response['color']['name'];
           this.pokemonService.activePokemon.next(this.pokemon);
           this.pokemon.genera = response['genera'];
-          console.log(response['genera']);
-          console.log('from list');
         }
       );
       // Directly From Link
@@ -84,7 +82,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
           this.pokemon.genera = results[1]['genera'];
           this.pokemonService.activePokemon.next(this.pokemon); // Why do i need this ???????????????????
           this.initializePokemonFields();
-          console.log(this.pokemon.genera + 'From Direct link');
         }
       );
     }
