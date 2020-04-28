@@ -318,4 +318,11 @@
   }
 }
 
-@media(max-width: )
+@media(max-width: 500px){
+  table td{
+    padding: 0.50rem;
+  }
+  .abilities{
+    font-size: small !important;
+  }
+}
