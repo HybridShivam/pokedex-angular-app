@@ -1,7 +1,8 @@
-.MainDiv{
+.MainDiv {
   font-family: 'AlleynW01-Regular', sans-serif;
   color: #1f1f1f;
 }
+
 //Type Box
 .icon {
   border-radius: 4px;
@@ -13,8 +14,13 @@
 
 }
 
-.bioDiv{
+.bioDiv {
   padding-right: 0;
+  padding-left: 0;
+  margin-right: 0;
+}
+.bioDiv .inner{
+  padding-left: 5rem;
 }
 
 .icon span {
@@ -51,6 +57,7 @@
   border-radius: 2px;
   padding: 2px 3px;
   margin-right: 6px;
+  white-space: nowrap;
 }
 
 //span .ability:hover {
@@ -146,7 +153,7 @@
   .bioDiv {
     perspective: 400px; // Increases Effect
     margin: 4em auto;
-    padding-right: revert;
+    //padding-right: revert;
     width: 37em;
   }
 
@@ -182,21 +189,26 @@
     transition: .3s;
     transform: rotateY(-30deg);
   }
+  .ability {
+    white-space: revert;
+  }
 }
 
 //Initial Stat Bar Color
-.progress{
+.progress {
   //height: 20px;
 }
-.progress-bar{
- background-color: white;
+
+.progress-bar {
+  background-color: white;
   width: 0;
   //height: 20px;
   font-size: 1rem;
   text-align: right;
   //transition: width 1s ease-in;
 }
-.progress-bar span{
+
+.progress-bar span {
   padding-right: 4px;
 }
 
@@ -205,70 +217,71 @@
 .black {
   background-color: #607d8b !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
+  transition: background-color 1000ms ease-in, width 1500ms ease-in-out;
 }
 
 .blue {
   background-color: #81d4fa !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
+  transition: background-color 1000ms ease-in, width 1500ms ease-in-out;
 }
 
 .brown {
   background-color: #bcaaa4 !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
+  transition: background-color 1000ms ease-in, width 1500ms ease-in-out;
 }
 
 .gray {
   background-color: #e0e0e0 !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
+  transition: background-color 1000ms ease-in, width 1500ms ease-in-out;
 }
 
 .green {
   background-color: #81c784 !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
+  transition: background-color 1000ms ease-in, width 1500ms ease-in-out;
 }
 
 .pink {
   background-color: #f8bbd0 !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
+  transition: background-color 1000ms ease-in, width 1500ms ease-in-out;
 }
 
 .purple {
   background-color: #e1bee7 !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
+  transition: background-color 1000ms ease-in, width 1500ms ease-in-out;
 }
 
 .red {
   background-color: #ff8a80 !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
+  transition: background-color 1000ms ease-in, width 1500ms ease-in-out;
 }
 
 .white {
   background-color: #e0e0e0 !important;
   color: dimgray !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
+  transition: background-color 1000ms ease-in, width 1500ms ease-in-out;
 }
 
 .yellow {
   background-color: #ffd600 !important;
   color: white !important;
-  transition: background-color 1000ms ease-in,width 1500ms ease-in-out;
+  transition: background-color 1000ms ease-in, width 1500ms ease-in-out;
 }
 
 
 // Colors For Abilities
-.modal-content{
-  -webkit-box-shadow: 0px 0px 9px 4px rgba(0,0,0,0.13);
-  -moz-box-shadow: 0px 0px 9px 4px rgba(0,0,0,0.13);
-  box-shadow: 0px 0px 9px 4px rgba(0,0,0,0.13);
+.modal-content {
+  -webkit-box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, 0.13);
+  -moz-box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, 0.13);
+  box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, 0.13);
 }
+
 .hiddenAbility {
   //color: white;
   //background-color: black;
@@ -293,3 +306,8 @@
 //  //transform: scale(1);
 //  //transition: all 0.1s linear !important;
 //}
+@media(max-width: 991px){
+  .bioDiv{
+    padding-right: revert;
+  }
+}
