@@ -13,10 +13,6 @@ export class SearchFilterPipe implements PipeTransform {
     if (searchFor === '' || !searchFor) {
       return pokemons;
     }
-    // let result = [];
     return pokemons.filter(pokemon => pokemon.name.indexOf(searchFor.toLowerCase()) > -1);
-    // for (let pokemon of pokemons) {
-    //   if (pokemons.name)
-    //     }
   }
 }
