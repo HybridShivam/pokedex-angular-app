@@ -30,6 +30,7 @@ export class SidebarComponent implements OnInit, DoCheck {
 
   ngDoCheck(): void {
     this.sidebarservice.searchItemSubject.next(this.searchItem);
+    console.log('seearching');
   }
 
   getSideBarState() {

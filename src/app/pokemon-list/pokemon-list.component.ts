@@ -36,15 +36,16 @@ export class PokemonListComponent implements OnInit, OnDestroy {
           this.noOfPokemonLoaded = response;
         }
       );
-      this.searchItemSubscription = this.sidebarService.searchItemSubject.subscribe(
-        (response) => {
-          this.searchItem = response;
-        }
-      );
     }
+    this.searchItemSubscription = this.sidebarService.searchItemSubject.subscribe(
+      (response) => {
+        this.searchItem = response;
+      }
+    );
   }
 
   ngOnDestroy(): void {
+    this.searchItemSubscription.unsubscribe();
     // console.log('List Destroyed');
   }
 
