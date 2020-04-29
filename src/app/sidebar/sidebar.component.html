@@ -23,7 +23,7 @@
       <div class="sidebar-search">
         <div>
           <div class="input-group">
-            <input type="search" (keyup.enter)="searchEnter()" class="form-control search-menu" #searchBar
+            <input type="search" (keyup.enter)="searchEnter()" (keydown.escape)="searchEnter()" class="form-control search-menu" #searchBar
                    placeholder="Search..." [(ngModel)]="searchItem">
             <div class="input-group-append">
               <span class="input-group-text">
