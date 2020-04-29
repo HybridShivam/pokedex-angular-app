@@ -1,6 +1,7 @@
-import {Component, DoCheck, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, DoCheck, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {trigger, state, style, transition, animate} from '@angular/animations';
 import {SidebarService} from './sidebar.service';
+import {LocationStrategy} from '@angular/common';
 
 // import { MenusService } from './menus.service';
 
@@ -21,7 +22,7 @@ export class SidebarComponent implements OnInit, DoCheck {
   searchItem = '';
   @ViewChild('searchBar') searchBar: ElementRef;
 
-  constructor(public sidebarservice: SidebarService) {
+  constructor(public sidebarservice: SidebarService, private locationStrategy: LocationStrategy) {
     this.menus = sidebarservice.getMenuList();
   }
 
@@ -69,6 +70,15 @@ export class SidebarComponent implements OnInit, DoCheck {
       this.sidebarservice.toggle();
       this.searchBar.nativeElement.blur();
     }
+  }
+
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event) {
+    history.pushState(null, null, location.href);
+    this.locationStrategy.onPopState(() => {
+      history.pushState(null, null, location.href);
+      this.searchEnter();
+    });
   }
 
 }
