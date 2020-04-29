@@ -33,27 +33,27 @@
           </div>
         </div>
       </div>
-      <div class="sidebar-menu">
-        <ul>
-          <li *ngFor="let menu of menus" [ngClass]="{'active': menu.active , 'sidebar-dropdown':menu.type === 'dropdown' , 'header-menu':menu.type === 'header'}">
-            <span *ngIf="menu.type === 'header'">{{menu.title}}</span>
-            <a *ngIf="menu.type !== 'header'" href="#" (click)='toggle(menu)'>
-              <i class="{{menu.icon}}"></i>
-              <span>{{menu.title}}</span>
-              <span *ngIf="menu.badge" class="badge badge-pill" [ngClass]="menu.badge.class">{{menu.badge.text}}</span>
-            </a>
-            <div *ngIf="menu.type === 'dropdown'" class="sidebar-submenu" [@slide]="getState(menu)">
-              <ul>
-                <li *ngFor="let submenu of menu.submenus">
-                  <a href="#"> {{submenu.title}}
-                    <span *ngIf="submenu.badge" class="badge badge-pill" [ngClass]="submenu.badge.class">{{submenu.badge.text}}</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </div>
+<!--      <div class="sidebar-menu">-->
+<!--        <ul>-->
+<!--          <li *ngFor="let menu of menus" [ngClass]="{'active': menu.active , 'sidebar-dropdown':menu.type === 'dropdown' , 'header-menu':menu.type === 'header'}">-->
+<!--            <span *ngIf="menu.type === 'header'">{{menu.title}}</span>-->
+<!--            <a *ngIf="menu.type !== 'header'" href="#" (click)='toggle(menu)'>-->
+<!--              <i class="{{menu.icon}}"></i>-->
+<!--              <span>{{menu.title}}</span>-->
+<!--              <span *ngIf="menu.badge" class="badge badge-pill" [ngClass]="menu.badge.class">{{menu.badge.text}}</span>-->
+<!--            </a>-->
+<!--            <div *ngIf="menu.type === 'dropdown'" class="sidebar-submenu" [@slide]="getState(menu)">-->
+<!--              <ul>-->
+<!--                <li *ngFor="let submenu of menu.submenus">-->
+<!--                  <a href="#"> {{submenu.title}}-->
+<!--                    <span *ngIf="submenu.badge" class="badge badge-pill" [ngClass]="submenu.badge.class">{{submenu.badge.text}}</span>-->
+<!--                  </a>-->
+<!--                </li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </div>-->
     </perfect-scrollbar>
   </div>
 <!--  <div class="sidebar-footer">-->
