@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {PokemonService} from '../shared/pokemon.service';
 import {Pokemon} from '../shared/pokemon.model';
 import {forkJoin} from 'rxjs';
+import {summaryFileName} from '@angular/compiler/src/aot/util';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -210,6 +211,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
 
   abilitySelect(no: number) {
     this.abilitySelected = no;
+  }
+
+  totalBaseStats() {
+    return (this.pokemonStats[0] + this.pokemonStats[1] + this.pokemonStats[2] + this.pokemonStats[3]
+      + this.pokemonStats[4] + this.pokemonStats[5]);
   }
 
   ngOnDestroy() {
