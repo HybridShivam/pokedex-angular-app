@@ -31,6 +31,7 @@ export class SidebarComponent implements OnInit, DoCheck {
     this.sidebarservice.searchItemSubject.subscribe(response => {
       this.searchItem = response;
     });
+    console.log("Back Observable Created");
     // Subscribe to back  navigation
     this.locationStrategy.onPopState(() => {
       // Override If and Only If When Mobile and Sidebar is open
