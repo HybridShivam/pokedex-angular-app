@@ -24,6 +24,19 @@
   //padding-left: 2rem;
 }
 
+.statDiv {
+  padding-left: 0;
+  padding-right: 3rem !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.statDiv .inner{
+  //padding-right: 3rem;
+}
+.progress {
+  //width: 300px;
+}
+
 
 // Type Icons
 .icon span {
@@ -306,6 +319,12 @@
 //  //transform: scale(1);
 //  //transition: all 0.1s linear !important;
 //}
+
+
+//@media (min-width: 992px){
+//
+//  }
+//}
 @media(max-width: 991px) {
   .bioDiv {
     padding-left: 0 !important;
@@ -328,7 +347,7 @@
   .abilities {
     font-size: small !important;
   }
-  .statDiv .inner{
+  .statDiv .inner {
     padding-top: 1rem;
   }
 }
@@ -337,7 +356,7 @@
   .abilities {
     font-size: x-small !important;
   }
-  .statDiv .inner{
+  .statDiv .inner {
     font-size: x-small !important;
     padding-top: 1rem;
   }
