@@ -64,4 +64,10 @@ export class SidebarComponent implements OnInit, DoCheck {
     return this.sidebarservice.hasBackgroundImage;
   }
 
+  searchEnter() {
+    if (screen.width <= 768) {
+      this.sidebarservice.toggle();
+    }
+  }
+
 }
