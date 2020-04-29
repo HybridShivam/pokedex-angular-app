@@ -74,15 +74,20 @@ export class SidebarComponent implements OnInit, DoCheck {
 
   @HostListener('window:popstate', ['$event'])
   onPopState(event) {
-    if (screen.width <= 768 && !(this.sidebarservice.getSidebarState())) {
-      //Override Back Key
-      history.pushState(null, null, location.href);
-      this.locationStrategy.onPopState(() => {
+    console.log(this.sidebarservice.getSidebarState());
+
+    // Override Back Key
+    console.log('Override Back Key');
+    // history.pushState(null, null, location.href);
+    this.locationStrategy.onPopState(() => {
+      // Override Only When Mobile and Sidebar is open
+      if (screen.width <= 768 && (this.sidebarservice.getSidebarState() === false)) {
         history.pushState(null, null, location.href);
         this.searchEnter();
         console.log('BackOverride');
-      });
-    }
+      }
+    });
   }
+
 
 }
