@@ -82,15 +82,15 @@ export class SidebarComponent implements OnInit, DoCheck {
     }
   }
 
-  // @HostListener('window:popstate', ['$event'])
-  // onPopState(event) {
-  //   console.log(this.sidebarservice.getSidebarState());
-  //
-  //   // Override Back Key
-  //   console.log('Override Back Key');
-  //   // history.pushState(null, null, location.href);
-  //
-  // }
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event) {
+    console.log(this.sidebarservice.getSidebarState());
+
+    // Override Back Key
+    console.log('Override Back Key');
+    history.pushState(null, null, location.href);
+
+  }
 
 
 }
