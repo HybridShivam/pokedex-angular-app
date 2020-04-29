@@ -18,6 +18,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {FormsModule} from '@angular/forms';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
+import { SearchFilterPipe } from './search-filter.pipe';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -31,6 +32,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PokemonListComponent,
     PokemonItemComponent,
     PokemonDetailComponent,
+    SearchFilterPipe,
   ],
   imports: [
     BrowserModule,
