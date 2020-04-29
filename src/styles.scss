@@ -17,6 +17,11 @@ body {
   user-select: none;            /* Non-prefixed version,
 								  currently supported by Chrome and Opera */
 }
+//Disable Horizontal Scrolling
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
 .modal-backdrop{
   z-index: 995 !important;
