@@ -219,7 +219,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
       + this.pokemonStats[4] + this.pokemonStats[5]);
   }
 
-  goBack(){
+  goBack() {
     this.location.back();
   }
 
