@@ -26,11 +26,13 @@ export class SidebarComponent implements OnInit, DoCheck {
   }
 
   ngOnInit() {
+    this.sidebarservice.searchItemSubject.subscribe(response => {
+      this.searchItem = response;
+    });
   }
 
   ngDoCheck(): void {
     this.sidebarservice.searchItemSubject.next(this.searchItem);
-    console.log('seearching');
   }
 
   getSideBarState() {
