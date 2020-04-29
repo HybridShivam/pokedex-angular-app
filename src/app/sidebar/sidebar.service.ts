@@ -13,7 +13,7 @@ export class SidebarService {
 
   menus = [
     {
-      title: 'general',
+      title: 'General',
       type: 'header'
     },
     {
