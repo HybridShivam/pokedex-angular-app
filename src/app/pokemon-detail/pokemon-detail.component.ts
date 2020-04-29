@@ -33,7 +33,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   allAbilitiesReceived = false;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private pokemonService: PokemonService) {
+              private pokemonService: PokemonService,
+              private location: Location) {
   }
 
   ngOnInit(): void {
