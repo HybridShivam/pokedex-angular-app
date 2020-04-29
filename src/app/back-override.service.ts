@@ -13,7 +13,7 @@ export class BackOverrideService {
       // Override If and Only If When Mobile and Sidebar is open
       if (screen.width <= 768 && (this.sidebarservice.getSidebarState() === false)) {
         history.pushState(null, null, location.href);
-        this..searchEnter();
+        // this..searchEnter();
         console.log('BackOverride');
       }
     });
