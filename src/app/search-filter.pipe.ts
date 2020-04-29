@@ -6,8 +6,17 @@ import {Pokemon} from './shared/pokemon.model';
 })
 export class SearchFilterPipe implements PipeTransform {
 
-  transform(value: Pokemon[], searchFor: string): unknown {
-    return null;
+  transform(pokemons: Pokemon[], searchFor: string) {
+    if (!pokemons) {
+      return [];
+    }
+    if (searchFor === '' || !searchFor) {
+      return pokemons;
+    }
+    // let result = [];
+    return pokemons.filter(pokemon => pokemon.name.toLowerCase().indexOf(searchFor) > -1);
+    // for (let pokemon of pokemons) {
+    //   if (pokemons.name)
+    //     }
   }
-
 }
