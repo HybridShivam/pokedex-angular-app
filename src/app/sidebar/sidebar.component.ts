@@ -1,4 +1,4 @@
-import {Component, DoCheck, OnInit} from '@angular/core';
+import {Component, DoCheck, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {trigger, state, style, transition, animate} from '@angular/animations';
 import {SidebarService} from './sidebar.service';
 
@@ -19,7 +19,7 @@ import {SidebarService} from './sidebar.service';
 export class SidebarComponent implements OnInit, DoCheck {
   menus = [];
   searchItem = '';
-
+  @ViewChild('searchBar') searchBar: ElementRef;
 
   constructor(public sidebarservice: SidebarService) {
     this.menus = sidebarservice.getMenuList();
@@ -67,6 +67,7 @@ export class SidebarComponent implements OnInit, DoCheck {
   searchEnter() {
     if (screen.width <= 768) {
       this.sidebarservice.toggle();
+      this.searchBar.nativeElement.blur();
     }
   }
 
