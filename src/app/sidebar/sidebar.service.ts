@@ -163,6 +163,13 @@ export class SidebarService {
 
   setSidebarState(state: boolean) {
     this.toggled = state;
+    if (screen.width > 991 && screen.width <= 1200) {
+      if (this.toggled !== true) {
+        this.document.body.classList.add('FixScrolling');
+      } else {
+        this.document.body.classList.remove('FixScrolling');
+      }
+    }
     if (screen.width <= 768) {
       if (this.toggled !== true) {
         this.document.body.classList.add('FixScrolling');
