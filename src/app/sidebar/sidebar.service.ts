@@ -8,7 +8,7 @@ import {Subject} from 'rxjs';
 export class SidebarService {
   toggled = true;
   // Default Value
-  _hasBackgroundImage = true;
+  _hasBackgroundImage = false;
   @Output() searchItemSubject: Subject<string> = new Subject<string>();
 
   menus = [
