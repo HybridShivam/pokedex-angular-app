@@ -2,6 +2,7 @@ import {Component, DoCheck, ElementRef, HostListener, OnInit, ViewChild} from '@
 import {trigger, state, style, transition, animate} from '@angular/animations';
 import {SidebarService} from './sidebar.service';
 import {LocationStrategy} from '@angular/common';
+import {Subscription} from 'rxjs';
 
 // import { MenusService } from './menus.service';
 
@@ -32,7 +33,7 @@ export class SidebarComponent implements OnInit, DoCheck {
     });
     // Subscribe to back  navigation
     this.locationStrategy.onPopState(() => {
-      // Override Only When Mobile and Sidebar is open
+      // Override If and Only If When Mobile and Sidebar is open
       if (screen.width <= 768 && (this.sidebarservice.getSidebarState() === false)) {
         history.pushState(null, null, location.href);
         this.searchEnter();
