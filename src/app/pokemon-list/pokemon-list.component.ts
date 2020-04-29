@@ -45,6 +45,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.sidebarService.searchItemSubject.next('');
     this.searchItemSubscription.unsubscribe();
     // console.log('List Destroyed');
   }
