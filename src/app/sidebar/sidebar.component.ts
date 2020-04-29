@@ -42,9 +42,10 @@ export class SidebarComponent implements OnInit, DoCheck {
       if (screen.width <= 768 && (this.sidebarservice.getSidebarState() === false)) {
         history.pushState(null, null, window.location.pathname);
         this.searchEnter();
+        window.history.forward();
         console.log('BackOverride');
       }
-      history.pushState(null, null, window.location.pathname);
+      // history.pushState(null, null, window.location.pathname);
     });
   }
 
