@@ -1,4 +1,4 @@
-import {DoCheck, Inject, Injectable, OnDestroy, OnInit, Output} from '@angular/core';
+import {DoCheck, HostListener, Inject, Injectable, OnDestroy, OnInit, Output} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {Subject} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -220,4 +220,11 @@ export class SidebarService {
   set hasBackgroundImage(hasBackgroundImage) {
     this._hasBackgroundImage = hasBackgroundImage;
   }
+
+  // Prevent from exiting app by hook into document backbutton
+  @HostListener('document:backbutton', ['$event'])
+  onPopState(event) {
+    alert('Start page');
+  }
+
 }
