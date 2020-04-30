@@ -29,6 +29,7 @@ export class RouteGuard implements CanActivate, CanActivateChild, CanDeactivate<
       console.log('Sidebar Close');
       // history.pushState(null, null, window.location.href);
       this.sidebarService.toggle();
+      this.router.navigate([this.activatedRoute]);
       return false;
     } else {
       console.log('Normal Routing');
