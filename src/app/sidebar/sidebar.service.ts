@@ -150,7 +150,7 @@ export class SidebarService {
     //     this.document.body.classList.remove('FixScrolling');
     //   }
     // }
-    this.router.navigate(['/']);
+    // this.router.navigate(['/']);
     if (screen.width <= 768) {
       this.toggled = true;
       if (this.toggled !== true) {
@@ -166,9 +166,9 @@ export class SidebarService {
     // console.log(history);
     // console.log('Toggled');
     // If Before Toggling Sidebar is closed push null history
-    // if (this.getSidebarState() === true) {
-    //   history.pushState(null, null, location.href);
-    // }
+    if (this.getSidebarState() === true) {
+      history.pushState(null, null, location.href);
+    }
     // if (this.getSidebarState() === false) {
     //   this.router.navigate(['/pokemon']);
     //   // console.log('Null History Added');
