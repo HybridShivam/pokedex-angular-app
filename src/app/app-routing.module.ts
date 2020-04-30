@@ -5,11 +5,11 @@ import {PokemonDetailComponent} from './pokemon-detail/pokemon-detail.component'
 import {RouteGuard} from './route.guard';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/pokemon', pathMatch: 'full'},
+  {path: '', canActivate: [RouteGuard], redirectTo: '/pokemon', pathMatch: 'full'},
   {
     path: 'pokemon', canActivate: [RouteGuard], component: PokemonListComponent
   },
-  {path: 'pokemon/:id',component: PokemonDetailComponent},
+  {path: 'pokemon/:id', canActivate: [RouteGuard], component: PokemonDetailComponent},
 ];
 
 @NgModule({
