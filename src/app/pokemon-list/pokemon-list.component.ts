@@ -24,6 +24,8 @@ export class PokemonListComponent implements OnInit, OnDestroy {
       this.pokemons = this.pokemonService.pokemons;
       this.noOfPokemonLoaded = this.pokemonService.noOfPokemonsLoaded;
     } else {
+      // For Back Button History Initially
+      history.pushState(null, null, location.href);
       // console.log('New PokemonListSubscription Created');
       this.pokemonListSubscription = this.pokemonService.pokemonsListChanged.subscribe(
         (response) => {
@@ -42,8 +44,6 @@ export class PokemonListComponent implements OnInit, OnDestroy {
         this.searchItem = response;
       }
     );
-    // For Back Button History Initially
-    history.pushState(null, null, location.href);
   }
 
   ngOnDestroy(): void {
