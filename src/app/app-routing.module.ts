@@ -7,7 +7,7 @@ import {RouteGuard} from './route.guard';
 const routes: Routes = [
   {path: '', redirectTo: '/pokemon', pathMatch: 'full'},
   {
-    path: 'pokemon', component: PokemonListComponent
+    path: 'pokemon', canActivate: [RouteGuard], component: PokemonListComponent
   },
   {path: 'pokemon/:id', canActivate: [RouteGuard], component: PokemonDetailComponent},
 ];

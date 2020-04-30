@@ -28,6 +28,8 @@ export class RouteGuard implements CanActivate, CanActivateChild, CanDeactivate<
       console.log('Override');
       return false;
     } else {
+      console.log('Sidebar State:' + this.sidebarService.getSidebarState());
+      console.log('True');
       return true;
     }
   }
