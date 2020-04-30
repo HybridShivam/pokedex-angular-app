@@ -161,9 +161,10 @@ export class SidebarService {
 
 
   toggle() {
+    console.log('Toggled');
     // If Before Toggling Sidebar is closed push null history
-    if (this.getSidebarState() === true) {
-      console.log("Null History Added");
+    if (this.getSidebarState() === false) {
+      console.log('Null History Added');
       history.pushState(null, null, window.location.href);
     }
     this.toggled = !this.toggled;
