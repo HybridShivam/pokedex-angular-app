@@ -101,7 +101,7 @@ export class HeaderComponent implements OnInit {
 
 
   typing($event) {
-    console.log("typing");
+    console.log('typing');
     this.sidebarservice.searchItemSubject.next(this.searchText);
   }
 
