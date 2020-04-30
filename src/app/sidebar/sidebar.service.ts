@@ -161,6 +161,10 @@ export class SidebarService {
 
 
   toggle() {
+    // If Before Toggling Sidebar is closed push null history
+    if (this.getSidebarState() === true) {
+      history.pushState(null, null, window.location.href);
+    }
     this.toggled = !this.toggled;
   }
 
