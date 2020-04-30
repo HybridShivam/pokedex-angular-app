@@ -26,6 +26,7 @@ export class RouteGuard implements CanActivate, CanActivateChild, CanDeactivate<
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (screen.width <= 768 && (this.sidebarService.getSidebarState() === false)) {
       console.log('Override');
+      this.sidebarService.toggle();
       return false;
     } else {
       console.log('Sidebar State:' + this.sidebarService.getSidebarState());
