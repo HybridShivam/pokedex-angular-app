@@ -11,15 +11,25 @@ import {
   UrlTree
 } from '@angular/router';
 import {Observable} from 'rxjs';
+import {SidebarService} from './sidebar/sidebar.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RouteGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad {
+
+  constructor(private sidebarService: SidebarService) {
+  }
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+    if (screen.width <= 768 && (this.sidebarService.getSidebarState() === false)) {
+      console.log('Override');
+      return false;
+    } else {
+      return true;
+    }
   }
 
   canActivateChild(
