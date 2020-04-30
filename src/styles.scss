@@ -18,10 +18,12 @@ body {
 								  currently supported by Chrome and Opera */
 }
 //Disable Horizontal Scrolling
-//html, body {
-//  max-width: 100%;
-//  overflow-x: hidden;
-//}
+@media (min-width: 769px) {
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
 // I love those lines man
 
 .modal-backdrop{
