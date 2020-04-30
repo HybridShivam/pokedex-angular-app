@@ -10,7 +10,7 @@ import {Meta} from '@angular/platform-browser';
 })
 export class HeaderComponent implements OnInit {
   color;
-  searchtext;
+  searchText;
 
 
   ngOnInit(): void {
