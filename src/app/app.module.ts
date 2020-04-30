@@ -1,3 +1,4 @@
+// import "@angular/compiler";
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -19,6 +20,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import { SearchFilterPipe } from './search-filter.pipe';
+
+// import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -42,7 +45,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BsDropdownModule.forRoot(),
     PerfectScrollbarModule,
     // Ng2SearchPipeModule,
-    FormsModule
+    FormsModule,
+    // BackButtonDisableModule.forRoot({
+    //   preserveScrollPosition: true
+    // })
   ],
   providers: [ {
     provide: PERFECT_SCROLLBAR_CONFIG,

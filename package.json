@@ -21,6 +21,7 @@
     "@angular/router": "~9.1.2",
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@ng-bootstrap/ng-bootstrap": "^6.0.3",
+    "angular-disable-browser-back-button": "^1.0.1",
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.5",
     "focus-visible": "^5.1.0",
