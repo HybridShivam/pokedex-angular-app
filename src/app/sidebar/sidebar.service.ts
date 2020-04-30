@@ -161,11 +161,13 @@ export class SidebarService {
 
 
   toggle() {
+    console.log(history);
     console.log('Toggled');
     // If Before Toggling Sidebar is closed push null history
     if (this.getSidebarState() === false) {
       console.log('Null History Added');
-      history.pushState(null, null, window.location.href);
+      history.forward();
+      history.pushState(null, null, '/pokemon');
     }
     this.toggled = !this.toggled;
   }

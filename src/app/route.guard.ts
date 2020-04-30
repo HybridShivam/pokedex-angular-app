@@ -18,7 +18,8 @@ import {SidebarService} from './sidebar/sidebar.service';
 })
 export class RouteGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad {
 
-  constructor(private sidebarService: SidebarService) {
+  constructor(private sidebarService: SidebarService, private location: Location) {
+    history.pushState(null, '/', window.location.href);
   }
 
   canActivate(
