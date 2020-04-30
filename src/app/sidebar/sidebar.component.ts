@@ -133,8 +133,10 @@ export class SidebarComponent implements OnInit, DoCheck {
 
   searchEnter() {
     if (screen.width <= 768 && this.sidebarservice.getSidebarState() === false) {
-      this.sidebarservice.toggle();
       this.searchBar.nativeElement.blur();
+      this.sidebarservice.toggle();
+      history.back();
+      // Miraculous Line Indeed
     }
   }
 
