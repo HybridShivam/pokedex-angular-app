@@ -15,7 +15,7 @@ import {HeaderComponent} from './header/header.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonItemComponent } from './pokemon-list/pokemon-item/pokemon-item.component';
 import {HttpClientModule} from '@angular/common/http';
-import {Ng2SearchPipeModule} from 'ng2-search-filter';
+// import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {FormsModule} from '@angular/forms';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import { SearchFilterPipe } from './search-filter.pipe';
@@ -41,7 +41,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HttpClientModule,
     BsDropdownModule.forRoot(),
     PerfectScrollbarModule,
-    Ng2SearchPipeModule,
+    // Ng2SearchPipeModule,
     FormsModule
   ],
   providers: [ {

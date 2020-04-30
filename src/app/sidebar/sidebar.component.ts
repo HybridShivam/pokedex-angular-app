@@ -69,21 +69,21 @@ export class SidebarComponent implements OnInit, DoCheck {
     this.sidebarservice.searchItemSubject.subscribe(response => {
       this.searchItem = response;
     });
-    console.log('Back Observable Created');
-    // Subscribe to back  navigation
-    history.pushState(null, null, window.location.href);
-    this.locationStrategy.onPopState(() => {
-      // Override If and Only If When Mobile and Sidebar is open
-      if (screen.width <= 768 && (this.sidebarservice.getSidebarState() === false)) {
-        // window.history.forward();
-        // history.pushState(null, null, window.location.href);
-        this.searchEnter();
-        window.history.forward();
-        // console.log('BackOverride');
-        history.go(0);
-      }
-      // history.pushState(null, null, window.location.pathname);
-    });
+    // console.log('Back Observable Created');
+    // // Subscribe to back  navigation
+    // history.pushState(null, null, window.location.href);
+    // this.locationStrategy.onPopState(() => {
+    //   // Override If and Only If When Mobile and Sidebar is open
+    //   if (screen.width <= 768 && (this.sidebarservice.getSidebarState() === false)) {
+    //     // window.history.forward();
+    //     // history.pushState(null, null, window.location.href);
+    //     this.searchEnter();
+    //     window.history.forward();
+    //     // console.log('BackOverride');
+    //     history.go(0);
+    //   }
+    //   // history.pushState(null, null, window.location.pathname);
+    // });
   }
 
 
