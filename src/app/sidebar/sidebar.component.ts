@@ -136,6 +136,7 @@ export class SidebarComponent implements OnInit, DoCheck {
       this.searchBar.nativeElement.blur();
       this.sidebarservice.toggle();
       if (this.searchItem !== '') {
+        // history.pushState(null, null, window.location.href);
         history.back();
       }
       // Miraculous Line Indeed
