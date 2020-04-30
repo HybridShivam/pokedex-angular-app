@@ -1,6 +1,7 @@
 import {DoCheck, Inject, Injectable, OnDestroy, OnInit, Output} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {Subject} from 'rxjs';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -141,7 +142,7 @@ export class SidebarService {
     },
   ];
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
+  constructor(@Inject(DOCUMENT) private document: Document, private router: Router, private activatedRoute: ActivatedRoute) {
     // if (screen.width > 991 && screen.width <= 1200) {
     //   if (this.toggled !== true) {
     //     this.document.body.classList.add('FixScrolling');
@@ -161,13 +162,14 @@ export class SidebarService {
 
 
   toggle() {
-    console.log(history);
-    console.log('Toggled');
+    // console.log(history);
+    // console.log('Toggled');
     // If Before Toggling Sidebar is closed push null history
     if (this.getSidebarState() === false) {
-      console.log('Null History Added');
-      history.forward();
-      history.pushState(null, null, '/pokemon');
+      this.router.navigate(['/']);
+      // console.log('Null History Added');
+      // history.forward();
+      // history.pushState(null, null, '/pokemon');
     }
     this.toggled = !this.toggled;
   }

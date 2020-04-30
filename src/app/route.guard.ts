@@ -8,7 +8,7 @@ import {
   UrlSegment,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
-  UrlTree
+  UrlTree, Router, ActivatedRoute
 } from '@angular/router';
 import {Observable} from 'rxjs';
 import {SidebarService} from './sidebar/sidebar.service';
@@ -18,8 +18,8 @@ import {SidebarService} from './sidebar/sidebar.service';
 })
 export class RouteGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad {
 
-  constructor(private sidebarService: SidebarService, private location: Location) {
-    history.pushState(null, '/', window.location.href);
+  constructor(private sidebarService: SidebarService, private router: Router, private activatedRoute: ActivatedRoute) {
+    // history.pushState(null, '/', window.location.href);
   }
 
   canActivate(
@@ -27,11 +27,10 @@ export class RouteGuard implements CanActivate, CanActivateChild, CanDeactivate<
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (screen.width <= 768 && (this.sidebarService.getSidebarState() === false)) {
       console.log('Sidebar Close');
-      history.pushState(null, null, window.location.href);
+      // history.pushState(null, null, window.location.href);
       this.sidebarService.toggle();
       return false;
     } else {
-      console.log('Sidebar State:' + this.sidebarService.getSidebarState());
       console.log('Normal Routing');
       return true;
     }
