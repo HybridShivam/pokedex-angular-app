@@ -28,6 +28,8 @@ export class RouteGuard implements CanActivate, CanActivateChild, CanDeactivate<
     if (screen.width <= 768 && (this.sidebarService.getSidebarState() === false)) {
       console.log('Sidebar Close');
       history.pushState(null, null, window.location.href);
+      // history.forward();
+      // history.back();
       this.sidebarService.toggle();
       // this.router.navigate([this.activatedRoute]);
       return false;

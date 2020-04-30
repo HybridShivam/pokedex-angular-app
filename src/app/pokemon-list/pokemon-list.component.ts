@@ -42,6 +42,8 @@ export class PokemonListComponent implements OnInit, OnDestroy {
         this.searchItem = response;
       }
     );
+    // For Back Button History Initially
+    history.pushState(null, null, location.href);
   }
 
   ngOnDestroy(): void {
