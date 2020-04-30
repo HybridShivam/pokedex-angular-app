@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {SidebarService} from '../sidebar/sidebar.service';
 import {PokemonService} from '../shared/pokemon.service';
 import {Meta} from '@angular/platform-browser';
-import {consoleTestResultHandler} from 'tslint/lib/test';
 
 @Component({
   selector: 'app-header',
