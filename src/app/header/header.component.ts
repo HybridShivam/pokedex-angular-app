@@ -10,7 +10,7 @@ import {Meta} from '@angular/platform-browser';
 })
 export class HeaderComponent implements OnInit {
   color;
-  searchText;
+  searchText = '';
 
 
   ngOnInit(): void {
@@ -97,6 +97,12 @@ export class HeaderComponent implements OnInit {
     this.meta.updateTag({name: 'theme-color', content: hexColor});
     this.meta.updateTag({name: 'msapplication-navbutton-color', content: hexColor});
     this.meta.updateTag({name: 'apple-mobile-web-app-status-bar-style', content: hexColor});
+  }
+
+
+  typing($event) {
+    console.log("typing");
+    this.sidebarservice.searchItemSubject.next(this.searchText);
   }
 
 }
