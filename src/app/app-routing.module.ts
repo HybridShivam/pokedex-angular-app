@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: 'pokemon', canActivate: [RouteGuard], component: PokemonListComponent
   },
-  {path: 'pokemon/:id', canActivate: [RouteGuard], component: PokemonDetailComponent},
+  {path: 'pokemon/:id',component: PokemonDetailComponent},
 ];
 
 @NgModule({
