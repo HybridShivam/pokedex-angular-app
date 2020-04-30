@@ -178,6 +178,13 @@ export class SidebarService {
     //   // history.pushState(null, null, '/pokemon');
     // }
     this.toggled = !this.toggled;
+    if (screen.width <= 768) {
+      if (this.toggled !== true) {
+        this.document.body.classList.add('FixScrolling');
+      } else {
+        this.document.body.classList.remove('FixScrolling');
+      }
+    }
   }
 
   getSidebarState() {
