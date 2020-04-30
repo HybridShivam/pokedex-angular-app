@@ -2,11 +2,7 @@ import {Component, DoCheck, ElementRef, HostListener, OnInit, ViewChild} from '@
 import {trigger, state, style, transition, animate} from '@angular/animations';
 import {SidebarService} from './sidebar.service';
 import {LocationStrategy} from '@angular/common';
-import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
-import {relativeToRootDirs} from '@angular/compiler-cli/src/transformers/util';
-import {root} from 'rxjs/internal-compatibility';
-
 // import { MenusService } from './menus.service';
 
 @Component({
