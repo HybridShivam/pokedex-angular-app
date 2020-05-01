@@ -86,7 +86,7 @@ export class HeaderComponent implements OnInit {
         break;
       }
       case 'white': {
-        hexColor = '#e0e0e0';
+        hexColor = '#e9f1f7';
         break;
       }
       case 'yellow': {
