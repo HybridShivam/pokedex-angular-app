@@ -29,7 +29,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
       // console.log('New PokemonListSubscription Created');
       this.pokemonListSubscription = this.pokemonService.pokemonsListChanged.subscribe(
         (response) => {
-          this.pokemons = response.slice(0, this.noOfPokemonLoaded);
+          this.pokemons = response.slice(0, 50);
           // console.log('Pokemon List Subsciption : List Updated');
         }
       );
