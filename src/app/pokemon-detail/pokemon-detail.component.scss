@@ -168,7 +168,8 @@
   // BioDIv
   .bioDiv {
     perspective: 400px; // Increases Effect
-    margin: 4em auto;
+    //margin: 4em auto;
+    margin: auto 1rem;
     //padding-right: revert;
     width: 37em;
   }
@@ -188,7 +189,7 @@
     margin: 4em auto;
     width: 37em;
     padding-left: 0;
-    padding-right: 0;;
+    padding-right: 1rem;// Changed 0 earlier
     -webkit-font-smoothing: antialiased !important;
     //-webkit-filter: blur(0);
     //-webkit-backface-visibility: hidden;

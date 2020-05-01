@@ -6,8 +6,8 @@
     <span style="padding: 4px" class="text-capitalize {{pokemon.color}} rounded"
           *ngIf="pokemon.genera!=undefined">{{pokemon.genera[2]['genus']}}</span>
   </div>
-  <div class="row">
-    <div class="col-lg-4 bioDiv d-flex flex-wrap justify-content-center">
+  <div class="row justify-content-center">
+    <div class="col-lg-3 bioDiv d-flex flex-wrap justify-content-center">
       <div class="inner">
         <table class="table table-borderless">
           <tr>
@@ -104,11 +104,11 @@
         </table>
       </div>
     </div>
-    <div class="col-lg-4 d-flex flex-wrap align-items-center">
-      <img class="img-fluid mx-auto my-auto d-block fadeInOut" src="{{pokemonImageUrl}}" alt="" (load)="imagePreload()"
+    <div class="col-lg-5 d-flex flex-wrap align-items-center">
+      <img class="img-fluid mx-auto my-auto d-block fadeInOut" src="assets/img/6.png" alt="" (load)="imagePreload()"
            [ngClass]="{fade: !imageLoading}" style="z-index: 994!important;">
     </div>
-    <div class="col-lg-4 statDiv my-auto mx-auto d-flex flex-wrap justify-content-center">
+    <div class="col-lg-3 statDiv my-auto mx-auto d-flex flex-wrap justify-content-center">
       <div class="inner">
         <table class="table table-borderless">
           <tr>
