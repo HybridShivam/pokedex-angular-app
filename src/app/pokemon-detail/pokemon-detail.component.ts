@@ -32,7 +32,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   abilities = [];
   abilitySelected = 0;
   allAbilitiesReceived = false;
-  @ViewChild('myModal', { static: false }) myModal: ElementRef;
+  @ViewChild('myModal', {static: false}) myModal: ElementRef;
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService,
@@ -284,6 +284,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
 
   ngOnDestroy() {
     this.pokemonService.activePokemon.next(null);
-    // this.myModal.nativeElement.hide();
+    const body = document.getElementsByTagName('body')[0];
+    body.classList.remove('modal-open');
+    const elements = document.getElementsByClassName('modal-backdrop');
+    while (elements.length > 0) {
+      elements[0].remove();
+    }
   }
 }
