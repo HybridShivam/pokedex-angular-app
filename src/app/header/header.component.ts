@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   color;
   searchText = '';
   miracleCount = 0;
+  showSearch = true;
 
 
   ngOnInit(): void {
@@ -20,8 +21,10 @@ export class HeaderComponent implements OnInit {
       response => {
         if (response === null) {
           this.color = 'navbar';
+          this.showSearch = true;
         } else {
           this.color = response.color;
+          this.showSearch = false;
         }
         this.setTitleBarColor(this.color);
       }

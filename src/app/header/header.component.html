@@ -1,17 +1,23 @@
 <nav class="navbar sticky-top navbar-expand" id="header" [ngClass]="color">
   <ul class="navbar-nav mt-2">
-<!--    <li class="nav-link"><a class="mx-auto" (click)="toggleSidebar()" [ngClass]="{'collapsed':getSideBarState()}">-->
-<!--      <i class="fa fa-chevron-left" aria-hidden="true"></i>-->
-<!--    </a></li>-->
+    <!--    <li class="nav-link"><a class="mx-auto" (click)="toggleSidebar()" [ngClass]="{'collapsed':getSideBarState()}">-->
+    <!--      <i class="fa fa-chevron-left" aria-hidden="true"></i>-->
+    <!--    </a></li>-->
+<!--          <li class="nav-link">-->
+<!--            <button type="button" class="btn" ><i class="fa fa-arrow-left"></i></button>-->
+<!--          </li>-->
+
     <!--      <li class="nav-link">-->
     <!--        <a class="" (click)="toggleBackgroundImage()"><i class="fa fa-tree"></i></a>-->
     <!--      </li>-->
-    <li class="nav-item search-bar-form" *ngIf="">
+    <li class="nav-item search-bar-form" [ngClass]="{'search-fade': !showSearch}">
       <form>
         <div class="bg-light rounded rounded-pill shadow-sm align-content-center" style="max-width: 40vw">
           <div class="search-bar input-group rounded-pill" style="background-color: #f6f6f6">
-            <input name="search" autocomplete="off" placeholder="Search..." type="text" [(ngModel)]="searchText" (input)="typing($event)"
-                   aria-describedby="button-addon1" class="form-control border-0 rounded-pill" style="background-color: #f6f6f6">
+            <input name="search" autocomplete="off" placeholder="Search..." type="text" [(ngModel)]="searchText"
+                   (input)="typing($event)"
+                   aria-describedby="button-addon1" class="form-control border-0 rounded-pill"
+                   style="background-color: #f6f6f6">
             <div class="input-group-append" style="max-height: 26px">
               <button id="searchIcon" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i>
               </button>
