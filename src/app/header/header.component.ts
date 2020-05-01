@@ -107,7 +107,9 @@ export class HeaderComponent implements OnInit {
 
 
   typing($event) {
-    if (this.miracleCount < 2) {
+    if (this.miracleCount < 1) {
+      history.pushState(null, null, window.location.href);
+      history.back();
       history.pushState(null, null, window.location.href);
       history.back();
       this.miracleCount++;
