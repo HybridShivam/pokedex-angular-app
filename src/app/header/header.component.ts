@@ -116,12 +116,5 @@ export class HeaderComponent implements OnInit {
     this.setTitleBarColor(this.color);
     this.sidebarservice.searchItemSubject.next(this.searchText);
   }
-
-
-  // typingInDiv(text: string) {
-  //   console.log('typing');
-  //   this.setTitleBarColor(this.color);
-  //   this.sidebarservice.searchItemSubject.next(text);
-  // }
-
+  
 }
