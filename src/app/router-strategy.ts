@@ -24,7 +24,7 @@ export class CustomRouteReuseStrategy implements RouteReuseStrategy {
     /** Whether this route should be re used or not */
     let shouldReuse = false;
     console.log('[router-reuse] checking if this route should be re used or not', route);
-    if ( route.routeConfig.data ) {
+    if (route.routeConfig.data) {
       route.routeConfig.data.reuse ? shouldReuse = true : shouldReuse = false;
     }
 
@@ -34,9 +34,9 @@ export class CustomRouteReuseStrategy implements RouteReuseStrategy {
   /**
    * Stores the detached route.
    */
-  store( route: ActivatedRouteSnapshot, handler: DetachedRouteHandle ): void {
+  store(route: ActivatedRouteSnapshot, handler: DetachedRouteHandle): void {
     console.log('[router-reuse] storing handler');
-    if ( handler ) {
+    if (handler) {
       this.handlers[this.getUrl(route)] = handler;
     }
   }
@@ -56,7 +56,8 @@ export class CustomRouteReuseStrategy implements RouteReuseStrategy {
   retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle {
     if (!route.routeConfig || route.routeConfig.loadChildren) {
       return null;
-    };
+    }
+    ;
 
     return this.handlers[this.getUrl(route)];
   }
@@ -70,8 +71,8 @@ export class CustomRouteReuseStrategy implements RouteReuseStrategy {
     /** We only want to reuse the route if the data of the route config contains a reuse true boolean */
     let reUseUrl = false;
 
-    if ( future.routeConfig ) {
-      if (future.routeConfig.data ) {
+    if (future.routeConfig) {
+      if (future.routeConfig.data) {
         reUseUrl = future.routeConfig.data.reuse;
       }
     }
@@ -93,7 +94,7 @@ export class CustomRouteReuseStrategy implements RouteReuseStrategy {
    */
   getUrl(route: ActivatedRouteSnapshot): string {
     /** The url we are going to return */
-    if ( route.routeConfig ) {
+    if (route.routeConfig) {
       const url = route.routeConfig.path;
       console.log('[router-reuse] returning url', url);
 
