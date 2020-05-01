@@ -156,20 +156,14 @@
   padding-left: 0;
 }
 
+
+// My SearchBar
 .search-bar {
   margin-top: -7px !important;
-  max-height: 26px;
-
-  .form-control {
-    max-height: 26px;
-  }
 }
 
 
-#searchIcon {
-  padding: 0px 10px;
-}
-@media (max-width: 757px){
+@media (max-width: 575px){
   .search-bar {
     margin-top: -7px !important;
     max-height: 26px;
@@ -177,5 +171,8 @@
     .form-control {
       max-height: 26px;
     }
+  }
+  #searchIcon {
+    padding: 0px 10px;
   }
 }
