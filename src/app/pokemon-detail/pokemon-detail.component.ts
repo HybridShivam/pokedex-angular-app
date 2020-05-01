@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {PokemonService} from '../shared/pokemon.service';
@@ -32,6 +32,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   abilities = [];
   abilitySelected = 0;
   allAbilitiesReceived = false;
+  @ViewChild('myModal', { static: false }) myModal: ElementRef;
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService,
@@ -283,5 +284,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
 
   ngOnDestroy() {
     this.pokemonService.activePokemon.next(null);
+    // this.myModal.nativeElement.hide();
   }
 }

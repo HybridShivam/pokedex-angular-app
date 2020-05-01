@@ -199,15 +199,15 @@
     </div>
   </div>
   <!-- Ability Modal -->
-  <div class="modal fade" id="abilityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-       aria-hidden="true">
+  <div class="modal fade" id="abilityModal" tabindex="-1" role="dialog" aria-labelledby="abilityModal"
+       aria-hidden="true" #myModal>
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content" *ngIf="allAbilitiesReceived">
         <div class="">
           <div class="text-center">
             <div class="row" style="margin-top: 20px">
               <h5 class="col-12 text-uppercase text-center"
-                  id="exampleModalLongTitle">{{abilities[abilitySelected]['name']}}</h5>
+                  id="abilityModalTitle">{{abilities[abilitySelected]['name']}}</h5>
             </div>
             <span class="{{pokemon.color}} rounded justify-content-center" style="padding: 4px 6px"
                   *ngIf="pokemon.abilities[abilitySelected]['is_hidden']">HIDDEN</span>
@@ -232,4 +232,3 @@
     </div>
   </div>
 </div>
-
