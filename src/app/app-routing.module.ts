@@ -5,9 +5,15 @@ import {PokemonDetailComponent} from './pokemon-detail/pokemon-detail.component'
 import {RouteGuard} from './route.guard';
 
 const routes: Routes = [
-  {path: '', canActivate: [RouteGuard], redirectTo: '/pokemon', pathMatch: 'full', runGuardsAndResolvers: 'always'},
   {
-    path: 'pokemon', canActivate: [RouteGuard], component: PokemonListComponent, runGuardsAndResolvers: 'always'
+    path: '', canActivate: [RouteGuard], redirectTo: '/pokemon', pathMatch: 'full', runGuardsAndResolvers: 'always', data: {
+      reuse: true
+    }
+  },
+  {
+    path: 'pokemon', canActivate: [RouteGuard], component: PokemonListComponent, runGuardsAndResolvers: 'always', data: {
+      reuse: true
+    }
   },
   {path: 'pokemon/:id', canActivate: [RouteGuard], component: PokemonDetailComponent, runGuardsAndResolvers: 'always'}
 ];
