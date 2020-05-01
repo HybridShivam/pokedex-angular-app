@@ -113,8 +113,8 @@ export class HeaderComponent implements OnInit {
       history.back();
       this.miracleCount++;
     }
-    console.log('typing');
-    this.setTitleBarColor(this.color);
+    // console.log('typing');
+    // this.setTitleBarColor(this.color);
     this.sidebarservice.searchItemSubject.next(this.searchText);
   }
 }
