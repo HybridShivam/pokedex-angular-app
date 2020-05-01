@@ -162,23 +162,27 @@
   margin-top: -7px !important;
 }
 
-.search-bar-form{
+.search-bar-form {
   opacity: 1;
   transition: all 1s;
   visibility: visible;
 }
 
-.search-fade{
+.search-fade {
   opacity: 0;
   visibility: hidden;
 }
 
-.back-arrow{
+.back-arrow {
   margin: 0;
   padding-top: 0;
 }
 
-@media (max-width: 575px){
+@media (max-width: 575px) {
+  form {
+    padding-bottom: 0px;
+    padding-top: 5px !important;
+  }
   .search-bar {
     margin-top: -7px !important;
     max-height: 26px;
