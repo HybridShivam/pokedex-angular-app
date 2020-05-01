@@ -192,10 +192,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
     }
     for (let i = 0; i < 6; i++) {
       let calculatedStat = stats[i] / maxStat * 100;
-      if (calculatedStat > 10) {
+      if (calculatedStat > 15) {
         this.stats[i] = calculatedStat + '%';
       } else {
-        calculatedStat = 10;
+        calculatedStat = 15;
         this.stats[i] = calculatedStat + '%';
       }
     }
