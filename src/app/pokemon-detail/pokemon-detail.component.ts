@@ -40,6 +40,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   ngOnInit(): void {
+    // history.pushState(null, null, './../');
+    // history.back();
     // Initialization Logic after Pokemon Fetching in Both If and Else Conditions
     this.activatedRoute.params.subscribe(
       (params) => {

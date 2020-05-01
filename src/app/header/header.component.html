@@ -9,7 +9,7 @@
     <li class="nav-item">
       <form method="post">
         <div class="search-bar bg-light rounded rounded-pill shadow-sm align-content-center" style="max-width: 40vw">
-          <div class="input-group" (input)="typingInDiv(div.innerText)" style="max-height: 26px;overflow:hidden " #div>
+          <div class="input-group" style="max-height: 26px;overflow:hidden ">
             <!--            <div contenteditable="true" style="width: 100px;color:black">Search</div>-->
             <input name="search" autocomplete="off" placeholder="Search..." type="text" [(ngModel)]="searchText" (input)="typing($event)"
                    aria-describedby="button-addon1" class="form-control border-0 bg-light rounded-pill"

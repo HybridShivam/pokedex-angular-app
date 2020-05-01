@@ -11,9 +11,11 @@ import {Meta} from '@angular/platform-browser';
 export class HeaderComponent implements OnInit {
   color;
   searchText = '';
+  miracleCount = 0;
 
 
   ngOnInit(): void {
+
     this.color = this.pokemonService.activePokemon.subscribe(
       response => {
         if (response === null) {
@@ -105,15 +107,26 @@ export class HeaderComponent implements OnInit {
 
 
   typing($event) {
+    if (this.miracleCount < 2) {
+      history.pushState(null, null, window.location.href);
+      history.back();
+      this.miracleCount++;
+    }
     console.log('typing');
     this.setTitleBarColor(this.color);
     this.sidebarservice.searchItemSubject.next(this.searchText);
   }
 
-  typingInDiv(text: string) {
-    console.log('typing');
-    this.setTitleBarColor(this.color);
-    this.sidebarservice.searchItemSubject.next(text);
+  fixColors() {
+    history.pushState(null, null, window.location.href);
+    history.back();
   }
+
+
+  // typingInDiv(text: string) {
+  //   console.log('typing');
+  //   this.setTitleBarColor(this.color);
+  //   this.sidebarservice.searchItemSubject.next(text);
+  // }
 
 }
