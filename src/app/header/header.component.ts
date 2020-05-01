@@ -116,5 +116,4 @@ export class HeaderComponent implements OnInit {
     this.setTitleBarColor(this.color);
     this.sidebarservice.searchItemSubject.next(this.searchText);
   }
-  
 }
