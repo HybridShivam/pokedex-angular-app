@@ -162,6 +162,15 @@
   margin-top: -7px !important;
 }
 
+.search-bar-form{
+  opacity: 1;
+  transition: all 1s;
+}
+
+.search-fade{
+  opacity: 0;
+}
+
 
 @media (max-width: 575px){
   .search-bar {

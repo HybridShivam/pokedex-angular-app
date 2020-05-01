@@ -23,7 +23,6 @@ export class HeaderComponent implements OnInit {
         } else {
           this.color = response.color;
         }
-        console.log('Colored');
         this.setTitleBarColor(this.color);
       }
     );
