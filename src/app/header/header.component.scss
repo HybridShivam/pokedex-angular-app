@@ -176,6 +176,14 @@
 .back-arrow {
   margin: 0;
   padding-top: 0;
+  opacity: 1;
+  transition: all 1s;
+  visibility: visible;
+}
+
+.back-arrow-fade{
+  opacity: 0;
+  visibility: hidden;
 }
 
 @media (max-width: 575px) {
