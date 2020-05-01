@@ -117,11 +117,6 @@ export class HeaderComponent implements OnInit {
     this.sidebarservice.searchItemSubject.next(this.searchText);
   }
 
-  fixColors() {
-    history.pushState(null, null, window.location.href);
-    history.back();
-  }
-
 
   // typingInDiv(text: string) {
   //   console.log('typing');
