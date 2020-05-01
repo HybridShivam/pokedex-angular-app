@@ -165,12 +165,18 @@
 .search-bar-form{
   opacity: 1;
   transition: all 1s;
+  visibility: visible;
 }
 
 .search-fade{
   opacity: 0;
+  visibility: hidden;
 }
 
+.back-arrow{
+  margin: 0;
+  padding-top: 0;
+}
 
 @media (max-width: 575px){
   .search-bar {
