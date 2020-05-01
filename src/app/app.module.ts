@@ -20,6 +20,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {PokemonDetailComponent} from './pokemon-detail/pokemon-detail.component';
 import {SearchFilterPipe} from './search-filter.pipe';
+import {RouteReuseStrategy} from '@angular/router';
+import {CustomRouteReuseStrategy} from './router-strategy';
 
 // import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 
