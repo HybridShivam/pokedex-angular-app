@@ -94,7 +94,11 @@ export class HeaderComponent implements OnInit {
       }
 
     }
-    this.meta.updateTag({name: 'theme-color', content: hexColor});
+    const themeColor = this.meta.getTag('name=theme-color');
+    this.meta.removeTagElement(themeColor);
+    this.meta.addTag({name: 'theme-color', content: hexColor});
+    // this.meta.updateTag({name: 'theme-color', content: hexColor});
+    // document.querySelector('meta[name="theme-color"]').setAttribute('content', hexColor);
     this.meta.updateTag({name: 'msapplication-navbutton-color', content: hexColor});
     this.meta.updateTag({name: 'apple-mobile-web-app-status-bar-style', content: hexColor});
   }
@@ -102,7 +106,14 @@ export class HeaderComponent implements OnInit {
 
   typing($event) {
     console.log('typing');
+    this.setTitleBarColor(this.color);
     this.sidebarservice.searchItemSubject.next(this.searchText);
+  }
+
+  typingInDiv(text: string) {
+    console.log('typing');
+    this.setTitleBarColor(this.color);
+    this.sidebarservice.searchItemSubject.next(text);
   }
 
 }

@@ -154,5 +154,14 @@
 }
 
 .search-bar{
-  margin-top: -4px;
+  margin-top: -3px;
+}
+#searchIcon{
+  padding: 0px 10px;
+}
+div:focus {
+  box-shadow: none;
+}
+*:focus {
+  outline: none !important;
 }
