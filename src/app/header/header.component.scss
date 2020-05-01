@@ -64,6 +64,7 @@
     font-size: 1.3rem;
   }
 }
+
 @media (max-width: 316px) {
   .navbar {
     height: 2.3rem;
@@ -76,6 +77,7 @@
     font-size: 1.0rem;
   }
 }
+
 @media (max-width: 270px) {
   .navbar {
     height: 2.0rem;
@@ -140,6 +142,7 @@
   background-color: #ffd600 !important;
   color: white !important;
 }
+
 //////////////
 
 .form-control:focus {
@@ -153,15 +156,23 @@
   padding-left: 0;
 }
 
-.search-bar{
+.search-bar {
   margin-top: -7px !important;
+  max-height: 26px;
+
+  .form-control {
+    max-height: 26px;
+  }
 }
-#searchIcon{
+
+#searchIcon {
   padding: 0px 10px;
 }
+
 div:focus {
   box-shadow: none;
 }
+
 *:focus {
   outline: none !important;
 }
