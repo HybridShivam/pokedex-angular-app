@@ -2,7 +2,8 @@
 <!--  <button type="button" class="btn" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>-->
   <br>
   <h1 class="text-center text-capitalize">{{pokemon.name}}</h1>
-  <div class="justify-content-center text-center" style="margin-bottom: 20px">
+  <div class="justify-content-center text-center">
+<!--    Had Padding Buttom 20px-->
     <span style="padding: 4px" class="text-capitalize {{pokemon.color}} rounded"
           *ngIf="pokemon.genera!=undefined">{{pokemon.genera[2]['genus']}}</span>
   </div>
@@ -105,7 +106,7 @@
       </div>
     </div>
     <div class="col-lg-5 d-flex flex-wrap align-items-center">
-      <img class="img-fluid mx-auto my-auto d-block fadeInOut" src="assets/img/6.png" alt="" (load)="imagePreload()"
+      <img class="img-fluid mx-auto my-auto d-block fadeInOut" src="assets/sugimori/{{pokemon.id}}.png" alt="" (load)="imagePreload()"
            [ngClass]="{fade: !imageLoading}" style="z-index: 994!important;">
     </div>
     <div class="col-lg-3 statDiv my-auto mx-auto d-flex flex-wrap justify-content-center">
