@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {SidebarService} from '../sidebar/sidebar.service';
 import {PokemonService} from '../shared/pokemon.service';
 import {Meta} from '@angular/platform-browser';
 
@@ -31,24 +30,24 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  constructor(public sidebarservice: SidebarService, private pokemonService: PokemonService, private meta: Meta) {
+  constructor(private pokemonService: PokemonService, private meta: Meta) {
   }
 
-  toggleSidebar() {
-    this.sidebarservice.toggle();
-  }
-
-  toggleBackgroundImage() {
-    this.sidebarservice.hasBackgroundImage = !this.sidebarservice.hasBackgroundImage;
-  }
-
-  getSideBarState() {
-    return this.sidebarservice.getSidebarState();
-  }
-
-  hideSidebar() {
-    this.sidebarservice.setSidebarState(true);
-  }
+  // toggleSidebar() {
+  //   this.sidebarservice.toggle();
+  // }
+  //
+  // toggleBackgroundImage() {
+  //   this.sidebarservice.hasBackgroundImage = !this.sidebarservice.hasBackgroundImage;
+  // }
+  //
+  // getSideBarState() {
+  //   return this.sidebarservice.getSidebarState();
+  // }
+  //
+  // hideSidebar() {
+  //   this.sidebarservice.setSidebarState(true);
+  // }
 
   setTitleBarColor(color: string) {
     let hexColor = '#FFFFFF';
@@ -118,6 +117,6 @@ export class HeaderComponent implements OnInit {
     }
     // console.log('typing');
     // this.setTitleBarColor(this.color);
-    this.sidebarservice.searchItemSubject.next(this.searchText);
+    this.pokemonService.searchItemSubject.next(this.searchText);
   }
 }

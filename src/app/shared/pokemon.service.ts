@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, Output} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Pokemon} from './pokemon.model';
 import {Subject} from 'rxjs';
@@ -15,6 +15,7 @@ export class PokemonService {
   responseCounter = 0;
   totalCounter = 0;
   activePokemon = new Subject<Pokemon>();
+  @Output() searchItemSubject: Subject<string> = new Subject<string>();
 
 
   constructor(private http: HttpClient) {

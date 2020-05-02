@@ -1,7 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Pokemon} from '../shared/pokemon.model';
 import {PokemonService} from '../shared/pokemon.service';
-import {SidebarService} from '../sidebar/sidebar.service';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -16,7 +15,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   searchItem: string;
   searchItemSubscription;
 
-  constructor(private pokemonService: PokemonService, private sidebarService: SidebarService) {
+  constructor(private pokemonService: PokemonService) {
   }
 
   ngOnInit(): void {
@@ -39,7 +38,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
         }
       );
     }
-    this.searchItemSubscription = this.sidebarService.searchItemSubject.subscribe(
+    this.searchItemSubscription = this.pokemonService.searchItemSubject.subscribe(
       (response) => {
         this.searchItem = response;
       }
@@ -47,7 +46,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.sidebarService.searchItemSubject.next('');
+    this.pokemonService.searchItemSubject.next('');
     this.searchItemSubscription.unsubscribe();
     // console.log('List Destroyed');
   }
