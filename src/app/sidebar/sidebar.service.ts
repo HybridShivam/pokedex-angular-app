@@ -1,4 +1,4 @@
-import {DoCheck, Inject, Injectable, OnDestroy, OnInit, Output} from '@angular/core';
+import {Inject, Injectable, Output} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {Subject} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
