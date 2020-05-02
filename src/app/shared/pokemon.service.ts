@@ -75,6 +75,14 @@ export class PokemonService {
         //   return;
         // }
         // Testing End
+        // 151 Only
+        if (this.totalCounter === 200) {
+          this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 1;
+          this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
+          this.pokemonsListChanged.next(this.pokemons);
+          return;
+        }
+        // 151 Only
         if (this.totalCounter === 807) {
           this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 7;
           this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
@@ -86,11 +94,11 @@ export class PokemonService {
           this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
           this.pokemonsListChanged.next(this.pokemons);
           this.responseCounter = 0;
-          // 151 Only
-          if (this.totalCounter === 151) {
-            return;
-          }
-          // End
+          // // 151 Only
+          // if (this.totalCounter === 151) {
+          //   return;
+          // }
+          // // End
           if (morePokemons != null) {
             this.getPokemonList(morePokemons);
           }
