@@ -77,7 +77,7 @@ export class PokemonService {
         // }
         // Testing End
         // 151 Only
-        if (this.totalCounter === 200) {
+        if (this.totalCounter === 151) {
           this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 1;
           this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
           this.pokemonsListChanged.next(this.pokemons);
