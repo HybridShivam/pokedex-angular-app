@@ -70,7 +70,7 @@ export class HeaderComponent implements OnInit {
         break;
       }
       case 'gray': {
-        hexColor = '#e0e0e0';
+        hexColor = '#a6a6a6';
         break;
       }
       case 'green': {
