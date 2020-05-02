@@ -28,6 +28,11 @@ export class HeaderComponent implements OnInit {
         this.setTitleBarColor(this.color);
       }
     );
+    this.pokemonService.searchItemSubject.subscribe(
+      (response) => {
+        this.searchText = response;
+      }
+    );
   }
 
   constructor(private pokemonService: PokemonService, private meta: Meta) {
