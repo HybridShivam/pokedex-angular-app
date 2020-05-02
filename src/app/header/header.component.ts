@@ -136,13 +136,18 @@ export class HeaderComponent implements OnInit {
       history.back();
       this.miracleCount++;
     }
-    this._timeout = null;
-    // if (this._timeout) { //if there is already a timeout in process cancel it
-    //   window.clearTimeout(this._timeout);
-    // }
+    // this._timeout = null;
+    if (this._timeout) { //if there is already a timeout in process cancel it
+      window.clearTimeout(this._timeout);
+    }
     this._timeout = window.setTimeout(() => {
       this._timeout = null;
-      this.lc.run(() => this.pokemonService.searchItemSubject.next(this.searchText));
-    }, 1000);
+      this.lc.run(() => {
+          this.pokemonService.searchItemSubject.next(this.searchText);
+          console.log('filtered');
+        }
+      )
+      ;
+    }, 500);
   }
 }
