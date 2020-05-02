@@ -245,5 +245,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
     while (elements.length > 0) {
       elements[0].remove();
     }
+    this.pokemonService.searchItemSubject.next('');
   }
 }
