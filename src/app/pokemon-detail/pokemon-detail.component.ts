@@ -108,7 +108,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
         this.pad(this.pokemon.id, 3) + '.png';
     } else {
       // HD
-      this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/assets/images/' +
+      this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
         this.pad(this.pokemon.id, 3) + '.png';
     }
     this.heightInMetres = (this.pokemon.height * 0.1).toFixed(1);
