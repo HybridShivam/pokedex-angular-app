@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, NgZone, OnInit} from '@angular/core';
 import {PokemonService} from '../shared/pokemon.service';
 import {Meta} from '@angular/platform-browser';
 
@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   searchText = '';
   miracleCount = 0;
   showSearch = true;
+  _timeout: any = null;
 
 
   ngOnInit(): void {
@@ -35,7 +36,7 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  constructor(private pokemonService: PokemonService, private meta: Meta) {
+  constructor(private pokemonService: PokemonService, private meta: Meta, private lc: NgZone) {
   }
 
   // toggleSidebar() {
@@ -123,5 +124,25 @@ export class HeaderComponent implements OnInit {
     // console.log('typing');
     // this.setTitleBarColor(this.color);
     this.pokemonService.searchItemSubject.next(this.searchText);
+  }
+
+  typingStopped() {
+    if (this.miracleCount < 1) {
+      history.pushState(null, null, window.location.href);
+      history.back();
+      history.pushState(null, null, window.location.href);
+      history.back();
+      history.pushState(null, null, window.location.href);
+      history.back();
+      this.miracleCount++;
+    }
+    this._timeout = null;
+    // if (this._timeout) { //if there is already a timeout in process cancel it
+    //   window.clearTimeout(this._timeout);
+    // }
+    this._timeout = window.setTimeout(() => {
+      this._timeout = null;
+      this.lc.run(() => this.pokemonService.searchItemSubject.next(this.searchText));
+    }, 1000);
   }
 }
