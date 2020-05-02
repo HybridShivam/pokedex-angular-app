@@ -102,7 +102,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   initializePokemonFields() {
     this.requestAbilityDetails();
     // Conditionally Add HQ or Normal Images
-    if (this.pokemonId > 151) {
+    if (this.pokemon.id > 151) {
       // Normal
       this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/pokemon.json/master/images/' +
         this.pad(this.pokemon.id, 3) + '.png';
