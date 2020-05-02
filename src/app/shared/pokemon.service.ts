@@ -77,12 +77,12 @@ export class PokemonService {
         // }
         // Testing End
         // 151 Only
-        if (this.totalCounter === 151) {
-          this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 1;
-          this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
-          this.pokemonsListChanged.next(this.pokemons);
-          return;
-        }
+        // if (this.totalCounter === 150) {
+        //   this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 1;
+        //   this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
+        //   this.pokemonsListChanged.next(this.pokemons);
+        //   return;
+        // }
         // 151 Only
         if (this.totalCounter === 807) {
           this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 7;
