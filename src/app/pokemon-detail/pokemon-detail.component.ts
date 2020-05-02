@@ -70,7 +70,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
             results[0]['name'],
             results[0]['id'],
             results[0]['sprites'],
-            results[0]['types'],
+            results[0]['types'].reverse(),
             results[0]['abilities'].reverse(),
             results[0]['height'],
             results[0]['weight'],

@@ -43,7 +43,7 @@
             <td class="text-right font-weight-bold" style="vertical-align: middle;">Type</td>
             <td>
               <div class="row">
-                <div class="text-capitalize" *ngFor="let type of pokemon.types.reverse()">
+                <div class="text-capitalize" *ngFor="let type of pokemon.types">
                   <ng-container [ngSwitch]="type['type']['name']">
                     <div class="row icon bug" *ngSwitchCase="'bug'"><span class="col-8 text-white">Bug</span><span
                       class="col-4"><img class="img-fluid" src="assets/type-icons/bug.svg"></span></div>

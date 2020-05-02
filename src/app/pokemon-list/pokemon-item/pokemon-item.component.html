@@ -8,7 +8,7 @@
                style="padding: 0; bottom: 0">{{pokemon.name}}</div>
         </div>
         <div class="col-xs-5 col-3" style="padding: 0">
-          <ng-container *ngFor="let type of pokemon.types.reverse()">
+          <ng-container *ngFor="let type of pokemon.types">
             <ng-container [ngSwitch]="type['type']['name']">
               <div class="icon bug" *ngSwitchCase="'bug'"><img src="assets/type-icons/bug.svg"></div>
               <div class="icon dark" *ngSwitchCase="'dark'"><img src="assets/type-icons/dark.svg"></div>
