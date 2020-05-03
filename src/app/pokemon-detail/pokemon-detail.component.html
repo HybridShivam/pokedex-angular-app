@@ -255,7 +255,7 @@
           <ng-container *ngFor="let entry of pokemon.speciesDetails['flavor_text_entries']">
             <ng-container *ngIf="entry['language']['name']==='en'">
             <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
-                  style="padding: 4px; font-size: larger">Pokémon {{entry['version']['name']|titlecase}}</span>
+                  style="padding: 4px; font-size: larger">Pokémon {{entry['version']['name'].replace('-',' ')|titlecase}}</span>
               <p style="padding-top: 6px">{{entry['flavor_text'].replace('', ' ')}}</p>
             </ng-container>
           </ng-container>
