@@ -247,15 +247,19 @@
               <h5 class="col-12 text-uppercase text-center"
                   id="descModalTitle">{{pokemon.name}}</h5>
             </div>
-            <!--          <span class="{{pokemon.color}} rounded justify-content-center" style="padding: 4px 6px"-->
-            <!--                *ngIf="pokemon.species['flavor_text_entries'][2]['flavor_text']">HIDDEN</span>-->
+            <span class="{{pokemon.color}} rounded justify-content-center" style="padding: 4px 6px">Pokédex Entries</span>
           </div>
           <hr style="margin-top: 10px;margin-bottom: 5px">
         </div>
         <div class="modal-body justify-content-center text-center">
-          <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
-                style="padding: 4px; font-size: larger">Pokédex Entry</span>
-          <p style="padding-top: 6px">{{pokemon.speciesDetails['flavor_text_entries'][1]['flavor_text']}}</p>
+          <ng-container *ngFor="let entry of pokemon.speciesDetails['flavor_text_entries']">
+            <ng-container *ngIf="entry['language']['name']==='en'">
+            <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
+                  style="padding: 4px; font-size: larger">Pokémon {{entry['version']['name']|titlecase}}</span>
+              <p style="padding-top: 6px">{{entry['flavor_text'].replace('', ' ')}}</p>
+            </ng-container>
+          </ng-container>
+
           <!--        <span class="{{pokemon.color}} rounded text-center font-weight-bolder"-->
           <!--              style="padding: 4px; font-size: larger">EFFECT</span>-->
           <!--        <p style="padding-top: 6px">{{abilities[abilitySelected]['effect_entries'][0]['short_effect']}}</p>-->
