@@ -30,9 +30,11 @@
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
-.statDiv .inner{
+
+.statDiv .inner {
   //padding-right: 3rem;
 }
+
 .progress {
   //width: 300px;
 }
@@ -189,7 +191,7 @@
     margin: 4em auto;
     width: 37em;
     padding-left: 0;
-    padding-right: 1rem;// Changed 0 earlier
+    padding-right: 1rem; // Changed 0 earlier
     -webkit-font-smoothing: antialiased !important;
     //-webkit-filter: blur(0);
     //-webkit-backface-visibility: hidden;
@@ -304,6 +306,11 @@
   filter: brightness(110%) saturate(50%);
 }
 
+
+.genera:hover {
+  cursor: pointer;
+}
+
 //.fade {
 //  //transform: scale(0);
 //  //color: red;
@@ -354,7 +361,7 @@
   .statDiv {
     padding-right: 0 !important;
   }
-  #abilityModal{
+  #abilityModal {
     font-size: small !important;
   }
 }
