@@ -56,6 +56,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
       this.initializePokemonFields();
       this.pokemonService.getPokemonSpeciesById(this.pokemonId).subscribe(
         response => {
+          this.pokemon.speciesDetails = response;
           this.pokemon.color = response['color']['name'];
           this.pokemonService.activePokemon.next(this.pokemon);
           // this.setTitleBarColor(this.pokemon.color);
