@@ -32,7 +32,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   abilities = [];
   abilitySelected = 0;
   allAbilitiesReceived = false;
-  species;
 
   // @ViewChild('abilityModal', {static: false}) abilityModal: ElementRef;
 
@@ -86,13 +85,13 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
             results[0]['order'],
             results[0]['stats'],
             results[0]['species'],
+            results[1],
             results[1]['color']['name'],
             results[1]['genera']
           );
           this.pokemon.genera = results[1]['genera'];
           this.pokemonService.activePokemon.next(this.pokemon); // Why do i need this ???????????????????
           this.initializePokemonFields();
-          this.species = results[1];
         }
       );
     }
