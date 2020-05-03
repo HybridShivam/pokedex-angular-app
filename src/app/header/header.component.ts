@@ -137,7 +137,8 @@ export class HeaderComponent implements OnInit {
       this.miracleCount++;
     }
     // this._timeout = null;
-    if (this._timeout) { //if there is already a timeout in process cancel it
+    if (this._timeout) {
+      // if there is already a timeout in process cancel it
       window.clearTimeout(this._timeout);
     }
     this._timeout = window.setTimeout(() => {

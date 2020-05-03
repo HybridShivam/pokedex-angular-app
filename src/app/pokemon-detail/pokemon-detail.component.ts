@@ -239,12 +239,12 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
 
   ngOnDestroy() {
     this.pokemonService.activePokemon.next(null);
-    const body = document.getElementsByTagName('body')[0];
-    body.classList.remove('modal-open');
-    const elements = document.getElementsByClassName('modal-backdrop');
-    while (elements.length > 0) {
-      elements[0].remove();
-    }
+    // const body = document.getElementsByTagName('body')[0];
+    // body.classList.remove('modal-open');
+    // const elements = document.getElementsByClassName('modal-backdrop');
+    // while (elements.length > 0) {
+    //   elements[0].remove();
+    // }
     // this.pokemonService.searchItemSubject.next('');
   }
 }
