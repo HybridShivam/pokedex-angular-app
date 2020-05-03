@@ -21,6 +21,7 @@ import {PokemonDetailComponent} from './pokemon-detail/pokemon-detail.component'
 import {SearchFilterPipe} from './search-filter.pipe';
 import {RouteReuseStrategy} from '@angular/router';
 import {CustomRouteReuseStrategy} from './router-strategy';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 // import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 
@@ -44,6 +45,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HttpClientModule,
     BsDropdownModule.forRoot(),
     PerfectScrollbarModule,
+    ScrollingModule,
     // Ng2SearchPipeModule,
     FormsModule,
     // BackButtonDisableModule.forRoot({
