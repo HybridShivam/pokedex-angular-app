@@ -1,5 +1,10 @@
-<div class="row justify-content-center">
-  <app-pokemon-item *ngFor="let pokemon of pokemons | searchFilter: searchItem; let i = index;"
-                    [pokemon]="pokemon"></app-pokemon-item>
-</div>
+<!--<cdk-virtual-scroll-viewport style="height: 90vh" itemSize="100">-->
+<!--  <ng-container *cdkVirtualFor="let pokemon of pokemons | searchFilter: searchItem; let i = index;">-->
+<!--    <app-pokemon-item [pokemon]="pokemon"></app-pokemon-item>-->
+<!--  </ng-container>-->
+<!--</cdk-virtual-scroll-viewport>-->
 
+<div class="row justify-content-center">
+    <app-pokemon-item *ngFor="let pokemon of pokemons | searchFilter: searchItem; let i = index;"
+                      [pokemon]="pokemon"></app-pokemon-item>
+</div>
