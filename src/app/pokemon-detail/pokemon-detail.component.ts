@@ -32,7 +32,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   abilities = [];
   abilitySelected = 0;
   allAbilitiesReceived = false;
-  @ViewChild('myModal', {static: false}) myModal: ElementRef;
+  // @ViewChild('abilityModal', {static: false}) abilityModal: ElementRef;
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService,
