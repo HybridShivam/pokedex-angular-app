@@ -90,8 +90,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
             results[1]['color']['name'],
             results[1]['genera']
           );
+          this.pokemon.speciesDetails = results[1];
           this.pokemon.genera = results[1]['genera'];
-          this.pokemon.speciesDetails = results[1]; // Why do i need this ???????????????????
+           // Why do i need this ???????????????????
           this.pokemonService.activePokemon.next(this.pokemon);
           this.initializePokemonFields();
         }
