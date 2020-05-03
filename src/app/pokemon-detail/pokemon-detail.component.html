@@ -4,7 +4,7 @@
   <h1 class="text-center text-capitalize">{{pokemon.name}}</h1>
   <div class="justify-content-center text-center">
 <!--    Had Padding Buttom 20px-->
-    <span style="padding: 4px" class="text-capitalize {{pokemon.color}} rounded"
+    <span style="padding: 4px" class="text-capitalize {{pokemon.color}} rounded" data-toggle="modal" data-target="#descModal"
           *ngIf="pokemon.genera!=undefined">{{pokemon.genera[2]['genus']}}</span>
   </div>
   <div class="row justify-content-center">
@@ -202,7 +202,7 @@
   </div>
   <!-- Ability Modal -->
   <div class="modal fade" id="abilityModal" tabindex="-1" role="dialog" aria-labelledby="abilityModal"
-       aria-hidden="true" #myModal>
+       aria-hidden="true" #abilityModal>
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content" *ngIf="allAbilitiesReceived">
         <div class="">
@@ -236,24 +236,24 @@
 
 <!--FlavorTextModal-->
 <div class="modal fade" id="descModal" tabindex="-1" role="dialog" aria-labelledby="descModal"
-     aria-hidden="true" #myModal>
+     aria-hidden="true" #descModal>
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content" *ngIf="allAbilitiesReceived">
+    <div class="modal-content" *ngIf="species!==undefined">
       <div class="">
         <div class="text-center">
           <div class="row" style="margin-top: 20px">
             <h5 class="col-12 text-uppercase text-center"
-                id="descModalTitle">{{abilities[abilitySelected]['name']}}</h5>
+                id="descModalTitle">{{pokemon.name}}</h5>
           </div>
-          <span class="{{pokemon.color}} rounded justify-content-center" style="padding: 4px 6px"
-                *ngIf="pokemon.species['flavor_text_entries'][2]['flavor_text']">HIDDEN</span>
+<!--          <span class="{{pokemon.color}} rounded justify-content-center" style="padding: 4px 6px"-->
+<!--                *ngIf="pokemon.species['flavor_text_entries'][2]['flavor_text']">HIDDEN</span>-->
         </div>
         <hr style="margin-top: 10px;margin-bottom: 5px">
       </div>
       <div class="modal-body justify-content-center text-center">
           <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
                 style="padding: 4px; font-size: larger">GAME DESCRIPTION</span>
-        <p style="padding-top: 6px">pokemon.species['flavor_text_entries'][2]['flavor_text']</p>
+        <p style="padding-top: 6px">{{species['flavor_text_entries'][1]['flavor_text']}}</p>
 <!--        <span class="{{pokemon.color}} rounded text-center font-weight-bolder"-->
 <!--              style="padding: 4px; font-size: larger">EFFECT</span>-->
 <!--        <p style="padding-top: 6px">{{abilities[abilitySelected]['effect_entries'][0]['short_effect']}}</p>-->

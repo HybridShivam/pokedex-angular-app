@@ -32,6 +32,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   abilities = [];
   abilitySelected = 0;
   allAbilitiesReceived = false;
+  species;
+
   // @ViewChild('abilityModal', {static: false}) abilityModal: ElementRef;
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -90,6 +92,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
           this.pokemon.genera = results[1]['genera'];
           this.pokemonService.activePokemon.next(this.pokemon); // Why do i need this ???????????????????
           this.initializePokemonFields();
+          this.species = results[1];
         }
       );
     }

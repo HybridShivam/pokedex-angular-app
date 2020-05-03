@@ -17,6 +17,7 @@ export class Pokemon {
     public order,
     public stats,
     public species,
+    public speciesDetails,
     public color,
     public genera
   ) {
