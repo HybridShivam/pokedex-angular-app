@@ -113,18 +113,18 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  typing($event) {
-    if (this.miracleCount < 1) {
-      history.pushState(null, null, window.location.href);
-      history.back();
-      history.pushState(null, null, window.location.href);
-      history.back();
-      this.miracleCount++;
-    }
-    // console.log('typing');
-    // this.setTitleBarColor(this.color);
-    this.pokemonService.searchItemSubject.next(this.searchText);
-  }
+  // typing($event) {
+  //   if (this.miracleCount < 1) {
+  //     history.pushState(null, null, window.location.href);
+  //     history.back();
+  //     history.pushState(null, null, window.location.href);
+  //     history.back();
+  //     this.miracleCount++;
+  //   }
+  //   // console.log('typing');
+  //   // this.setTitleBarColor(this.color);
+  //   this.pokemonService.searchItemSubject.next(this.searchText);
+  // }
 
   typingStopped() {
     if (this.miracleCount < 1) {
@@ -145,10 +145,9 @@ export class HeaderComponent implements OnInit {
       this._timeout = null;
       this.lc.run(() => {
           this.pokemonService.searchItemSubject.next(this.searchText);
-          console.log('filtered');
         }
       )
       ;
-    }, 500);
+    }, 250);
   }
 }
