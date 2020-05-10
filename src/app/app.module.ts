@@ -22,6 +22,7 @@ import {SearchFilterPipe} from './search-filter.pipe';
 import {RouteReuseStrategy} from '@angular/router';
 import {CustomRouteReuseStrategy} from './router-strategy';
 import {ScrollingModule, ScrollDispatcher} from '@angular/cdk/scrolling';
+import { VirtualScrollerModule } from 'ngx-virtual-scroller';
 
 // import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 
@@ -48,6 +49,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ScrollingModule,
     // Ng2SearchPipeModule,
     FormsModule,
+    VirtualScrollerModule
     // BackButtonDisableModule.forRoot({
     //   preserveScrollPosition: true
     // })
