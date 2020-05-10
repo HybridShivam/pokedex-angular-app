@@ -108,15 +108,15 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   initializePokemonFields() {
     this.requestAbilityDetails();
     // Conditionally Add HQ or Normal Images
-    if (this.pokemon.id > 151) {
-      // Normal
-      this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/pokemon.json/master/images/' +
-        this.pad(this.pokemon.id, 3) + '.png';
-    } else {
+    // if (this.pokemon.id > 151) {
+    //   // Normal
+    //   this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/pokemon.json/master/images/' +
+    //     this.pad(this.pokemon.id, 3) + '.png';
+    // } else {
       // HD
       this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
         this.pad(this.pokemon.id, 3) + '.png';
-    }
+    // }
     this.heightInMetres = (this.pokemon.height * 0.1).toFixed(1);
     this.heightInFeetInches = Math.floor(this.heightInMetres * 3.2808) + '"' + Math.round(((this.heightInMetres * 3.2808) % 1) * 12) + '\'';
     this.weightInKgs = (this.pokemon.weight * 0.1).toFixed(1);
