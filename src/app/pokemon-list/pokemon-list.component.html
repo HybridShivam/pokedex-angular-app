@@ -1,10 +1,13 @@
-<!--<cdk-virtual-scroll-viewport style="height: 90vh" itemSize="100">-->
-<!--  <ng-container *cdkVirtualFor="let pokemon of pokemons | searchFilter: searchItem; let i = index;">-->
-<!--    <app-pokemon-item [pokemon]="pokemon"></app-pokemon-item>-->
-<!--  </ng-container>-->
-<!--</cdk-virtual-scroll-viewport>-->
+<cdk-virtual-scroll-viewport style="height: 90vh" itemSize="128" minBufferPx="150" maxBufferPx="250">
+  <span *cdkVirtualFor="let pokemon of pokemons |  searchFilter: searchItem ; let i = index; templateCacheSize: 0">
+    <app-pokemon-item [pokemon]="pokemon"></app-pokemon-item>
+  </span>
+</cdk-virtual-scroll-viewport>
 
-<div class="row justify-content-center">
-    <app-pokemon-item *ngFor="let pokemon of pokemons | searchFilter: searchItem; let i = index;"
-                      [pokemon]="pokemon"></app-pokemon-item>
-</div>
+<!--<div class="row justify-content-center">-->
+<!--    <app-pokemon-item *ngFor="let pokemon of pokemons | searchFilter: searchItem; let i = index;"-->
+<!--                      [pokemon]="pokemon"></app-pokemon-item>-->
+<!--</div>-->
+<!--<cdk-virtual-scroll-viewport itemSize="1000" style="height:100%">-->
+<!--  <div *cdkVirtualFor="let item of list">{{item}}</div>-->
+<!--</cdk-virtual-scroll-viewport>-->

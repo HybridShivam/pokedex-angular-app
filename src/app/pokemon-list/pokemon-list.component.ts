@@ -14,12 +14,8 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   noOfLoadedPokemonSubscription;
   searchItem: string;
   searchItemSubscription;
-  numbers = [];
 
   constructor(private pokemonService: PokemonService) {
-    for (let index = 0; index < 10000; index++) {
-      this.numbers.push(index);
-    }
   }
 
   ngOnInit(): void {
