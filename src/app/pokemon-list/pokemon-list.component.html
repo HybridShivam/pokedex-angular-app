@@ -5,8 +5,8 @@
 <!--</cdk-virtual-scroll-viewport>-->
 
 <div class="row justify-content-center" #scrollingBlock>
-<virtual-scroller #scroll [items]="pokemons" [parentScroll]="scrollingBlock">
-      <app-pokemon-item *ngFor="let pokemon of scroll.viewPortItems | searchFilter: searchItem; let i = index;"
+<virtual-scroller #scroll [items]="pokemons| searchFilter: searchItem" [parentScroll]="scrollingBlock" class="justify-content-center">
+      <app-pokemon-item *ngFor="let pokemon of scroll.viewPortItems; let i = index;"
                         [pokemon]="pokemon"></app-pokemon-item>
 </virtual-scroller>
 </div>
