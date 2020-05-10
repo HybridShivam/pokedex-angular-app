@@ -1,8 +1,20 @@
 virtual-scroller {
   width: 100vw;
+  //width: calc(100vw - 9rem);
   height: 91vh;
-  display: flex;
+  //height: calc(100vh - #{$nav-height});
+  //justify-content: center !important;
+  //display: flex;
 }
-app-pokemon-item{
+
+.scrollable-content {
+  justify-content: center !important;
+}
+
+app-pokemon-item {
   display: inline-block !important;
+}
+
+.row {
+  justify-content: center !important;
 }
