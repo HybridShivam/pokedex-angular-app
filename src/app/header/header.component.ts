@@ -1,6 +1,7 @@
 import {Component, NgZone, OnInit} from '@angular/core';
 import {PokemonService} from '../shared/pokemon.service';
 import {Meta} from '@angular/platform-browser';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -36,7 +37,7 @@ export class HeaderComponent implements OnInit {
     // );
   }
 
-  constructor(private pokemonService: PokemonService, private meta: Meta, private lc: NgZone) {
+  constructor(private pokemonService: PokemonService, private meta: Meta, private lc: NgZone, private _location: Location) {
   }
 
   // toggleSidebar() {
@@ -149,5 +150,9 @@ export class HeaderComponent implements OnInit {
       )
       ;
     }, 100);
+  }
+
+  goBack() {
+    this._location.back();
   }
 }
