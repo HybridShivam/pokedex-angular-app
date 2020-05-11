@@ -15,6 +15,7 @@ export class PokemonService {
   responseCounter = 0;
   totalCounter = 0;
   activePokemon = new Subject<Pokemon>();
+  previousPokemonID = new Subject<number>();
   @Output() searchItemSubject: Subject<string> = new Subject<string>();
 
 

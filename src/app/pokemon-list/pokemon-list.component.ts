@@ -46,6 +46,11 @@ export class PokemonListComponent implements OnInit, OnDestroy {
         this.searchItem = response;
       }
     );
+    this.pokemonService.previousPokemonID.subscribe(
+      (response) => {
+        this.focusOnAnItem(response);
+      }
+    );
   }
 
 
@@ -53,7 +58,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   focusOnAnItem(index) {
     // this.virtualScroller.items = this.pokemons;
     // this.virtualScroller.scrollInto(this.virtualScroller.items[50]);
-    this.virtualScroller.scrollToIndex(index);
+    this.virtualScroller.scrollToIndex(index, undefined, undefined, 0);
   }
 
 

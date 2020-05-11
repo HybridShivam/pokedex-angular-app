@@ -245,6 +245,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
 
   ngOnDestroy() {
     this.pokemonService.activePokemon.next(null);
+    this.pokemonService.previousPokemonID.next(this.pokemonId);
     const body = document.getElementsByTagName('body')[0];
     body.classList.remove('modal-open');
     const elements = document.getElementsByClassName('modal-backdrop');
