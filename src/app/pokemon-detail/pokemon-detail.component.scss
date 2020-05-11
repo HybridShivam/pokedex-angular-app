@@ -311,6 +311,31 @@
   cursor: pointer;
 }
 
+.pokeball-spinner {
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 //.fade {
 //  //transform: scale(0);
 //  //color: red;
@@ -364,7 +389,7 @@
   #abilityModal {
     font-size: small !important;
   }
-  #descModal{
+  #descModal {
     font-size: small !important;
   }
 }
@@ -380,101 +405,137 @@
   #abilityModal {
     font-size: x-small !important;
   }
-  #descModal{
+  #descModal {
     font-size: x-small !important;
   }
 }
 
-.pkmn-red{
+.pkmn-red {
   background-color: red;
 }
-.pkmn-green{
+
+.pkmn-green {
   background-color: green;
 }
-.pkmn-blue{
+
+.pkmn-blue {
   background-color: blue;
 }
-.pkmn-yellow{
+
+.pkmn-yellow {
   background-color: yellow;
 }
-.pkmn-gold{
+
+.pkmn-gold {
   background-color: gold;
 }
-.pkmn-silver{
+
+.pkmn-silver {
   background-color: silver;
 }
-.pkmn-crystal{
+
+.pkmn-crystal {
   background-color: cornflowerblue;
 }
-.pkmn-ruby{
+
+.pkmn-ruby {
   background-color: orangered;
 }
-.pkmn-sapphire{
+
+.pkmn-sapphire {
   background-color: dodgerblue;
 }
-.pkmn-emerald{
+
+.pkmn-emerald {
   background-color: forestgreen;
 }
-.pkmn-firered{
+
+.pkmn-firered {
   background-color: red;
 }
-.pkmn-leafgreen{
+
+.pkmn-leafgreen {
   background-color: green;
 }
-.pkmn-diamond{
+
+.pkmn-diamond {
   background-color: red;
 }
-.pkmn-pearl{
+
+.pkmn-pearl {
   background-color: green;
 }
-.pkmn-platinum{
+
+.pkmn-platinum {
   background-color: blue;
 }
-.pkmn-heartgold{
+
+.pkmn-heartgold {
   background-color: red;
 }
-.pkmn-soulsilver{
+
+.pkmn-soulsilver {
   background-color: green;
 }
-.pkmn-black{
+
+.pkmn-black {
   background-color: black;
 }
-.pkmn-white{
+
+.pkmn-white {
   background-color: white;
 }
-.pkmn-black2{
+
+.pkmn-black2 {
   background-color: black;
 }
-.pkmn-white2{
+
+.pkmn-white2 {
   background-color: white;
 }
-.pkmn-x{
+
+.pkmn-x {
   background-color: blue;
 }
-.pkmn-y{
+
+.pkmn-y {
   background-color: red;
 }
-.pkmn-omegaruby{
+
+.pkmn-omegaruby {
   background-color: green;
 }
-.pkmn-alphasapphire{
+
+.pkmn-alphasapphire {
   background-color: blue;
 }
-.pkmn-sun{
+
+.pkmn-sun {
   background-color: red;
 }
-.pkmn-moon{
+
+.pkmn-moon {
   background-color: green;
 }
-.pkmn-ultrasun{
+
+.pkmn-ultrasun {
   background-color: blue;
 }
-.pkmn-ultramoon{
+
+.pkmn-ultramoon {
   background-color: red;
 }
 
+.image-container {
+  position: relative;
+  padding-bottom: calc(85% + 10px); /* ratio of image height to width */
+  height: 0;
+  overflow: hidden;
+}
 
-
-
-
-
+.image-container img {
+  position: relative;
+  top: 0;
+  left: 0;
+  //height: auto;
+}
