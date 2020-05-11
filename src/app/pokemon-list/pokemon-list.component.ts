@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {Pokemon} from '../shared/pokemon.model';
 import {PokemonService} from '../shared/pokemon.service';
 
@@ -15,7 +15,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   searchItem: string;
   searchItemSubscription;
 
-  constructor(private pokemonService: PokemonService) {
+  constructor(private pokemonService: PokemonService, public changeDetectorRef: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
