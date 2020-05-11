@@ -2,9 +2,9 @@
   <!--  <button type="button" class="btn" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>-->
   <br>
   <h1 class="text-center text-capitalize">{{pokemon.name}}</h1>
-  <div class="justify-content-center text-center">
+  <div class="justify-content-center text-center" style="height: 20px">
     <!--    Had Padding Buttom 20px-->
-    <span style="padding: 4px" class="genera text-capitalize {{pokemon.color}} rounded" data-toggle="modal"
+    <span style="padding: 4px" class="genera text-capitalize {{pokemon.color}} rounded fadeIn" data-toggle="modal"
           data-target="#descModal"
           *ngIf="pokemon.genera!=undefined">{{pokemon.genera[2]['genus']}}</span>
   </div>
@@ -106,7 +106,9 @@
         </table>
       </div>
     </div>
-    <div class="col-lg-5 d-flex flex-wrap align-items-center">
+    <div class="col-lg-5 d-flex flex-wrap align-items-center" style="height: 517px">
+<!--      <div><img class="img-fluid mx-auto my-auto d-block" src="assets/pokeball.png" *ngIf="imageLoading"-->
+<!--                style="z-index: 994;position: absolute"></div>-->
       <img class="img-fluid mx-auto my-auto d-block fadeInOut" src="{{pokemonImageUrl}}" alt="" (load)="imagePreload()"
            [ngClass]="{fade: !imageLoading}"
            style="z-index: 994!important;max-width: 85%;height: auto;padding-top: 10px">
