@@ -3,7 +3,7 @@
 <!--    <app-pokemon-item [pokemon]="pokemon"></app-pokemon-item>-->
 <!--  </span>-->
 <!--</cdk-virtual-scroll-viewport>-->
-
+<!--<button (click)="focusOnAnItem(100)">Focus</button>-->
 <div class="row justify-content-center" #scrollingBlock>
   <virtual-scroller #scroll [items]="pokemons| searchFilter: searchItem" [parentScroll]="scrollingBlock"
                     class="justify-content-center" bufferAmount="5">

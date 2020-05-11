@@ -1,6 +1,7 @@
-import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Pokemon} from '../shared/pokemon.model';
 import {PokemonService} from '../shared/pokemon.service';
+import {VirtualScrollerComponent} from 'ngx-virtual-scroller';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -15,7 +16,10 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   searchItem: string;
   searchItemSubscription;
 
-  constructor(private pokemonService: PokemonService, public changeDetectorRef: ChangeDetectorRef) {
+  @ViewChild(VirtualScrollerComponent)
+  private virtualScroller: VirtualScrollerComponent;
+
+  constructor(private pokemonService: PokemonService) {
   }
 
   ngOnInit(): void {
@@ -42,6 +46,14 @@ export class PokemonListComponent implements OnInit, OnDestroy {
         this.searchItem = response;
       }
     );
+  }
+
+
+  // call this function whenever you have to focus on second item
+  focusOnAnItem(index) {
+    // this.virtualScroller.items = this.pokemons;
+    // this.virtualScroller.scrollInto(this.virtualScroller.items[50]);
+    this.virtualScroller.scrollToIndex(index);
   }
 
 
