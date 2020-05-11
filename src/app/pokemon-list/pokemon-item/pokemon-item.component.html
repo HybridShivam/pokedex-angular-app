@@ -2,12 +2,12 @@
   <div class="card" routerLink="/pokemon/{{pokemon.id}}">
     <div class="card-body" style="padding-top: 2px;padding-bottom: 0">
       <div class="row">
-        <div class="col-xs-7 col-9" style="size: auto;padding: 0">
+        <div class="col-xs-7 col-9" style="size: auto;padding: 0;text-align: left !important;">
           <span class="card-title">{{pokemon.id}}</span>
           <div class="text-capitalize text-left"
                style="padding: 0; bottom: 0">{{pokemon.name}}</div>
         </div>
-        <div class="col-xs-5 col-3" style="padding: 0">
+        <div class="col-xs-5 col-3" style="padding: 0;">
           <ng-container *ngFor="let type of pokemon.types">
             <ng-container [ngSwitch]="type['type']['name']">
               <div class="icon bug" *ngSwitchCase="'bug'"><img src="assets/type-icons/bug.svg"></div>
