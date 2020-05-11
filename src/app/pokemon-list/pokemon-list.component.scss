@@ -22,17 +22,20 @@ app-pokemon-item {
 .row {
   justify-content: center !important;
 }
-@media(max-width: 575px){
+
+@media(max-width: 575px) {
   virtual-scroller {
     height: calc(100vh - 40px);
   }
 }
-@media(max-width: 316px){
+
+@media(max-width: 316px) {
   virtual-scroller {
     height: calc(100vh - 36.8px);
   }
 }
-@media(max-width: 270px){
+
+@media(max-width: 270px) {
   virtual-scroller {
     height: calc(100vh - 32px);
   }
