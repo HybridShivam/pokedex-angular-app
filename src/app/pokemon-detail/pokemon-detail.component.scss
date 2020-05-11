@@ -364,6 +364,9 @@
   #abilityModal {
     font-size: small !important;
   }
+  #descModal{
+    font-size: small !important;
+  }
 }
 
 @media(max-width: 320px) {
@@ -373,6 +376,12 @@
   .statDiv .inner {
     font-size: x-small !important;
     padding-top: 1rem;
+  }
+  #abilityModal {
+    font-size: x-small !important;
+  }
+  #descModal{
+    font-size: x-small !important;
   }
 }
 
