@@ -6,8 +6,8 @@
 <!--<button (click)="focusOnAnItem(100)">Focus</button>-->
 <div class="row justify-content-center" #scrollingBlock>
   <virtual-scroller #scroll [items]="pokemons| searchFilter: searchItem" [parentScroll]="scrollingBlock"
-                    class="justify-content-center" bufferAmount="5" scrollAnimationTime="0">
-    <app-pokemon-item *ngFor="let pokemon of scroll.viewPortItems; let i = index;"
+                    class="justify-content-center" bufferAmount="2" scrollAnimationTime="0">
+    <app-pokemon-item *ngFor="let pokemon of scroll.viewPortItems; trackBy: myTrackByFunction; let i = index;"
                       [pokemon]="pokemon"></app-pokemon-item>
   </virtual-scroller>
 </div>

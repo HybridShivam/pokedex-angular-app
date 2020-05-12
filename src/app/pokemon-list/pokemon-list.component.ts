@@ -46,11 +46,11 @@ export class PokemonListComponent implements OnInit, OnDestroy {
         this.searchItem = response;
       }
     );
-    this.pokemonService.previousPokemonID.subscribe(
-      (response) => {
-        this.focusOnAnItem(response);
-      }
-    );
+    // this.pokemonService.previousPokemonID.subscribe(
+    //   (response) => {
+    //     this.focusOnAnItem(response);
+    //   }
+    // );
   }
 
 
@@ -61,11 +61,15 @@ export class PokemonListComponent implements OnInit, OnDestroy {
     this.virtualScroller.scrollToIndex(index, undefined, -192, 0);
   }
 
+  public myTrackByFunction(index: number, pokemon: Pokemon): number {
+    return pokemon.id;
+  }
+
 
   ngOnDestroy(): void {
     this.pokemonService.searchItemSubject.next('');
     this.searchItemSubscription.unsubscribe();
-    // console.log('List Destroyed');
+    console.log('List Destroyed');
   }
 
 }

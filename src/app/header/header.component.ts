@@ -152,7 +152,7 @@ export class HeaderComponent implements OnInit {
     }, 100);
   }
 
-  goBack() {
-    this._location.back();
-  }
+  // goBack() {
+  //   this._location.back();
+  // }
 }

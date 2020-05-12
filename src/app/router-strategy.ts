@@ -1,104 +1,31 @@
-import {
-  RouteReuseStrategy,
-  ActivatedRouteSnapshot,
-  DetachedRouteHandle,
-  RouterModule,
-  Routes,
-  UrlSegment
-} from '@angular/router';
-
+import {ActivatedRouteSnapshot, DetachedRouteHandle, RouteReuseStrategy} from '@angular/router';
 
 export class CustomRouteReuseStrategy implements RouteReuseStrategy {
+  routesToCache: string[] = ['pokemon'];
+  storedRouteHandles = new Map<string, DetachedRouteHandle>();
 
-  private handlers: { [key: string]: DetachedRouteHandle } = {};
-
-  /**
-   * Determines if this route (and its subtree) should be detached to be reused later
-   * @param route
-   */
+  // Decides if the route should be stored
   shouldDetach(route: ActivatedRouteSnapshot): boolean {
-
-    if (!route.routeConfig || route.routeConfig.loadChildren) {
-      return false;
-    }
-    /** Whether this route should be re used or not */
-    let shouldReuse = false;
-    console.log('[router-reuse] checking if this route should be re used or not', route);
-    if (route.routeConfig.data) {
-      route.routeConfig.data.reuse ? shouldReuse = true : shouldReuse = false;
-    }
-
-    return shouldReuse;
+    return this.routesToCache.indexOf(route.routeConfig.path) > -1;
   }
 
-  /**
-   * Stores the detached route.
-   */
-  store(route: ActivatedRouteSnapshot, handler: DetachedRouteHandle): void {
-    console.log('[router-reuse] storing handler');
-    if (handler) {
-      this.handlers[this.getUrl(route)] = handler;
-    }
+  // Store the information for the route we're destructing
+  store(route: ActivatedRouteSnapshot, handle: DetachedRouteHandle): void {
+    this.storedRouteHandles.set(route.routeConfig.path, handle);
   }
 
-  /**
-   * Determines if this route (and its subtree) should be reattached
-   * @param route Stores the detached route.
-   */
+// Return true if we have a stored route object for the next route
   shouldAttach(route: ActivatedRouteSnapshot): boolean {
-    console.log('[router-reuse] checking if it should be re attached');
-    return !!this.handlers[this.getUrl(route)];
+    return this.storedRouteHandles.has(route.routeConfig.path);
   }
 
-  /**
-   * Retrieves the previously stored route
-   */
+  // If we returned true in shouldAttach(), now return the actual route data for restoration
   retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle {
-    if (!route.routeConfig || route.routeConfig.loadChildren) {
-      return null;
-    }
-    ;
-
-    return this.handlers[this.getUrl(route)];
+    return this.storedRouteHandles.get(route.routeConfig.path);
   }
 
-  /**
-   * Determines if a route should be reused
-   * @param future
-   * @param current
-   */
-  shouldReuseRoute(future: ActivatedRouteSnapshot, current: ActivatedRouteSnapshot): boolean {
-    /** We only want to reuse the route if the data of the route config contains a reuse true boolean */
-    let reUseUrl = false;
-
-    if (future.routeConfig) {
-      if (future.routeConfig.data) {
-        reUseUrl = future.routeConfig.data.reuse;
-      }
-    }
-
-    /**
-     * Default reuse strategy by angular assers based on the following condition
-     * @see https://github.com/angular/angular/blob/4.4.6/packages/router/src/route_reuse_strategy.ts#L67
-     */
-    const defaultReuse = (future.routeConfig === current.routeConfig);
-
-    // If either of our reuseUrl and default Url are true, we want to reuse the route
-    //
-    return reUseUrl || defaultReuse;
-  }
-
-  /**
-   * Returns a url for the current route
-   * @param route
-   */
-  getUrl(route: ActivatedRouteSnapshot): string {
-    /** The url we are going to return */
-    if (route.routeConfig) {
-      const url = route.routeConfig.path;
-      console.log('[router-reuse] returning url', url);
-
-      return url;
-    }
+  // Reuse the route if we're going to and from the same route
+  shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
+    return future.routeConfig === curr.routeConfig;
   }
 }
