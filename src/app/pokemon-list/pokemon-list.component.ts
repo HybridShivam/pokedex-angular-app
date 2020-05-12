@@ -63,7 +63,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
     this.virtualScroller.scrollToIndex(index, undefined, -192, 0);
     setTimeout(() => {
       this.scrolled = true;
-    }, 0);
+    }, 250);
   }
 
   public myTrackByFunction(index: number, pokemon: Pokemon): number {
