@@ -6,14 +6,12 @@ import {PokemonDetailComponent} from './pokemon-detail/pokemon-detail.component'
 
 const routes: Routes = [
   {
-    path: '', redirectTo: '/pokemon', pathMatch: 'full', data: {
-      reuse: true
-    }
+    path: '', redirectTo: '/pokemon', pathMatch: 'full'
+    // , data: {reuse: true}
   },
   {
-    path: 'pokemon', component: PokemonListComponent, data: {
-      reuse: true
-    }
+    path: 'pokemon', component: PokemonListComponent
+    // ,data: {reuse: true}
   },
   {path: 'pokemon/:id', component: PokemonDetailComponent}
 ];
