@@ -23,6 +23,16 @@ app-pokemon-item {
   justify-content: center !important;
 }
 
+
+.fadeIn{
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.fade{
+ opacity: 1;
+}
+
 @media(max-width: 575px) {
   virtual-scroller {
     height: calc(100vh - 40px);

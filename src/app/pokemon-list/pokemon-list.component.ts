@@ -15,11 +15,18 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   noOfLoadedPokemonSubscription;
   searchItem: string;
   searchItemSubscription;
+  scrolled = true;
 
   @ViewChild(VirtualScrollerComponent)
   private virtualScroller: VirtualScrollerComponent;
 
   constructor(private pokemonService: PokemonService) {
+    this.pokemonService.previousPokemonID.subscribe(
+      (response) => {
+        this.scrolled = false;
+        this.focusOnAnItem(response);
+      }
+    );
   }
 
   ngOnInit(): void {
@@ -46,11 +53,6 @@ export class PokemonListComponent implements OnInit, OnDestroy {
         this.searchItem = response;
       }
     );
-    // this.pokemonService.previousPokemonID.subscribe(
-    //   (response) => {
-    //     this.focusOnAnItem(response);
-    //   }
-    // );
   }
 
 
@@ -59,6 +61,9 @@ export class PokemonListComponent implements OnInit, OnDestroy {
     // this.virtualScroller.items = this.pokemons;
     // this.virtualScroller.scrollInto(this.virtualScroller.items[50]);
     this.virtualScroller.scrollToIndex(index, undefined, -192, 0);
+    setTimeout(() => {
+      this.scrolled = true;
+    }, 0);
   }
 
   public myTrackByFunction(index: number, pokemon: Pokemon): number {
