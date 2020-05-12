@@ -137,6 +137,7 @@ export class HeaderComponent implements OnInit {
       history.back();
       this.miracleCount++;
     }
+    // this.pokemonService.searchItemSubject.next(this.searchText);
     // this._timeout = null;
     if (this._timeout) {
       // if there is already a timeout in process cancel it
@@ -149,7 +150,7 @@ export class HeaderComponent implements OnInit {
         }
       )
       ;
-    }, 100);
+    }, 50);
   }
 
   // goBack() {
