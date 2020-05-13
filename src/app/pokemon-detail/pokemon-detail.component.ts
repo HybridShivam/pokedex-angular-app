@@ -283,10 +283,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
         this.pokemon.order = result['order'];
         this.pokemon.stats = result['stats'];
         this.pokemon.species = result['species'];
-        if (this.pokemon.is_default) {
-          this.pokemonImageUrl = this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
-            this.pad(this.pokemon.id, 3) + '.png';
-        } else {
+        if (!this.pokemon.is_default) {
           let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
           let regExp = new RegExp(re, 'g');
           let str = name.replace(regExp, '$2');
