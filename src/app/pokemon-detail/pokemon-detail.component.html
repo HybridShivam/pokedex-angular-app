@@ -110,7 +110,7 @@
               <span class="abilities" *ngFor="let varity of pokemon.varieties;let i=index">
                 <span class="ability {{pokemon.color}} text-uppercase" style="white-space:nowrap;"
                       [ngStyle]="{'display':i>=2?'inline-block':'unset','margin-top':i>=2?'5px':'0px'}"
-                      (click)="selectForm(pokemon.varieties[i]['pokemon']['url'])"
+                      (click)="selectForm(pokemon.varieties[i]['pokemon']['url'],varity['pokemon']['name'])"
                 >{{formatFormName(varity['pokemon']['name'])}}</span>
                 <ng-container *ngIf="(i+1)%2==0"><br></ng-container>
               </span>

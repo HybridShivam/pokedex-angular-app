@@ -260,7 +260,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
     return str;
   }
 
-  selectForm(url) {
+  selectForm(url, name) {
+    this.imageLoading = true;
     this.pokemonService.getPokemonByURL(url).subscribe(
       result => {
         this.pokemon.name = result['name'];
@@ -280,6 +281,18 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
         this.pokemon.order = result['order'];
         this.pokemon.stats = result['stats'];
         this.pokemon.species = result['species'];
+        if (this.pokemon.isDefault) {
+          this.pokemonImageUrl = this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
+            this.pad(this.pokemon.id, 3) + '.png';
+        } else {
+          let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
+          let regExp = new RegExp(re, 'g');
+          let str = name.replace(regExp, '$2');
+          this.pokemonImageUrl = this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
+            this.pad(this.pokemon.id, 3) + '-' + this.capitalize(str) + '.png';
+          console.log(this.pokemonImageUrl);
+        }
+        // }
         // result;
         // result['color']['name'];
         // result['genera'];
@@ -290,9 +303,21 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
         // // Why do i need this ???????????????????
         // this.pokemonService.activePokemon.next(this.pokemon);
         this.initializePokemonFields();
+        this.imageLoading = false;
       }
     );
   }
+
+  capitalize(str) {
+    str = str.split('-');
+
+    for (let i = 0, x = str.length; i < x; i++) {
+      str[i] = str[i][0].toUpperCase() + str[i].substr(1);
+    }
+
+    return str.join('-');
+  }
+
 
   ngOnDestroy() {
     this.pokemonService.activePokemon.next(null);
