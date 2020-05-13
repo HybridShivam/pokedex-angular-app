@@ -106,18 +106,24 @@
           </tr>
           <tr>
             <td class="text-right font-weight-bold">Forms</td>
-            <td class="text-capitalize" *ngFor="let species of pok">Mega {{pokemon.name}}</td>
+            <td class="text-capitalize">
+              <span *ngFor="let varity of pokemon.varieties;let i=index">
+                {{varity['pokemon']['name']}}
+                <ng-container *ngIf="(i+1)%2==0"><br></ng-container>
+              </span>
+            </td>
           </tr>
         </table>
       </div>
     </div>
-    <div class="col-lg-5 d-flex flex-wrap align-items-center" >
-<!--      <img class="img-fluid mx-auto my-auto d-block pokeball-spinner fade" src="assets/pokeball-loading.png"-->
-<!--                style="z-index: 995;height: 60%" *ngIf="imageLoading">-->
+    <div class="col-lg-5 d-flex flex-wrap align-items-center">
+      <!--      <img class="img-fluid mx-auto my-auto d-block pokeball-spinner fade" src="assets/pokeball-loading.png"-->
+      <!--                style="z-index: 995;height: 60%" *ngIf="imageLoading">-->
       <div class="image-container">
-      <img class="img-fluid mx-auto my-auto d-block fadeInOut" src="{{pokemonImageUrl}}" alt="" (load)="imagePreload()"
-           [ngClass]="{fade: !imageLoading}"
-           style="z-index: 994!important;max-width: 85%;height: auto;padding-top: 10px">
+        <img class="img-fluid mx-auto my-auto d-block fadeInOut" src="{{pokemonImageUrl}}" alt=""
+             (load)="imagePreload()"
+             [ngClass]="{fade: !imageLoading}"
+             style="z-index: 994!important;max-width: 85%;height: auto;padding-top: 10px">
       </div>
     </div>
     <div class="col-lg-3 statDiv my-auto mx-auto d-flex flex-wrap justify-content-center">
@@ -256,7 +262,8 @@
               <h5 class="col-12 text-uppercase text-center"
                   id="descModalTitle">{{pokemon.name}}</h5>
             </div>
-            <span class="{{pokemon.color}} rounded justify-content-center" style="padding: 4px 6px">Pokédex Entries</span>
+            <span class="{{pokemon.color}} rounded justify-content-center"
+                  style="padding: 4px 6px">Pokédex Entries</span>
           </div>
           <hr style="margin-top: 10px;margin-bottom: 5px">
         </div>
@@ -264,7 +271,7 @@
           <ng-container *ngFor="let entry of pokemon.speciesDetails['flavor_text_entries']">
             <ng-container *ngIf="entry['language']['name']==='en'">
             <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
-                  style="padding: 4px; font-size: larger">Pokémon {{entry['version']['name'].replace('-',' ')|titlecase}}</span>
+                  style="padding: 4px; font-size: larger">Pokémon {{entry['version']['name'].replace('-', ' ')|titlecase}}</span>
               <p style="padding-top: 6px">{{entry['flavor_text'].replace('', ' ')}}</p>
             </ng-container>
           </ng-container>
