@@ -66,6 +66,7 @@ export class PokemonService {
           response['species'],
           undefined,
           undefined,
+          undefined,
           undefined
         );
         this.responseCounter++;

@@ -19,7 +19,8 @@ export class Pokemon {
     public species,
     public speciesDetails,
     public color,
-    public genera
+    public genera,
+    public varieties
   ) {
   }
 }

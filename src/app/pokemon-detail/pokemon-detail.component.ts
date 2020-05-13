@@ -61,6 +61,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
           this.pokemonService.activePokemon.next(this.pokemon);
           // this.setTitleBarColor(this.pokemon.color);
           this.pokemon.genera = response['genera'];
+          this.pokemon.varieties = response['varieties'];
         }
       );
       // Directly From Link
@@ -88,7 +89,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
             results[0]['species'],
             results[1],
             results[1]['color']['name'],
-            results[1]['genera']
+            results[1]['genera'],
+            results[1]['varieties']
           );
           this.pokemon.speciesDetails = results[1];
           this.pokemon.genera = results[1]['genera'];
@@ -113,9 +115,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
     //   this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/pokemon.json/master/images/' +
     //     this.pad(this.pokemon.id, 3) + '.png';
     // } else {
-      // HD
-      this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
-        this.pad(this.pokemon.id, 3) + '.png';
+    // HD
+    this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
+      this.pad(this.pokemon.id, 3) + '.png';
     // }
     this.heightInMetres = (this.pokemon.height * 0.1).toFixed(1);
     this.heightInFeetInches = Math.floor(this.heightInMetres * 3.2808) + '"' + Math.round(((this.heightInMetres * 3.2808) % 1) * 12) + '\'';

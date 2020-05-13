@@ -106,7 +106,7 @@
           </tr>
           <tr>
             <td class="text-right font-weight-bold">Forms</td>
-            <td class="text-capitalize">Mega {{pokemon.name}}</td>
+            <td class="text-capitalize" *ngFor="let species of pok">Mega {{pokemon.name}}</td>
           </tr>
         </table>
       </div>
