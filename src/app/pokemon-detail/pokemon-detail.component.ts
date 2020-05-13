@@ -1,10 +1,9 @@
-import {AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {PokemonService} from '../shared/pokemon.service';
 import {Pokemon} from '../shared/pokemon.model';
 import {forkJoin} from 'rxjs';
-import {Meta} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -248,6 +247,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
 
 
   formatFormName(name) {
+    console.log(name);
     if (name.indexOf('-mega') !== -1) {
       let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
       let regExp = new RegExp(re, 'g');
