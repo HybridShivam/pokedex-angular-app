@@ -108,7 +108,7 @@
             <td class="text-right font-weight-bold">Forms</td>
             <td class="text-capitalize">
               <span *ngFor="let varity of pokemon.varieties;let i=index">
-                {{varity['pokemon']['name']}}
+                {{formatFormName(varity['pokemon']['name'])}}
                 <ng-container *ngIf="(i+1)%2==0"><br></ng-container>
               </span>
             </td>

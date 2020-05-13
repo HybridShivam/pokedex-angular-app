@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {PokemonService} from '../shared/pokemon.service';
@@ -243,6 +243,15 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
 
   goBack() {
     this.location.back();
+  }
+
+
+  formatFormName(name) {
+    const re = '(' + this.pokemon.name + ')[-]*(mega)[-]*';
+    const regExp = new RegExp(re, 'g');
+    // let re2 = /(charizard)[-]*(mega)[-]*/;
+    // console.log(re2);
+    return name.replace(regExp, '$2 ');
   }
 
   ngOnDestroy() {
