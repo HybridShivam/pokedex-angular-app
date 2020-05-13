@@ -113,6 +113,10 @@ export class PokemonService {
     return this.http.get(url);
   }
 
+  getPokemonByURL(url) {
+    return this.http.get(url);
+  }
+
   getPokemonSpeciesById(Id) {
     const url = 'https://pokeapi.co/api/v2/pokemon-species/' + Id + '/';
     return this.http.get(url);

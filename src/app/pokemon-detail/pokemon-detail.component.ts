@@ -37,8 +37,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService,
-              private location: Location,
-              private meta: Meta) {
+              private location: Location) {
   }
 
   ngOnInit(): void {
@@ -261,6 +260,40 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
     return str;
   }
 
+  selectForm(url) {
+    this.pokemonService.getPokemonByURL(url).subscribe(
+      result => {
+        this.pokemon.name = result['name'];
+        // this.pokemon.id = result['id'];
+        this.pokemon.sprites = result['sprites'];
+        this.pokemon.types = result['types'].reverse();
+        this.pokemon.abilities = result['abilities'].reverse();
+        this.pokemon.height = result['height'];
+        this.pokemon.weight = result['weight'];
+        this.pokemon.baseExperience = result['base_experience'];
+        this.pokemon.forms = result['forms'];
+        this.pokemon.heldItems = result['held_items'];
+        this.pokemon.gameIndices = result['game_indices'];
+        this.pokemon.is_default = result['is_default'];
+        this.pokemon.location = result['location'];
+        this.pokemon.moves = result['moves'];
+        this.pokemon.order = result['order'];
+        this.pokemon.stats = result['stats'];
+        this.pokemon.species = result['species'];
+        // result;
+        // result['color']['name'];
+        // result['genera'];
+        // result['varieties'];
+        // this.pokemon.speciesDetails = results[1];
+        // this.pokemon.genera = results[1]['genera'];
+        // this.pokemon.color = results[1]['color']['name'];
+        // // Why do i need this ???????????????????
+        // this.pokemonService.activePokemon.next(this.pokemon);
+        this.initializePokemonFields();
+      }
+    );
+  }
+
   ngOnDestroy() {
     this.pokemonService.activePokemon.next(null);
     this.pokemonService.previousPokemonID.next(this.pokemonId);
@@ -270,6 +303,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
     while (elements.length > 0) {
       elements[0].remove();
     }
+    console.log('Destroyed');
     // this.pokemonService.searchItemSubject.next('');
   }
 }
