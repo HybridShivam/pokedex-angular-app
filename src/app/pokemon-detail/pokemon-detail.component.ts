@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {PokemonService} from '../shared/pokemon.service';
@@ -37,7 +37,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService,
-              private location: Location) {
+              private location: Location,
+              private cdRef: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
@@ -288,8 +289,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
           let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
           let regExp = new RegExp(re, 'g');
           let str = name.replace(regExp, '$2');
-          this.pokemonImageUrl = this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
+          let tempURL = this.pokemonImageUrl;
+          this.pokemonImageUrl = '';
+          this.pokemonImageUrl = tempURL = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
             this.pad(this.pokemon.id, 3) + '-' + this.capitalize(str) + '.png';
+          this.cdRef.detectChanges();
           console.log(this.pokemonImageUrl);
         }
         // }
