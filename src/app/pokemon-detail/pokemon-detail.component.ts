@@ -37,8 +37,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService,
-              private location: Location,
-              private cdRef: ChangeDetectorRef) {
+              private location: Location) {
   }
 
   ngOnInit(): void {
