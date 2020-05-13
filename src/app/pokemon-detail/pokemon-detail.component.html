@@ -123,7 +123,7 @@
       <!--      <img class="img-fluid mx-auto my-auto d-block pokeball-spinner fade" src="assets/pokeball-loading.png"-->
       <!--                style="z-index: 995;height: 60%" *ngIf="imageLoading">-->
       <div class="image-container">
-        <img class="img-fluid mx-auto my-auto d-block fadeInOut" src="{{pokemonImageUrl}}" alt=""
+        <img class="img-fluid mx-auto my-auto d-block fadeInOut" [src]="pokemonImageUrl" alt=""
              (load)="imagePreload()"
              [ngClass]="{fade: !imageLoading}"
              style="z-index: 994!important;max-width: 85%;height: auto;padding-top: 10px">

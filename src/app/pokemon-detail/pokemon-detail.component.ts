@@ -116,8 +116,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
     //     this.pad(this.pokemon.id, 3) + '.png';
     // } else {
     // HD
-    this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
-      this.pad(this.pokemon.id, 3) + '.png';
+    if (this.pokemon.is_default) {
+      this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
+        this.pad(this.pokemon.id, 3) + '.png';
+    }
     // }
     this.heightInMetres = (this.pokemon.height * 0.1).toFixed(1);
     this.heightInFeetInches = Math.floor(this.heightInMetres * 3.2808) + '"' + Math.round(((this.heightInMetres * 3.2808) % 1) * 12) + '\'';
@@ -282,7 +284,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
         this.pokemon.order = result['order'];
         this.pokemon.stats = result['stats'];
         this.pokemon.species = result['species'];
-        if (this.pokemon.isDefault) {
+        if (this.pokemon.is_default) {
           this.pokemonImageUrl = this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
             this.pad(this.pokemon.id, 3) + '.png';
         } else {
@@ -293,7 +295,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
           this.pokemonImageUrl = '';
           this.pokemonImageUrl = tempURL = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
             this.pad(this.pokemon.id, 3) + '-' + this.capitalize(str) + '.png';
-          this.cdRef.detectChanges();
           console.log(this.pokemonImageUrl);
         }
         // }
