@@ -255,8 +255,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
     } else {
       let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
       let regExp = new RegExp(re, 'g');
-      // let re2 = /(charizard)[-]*(mega)[-]*/;
-      // console.log(re2);
       var str = name.replace(regExp, '$2');
       str = str.replace(/-/g, ' ');
     }

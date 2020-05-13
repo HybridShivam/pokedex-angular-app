@@ -107,8 +107,10 @@
           <tr>
             <td class="text-right font-weight-bold">Forms</td>
             <td class="text-capitalize">
-              <span *ngFor="let varity of pokemon.varieties;let i=index">
-                {{formatFormName(varity['pokemon']['name'])}}
+              <span class="abilities" *ngFor="let varity of pokemon.varieties;let i=index">
+                <span class="ability {{pokemon.color}} text-uppercase" style="white-space:nowrap;"
+                      [ngStyle]="{'display':i==2?'inline-block':'unset','margin-top':i==2?'5px':'0px'}"
+                >{{formatFormName(varity['pokemon']['name'])}}</span>
                 <ng-container *ngIf="(i+1)%2==0"><br></ng-container>
               </span>
             </td>
