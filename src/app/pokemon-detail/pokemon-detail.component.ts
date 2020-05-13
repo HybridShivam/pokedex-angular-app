@@ -247,11 +247,20 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
 
 
   formatFormName(name) {
-    const re = '(' + this.pokemon.name + ')[-]*(mega)[-]*';
-    const regExp = new RegExp(re, 'g');
-    // let re2 = /(charizard)[-]*(mega)[-]*/;
-    // console.log(re2);
-    return name.replace(regExp, '$2 ');
+    if (name.indexOf('-mega') !== -1) {
+      let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
+      let regExp = new RegExp(re, 'g');
+      var str = name.replace(regExp, '$2 $1');
+      str = str.replace(/-/g, ' ');
+    } else {
+      let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
+      let regExp = new RegExp(re, 'g');
+      // let re2 = /(charizard)[-]*(mega)[-]*/;
+      // console.log(re2);
+      var str = name.replace(regExp, '$2');
+      str = str.replace(/-/g, ' ');
+    }
+    return str;
   }
 
   ngOnDestroy() {
