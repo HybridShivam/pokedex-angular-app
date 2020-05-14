@@ -31,6 +31,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   abilities = [];
   abilitySelected = 0;
   allAbilitiesReceived = false;
+  pokemonForms;
 
   // @ViewChild('abilityModal', {static: false}) abilityModal: ElementRef;
 
@@ -51,7 +52,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
     // From List
     if (this.pokemonService.pokemons[0]) {
       this.pokemon = this.pokemonService.pokemons[this.pokemonId - 1];
-      this.initializePokemonFields();
+
       this.pokemonService.getPokemonSpeciesById(this.pokemonId).subscribe(
         response => {
           this.pokemon.speciesDetails = response;
@@ -62,6 +63,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
           this.pokemon.varieties = response['varieties'];
         }
       );
+      this.initializePokemonFields();
       // Directly From Link
     } else {
       forkJoin([this.pokemonService.getPokemonById(this.pokemonId),
