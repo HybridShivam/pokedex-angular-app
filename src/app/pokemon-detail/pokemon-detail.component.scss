@@ -516,7 +516,7 @@
   height: 0;
   overflow: hidden;
   margin: auto;
-  display: contents;
+  //display: contents; to fix vertical align bug after fixing the species preload issue
 }
 
 .image-container img {

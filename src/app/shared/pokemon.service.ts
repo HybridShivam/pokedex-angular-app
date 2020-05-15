@@ -46,8 +46,98 @@ export class PokemonService {
     this.http.get<{ name: string, id: number }>
     (url).subscribe(
       (response) => {
+        var name = response.name;
+        switch (response.id) {
+          case 29:
+            name = 'Nidoran';
+            break;
+          case 32:
+            name = 'Nidoran';
+            break;
+          case 122:
+            name = 'Mr. Mime';
+            break;
+          case 386:
+            name = 'Deoxys';
+            break;
+          case 413:
+            name = 'Wormadam';
+            break;
+          case 439:
+            name = 'Mime Jr.';
+            break;
+          case 487:
+            name = 'Giratina';
+            break;
+          case 492:
+            name = 'Shaymin';
+            break;
+          case 550:
+            name = 'Basculin';
+            break;
+          case 555:
+            name = 'Darmanitan';
+            break;
+          case 641:
+            name = 'Tornadus';
+            break;
+          case 642:
+            name = 'Thundurus';
+            break;
+          case 645:
+            name = 'Landorus';
+            break;
+          case 647:
+            name = 'Keldeo';
+            break;
+          case 648:
+            name = 'Meloetta';
+            break;
+          case 678:
+            name = 'Meowstic';
+            break;
+          case 681:
+            name = 'Aegislash';
+            break;
+          case 710:
+            name = 'Pumpkaboo';
+            break;
+          case 711:
+            name = 'Gourgeist';
+            break;
+          case 741:
+            name = 'Oricorio';
+            break;
+          case 745:
+            name = 'Lycanroc';
+            break;
+          case 746:
+            name = 'Wishiwashi';
+            break;
+          case 772:
+            name = 'Type: Null';
+            break;
+          case 774:
+            name = 'Minior';
+            break;
+          case 778:
+            name = 'Mimikyu';
+            break;
+          case 785:
+            name = 'Tapu Koko';
+            break;
+          case 786:
+            name = 'Tapu Lele';
+            break;
+          case 787:
+            name = 'Tapu Bulu';
+            break;
+          case 788:
+            name = 'Tapu Fini';
+            break;
+        }
         this.pokemons[+response.id - 1] = new Pokemon(
-          response.name,
+          name,
           response.id,
           response['sprites'],
           response['types'].reverse(),

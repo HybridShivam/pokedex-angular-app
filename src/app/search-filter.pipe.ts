@@ -13,6 +13,6 @@ export class SearchFilterPipe implements PipeTransform {
     if (searchFor === '' || !searchFor) {
       return pokemons;
     }
-    return pokemons.filter(pokemon => pokemon.name.indexOf(searchFor.toLowerCase()) > -1 || pokemon.id.toString().indexOf(searchFor) > -1);
+    return pokemons.filter(pokemon => pokemon.name.toLowerCase().indexOf(searchFor.toLowerCase()) > -1 || pokemon.id.toString().indexOf(searchFor) > -1);
   }
 }
