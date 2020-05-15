@@ -232,7 +232,7 @@
                   id="abilityModalTitle">{{abilities[abilitySelected]['name']}}</h5>
             </div>
             <span class="{{pokemon.color}} rounded justify-content-center" style="padding: 4px 6px"
-                  *ngIf="pokemon.abilities[abilitySelected]['is_hidden']">HIDDEN</span>
+                  *ngIf="pokemon.abilities[abilitySelected]!=undefined&&pokemon.abilities[abilitySelected]['is_hidden']">HIDDEN</span>
           </div>
           <hr style="margin-top: 10px;margin-bottom: 5px">
         </div>

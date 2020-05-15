@@ -313,11 +313,15 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     for (let i = 0; i < this.pokemon.varieties.length; i++) {
       const name = this.pokemon.varieties[i]['pokemon']['name'];
       let formattedName;
-      if (name.indexOf('-mega') !== -1) {
+      if (name.indexOf('-totem') !== -1) {
+        continue;
+      } else if (name.indexOf('-mega') !== -1) {
         const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
         const regExp = new RegExp(re, 'g');
         formattedName = name.replace(regExp, '$2 $1');
         formattedName = formattedName.replace(/-/g, ' ');
+      } else if (name.indexOf('-alola') !== -1) {
+        formattedName = 'Alolan ' + this.pokemon.species['name'];
       } else {
         const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
         const regExp = new RegExp(re, 'g');
@@ -372,6 +376,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.selectedFormNo = i;
     if (this.pokemonForms[i]['name'].indexOf('-mega') !== -1) {
       this.pokemon.name = this.formattedFormNames[i];
+    } else if (this.pokemonForms[i]['name'].indexOf('-alola') !== -1) {
+      this.pokemon.name = 'Alolan ' + this.pokemon.species['name'];
     } else {
       this.pokemon.name = this.pokemonForms[i]['name'];
     }
@@ -396,6 +402,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
       const regExp = new RegExp(re, 'g');
       const str = this.pokemonForms[i]['name'].replace(regExp, '$2');
+      console.log('calc');
       this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
         this.pad(this.pokemon.id, 3) + '-' + this.capitalizeSplitJoin(str, '-', '-') + '.png';
       console.log(this.pokemonImageUrl);
@@ -422,7 +429,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     while (elements.length > 0) {
       elements[0].remove();
     }
-    console.log('Destroyed');
     // this.pokemonService.searchItemSubject.next('');
   }
 }

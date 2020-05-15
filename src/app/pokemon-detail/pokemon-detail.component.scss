@@ -349,7 +349,7 @@
   .bioDiv .inner {
     padding: 0 !important;
   }
-  .ability {
+  .ability, .variety {
     white-space: pre !important;
   }
   table td {
@@ -361,7 +361,7 @@
   table td {
     padding: 0.50rem;
   }
-  .abilities {
+  .abilities, .varieties {
     font-size: small !important;
   }
   .statDiv .inner {
@@ -379,7 +379,7 @@
 }
 
 @media(max-width: 320px) {
-  .abilities {
+  .abilities, .varieties {
     font-size: x-small !important;
   }
   .statDiv .inner {
