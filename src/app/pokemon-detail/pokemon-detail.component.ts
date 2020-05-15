@@ -315,7 +315,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       let formattedName;
       if (name.indexOf('-totem') !== -1 || name.indexOf('-battle-bond') !== -1) {
         continue;
-      } else if (name.indexOf('-mega') !== -1 || name.indexOf('-primal') !== -1) {
+      } else if (name.indexOf('-mega') !== -1 || name.indexOf('-primal') !== -1 || name === 'greninja-ash') {
         const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
         const regExp = new RegExp(re, 'g');
         formattedName = name.replace(regExp, '$2 $1');
@@ -385,6 +385,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     } else if (this.pokemonForms[i]['name'].indexOf('-mega') !== -1
       || this.pokemonForms[i]['name'].indexOf('-primal') !== -1
       || this.pokemonForms[i]['name'].indexOf('-alola') !== -1
+      || this.pokemonForms[i]['name'] === 'greninja-ash'
       && this.pokemon.id !== 25) { // excluding Pikachu
       this.pokemon.name = this.formattedFormNames[i];
     } else {
