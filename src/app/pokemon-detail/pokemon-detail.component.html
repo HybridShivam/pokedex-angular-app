@@ -110,7 +110,7 @@
               <span class="varieties" *ngFor="let formName of formattedFormNames;let i=index">
                 <span class="variety {{pokemon.color}} text-uppercase" style="white-space:nowrap;"
                       [ngStyle]="{'display':i>=2?'inline-block':'unset','margin-top':i>=2?'5px':'0px'}"
-                      (click)="selectForm(i)" [ngClass]="{selectedType:selectedFormNo===i}"
+                      (click)="selectForm(i)" [ngClass]="{selectedForm:selectedFormNo===i}"
                 >{{formName}}</span>
                 <ng-container *ngIf="(i+1)%2==0"><br></ng-container>
               </span>
