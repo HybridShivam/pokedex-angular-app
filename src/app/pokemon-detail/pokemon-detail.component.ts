@@ -35,6 +35,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   pokemonForms = [];
   formattedFormNames = [];
+  selectedFormNo = 0;
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -49,7 +50,30 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     );
     // From List
     if (this.pokemonService.pokemons[0]) {
-      this.pokemon = this.pokemonService.pokemons[this.pokemonId - 1];
+      const pokemonFromList = this.pokemonService.pokemons[this.pokemonId - 1];
+      this.pokemon = new Pokemon(
+        pokemonFromList['name'],
+        pokemonFromList['id'],
+        pokemonFromList['sprites'],
+        pokemonFromList['types'].reverse(),
+        pokemonFromList['abilities'].reverse(),
+        pokemonFromList['height'],
+        pokemonFromList['weight'],
+        pokemonFromList['base_experience'],
+        pokemonFromList['forms'],
+        pokemonFromList['held_items'],
+        pokemonFromList['game_indices'],
+        pokemonFromList['is_default'],
+        pokemonFromList['location'],
+        pokemonFromList['moves'],
+        pokemonFromList['order'],
+        pokemonFromList['stats'],
+        pokemonFromList['species'],
+        pokemonFromList,
+        pokemonFromList['color']['name'],
+        pokemonFromList['genera'],
+        pokemonFromList['varieties']
+      );
       this.pokemonService.getPokemonSpeciesById(this.pokemonId).subscribe(
         response => {
           this.pokemon.speciesDetails = response;
@@ -307,47 +331,47 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     );
   }
 
-  selectForm(url, name) {
-    this.pokemonService.getPokemonByURL(url).subscribe(
-      result => {
-        this.pokemon.name = result['name'];
-        // this.pokemon.id = result['id'];
-        this.pokemon.sprites = result['sprites'];
-        this.pokemon.types = result['types'].reverse();
-        this.pokemon.abilities = result['abilities'].reverse();
-        this.pokemon.height = result['height'];
-        this.pokemon.weight = result['weight'];
-        this.pokemon.baseExperience = result['base_experience'];
-        this.pokemon.forms = result['forms'];
-        this.pokemon.heldItems = result['held_items'];
-        this.pokemon.gameIndices = result['game_indices'];
-        this.pokemon.is_default = result['is_default'];
-        this.pokemon.location = result['location'];
-        this.pokemon.moves = result['moves'];
-        this.pokemon.order = result['order'];
-        this.pokemon.stats = result['stats'];
-        this.pokemon.species = result['species'];
-        if (!this.pokemon.is_default) {
-          const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
-          const regExp = new RegExp(re, 'g');
-          const str = name.replace(regExp, '$2');
-          this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
-            this.pad(this.pokemon.id, 3) + '-' + this.capitalize(str) + '.png';
-          console.log(this.pokemonImageUrl);
-        }
-        // }
-        // result;
-        // result['color']['name'];
-        // result['genera'];
-        // result['varieties'];
-        // this.pokemon.speciesDetails = results[1];
-        // this.pokemon.genera = results[1]['genera'];
-        // this.pokemon.color = results[1]['color']['name'];
-        // // Why do i need this ???????????????????
-        // this.pokemonService.activePokemon.next(this.pokemon);
-        this.initializePokemonFields();
-      }
-    );
+  selectForm(i) {
+    if (this.selectedFormNo === i) {
+      return;
+    }
+    this.selectedFormNo = i;
+    this.pokemon.name = this.pokemonForms[i]['name'];
+    // this.pokemon.id = this.pokemonForms[i]['id'];
+    this.pokemon.sprites = this.pokemonForms[i]['sprites'];
+    this.pokemon.types = this.pokemonForms[i]['types'];
+    this.pokemon.abilities = this.pokemonForms[i]['abilities'];
+    this.pokemon.height = this.pokemonForms[i]['height'];
+    this.pokemon.weight = this.pokemonForms[i]['weight'];
+    this.pokemon.baseExperience = this.pokemonForms[i]['base_experience'];
+    this.pokemon.forms = this.pokemonForms[i]['forms'];
+    this.pokemon.heldItems = this.pokemonForms[i]['held_items'];
+    this.pokemon.gameIndices = this.pokemonForms[i]['game_indices'];
+    this.pokemon.is_default = this.pokemonForms[i]['is_default'];
+    this.pokemon.location = this.pokemonForms[i]['location'];
+    this.pokemon.moves = this.pokemonForms[i]['moves'];
+    this.pokemon.order = this.pokemonForms[i]['order'];
+    this.pokemon.stats = this.pokemonForms[i]['stats'];
+    this.pokemon.species = this.pokemonForms[i]['species'];
+    if (!this.pokemon.is_default) {
+      const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
+      const regExp = new RegExp(re, 'g');
+      const str = this.pokemonForms[i]['name'].replace(regExp, '$2');
+      this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
+        this.pad(this.pokemon.id, 3) + '-' + this.capitalize(str) + '.png';
+      console.log(this.pokemonImageUrl);
+    }
+    // }
+    // result;
+    // result['color']['name'];
+    // result['genera'];
+    // result['varieties'];
+    // this.pokemon.speciesDetails = results[1];
+    // this.pokemon.genera = results[1]['genera'];
+    // this.pokemon.color = results[1]['color']['name'];
+    // // Why do i need this ???????????????????
+    // this.pokemonService.activePokemon.next(this.pokemon);
+    this.initializePokemonFields();
   }
 
   capitalize(str) {
