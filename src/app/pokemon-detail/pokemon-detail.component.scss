@@ -67,11 +67,11 @@
 }
 
 // Abilities Styling
-.abilities:hover {
+.abilities, .varieties:hover {
   cursor: pointer;
 }
 
-.ability {
+.ability, .variety {
   border-radius: 2px;
   padding: 2px 3px;
   margin-right: 6px;
@@ -300,10 +300,8 @@
 }
 
 .hiddenAbility {
-  //color: white;
-  //background-color: black;
-  border-radius: 2px;
-  padding: 2px;
+  //border-radius: 2px;
+  //padding: 2px;
   filter: brightness(110%) saturate(50%);
 }
 

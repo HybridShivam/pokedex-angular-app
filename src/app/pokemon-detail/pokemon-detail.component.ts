@@ -333,8 +333,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   requestForms() {
     const formRequests = [];
-    for (const varity of this.pokemon.varieties.slice(1)) {
-      formRequests.push(this.pokemonService.getPokemonByURL(varity['pokemon']['url']));
+    for (const variety of this.pokemon.varieties.slice(1)) {
+      formRequests.push(this.pokemonService.getPokemonByURL(variety['pokemon']['url']));
     }
     forkJoin(formRequests).subscribe(
       results => {
