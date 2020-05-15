@@ -74,6 +74,29 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         pokemonFromList['genera'],
         pokemonFromList['varieties']
       );
+      this.pokemonForms.push(new Pokemon(
+        pokemonFromList['name'],
+        pokemonFromList['id'],
+        pokemonFromList['sprites'],
+        pokemonFromList['types'].reverse(),
+        pokemonFromList['abilities'].reverse(),
+        pokemonFromList['height'],
+        pokemonFromList['weight'],
+        pokemonFromList['base_experience'],
+        pokemonFromList['forms'],
+        pokemonFromList['held_items'],
+        pokemonFromList['game_indices'],
+        pokemonFromList['is_default'],
+        pokemonFromList['location'],
+        pokemonFromList['moves'],
+        pokemonFromList['order'],
+        pokemonFromList['stats'],
+        pokemonFromList['species'],
+        pokemonFromList,
+        pokemonFromList['color']['name'],
+        pokemonFromList['genera'],
+        pokemonFromList['varieties']
+      ));
       this.pokemonService.getPokemonSpeciesById(this.pokemonId).subscribe(
         response => {
           this.pokemon.speciesDetails = response;
