@@ -55,8 +55,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         pokemonFromList['name'],
         pokemonFromList['id'],
         pokemonFromList['sprites'],
-        pokemonFromList['types'].reverse(),
-        pokemonFromList['abilities'].reverse(),
+        pokemonFromList['types'],
+        pokemonFromList['abilities'],
         pokemonFromList['height'],
         pokemonFromList['weight'],
         pokemonFromList['base_experience'],
@@ -74,29 +74,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         pokemonFromList['genera'],
         pokemonFromList['varieties']
       );
-      this.pokemonForms.push(new Pokemon(
-        pokemonFromList['name'],
-        pokemonFromList['id'],
-        pokemonFromList['sprites'],
-        pokemonFromList['types'].reverse(),
-        pokemonFromList['abilities'].reverse(),
-        pokemonFromList['height'],
-        pokemonFromList['weight'],
-        pokemonFromList['base_experience'],
-        pokemonFromList['forms'],
-        pokemonFromList['held_items'],
-        pokemonFromList['game_indices'],
-        pokemonFromList['is_default'],
-        pokemonFromList['location'],
-        pokemonFromList['moves'],
-        pokemonFromList['order'],
-        pokemonFromList['stats'],
-        pokemonFromList['species'],
-        pokemonFromList,
-        pokemonFromList['color']['name'],
-        pokemonFromList['genera'],
-        pokemonFromList['varieties']
-      ));
+      console.log('init');
+      console.log(this.pokemonForms);
       this.pokemonService.getPokemonSpeciesById(this.pokemonId).subscribe(
         response => {
           this.pokemon.speciesDetails = response;
@@ -106,6 +85,30 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           this.pokemon.varieties = response['varieties'];
           this.requestForms();
           this.formatFormNames();
+          // Store as first form in array
+          this.pokemonForms.push(new Pokemon(
+            this.pokemon['name'],
+            this.pokemon['id'],
+            this.pokemon['sprites'],
+            this.pokemon['types'],
+            this.pokemon['abilities'],
+            this.pokemon['height'],
+            this.pokemon['weight'],
+            this.pokemon['base_experience'],
+            this.pokemon['forms'],
+            this.pokemon['held_items'],
+            this.pokemon['game_indices'],
+            this.pokemon['is_default'],
+            this.pokemon['location'],
+            this.pokemon['moves'],
+            this.pokemon['order'],
+            this.pokemon['stats'],
+            this.pokemon['species'],
+            this.pokemon,
+            this.pokemon['color']['name'],
+            this.pokemon['genera'],
+            this.pokemon['varieties']
+          ));
         }
       );
       this.initializePokemonFields();
@@ -142,6 +145,30 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           this.pokemon.color = results[1]['color']['name'];
           // Why do i need this ???????????????????
           this.pokemonService.activePokemon.next(this.pokemon);
+          // Store as first form in array
+          this.pokemonForms.push(new Pokemon(
+            this.pokemon['name'],
+            this.pokemon['id'],
+            this.pokemon['sprites'],
+            this.pokemon['types'],
+            this.pokemon['abilities'],
+            this.pokemon['height'],
+            this.pokemon['weight'],
+            this.pokemon['base_experience'],
+            this.pokemon['forms'],
+            this.pokemon['held_items'],
+            this.pokemon['game_indices'],
+            this.pokemon['is_default'],
+            this.pokemon['location'],
+            this.pokemon['moves'],
+            this.pokemon['order'],
+            this.pokemon['stats'],
+            this.pokemon['species'],
+            this.pokemon,
+            this.pokemon['color']['name'],
+            this.pokemon['genera'],
+            this.pokemon['varieties']
+          ));
           this.initializePokemonFields();
           this.requestForms();
           this.formatFormNames();
@@ -311,7 +338,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     for (const varity of this.pokemon.varieties.slice(1)) {
       formRequests.push(this.pokemonService.getPokemonByURL(varity['pokemon']['url']));
     }
-    this.pokemonForms[0] = this.pokemon;
     forkJoin(formRequests).subscribe(
       results => {
         for (let i = 0; i < results.length; i++) {
@@ -355,6 +381,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   selectForm(i) {
+    console.log(this.pokemonForms);
     if (this.selectedFormNo === i) {
       return;
     }

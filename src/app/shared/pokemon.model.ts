@@ -1,5 +1,6 @@
 export class Pokemon {
   constructor(
+    // From pokemon
     public name: string,
     public id: number,
     public sprite,
@@ -16,6 +17,7 @@ export class Pokemon {
     public moves,
     public order,
     public stats,
+    // From pokemon-species
     public species,
     public speciesDetails,
     public color,
