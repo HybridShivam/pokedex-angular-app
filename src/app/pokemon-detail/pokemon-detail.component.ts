@@ -57,12 +57,13 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           this.pokemon.speciesDetails = response;
           this.pokemon.color = response['color']['name'];
           this.pokemonService.activePokemon.next(this.pokemon);
-          // this.setTitleBarColor(this.pokemon.color);
           this.pokemon.genera = response['genera'];
           this.pokemon.varieties = response['varieties'];
         }
       );
       this.initializePokemonFields();
+      this.requestForms();
+      this.formatFormNames();
       // Directly From Link
     } else {
       forkJoin([this.pokemonService.getPokemonById(this.pokemonId),
@@ -261,7 +262,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   requestForms() {
-    console.log('start');
+    console.log('requesting forms');
     const formRequests = [];
     for (const varity of this.pokemon.varieties.slice(1)) {
       formRequests.push(this.pokemonService.getPokemonByURL(varity['pokemon']['url']));
