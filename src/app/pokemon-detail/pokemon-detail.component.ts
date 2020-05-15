@@ -313,9 +313,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     for (let i = 0; i < this.pokemon.varieties.length; i++) {
       const name = this.pokemon.varieties[i]['pokemon']['name'];
       let formattedName;
-      if (name.indexOf('-totem') !== -1 || name.indexOf('-battle-bond') !== -1) {
-        continue;
-      } else if (name.indexOf('-mega') !== -1 || name.indexOf('-primal') !== -1) {
+      if (name.indexOf('-mega') !== -1 || name.indexOf('-primal') !== -1) {
         const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
         const regExp = new RegExp(re, 'g');
         formattedName = name.replace(regExp, '$2 $1');
@@ -339,6 +337,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     for (const variety of this.pokemon.varieties.slice(1)) {
       if (variety['pokemon']['name'].indexOf('-totem') !== -1 || variety['pokemon']['name'] === 'greninja-battle-bond') {
         continue;
+        // Skipping these forms
       }
       formRequests.push(this.pokemonService.getPokemonByURL(variety['pokemon']['url']));
     }
