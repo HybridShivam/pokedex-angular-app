@@ -10,7 +10,7 @@ import {forkJoin} from 'rxjs';
   templateUrl: './pokemon-detail.component.html',
   styleUrls: ['./pokemon-detail.component.scss']
 })
-export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit {
+export class PokemonDetailComponent implements OnInit, OnDestroy {
   pokemonId;
   pokemon;
   pokemonImageUrl;
@@ -37,8 +37,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   // @ViewChild('abilityModal', {static: false}) abilityModal: ElementRef;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private pokemonService: PokemonService,
-              private location: Location) {
+              private pokemonService: PokemonService) {
   }
 
   ngOnInit(): void {
@@ -102,10 +101,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
         }
       );
     }
-  }
-
-  ngAfterViewInit(): void {
-    // this.setStat();
   }
 
   initializePokemonFields() {
