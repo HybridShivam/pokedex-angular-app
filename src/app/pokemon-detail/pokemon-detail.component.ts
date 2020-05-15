@@ -400,6 +400,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.pokemon.order = this.pokemonForms[i]['order'];
     this.pokemon.stats = this.pokemonForms[i]['stats'];
     this.pokemon.species = this.pokemonForms[i]['species'];
+    // For Non Default Forms Only
     if (!this.pokemon.is_default) {
       const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
       const regExp = new RegExp(re, 'g');
@@ -408,16 +409,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.pad(this.pokemon.id, 3) + '-' + this.capitalize(str) + '.png';
       console.log(this.pokemonImageUrl);
     }
-    // }
-    // result;
-    // result['color']['name'];
-    // result['genera'];
-    // result['varieties'];
-    // this.pokemon.speciesDetails = results[1];
-    // this.pokemon.genera = results[1]['genera'];
-    // this.pokemon.color = results[1]['color']['name'];
-    // // Why do i need this ???????????????????
-    // this.pokemonService.activePokemon.next(this.pokemon);
+    // For Default Forms and Initializing Fields
     this.initializePokemonFields();
   }
 
