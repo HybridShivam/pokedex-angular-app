@@ -326,7 +326,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
         const regExp = new RegExp(re, 'g');
         formattedName = name.replace(regExp, '$2');
-        formattedName = formattedName.replace(/-/g, ' ');
+        if (this.pokemon.id !== 250) { // exluding Ho-Oh
+          formattedName = formattedName.replace(/-/g, ' ');
+        }
       }
       this.formattedFormNames.push(formattedName);
     }
@@ -379,7 +381,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     } else if (this.pokemonForms[i]['name'].indexOf('-alola') !== -1) {
       this.pokemon.name = 'Alolan ' + this.pokemon.species['name'];
     } else {
-      this.pokemon.name = this.pokemonForms[i]['name'];
+      this.pokemon.name = this.pokemon.species['name'] + this.pokemonForms[i]['name'];
     }
     // this.pokemon.id = this.pokemonForms[i]['id'];
     this.pokemon.sprites = this.pokemonForms[i]['sprites'];
