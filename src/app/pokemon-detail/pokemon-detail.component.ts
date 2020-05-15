@@ -320,7 +320,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         const regExp = new RegExp(re, 'g');
         formattedName = name.replace(regExp, '$2 $1');
         formattedName = formattedName.replace(/-/g, ' ');
-      } else if (name.indexOf('-alola') !== -1) {
+      } else if (name.indexOf('-alola') !== -1 && this.pokemon.id !== 25) { // Excluding Alola-Cap Pikachu
         formattedName = 'Alolan ' + this.pokemon.species['name'];
       } else {
         const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
