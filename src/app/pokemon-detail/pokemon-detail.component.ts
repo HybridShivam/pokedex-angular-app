@@ -32,7 +32,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   abilitySelected = 0;
   allAbilitiesReceived = false;
   pokemonForms = [];
-  formsFormattedNames = [];
+  formattedFormNames = [];
 
   // @ViewChild('abilityModal', {static: false}) abilityModal: ElementRef;
 
@@ -98,6 +98,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           this.pokemonService.activePokemon.next(this.pokemon);
           this.initializePokemonFields();
           this.requestForms();
+          this.formatFormNames();
         }
       );
     }
@@ -240,20 +241,34 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
 
-  formatFormName(name) {
-    // console.log(name);
-    if (name.indexOf('-mega') !== -1) {
-      let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
-      let regExp = new RegExp(re, 'g');
-      var str = name.replace(regExp, '$2 $1');
-      str = str.replace(/-/g, ' ');
-    } else {
-      let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
-      let regExp = new RegExp(re, 'g');
-      var str = name.replace(regExp, '$2');
-      str = str.replace(/-/g, ' ');
+  formatFormNames() {
+    console.log(this.pokemon.varieties);
+    for (let i = 0; i < this.pokemon.varieties.length; i++) {
+      let name = this.pokemon.varieties[i]['pokemon']['name'];
+      let formattedName;
+      if (name.indexOf('-mega') !== -1) {
+        let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
+        console.log('mega ' + re);
+        console.log('Name ' + name);
+        let regExp = new RegExp(re, 'g');
+        formattedName = name.replace(regExp, '$2 $1');
+        console.log(formattedName);
+        formattedName = formattedName.replace(/-/g, ' ');
+        console.log(formattedName);
+      } else {
+        let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
+        console.log('not mega ' + re);
+        console.log('Name ' + name);
+        let regExp = new RegExp(re, 'g');
+        formattedName = name.replace(regExp, '$2');
+        console.log(formattedName);
+        formattedName = formattedName.replace(/-/g, ' ');
+        console.log(formattedName);
+      }
+      console.log(formattedName);
+      this.formattedFormNames.push(formattedName);
     }
-    return str;
+    console.log('Formatted Names:' + this.formattedFormNames);
   }
 
   requestForms() {
