@@ -243,16 +243,16 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   formatFormNames() {
     for (let i = 0; i < this.pokemon.varieties.length; i++) {
-      let name = this.pokemon.varieties[i]['pokemon']['name'];
+      const name = this.pokemon.varieties[i]['pokemon']['name'];
       let formattedName;
       if (name.indexOf('-mega') !== -1) {
-        let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
-        let regExp = new RegExp(re, 'g');
+        const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
+        const regExp = new RegExp(re, 'g');
         formattedName = name.replace(regExp, '$2 $1');
         formattedName = formattedName.replace(/-/g, ' ');
       } else {
-        let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
-        let regExp = new RegExp(re, 'g');
+        const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
+        const regExp = new RegExp(re, 'g');
         formattedName = name.replace(regExp, '$2');
         formattedName = formattedName.replace(/-/g, ' ');
       }
@@ -335,9 +335,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.pokemon.stats = result['stats'];
         this.pokemon.species = result['species'];
         if (!this.pokemon.is_default) {
-          let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
-          let regExp = new RegExp(re, 'g');
-          let str = name.replace(regExp, '$2');
+          const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
+          const regExp = new RegExp(re, 'g');
+          const str = name.replace(regExp, '$2');
           this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
             this.pad(this.pokemon.id, 3) + '-' + this.capitalize(str) + '.png';
           console.log(this.pokemonImageUrl);
