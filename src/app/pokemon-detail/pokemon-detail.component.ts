@@ -315,7 +315,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       let formattedName;
       if (name.indexOf('-totem') !== -1) {
         continue;
-      } else if (name.indexOf('-mega') !== -1) {
+      } else if (name.indexOf('-mega') !== -1 || name.indexOf('-primal') !== -1) {
         const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
         const regExp = new RegExp(re, 'g');
         formattedName = name.replace(regExp, '$2 $1');
@@ -326,7 +326,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
         const regExp = new RegExp(re, 'g');
         formattedName = name.replace(regExp, '$2');
-        if (this.pokemon.id !== 250) { // exluding Ho-Oh
+        if (this.pokemon.id !== 250) { // excluding Ho-Oh
           formattedName = formattedName.replace(/-/g, ' ');
         }
       }
@@ -376,13 +376,15 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       return;
     }
     this.selectedFormNo = i;
-    if (this.pokemonForms[i]['name'].indexOf('-mega') !== -1) {
+    if (this.pokemonForms[i]['name'] === this.pokemon.species['name']) {
+      this.pokemon.name = this.pokemon.species['name'];
+    } else if (this.pokemonForms[i]['name'].indexOf('-mega') !== -1 || this.pokemonForms[i]['name'].indexOf('-primal') !== -1
+      || this.pokemonForms[i]['name'].indexOf('-alola') !== -1) {
       this.pokemon.name = this.formattedFormNames[i];
-    } else if (this.pokemonForms[i]['name'].indexOf('-alola') !== -1) {
-      this.pokemon.name = 'Alolan ' + this.pokemon.species['name'];
     } else {
-      this.pokemon.name = this.pokemon.species['name'] + this.pokemonForms[i]['name'];
+      this.pokemon.name = this.pokemon.species['name'] + ' [' + this.formattedFormNames[i] + ']';
     }
+
     // this.pokemon.id = this.pokemonForms[i]['id'];
     this.pokemon.sprites = this.pokemonForms[i]['sprites'];
     this.pokemon.types = this.pokemonForms[i]['types'];
