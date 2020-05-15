@@ -13,6 +13,7 @@ import {forkJoin} from 'rxjs';
 export class PokemonDetailComponent implements OnInit, OnDestroy {
   pokemonId;
   pokemon;
+
   pokemonImageUrl;
   heightInMetres;
   heightInFeetInches;
@@ -31,18 +32,15 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   abilities = [];
   abilitySelected = 0;
   allAbilitiesReceived = false;
+
   pokemonForms = [];
   formattedFormNames = [];
-
-  // @ViewChild('abilityModal', {static: false}) abilityModal: ElementRef;
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
   }
 
   ngOnInit(): void {
-    // history.pushState(null, null, './../');
-    // history.back();
     // Initialization Logic after Pokemon Fetching in Both If and Else Conditions
     this.activatedRoute.params.subscribe(
       (params) => {
@@ -262,17 +260,13 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   requestForms() {
-    console.log('requesting forms');
     const formRequests = [];
     for (const varity of this.pokemon.varieties.slice(1)) {
       formRequests.push(this.pokemonService.getPokemonByURL(varity['pokemon']['url']));
-      console.log(varity['pokemon']['url']);
     }
     this.pokemonForms[0] = this.pokemon;
     forkJoin(formRequests).subscribe(
       results => {
-        console.log('received');
-        console.log(this.pokemonForms[0]);
         for (let i = 0; i < results.length; i++) {
           this.pokemonForms[i + 1] = new Pokemon(
             results[i]['name'],
@@ -297,7 +291,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             this.pokemon.genera,
             this.pokemon.varieties
           );
-          console.log(this.pokemonForms[i + 1]);
           // if (!this.pokemonForms[i + 1].is_default) {
           // const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
           // const regExp = new RegExp(re, 'g');
@@ -310,7 +303,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           // // }
         }
         this.initializePokemonFields();
-        this.imageLoading = false;
       }
     );
   }
