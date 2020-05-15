@@ -242,33 +242,22 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
 
   formatFormNames() {
-    console.log(this.pokemon.varieties);
     for (let i = 0; i < this.pokemon.varieties.length; i++) {
       let name = this.pokemon.varieties[i]['pokemon']['name'];
       let formattedName;
       if (name.indexOf('-mega') !== -1) {
         let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
-        console.log('mega ' + re);
-        console.log('Name ' + name);
         let regExp = new RegExp(re, 'g');
         formattedName = name.replace(regExp, '$2 $1');
-        console.log(formattedName);
         formattedName = formattedName.replace(/-/g, ' ');
-        console.log(formattedName);
       } else {
         let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
-        console.log('not mega ' + re);
-        console.log('Name ' + name);
         let regExp = new RegExp(re, 'g');
         formattedName = name.replace(regExp, '$2');
-        console.log(formattedName);
         formattedName = formattedName.replace(/-/g, ' ');
-        console.log(formattedName);
       }
-      console.log(formattedName);
       this.formattedFormNames.push(formattedName);
     }
-    console.log('Formatted Names:' + this.formattedFormNames);
   }
 
   requestForms() {
