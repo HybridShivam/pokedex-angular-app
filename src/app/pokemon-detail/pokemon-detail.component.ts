@@ -217,7 +217,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   imagePreload() {
     this.imageLoading = false;
-    // console.log('ImageLoaded');
   }
 
   calculateStats() {
@@ -301,7 +300,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       });
   }
 
-
   abilitySelect(no: number) {
     this.abilitySelected = no;
   }
@@ -310,7 +308,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     return (this.pokemonStats[0] + this.pokemonStats[1] + this.pokemonStats[2] + this.pokemonStats[3]
       + this.pokemonStats[4] + this.pokemonStats[5]);
   }
-
 
   formatFormNames() {
     for (let i = 0; i < this.pokemon.varieties.length; i++) {
@@ -362,16 +359,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             this.pokemon.genera,
             this.pokemon.varieties
           );
-          // if (!this.pokemonForms[i + 1].is_default) {
-          // const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
-          // const regExp = new RegExp(re, 'g');
-          // const str = this.pokemonForms[i + 1]['varieties']['pokemon']['name'].replace(regExp, '$2');
-          // let tempURL = this.pokemonImageUrl;
-          // this.pokemonImageUrl = '';
-          // this.pokemonImageUrl = tempURL = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
-          //   this.pad(this.pokemon.id, 3) + '-' + this.capitalize(str) + '.png';
-          // console.log(this.pokemonImageUrl);
-          // // }
         }
         this.initializePokemonFields();
       }
@@ -383,7 +370,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       return;
     }
     this.selectedFormNo = i;
-    this.pokemon.name = this.pokemonForms[i]['name'];
+    if (this.pokemonForms[i]['name'].indexOf('-mega') !== -1) {
+      this.pokemon.name = this.formattedFormNames[i];
+    } else {
+      this.pokemon.name = this.pokemonForms[i]['name'];
+    }
     // this.pokemon.id = this.pokemonForms[i]['id'];
     this.pokemon.sprites = this.pokemonForms[i]['sprites'];
     this.pokemon.types = this.pokemonForms[i]['types'];
@@ -406,21 +397,19 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       const regExp = new RegExp(re, 'g');
       const str = this.pokemonForms[i]['name'].replace(regExp, '$2');
       this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
-        this.pad(this.pokemon.id, 3) + '-' + this.capitalize(str) + '.png';
+        this.pad(this.pokemon.id, 3) + '-' + this.capitalizeSplitJoin(str, '-', '-') + '.png';
       console.log(this.pokemonImageUrl);
     }
     // For Default Forms and Initializing Fields
     this.initializePokemonFields();
   }
 
-  capitalize(str) {
-    str = str.split('-');
-
+  capitalizeSplitJoin(str, split: string, join: string) {
+    str = str.split(split);
     for (let i = 0, x = str.length; i < x; i++) {
       str[i] = str[i][0].toUpperCase() + str[i].substr(1);
     }
-
-    return str.join('-');
+    return str.join(join);
   }
 
 
