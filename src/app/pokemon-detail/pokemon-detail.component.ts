@@ -57,11 +57,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           this.pokemonService.activePokemon.next(this.pokemon);
           this.pokemon.genera = response['genera'];
           this.pokemon.varieties = response['varieties'];
+          this.requestForms();
+          this.formatFormNames();
         }
       );
       this.initializePokemonFields();
-      this.requestForms();
-      this.formatFormNames();
       // Directly From Link
     } else {
       forkJoin([this.pokemonService.getPokemonById(this.pokemonId),
