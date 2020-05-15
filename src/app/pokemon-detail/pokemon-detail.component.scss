@@ -515,6 +515,8 @@
   padding-bottom: calc(85% + 10px); /* ratio of image height to width */
   height: 0;
   overflow: hidden;
+  margin: auto;
+  display: contents;
 }
 
 .image-container img {
