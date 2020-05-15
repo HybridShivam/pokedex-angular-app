@@ -31,7 +31,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   abilities = [];
   abilitySelected = 0;
   allAbilitiesReceived = false;
-  pokemonForms;
+  pokemonForms = [];
+  formsFormattedNames = [];
 
   // @ViewChild('abilityModal', {static: false}) abilityModal: ElementRef;
 
@@ -52,7 +53,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
     // From List
     if (this.pokemonService.pokemons[0]) {
       this.pokemon = this.pokemonService.pokemons[this.pokemonId - 1];
-
       this.pokemonService.getPokemonSpeciesById(this.pokemonId).subscribe(
         response => {
           this.pokemon.speciesDetails = response;
@@ -98,6 +98,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
           // Why do i need this ???????????????????
           this.pokemonService.activePokemon.next(this.pokemon);
           this.initializePokemonFields();
+          this.requestForms();
         }
       );
     }
@@ -243,13 +244,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
       + this.pokemonStats[4] + this.pokemonStats[5]);
   }
 
-  goBack() {
-    this.location.back();
-  }
-
 
   formatFormName(name) {
-    console.log(name);
+    // console.log(name);
     if (name.indexOf('-mega') !== -1) {
       let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
       let regExp = new RegExp(re, 'g');
@@ -264,8 +261,61 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
     return str;
   }
 
+  requestForms() {
+    console.log('start');
+    const formRequests = [];
+    for (const varity of this.pokemon.varieties.slice(1)) {
+      formRequests.push(this.pokemonService.getPokemonByURL(varity['pokemon']['url']));
+      console.log(varity['pokemon']['url']);
+    }
+    this.pokemonForms[0] = this.pokemon;
+    forkJoin(formRequests).subscribe(
+      results => {
+        console.log('received');
+        console.log(this.pokemonForms[0]);
+        for (let i = 0; i < results.length; i++) {
+          this.pokemonForms[i + 1] = new Pokemon(
+            results[i]['name'],
+            this.pokemon.id,
+            results[i]['sprites'],
+            results[i]['types'].reverse(),
+            results[i]['abilities'].reverse(),
+            results[i]['height'],
+            results[i]['weight'],
+            results[i]['base_experience'],
+            results[i]['forms'],
+            results[i]['held_items'],
+            results[i]['game_indices'],
+            results[i]['is_default'],
+            results[i]['location'],
+            results[i]['moves'],
+            results[i]['order'],
+            results[i]['stats'],
+            results[i]['species'],
+            this.pokemon.speciesDetails,
+            this.pokemon.color,
+            this.pokemon.genera,
+            this.pokemon.varieties
+          );
+          console.log(this.pokemonForms[i + 1]);
+          // if (!this.pokemonForms[i + 1].is_default) {
+          // const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
+          // const regExp = new RegExp(re, 'g');
+          // const str = this.pokemonForms[i + 1]['varieties']['pokemon']['name'].replace(regExp, '$2');
+          // let tempURL = this.pokemonImageUrl;
+          // this.pokemonImageUrl = '';
+          // this.pokemonImageUrl = tempURL = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
+          //   this.pad(this.pokemon.id, 3) + '-' + this.capitalize(str) + '.png';
+          // console.log(this.pokemonImageUrl);
+          // // }
+        }
+        this.initializePokemonFields();
+        this.imageLoading = false;
+      }
+    );
+  }
+
   selectForm(url, name) {
-    this.imageLoading = true;
     this.pokemonService.getPokemonByURL(url).subscribe(
       result => {
         this.pokemon.name = result['name'];
@@ -289,9 +339,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
           let re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
           let regExp = new RegExp(re, 'g');
           let str = name.replace(regExp, '$2');
-          let tempURL = this.pokemonImageUrl;
-          this.pokemonImageUrl = '';
-          this.pokemonImageUrl = tempURL = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
+          this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
             this.pad(this.pokemon.id, 3) + '-' + this.capitalize(str) + '.png';
           console.log(this.pokemonImageUrl);
         }
@@ -306,7 +354,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy, AfterViewInit 
         // // Why do i need this ???????????????????
         // this.pokemonService.activePokemon.next(this.pokemon);
         this.initializePokemonFields();
-        this.imageLoading = false;
       }
     );
   }
