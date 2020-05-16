@@ -36,6 +36,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   pokemonForms = [];
   formattedFormNames = [];
   selectedFormNo = 0;
+  varietiesReversed = false; // For Magearna
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -311,23 +312,33 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   formatFormNames() {
     for (let i = 0; i < this.pokemon.varieties.length; i++) {
-      const name = this.pokemon.varieties[i]['pokemon']['name'];
-      let formattedName;
-      if (name.indexOf('-totem') !== -1 || name.indexOf('-battle-bond') !== -1) {
-        continue;
-      } else if (name.indexOf('-mega') !== -1 || name.indexOf('-primal') !== -1 || name === 'greninja-ash') {
-        const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
-        const regExp = new RegExp(re, 'g');
-        formattedName = name.replace(regExp, '$2 $1');
-        formattedName = formattedName.replace(/-/g, ' ');
-      } else if (name.indexOf('-alola') !== -1 && this.pokemon.id !== 25) { // Excluding Alola-Cap Pikachu
-        formattedName = 'Alolan ' + this.pokemon.species['name'];
-      } else {
-        const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
-        const regExp = new RegExp(re, 'g');
-        formattedName = name.replace(regExp, '$2');
-        if (this.pokemon.id !== 250) { // excluding Ho-Oh
+      var formattedName;
+      var name = this.pokemon.varieties[i]['pokemon']['name'];
+      if (this.pokemon.id !== 774) { // excluding Minior
+        if (name.indexOf('-totem') !== -1 || name.indexOf('-battle-bond') !== -1) {
+          continue;
+        } else if (name.indexOf('-mega') !== -1 || name.indexOf('-primal') !== -1 || name === 'greninja-ash') {
+          const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
+          const regExp = new RegExp(re, 'g');
+          formattedName = name.replace(regExp, '$2 $1');
           formattedName = formattedName.replace(/-/g, ' ');
+        } else if (name.indexOf('-alola') !== -1 && this.pokemon.id !== 25) { // Excluding Alola-Cap Pikachu
+          formattedName = 'Alolan ' + this.pokemon.species['name'];
+        } else {
+          const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
+          const regExp = new RegExp(re, 'g');
+          formattedName = name.replace(regExp, '$2');
+          if (this.pokemon.id !== 250) { // excluding Ho-Oh
+            formattedName = formattedName.replace(/-/g, ' ');
+          }
+        }
+      } else { // If minior
+        if (name === 'minior-red') {
+          formattedName = 'core';
+        } else if (name === 'minior-red-meteor') {
+          formattedName = 'meteor';
+        } else {
+          continue;
         }
       }
       this.formattedFormNames.push(formattedName);
@@ -335,13 +346,25 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   requestForms() {
+    if (this.pokemon.id === 801 && !this.varietiesReversed) { // For magearna Reverse the varities
+      this.pokemon.varieties.reverse();
+      this.varietiesReversed = true;
+    }
     const formRequests = [];
-    for (const variety of this.pokemon.varieties.slice(1)) {
-      if (variety['pokemon']['name'].indexOf('-totem') !== -1 || variety['pokemon']['name'] === 'greninja-battle-bond') {
-        continue;
-        // Skipping these forms
+    if (this.pokemon.id !== 774) { // Skipping Minior
+      for (const variety of this.pokemon.varieties.slice(1)) {
+        if (variety['pokemon']['name'].indexOf('-totem') !== -1 || variety['pokemon']['name'] === 'greninja-battle-bond') {
+          continue;
+          // Skipping these forms
+        }
+        formRequests.push(this.pokemonService.getPokemonByURL(variety['pokemon']['url']));
       }
-      formRequests.push(this.pokemonService.getPokemonByURL(variety['pokemon']['url']));
+    } else {
+      for (const variety of this.pokemon.varieties.slice(1)) {
+        if (variety['pokemon']['name'] === 'minior-red' || variety['pokemon']['name'] === 'minior-red-meteor') {
+          formRequests.push(this.pokemonService.getPokemonByURL(variety['pokemon']['url']));
+        }
+      }
     }
     forkJoin(formRequests).subscribe(
       results => {
@@ -413,7 +436,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
       const regExp = new RegExp(re, 'g');
       const str = this.pokemonForms[i]['name'].replace(regExp, '$2');
-      console.log('calc');
       this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
         this.pad(this.pokemon.id, 3) + '-' + this.capitalizeSplitJoin(str, '-', '-') + '.png';
       console.log(this.pokemonImageUrl);
