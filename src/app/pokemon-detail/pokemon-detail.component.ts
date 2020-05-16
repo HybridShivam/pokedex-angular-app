@@ -15,6 +15,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   pokemon;
 
   pokemonImageUrl;
+  pokemonDefaultColor;
   heightInMetres;
   heightInFeetInches;
   weightInKgs;
@@ -37,6 +38,30 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   formattedFormNames = [];
   selectedFormNo = 0;
   varietiesReversed = false; // For Magearna
+  formColors = {
+    'charizard-mega-x': 'black',
+    'latias-mega': 'purple',
+    'latios-mega': 'purple',
+    'castform-sunny': 'red',
+    'castform-rainy': 'blue',
+    'castform-snowy': 'purple',
+    'burmy-sandy': 'brown',
+    'burmy-trash': 'pink',
+    'wormadam-sandy': 'brown',
+    'wormadam-trash': 'pink',
+    'darmanitan-zen': 'gray',
+    'kyurem-black': 'black',
+    'kyurem-white': 'white',
+    'oricorio-pom-pom': 'yellow',
+    'oricorio-pau': 'pink',
+    'oricorio-sensu': 'purple',
+    'lycanroc-midnight': 'red',
+    'lycanroc-dusk': 'brown',
+    'minior-meteor-red': 'brown',
+    'minior-red': 'red',
+    'necrozma-ultra': 'yellow',
+    'magearna-original': 'red',
+  };
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -79,6 +104,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         response => {
           this.pokemon.speciesDetails = response;
           this.pokemon.color = response['color']['name'];
+          this.pokemonDefaultColor = this.pokemon.color;
           this.pokemonService.activePokemon.next(this.pokemon);
           this.pokemon.genera = response['genera'];
           this.pokemon.varieties = response['varieties'];
@@ -142,6 +168,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           this.pokemon.speciesDetails = results[1];
           this.pokemon.genera = results[1]['genera'];
           this.pokemon.color = results[1]['color']['name'];
+          this.pokemonDefaultColor = this.pokemon.color;
           // Why do i need this ???????????????????
           this.pokemonService.activePokemon.next(this.pokemon);
           // Store as first form in array
@@ -177,6 +204,13 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   initializePokemonFields() {
+    if (this.pokemon.varieties !== undefined && this.formColors[this.pokemon.varieties[this.selectedFormNo]['pokemon']['name']] !== undefined) {
+      this.pokemon.color = this.formColors[this.pokemon.varieties[this.selectedFormNo]['pokemon']['name']];
+      this.pokemonService.activePokemon.next(this.pokemon);
+    } else {
+      this.pokemon.color = this.pokemonDefaultColor;
+      this.pokemonService.activePokemon.next(this.pokemon);
+    }
     this.requestAbilityDetails();
     // Conditionally Add HQ or Normal Images
     // if (this.pokemon.id > 151) {
@@ -318,12 +352,18 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         if (name.indexOf('-totem') !== -1 || name.indexOf('-battle-bond') !== -1) {
           continue;
         } else if (name.indexOf('-mega') !== -1 || name.indexOf('-primal') !== -1 || name === 'greninja-ash'
-          || this.pokemon.id === 800
+          || this.pokemon.id === 800 // Necrozma
         ) {
-          const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
-          const regExp = new RegExp(re, 'g');
-          formattedName = name.replace(regExp, '$2 $1');
-          formattedName = formattedName.replace(/-/g, ' ');
+          if (name === 'necrozma-dusk') {
+            formattedName = 'Dusk Mane Necrozma';
+          } else if (name === 'necrozma-dawn') {
+            formattedName = 'Dawn Wings Necrozma';
+          } else {
+            const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
+            const regExp = new RegExp(re, 'g');
+            formattedName = name.replace(regExp, '$2 $1');
+            formattedName = formattedName.replace(/-/g, ' ');
+          }
         } else if (name.indexOf('-alola') !== -1 && this.pokemon.id !== 25) { // Excluding Alola-Cap Pikachu
           formattedName = 'Alolan ' + this.pokemon.species['name'];
         } else {
@@ -411,6 +451,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       || this.pokemonForms[i]['name'].indexOf('-primal') !== -1
       || this.pokemonForms[i]['name'].indexOf('-alola') !== -1
       || this.pokemonForms[i]['name'] === 'greninja-ash'
+      || this.pokemon.id === 800 // Necrozma
       && this.pokemon.id !== 25) { // excluding Pikachu
       this.pokemon.name = this.formattedFormNames[i];
     } else {
