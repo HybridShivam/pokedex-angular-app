@@ -57,8 +57,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     'oricorio-sensu': 'purple',
     'lycanroc-midnight': 'red',
     'lycanroc-dusk': 'brown',
-    'minior-meteor-red': 'brown',
-    'minior-red': 'red',
+    'minior-orange-meteor': 'red', // Because its second in list actually its minior-red
     'necrozma-ultra': 'yellow',
     'magearna-original': 'red',
   };
