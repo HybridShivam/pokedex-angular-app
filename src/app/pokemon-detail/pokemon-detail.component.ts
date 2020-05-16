@@ -60,6 +60,17 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     'minior-orange-meteor': 'red', // Because its second in list actually its minior-red
     'necrozma-ultra': 'yellow',
     'magearna-original': 'red',
+    'raticate-alola': 'black',
+    'raichu-alola': 'brown',
+    'sandshrew-alola': 'blue',
+    'sandslash-alola': 'blue',
+    'vulpix-alola': 'white',
+    'ninetales-alola': 'white',
+    'meowth-alola': 'gray',
+    'persian-alola': 'gray',
+    'grimer-alola': 'green',
+    'muk-alola': 'green',
+    'marowak-alola': 'black'
   };
 
   constructor(private activatedRoute: ActivatedRoute,
