@@ -317,7 +317,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       if (this.pokemon.id !== 774) { // excluding Minior
         if (name.indexOf('-totem') !== -1 || name.indexOf('-battle-bond') !== -1) {
           continue;
-        } else if (name.indexOf('-mega') !== -1 || name.indexOf('-primal') !== -1 || name === 'greninja-ash') {
+        } else if (name.indexOf('-mega') !== -1 || name.indexOf('-primal') !== -1 || name === 'greninja-ash'
+          || this.pokemon.id === 800
+        ) {
           const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
           const regExp = new RegExp(re, 'g');
           formattedName = name.replace(regExp, '$2 $1');
