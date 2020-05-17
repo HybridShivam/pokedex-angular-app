@@ -267,6 +267,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   imagePreload() {
     this.imageLoading = false;
     this.visible = true;
+    console.log("image loaded");
   }
 
   calculateStats() {
