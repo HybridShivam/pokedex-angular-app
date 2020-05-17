@@ -126,7 +126,7 @@
       <div class="image-container">
         <img class="Image img-fluid mx-auto my-auto d-block fadeInOut" [src]="pokemonImageUrl" alt=""
              (load)="imagePreload()"
-             [ngClass]="{fade: !imageLoading,fOut :!visible}"
+             [ngClass]="{fade: !imageLoading,fOut :!imageVisible}"
              style="z-index: 994!important;max-width: 85%;height: auto;padding-top: 10px">
       </div>
     </div>
