@@ -14,7 +14,7 @@
 
 }
 
-.PokemonName{
+.PokemonName {
   opacity: 1;
   transition: opacity .6s ease-in-out;
 }
@@ -27,7 +27,7 @@
   transition: opacity .6s ease-in-out;
 }
 
-.Image{
+.Image {
   opacity: 1;
   transition: opacity .6s ease-in-out;
 }
@@ -560,7 +560,19 @@
   left: 0;
   //height: auto;
 }
-.fOut{
+
+.fOut {
   opacity: 0;
   transition: opacity 0.4s ease-in-out;
+}
+
+.mega-sigil {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 995;
+  width: auto;
+  height: 50%
+  filter: brightness(125%) saturate(150%);
 }
