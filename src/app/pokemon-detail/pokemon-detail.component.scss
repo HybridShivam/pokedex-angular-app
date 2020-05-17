@@ -27,13 +27,12 @@
   transition: opacity .6s ease-in-out;
 }
 
-.fOut{
-  opacity: 0;
-  transition: opacity 0.4s ease-in-out;
-}
-.fIn{
+.Image{
   opacity: 1;
+  transition: opacity .6s ease-in-out;
 }
+
+// fOut at the Buttom
 
 .bioDiv .inner {
   //padding-left: 2rem;
@@ -560,4 +559,8 @@
   top: 0;
   left: 0;
   //height: auto;
+}
+.fOut{
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
 }
