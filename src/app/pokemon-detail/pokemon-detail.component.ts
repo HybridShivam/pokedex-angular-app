@@ -75,6 +75,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
 
   visible = true;
+  imageVisible = true;
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -265,6 +266,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   imagePreload() {
     this.imageLoading = false;
+    this.visible = true;
   }
 
   calculateStats() {
@@ -458,6 +460,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       return;
     }
     this.visible = false;
+    this.imageVisible = false;
     setTimeout(() => {
       this.selectedFormNo = i;
       if (this.pokemonForms[i]['name'] === this.pokemon.species['name']) {
