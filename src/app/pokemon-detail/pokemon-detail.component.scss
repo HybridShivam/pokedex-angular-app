@@ -14,10 +14,25 @@
 
 }
 
+.PokemonName{
+  opacity: 1;
+  transition: opacity .6s ease-in-out;
+}
+
 .bioDiv {
   padding-right: 0;
   //padding-left: 5rem;
   margin-right: 0;
+  opacity: 1;
+  transition: opacity .6s ease-in-out;
+}
+
+.fOut{
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+.fIn{
+  opacity: 1;
 }
 
 .bioDiv .inner {
@@ -77,6 +92,15 @@
   margin-right: 6px;
   white-space: nowrap;
   line-height: initial;
+}
+
+.variety {
+  margin-top: 5px;
+  display: inline-block;
+}
+
+.formsBlock {
+  padding-top: 8px;
 }
 
 .hiddenAbility, .selectedForm {
@@ -355,10 +379,13 @@
   table td {
     padding: 0.50rem;
   }
+  .formsBlock {
+    padding-top: 4px !important;
+  }
 }
 
 @media(max-width: 500px) {
-  .PokemonName{
+  .PokemonName {
     font-size: xx-large;
   }
   table td {
@@ -367,8 +394,11 @@
   .abilities, .varieties {
     font-size: small !important;
   }
-  .varieties{
+  .varieties {
     display: inline-block; // new
+  }
+  .formsBlock {
+    max-width: 75vw;
   }
   .statDiv .inner {
     padding-top: 1rem;
@@ -385,9 +415,9 @@
 }
 
 @media(max-width: 320px) {
-  .abilities, .varieties {
-    font-size: x-small !important;
-  }
+  //.abilities, .varieties {
+  //  font-size: x-small !important;
+  //}
   .statDiv .inner {
     font-size: x-small !important;
     padding-top: 1rem;

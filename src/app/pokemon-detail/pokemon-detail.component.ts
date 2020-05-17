@@ -73,6 +73,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     'marowak-alola': 'black'
   };
 
+
+  visible = true;
+
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
   }
@@ -454,47 +457,51 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     if (this.selectedFormNo === i) {
       return;
     }
-    this.selectedFormNo = i;
-    if (this.pokemonForms[i]['name'] === this.pokemon.species['name']) {
-      this.pokemon.name = this.pokemon.species['name'];
-    } else if (this.pokemonForms[i]['name'].indexOf('-mega') !== -1
-      || this.pokemonForms[i]['name'].indexOf('-primal') !== -1
-      || this.pokemonForms[i]['name'].indexOf('-alola') !== -1
-      || this.pokemonForms[i]['name'] === 'greninja-ash'
-      || this.pokemon.id === 800 // Necrozma
-      && this.pokemon.id !== 25) { // excluding Pikachu
-      this.pokemon.name = this.formattedFormNames[i];
-    } else {
-      this.pokemon.name = this.pokemon.species['name'] + ' [' + this.formattedFormNames[i] + ']';
-    }
+    this.visible = false;
+    setTimeout(() => {
+      this.selectedFormNo = i;
+      if (this.pokemonForms[i]['name'] === this.pokemon.species['name']) {
+        this.pokemon.name = this.pokemon.species['name'];
+      } else if (this.pokemonForms[i]['name'].indexOf('-mega') !== -1
+        || this.pokemonForms[i]['name'].indexOf('-primal') !== -1
+        || this.pokemonForms[i]['name'].indexOf('-alola') !== -1
+        || this.pokemonForms[i]['name'] === 'greninja-ash'
+        || this.pokemon.id === 800 // Necrozma
+        && this.pokemon.id !== 25) { // excluding Pikachu
+        this.pokemon.name = this.formattedFormNames[i];
+      } else {
+        this.pokemon.name = this.pokemon.species['name'] + ' [' + this.formattedFormNames[i] + ']';
+      }
 
-    // this.pokemon.id = this.pokemonForms[i]['id'];
-    this.pokemon.sprites = this.pokemonForms[i]['sprites'];
-    this.pokemon.types = this.pokemonForms[i]['types'];
-    this.pokemon.abilities = this.pokemonForms[i]['abilities'];
-    this.pokemon.height = this.pokemonForms[i]['height'];
-    this.pokemon.weight = this.pokemonForms[i]['weight'];
-    this.pokemon.baseExperience = this.pokemonForms[i]['base_experience'];
-    this.pokemon.forms = this.pokemonForms[i]['forms'];
-    this.pokemon.heldItems = this.pokemonForms[i]['held_items'];
-    this.pokemon.gameIndices = this.pokemonForms[i]['game_indices'];
-    this.pokemon.is_default = this.pokemonForms[i]['is_default'];
-    this.pokemon.location = this.pokemonForms[i]['location'];
-    this.pokemon.moves = this.pokemonForms[i]['moves'];
-    this.pokemon.order = this.pokemonForms[i]['order'];
-    this.pokemon.stats = this.pokemonForms[i]['stats'];
-    this.pokemon.species = this.pokemonForms[i]['species'];
-    // For Non Default Forms Only
-    if (!this.pokemon.is_default) {
-      const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
-      const regExp = new RegExp(re, 'g');
-      const str = this.pokemonForms[i]['name'].replace(regExp, '$2');
-      this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
-        this.pad(this.pokemon.id, 3) + '-' + this.capitalizeSplitJoin(str, '-', '-') + '.png';
-      console.log(this.pokemonImageUrl);
-    }
-    // For Default Forms and Initializing Fields
-    this.initializePokemonFields();
+      // this.pokemon.id = this.pokemonForms[i]['id'];
+      this.pokemon.sprites = this.pokemonForms[i]['sprites'];
+      this.pokemon.types = this.pokemonForms[i]['types'];
+      this.pokemon.abilities = this.pokemonForms[i]['abilities'];
+      this.pokemon.height = this.pokemonForms[i]['height'];
+      this.pokemon.weight = this.pokemonForms[i]['weight'];
+      this.pokemon.baseExperience = this.pokemonForms[i]['base_experience'];
+      this.pokemon.forms = this.pokemonForms[i]['forms'];
+      this.pokemon.heldItems = this.pokemonForms[i]['held_items'];
+      this.pokemon.gameIndices = this.pokemonForms[i]['game_indices'];
+      this.pokemon.is_default = this.pokemonForms[i]['is_default'];
+      this.pokemon.location = this.pokemonForms[i]['location'];
+      this.pokemon.moves = this.pokemonForms[i]['moves'];
+      this.pokemon.order = this.pokemonForms[i]['order'];
+      this.pokemon.stats = this.pokemonForms[i]['stats'];
+      this.pokemon.species = this.pokemonForms[i]['species'];
+      // For Non Default Forms Only
+      if (!this.pokemon.is_default) {
+        const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
+        const regExp = new RegExp(re, 'g');
+        const str = this.pokemonForms[i]['name'].replace(regExp, '$2');
+        this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
+          this.pad(this.pokemon.id, 3) + '-' + this.capitalizeSplitJoin(str, '-', '-') + '.png';
+        console.log(this.pokemonImageUrl);
+      }
+      // For Default Forms and Initializing Fields
+      this.initializePokemonFields();
+      this.visible = true;
+    }, 400);
   }
 
   capitalizeSplitJoin(str, split: string, join: string) {
