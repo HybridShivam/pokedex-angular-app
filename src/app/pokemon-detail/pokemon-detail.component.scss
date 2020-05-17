@@ -567,12 +567,58 @@
 }
 
 .mega-sigil {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
   transform: translate(-50%, -50%);
-  z-index: 995;
+  z-index: 1000;
   width: auto;
   height: 50%;
-  filter: brightness(125%) saturate(150%);
+  animation-name: sigil-animation;
+  animation-duration: 4s;
 }
+
+.sigil-animate {
+  animation-duration: 4s;
+}
+
+@keyframes sigil-animation {
+  0%{
+    opacity: 0;
+  }
+  25% {
+    filter: brightness(125%) saturate(125%) drop-shadow(0px 0px 0px rgb(255, 255, 255));
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(150%) saturate(150%) drop-shadow(12px 12px 12px rgb(249, 255, 100));
+  }
+}
+
+.megaSphere {
+  position: absolute;
+  z-index: 996;
+  top: calc(50% - 150px);
+  left: calc(50% - 150px);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 20px 0px #fff,/*white-border*/
+    inset 0 0 50px 10px #fff,/*white*/
+    inset 0 -20px 30px 0px #f0f, /*pink*/
+    inset 0 -40px 30px 10px #4574f5,/*blue*/
+    inset 0 -45px 45px 40px #8cc2ff, /*sky-blue*/
+    inset 0 -90px 40px 30px #45ff5e,/*green*/
+    inset 0 -120px 40px 30px #c1ff45,/*yellow-green*/
+    inset 0 10px 10px 40px #fdffb5,/*yellow-white*/
+    inset 0 20px 300px 10px #f9ff42,/*yellow*/
+    0 0 50px #fff,
+    0 0px 10px #f0f,
+    0 -5px 30px 0px #f9ff42,
+    0 10px 80px #f0f;
+  /*
+  #ff3f14 red
+  */
+}
+
