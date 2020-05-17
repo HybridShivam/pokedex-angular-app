@@ -1,7 +1,7 @@
 <div class="col-12 fadeIn MainDiv" *ngIf="pokemon!==undefined">
   <!--  <button type="button" class="btn" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>-->
   <br>
-  <h1 class="text-center text-capitalize">{{pokemon.name}}</h1>
+  <h1 class="text-center text-capitalize PokemonName">{{pokemon.name}}</h1>
   <div class="justify-content-center text-center">
     <!--    Had Padding Buttom 20px-->
     <span style="padding: 4px" *ngIf="pokemon.genera===undefined"> </span>
@@ -28,19 +28,20 @@
           <tr>
             <td class="text-right font-weight-bold">Abilities</td>
             <td>
-            <span class="abilities text-uppercase" *ngFor="let ability of pokemon.abilities; let i=index">
+            <span class="abilities" *ngFor="let ability of pokemon.abilities; let i=index">
               <ng-container *ngIf="i==2"><br></ng-container>
-              <span class="ability {{pokemon.color}}" [ngClass]="{'hiddenAbility':ability['is_hidden']}" role="button"
+              <span class="ability {{pokemon.color}} text-uppercase" [ngClass]="{'hiddenAbility':ability['is_hidden']}"
+                    role="button"
                     (click)="abilitySelect(i)" style="white-space:nowrap;"
                     [ngStyle]="{'display':i==2?'inline-block':'unset','margin-top':i==2?'5px':'0px'}"
                     data-toggle="modal" data-target="#abilityModal">{{ability['ability']['name']}}</span>
           </span>
             </td>
           </tr>
-<!--          <tr>-->
-<!--            <td class="text-right font-weight-bold">Color</td>-->
-<!--            <td class="text-capitalize">{{pokemon.color}}</td>-->
-<!--          </tr>-->
+          <!--          <tr>-->
+          <!--            <td class="text-right font-weight-bold">Color</td>-->
+          <!--            <td class="text-capitalize">{{pokemon.color}}</td>-->
+          <!--          </tr>-->
           <tr>
             <td class="text-right font-weight-bold" style="vertical-align: middle;">Type</td>
             <td>
@@ -107,9 +108,9 @@
           <tr>
             <td class="text-right font-weight-bold">Forms</td>
             <td class="text-capitalize">
-              <span class="varieties" *ngFor="let formName of formattedFormNames;let i=index">
-                <span class="variety {{pokemon.color}} text-uppercase" style="white-space:nowrap;"
-                      [ngStyle]="{'display':i>=2?'inline-block':'unset','margin-top':i>=2?'5px':'0px'}"
+              <span class="varieties" *ngFor="let formName of formattedFormNames;let i=index" style="white-space: pre;">
+                <span class="variety {{pokemon.color}} text-uppercase"
+                      [ngStyle]="{'display':i>=1?'inline-block':'unset','margin-top':i>=1?'5px':'0px'}"
                       (click)="selectForm(i)" [ngClass]="{selectedForm:selectedFormNo===i}"
                 >{{formName}}</span>
                 <ng-container *ngIf="(i+1)%2==0"><br></ng-container>

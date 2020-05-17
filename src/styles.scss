@@ -25,7 +25,7 @@ html, body {
   overflow-x: hidden;
 }
 
-@media (pointer: none), (pointer: coarse) {
+@media (pointer: none), (pointer: coarse) and (max-width: 768px) {
   html, body {
     overflow-x: unset;
   }

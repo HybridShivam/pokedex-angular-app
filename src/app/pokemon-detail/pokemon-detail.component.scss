@@ -358,11 +358,17 @@
 }
 
 @media(max-width: 500px) {
+  .PokemonName{
+    font-size: xx-large;
+  }
   table td {
     padding: 0.50rem;
   }
   .abilities, .varieties {
     font-size: small !important;
+  }
+  .varieties{
+    display: inline-block; // new
   }
   .statDiv .inner {
     padding-top: 1rem;
