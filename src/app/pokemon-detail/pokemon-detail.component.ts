@@ -514,13 +514,13 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         const str = this.pokemonForms[i]['name'].replace(regExp, '$2');
         this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
           this.pad(this.pokemon.id, 3) + '-' + this.capitalizeSplitJoin(str, '-', '-') + '.png';
-        console.log(this.pokemonImageUrl);
+        // console.log(this.pokemonImageUrl);
       }
       // For Default Forms and Initializing Fields
       this.initializePokemonFields();
       this.visible = true;
       if (this.pokemonForms[i]['name'].indexOf('-mega') !== -1 && this.megaEvolveAnimationEnabled) {
-        console.log('Mega Evolve Animation !!!');
+        // console.log('Mega Evolve Animation !!!');
         this.megaEvolve();
       }
     }, 400);
@@ -533,7 +533,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       this.SigilVisible = true;
       this.SphereVisible = true;
       this.BubblesVisible = true;
-    }, 500);
+    }, 1000);
     setTimeout(() => {
       if (this.imageLoadedForMegaEvolution) {
         this.SphereVisible = false;
@@ -557,10 +557,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             this.sigilEnd = true;
             setTimeout(() => {
               this.SigilVisible = false;
-            }, 3000);
+            }, 2100);
             setTimeout(() => {
               this.megaEvolving = false;
-            }, 3100);
+            }, 2200);
             imageLoadedForMegaEvolutionSubscription.unsubscribe();
           }
         });

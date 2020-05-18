@@ -574,7 +574,7 @@
   width: auto;
   height: 50%;
   animation-name: sigil-animation;
-  animation-duration: 4s;
+  animation-duration: 1s;
   animation-iteration-count: infinite;
 }
 
@@ -590,17 +590,15 @@
 
 @keyframes sigil-animation {
   0% {
-    opacity: 0.5;
+    filter: brightness(100%) saturate(100%);
   }
   25% {
-    opacity: 1;
     filter: brightness(125%) saturate(125%);
   }
   50% {
     filter: brightness(150%) saturate(150%);
   }
   100% {
-    opacity: 0.5;
     filter: brightness(100%) saturate(100%);
   }
 }
