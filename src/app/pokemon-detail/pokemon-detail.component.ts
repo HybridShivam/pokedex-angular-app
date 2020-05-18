@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {PokemonService} from '../shared/pokemon.service';
 import {Pokemon} from '../shared/pokemon.model';
-import {forkJoin} from 'rxjs';
+import {forkJoin, Subject, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -83,6 +83,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   sigilEnd = false;
   BubblesVisible = false;
   imageLoadedForMegaEvolution = false;
+  imageLoadedForMegaEvolutionSubject = new Subject<boolean>();
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -276,6 +277,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     if (!this.megaEvolving) {
       this.imageVisible = true;
     } else {
+      this.imageLoadedForMegaEvolutionSubject.next(true);
       this.imageLoadedForMegaEvolution = true;
     }
   }
@@ -544,6 +546,23 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         setTimeout(() => {
           this.megaEvolving = false;
         }, 3100);
+      } else {
+        const imageLoadedForMegaEvolutionSubscription = this.imageLoadedForMegaEvolutionSubject.subscribe((response) => {
+          if (response) {
+            this.SphereVisible = false;
+            this.BubblesVisible = false;
+            this.imageVisible = true;
+            this.imageLoadedForMegaEvolution = false;
+            this.sigilEnd = true;
+            setTimeout(() => {
+              this.SigilVisible = false;
+            }, 3000);
+            setTimeout(() => {
+              this.megaEvolving = false;
+            }, 3100);
+            imageLoadedForMegaEvolutionSubscription.unsubscribe();
+          }
+        });
       }
     }, 5000);
     this.megaEvolveAnimationEnabled = false;
