@@ -331,7 +331,8 @@
              (load)="imagePreload()"
              [ngClass]="{fade: !imageLoading,fOut :!imageVisible}"
              style="z-index: 100!important;max-width: 85%;height: auto;padding-top: 10px;">
-        <img class="mega-sigil" src="assets/Mega-Evolution-Sigil.png" *ngIf="megaEvolving" [ngClass]="{'fIn': SigilVisible}">
+        <img class="mega-sigil" src="assets/Mega-Evolution-Sigil.png" *ngIf="megaEvolving"
+             [ngClass]="{'fIn': SigilVisible, 'sigil-end': sigilEnd}">
         <div class="megaSphere" *ngIf="megaEvolving" [ngClass]="{'fIn': SphereVisible}"></div>
       </div>
     </div>

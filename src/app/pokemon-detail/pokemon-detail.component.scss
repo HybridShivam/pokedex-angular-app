@@ -582,6 +582,12 @@
   animation-duration: 4s;
 }
 
+.sigil-end{
+  animation-name: sigil-end;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+}
+
 @keyframes sigil-animation {
   0% {
     opacity: 0.5;
@@ -599,6 +605,25 @@
   }
 }
 
+@keyframes sigil-end {
+  0% {
+    transform: scale(1.0) translate(-50%, -50%);
+  }
+  25% {
+    opacity: 1;
+    filter: brightness(125%) saturate(125%);
+    transform: scale(1.1) translate(-50%, -50%);
+  }
+  75% {
+    filter: brightness(150%) saturate(150%);
+    transform: scale(1.2) translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5) translate(-50%, -50%);
+  }
+}
+
 // Mega Sphere
 
 .megaSphere {
@@ -607,7 +632,7 @@
   position: absolute !important;
   top: 50% !important;
   left: 50% !important;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.9);
   z-index: 101;
   width: 87%;
   height: 98%;

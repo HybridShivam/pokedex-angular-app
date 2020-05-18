@@ -80,7 +80,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   megaEvolveAnimationEnabled = true;
   SphereVisible = false;
   SigilVisible = false;
+  sigilEnd = false;
   BubblesVisible = false;
+  imageLoadedForMegaEvolution = false;
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -273,6 +275,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.imageLoading = false;
     if (!this.megaEvolving) {
       this.imageVisible = true;
+    } else {
+      this.imageLoadedForMegaEvolution = true;
     }
   }
 
@@ -521,11 +525,27 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   megaEvolve() {
     this.megaEvolving = true;
+    this.imageLoadedForMegaEvolution = false;
     setTimeout(() => {
       this.SigilVisible = true;
       this.SphereVisible = true;
       this.BubblesVisible = true;
     }, 100);
+    setTimeout(() => {
+      if (this.imageLoadedForMegaEvolution) {
+        this.SphereVisible = false;
+        this.BubblesVisible = false;
+        this.imageVisible = true;
+        this.imageLoadedForMegaEvolution = false;
+        this.sigilEnd = true;
+        setTimeout(() => {
+          this.SigilVisible = false;
+        }, 3000);
+        setTimeout(() => {
+          this.megaEvolving = false;
+        }, 3100);
+      }
+    }, 5000);
     this.megaEvolveAnimationEnabled = false;
   }
 
