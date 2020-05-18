@@ -76,6 +76,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   visible = true;
   imageVisible = true;
+  megaEvolving = false;
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {

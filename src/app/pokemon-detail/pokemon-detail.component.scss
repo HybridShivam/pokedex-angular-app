@@ -574,11 +574,12 @@
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%, -50%);
-  z-index: 102;
+  z-index: 105;
   width: auto;
   height: 50%;
   animation-name: sigil-animation;
   animation-duration: 4s;
+  animation-iteration-count: infinite;
 }
 
 .sigil-animate {
@@ -587,24 +588,22 @@
 
 @keyframes sigil-animation {
   0% {
-    opacity: 0;
+    opacity: 0.5;
   }
   25% {
-    filter: brightness(125%) saturate(125%) drop-shadow(0px 0px 0px rgb(255, 255, 255));
+    opacity: 1;
+    filter: brightness(125%) saturate(125%);
   }
   50% {
-    opacity: 1;
-    filter: brightness(150%) saturate(150%) drop-shadow(12px 12px 12px rgb(249, 255, 100));
+    filter: brightness(150%) saturate(150%);
+  }
+  100%{
+    opacity: 0.5;
+    filter: brightness(100%) saturate(100%);
   }
 }
 
 .megaSphere {
-  //position: absolute;
-  //z-index: 996;
-  //top: calc(50% - 150px);
-  //left: calc(50% - 150px);
-  //width: 300px;
-  //height: 300px;
   position: absolute !important;
   top: 50% !important;
   left: 50% !important;
@@ -657,20 +656,17 @@
   }
 }
 
-.container {
+.bubbles {
   position: absolute;
-  z-index: 105;
+  z-index: 102;
+  height: 80%;
+  padding: 0;
   width: 100%;
-  min-height: 100%;
   transform-style: preserve-3d;
   overflow: hidden;
-
 }
 
 .bubble-wrap {
-  //margin: 0 auto;
-  //width: 500px;
-  //height: 500px;
   margin: 0 auto;
   position: absolute;
   width: 100%;
