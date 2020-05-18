@@ -610,8 +610,8 @@
   left: 50% !important;
   transform: translate(-50%, -50%);
   z-index: 101;
-  width: 250px;
-  height: 250px;
+  width: 87%;
+  height: 98%;
   border-radius: 50%;
   box-shadow:
     inset 0 0 20px 0px #fff,/*white-border*/
@@ -629,3 +629,48 @@
     0 10px 80px #f0f;
 }
 
+// Bubbles
+@keyframes move {
+  100% {
+    transform: translate3d(0, 0, -1000px);
+  }
+}
+.container {
+  position: absolute;
+  z-index: 105;
+  width: 100%;
+  min-height: 100%;
+  transform-style: preserve-3d;
+  overflow: hidden;
+
+}
+.bubble-wrap {
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  perspective: 600px;
+}
+.bubble {
+  position: absolute;
+  background: black;
+  opacity: .7;
+  border-radius: 50%;
+  animation: move 3s infinite;
+  animation-direction: reverse;
+  box-shadow: 0 0 10px 5px #fff,
+  inset 0 0 10px 1px #FFF;
+}
+
+@for $i from 1 through 1000 {
+  .bubble:nth-child(#{$i}){
+    $size: random(30)+px;
+    height: $size;
+    width: $size;
+    animation-delay: -$i * .2s;
+    transform: translate3d( (random(1000) * 1px),  (random(1000) * 1px), (random(2000) * 1px));
+    background: hsl( random(360) , 75%, 80%);
+  }
+
+}
