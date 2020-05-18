@@ -560,10 +560,6 @@
   //height: auto;
 }
 
-.fOut {
-  opacity: 0;
-  transition: opacity 0.4s ease-in-out;
-}
 
 // Mega-Sigil
 
@@ -704,4 +700,10 @@
     background: hsl(random(360), 75%, 80%);
   }
 
+}
+
+
+.fOut {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
 }
