@@ -533,7 +533,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       this.SigilVisible = true;
       this.SphereVisible = true;
       this.BubblesVisible = true;
-    }, 100);
+    }, 500);
     setTimeout(() => {
       if (this.imageLoadedForMegaEvolution) {
         this.SphereVisible = false;
@@ -543,10 +543,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.sigilEnd = true;
         setTimeout(() => {
           this.SigilVisible = false;
-        }, 3000);
+        }, 2100);
         setTimeout(() => {
           this.megaEvolving = false;
-        }, 3100);
+        }, 2200);
       } else {
         const imageLoadedForMegaEvolutionSubscription = this.imageLoadedForMegaEvolutionSubject.subscribe((response) => {
           if (response) {
