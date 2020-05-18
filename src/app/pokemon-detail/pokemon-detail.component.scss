@@ -672,12 +672,12 @@
 @for $i from 1 through 1000 {
   .bubble:nth-child(#{$i}){
     $size: random(30)+px;
-    top: (random(60)*1%)+20%;
-    left: (random(60)*1%)+20%;
+    top: (random(80)*1%)+10%;
+    left: (random(80)*1%)+10%;
     height: $size;
     width: $size;
     animation-delay: -$i * .2s;
-    transform: translate3d( (random(2000) * 1px)-1000px,  (random(2000) * 1px)-1000px, (random(4000) * 1px)-2000px);
+    transform: translate3d( (random(2000) * 1px)-1000px,  (random(2000) * 1px)-1000px, (random(4000) * 1px));
     background: hsl( random(360) , 75%, 80%);
   }
 
