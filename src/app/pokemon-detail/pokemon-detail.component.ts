@@ -76,6 +76,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   visible = true;
   imageVisible = true;
+  // Mega Evolution Animation
   megaEvolving = false;
   megaEvolveAnimationEnabled = true;
   SphereVisible = false;
