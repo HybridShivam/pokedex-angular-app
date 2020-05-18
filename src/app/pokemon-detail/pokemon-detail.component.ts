@@ -538,7 +538,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       this.SigilVisible = true;
       this.SphereVisible = true;
       this.BubblesVisible = true;
-    }, 50);
+    }, 250);
     setTimeout(() => {
       if (this.imageLoadedForMegaEvolution) {
         this.SphereVisible = false;
