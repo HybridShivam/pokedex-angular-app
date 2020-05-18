@@ -77,6 +77,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   visible = true;
   imageVisible = true;
   megaEvolving = false;
+  megaEvolveAnimation = true;
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -267,7 +268,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   imagePreload() {
     this.imageLoading = false;
-    this.imageVisible = true;
+    if (!this.megaEvolving) {
+      this.imageVisible = true;
+    }
   }
 
   calculateStats() {
@@ -506,7 +509,16 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       // For Default Forms and Initializing Fields
       this.initializePokemonFields();
       this.visible = true;
+      if (this.pokemonForms[i]['name'].indexOf('-mega') !== -1) {
+        console.log('Mega Evolve Animation !!!');
+        this.megaEvolve();
+      }
     }, 400);
+  }
+
+  megaEvolve() {
+    this.megaEvolving = true;
+    this.megaEvolveAnimation = false;
   }
 
   capitalizeSplitJoin(str, split: string, join: string) {
