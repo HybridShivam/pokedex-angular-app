@@ -474,7 +474,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       return;
     }
     this.visible = false;
-    this.imageVisible = false;
+    if (!(this.pokemonForms[i]['name'].indexOf('-mega') !== -1 && this.megaEvolveAnimationEnabled)) {
+      this.imageVisible = false;
+    } else {
+      this.megaEvolve();
+    }
     setTimeout(() => {
       this.selectedFormNo = i;
       if (this.pokemonForms[i]['name'] === this.pokemon.species['name']) {
@@ -519,21 +523,22 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       // For Default Forms and Initializing Fields
       this.initializePokemonFields();
       this.visible = true;
-      if (this.pokemonForms[i]['name'].indexOf('-mega') !== -1 && this.megaEvolveAnimationEnabled) {
-        // console.log('Mega Evolve Animation !!!');
-        this.megaEvolve();
-      }
+      // if (this.pokemonForms[i]['name'].indexOf('-mega') !== -1 && this.megaEvolveAnimationEnabled) {
+      //   // console.log('Mega Evolve Animation !!!');
+      //   this.megaEvolve();
+      // }
     }, 400);
   }
 
   megaEvolve() {
     this.megaEvolving = true;
     this.imageLoadedForMegaEvolution = false;
+    this.imageVisible = false;
     setTimeout(() => {
       this.SigilVisible = true;
       this.SphereVisible = true;
       this.BubblesVisible = true;
-    }, 1000);
+    }, 50);
     setTimeout(() => {
       if (this.imageLoadedForMegaEvolution) {
         this.SphereVisible = false;
