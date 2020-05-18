@@ -467,10 +467,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.pokemon.name = this.pokemon.species['name'];
       } else if ((this.pokemon.id !== 25) // excluding Pikachu
         && ((this.pokemonForms[i]['name'].indexOf('-mega') !== -1)
-        || (this.pokemonForms[i]['name'].indexOf('-primal') !== -1)
-        || (this.pokemonForms[i]['name'].indexOf('-alola') !== -1)
-        || (this.pokemonForms[i]['name'] === 'greninja-ash')
-        || (this.pokemon.id === 800)) // Necrozma
+          || (this.pokemonForms[i]['name'].indexOf('-primal') !== -1)
+          || (this.pokemonForms[i]['name'].indexOf('-alola') !== -1)
+          || (this.pokemonForms[i]['name'] === 'greninja-ash')
+          || (this.pokemon.id === 800)) // Necrozma
       ) {
         this.pokemon.name = this.formattedFormNames[i];
       } else {
@@ -516,6 +516,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     return str.join(join);
   }
 
+
+  generateRandomInteger(min, max) {
+    return Math.floor(min + Math.random() * (max + 1 - min));
+  }
 
   ngOnDestroy() {
     this.pokemonService.activePokemon.next(null);

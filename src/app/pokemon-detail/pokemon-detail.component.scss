@@ -625,8 +625,8 @@
     inset 0 20px 300px 10px #f9ff42,/*yellow*/
     0 0 50px #fff,
     0 0px 10px #f0f,
-    0 -5px 30px 0px #f9ff42,
-    0 10px 80px #f0f;
+    //0 -5px 30px 0px #f9ff42,
+    //0 10px 80px #f0f;
 }
 
 // Bubbles
@@ -645,19 +645,25 @@
 
 }
 .bubble-wrap {
+  //margin: 0 auto;
+  //width: 500px;
+  //height: 500px;
   margin: 0 auto;
-  width: 500px;
-  height: 500px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   transform-style: preserve-3d;
   transform-origin: center center;
   perspective: 600px;
 }
 .bubble {
   position: absolute;
+  top: 50%;
+  left: 50%;
   background: black;
   opacity: .7;
   border-radius: 50%;
-  animation: move 3s infinite;
+  animation: move 2s infinite;
   animation-direction: reverse;
   box-shadow: 0 0 10px 5px #fff,
   inset 0 0 10px 1px #FFF;
@@ -666,10 +672,12 @@
 @for $i from 1 through 1000 {
   .bubble:nth-child(#{$i}){
     $size: random(30)+px;
+    top: (random(60)*1%)+20%;
+    left: (random(60)*1%)+20%;
     height: $size;
     width: $size;
     animation-delay: -$i * .2s;
-    transform: translate3d( (random(1000) * 1px),  (random(1000) * 1px), (random(2000) * 1px));
+    transform: translate3d( (random(2000) * 1px)-1000px,  (random(2000) * 1px)-1000px, (random(4000) * 1px)-2000px);
     background: hsl( random(360) , 75%, 80%);
   }
 
