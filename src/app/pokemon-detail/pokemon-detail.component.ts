@@ -538,9 +538,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
 
-  generateRandomInteger(min, max) {
-    return Math.floor(min + Math.random() * (max + 1 - min));
-  }
+  // generateRandomInteger(min, max) {
+  //   return Math.floor(min + Math.random() * (max + 1 - min));
+  // }
 
   ngOnDestroy() {
     this.pokemonService.activePokemon.next(null);
