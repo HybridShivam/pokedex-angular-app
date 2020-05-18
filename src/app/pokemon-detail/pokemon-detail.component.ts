@@ -77,7 +77,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   visible = true;
   imageVisible = true;
   megaEvolving = false;
-  megaEvolveAnimation = true;
+  megaEvolveAnimationEnabled = true;
+  SphereVisible = false;
+  SigilVisible = false;
+  BubblesVisible = false;
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -509,7 +512,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       // For Default Forms and Initializing Fields
       this.initializePokemonFields();
       this.visible = true;
-      if (this.pokemonForms[i]['name'].indexOf('-mega') !== -1) {
+      if (this.pokemonForms[i]['name'].indexOf('-mega') !== -1 && this.megaEvolveAnimationEnabled) {
         console.log('Mega Evolve Animation !!!');
         this.megaEvolve();
       }
@@ -518,7 +521,12 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   megaEvolve() {
     this.megaEvolving = true;
-    this.megaEvolveAnimation = false;
+    setTimeout(() => {
+      this.SigilVisible = true;
+      this.SphereVisible = true;
+      this.BubblesVisible = true;
+    }, 100);
+    this.megaEvolveAnimationEnabled = false;
   }
 
   capitalizeSplitJoin(str, split: string, join: string) {

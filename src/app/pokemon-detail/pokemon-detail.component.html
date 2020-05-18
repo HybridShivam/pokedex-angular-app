@@ -10,7 +10,7 @@
           *ngIf="pokemon.genera!=undefined">{{pokemon.genera[2]['genus']}}</span>
   </div>
   <div class="row justify-content-center">
-    <div class="bubbles" *ngIf="megaEvolving">
+    <div class="bubbles" *ngIf="megaEvolving" [ngClass]="{'fIn': BubblesVisible}">
       <div class="bubble-wrap">
         <div class="bubble"></div>
         <div class="bubble"></div>
@@ -331,8 +331,8 @@
              (load)="imagePreload()"
              [ngClass]="{fade: !imageLoading,fOut :!imageVisible}"
              style="z-index: 100!important;max-width: 85%;height: auto;padding-top: 10px;">
-        <img class="mega-sigil" src="assets/Mega-Evolution-Sigil.png" *ngIf="megaEvolving">
-        <div class="megaSphere" *ngIf="megaEvolving"></div>
+        <img class="mega-sigil" src="assets/Mega-Evolution-Sigil.png" *ngIf="megaEvolving" [ngClass]="{'fIn': SigilVisible}">
+        <div class="megaSphere" *ngIf="megaEvolving" [ngClass]="{'fIn': SphereVisible}"></div>
       </div>
     </div>
     <div class="col-lg-3 statDiv my-auto mx-auto d-flex flex-wrap justify-content-center">

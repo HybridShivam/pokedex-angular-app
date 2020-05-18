@@ -564,6 +564,8 @@
 // Mega-Sigil
 
 .mega-sigil {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
   position: absolute !important;
   top: 50% !important;
   left: 50% !important;
@@ -591,7 +593,7 @@
   50% {
     filter: brightness(150%) saturate(150%);
   }
-  100%{
+  100% {
     opacity: 0.5;
     filter: brightness(100%) saturate(100%);
   }
@@ -601,7 +603,7 @@
 
 .megaSphere {
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
   position: absolute !important;
   top: 50% !important;
   left: 50% !important;
@@ -656,6 +658,8 @@
 }
 
 .bubbles {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
   position: absolute;
   z-index: 102;
   height: 80%;
@@ -706,4 +710,8 @@
 .fOut {
   opacity: 0;
   transition: opacity 0.4s ease-in-out;
+}
+
+.fIn {
+  opacity: 1;
 }
