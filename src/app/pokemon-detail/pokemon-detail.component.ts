@@ -465,12 +465,13 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       this.selectedFormNo = i;
       if (this.pokemonForms[i]['name'] === this.pokemon.species['name']) {
         this.pokemon.name = this.pokemon.species['name'];
-      } else if (this.pokemonForms[i]['name'].indexOf('-mega') !== -1
-        || this.pokemonForms[i]['name'].indexOf('-primal') !== -1
-        || this.pokemonForms[i]['name'].indexOf('-alola') !== -1
-        || this.pokemonForms[i]['name'] === 'greninja-ash'
-        || this.pokemon.id === 800 // Necrozma
-        && this.pokemon.id !== 25) { // excluding Pikachu
+      } else if ((this.pokemon.id !== 25) // excluding Pikachu
+        && ((this.pokemonForms[i]['name'].indexOf('-mega') !== -1)
+        || (this.pokemonForms[i]['name'].indexOf('-primal') !== -1)
+        || (this.pokemonForms[i]['name'].indexOf('-alola') !== -1)
+        || (this.pokemonForms[i]['name'] === 'greninja-ash')
+        || (this.pokemon.id === 800)) // Necrozma
+      ) {
         this.pokemon.name = this.formattedFormNames[i];
       } else {
         this.pokemon.name = this.pokemon.species['name'] + ' [' + this.formattedFormNames[i] + ']';
