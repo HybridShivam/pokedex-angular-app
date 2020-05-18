@@ -399,7 +399,7 @@
   //.formsBlock {
   //  max-width: 75vw;
   //}
-  .bioDiv .inner{
+  .bioDiv .inner {
     width: min-content;
   }
   .statDiv .inner {
@@ -586,7 +586,7 @@
 }
 
 @keyframes sigil-animation {
-  0%{
+  0% {
     opacity: 0;
   }
   25% {
@@ -613,20 +613,41 @@
   width: 87%;
   height: 98%;
   border-radius: 50%;
-  box-shadow:
-    inset 0 0 20px 0px #fff,/*white-border*/
-    inset 0 0 50px 10px #fff,/*white*/
-    inset 0 -20px 30px 0px #f0f, /*pink*/
-    inset 0 -40px 30px 10px #4574f5,/*blue*/
-    inset 0 -45px 45px 40px #8cc2ff, /*sky-blue*/
-    inset 0 -90px 40px 30px #45ff5e,/*green*/
-    inset 0 -120px 40px 30px #c1ff45,/*yellow-green*/
-    inset 0 10px 10px 40px #fdffb5,/*yellow-white*/
-    inset 0 20px 300px 10px #f9ff42,/*yellow*/
-    0 0 50px #fff,
-    0 0px 10px #f0f,
-    //0 -5px 30px 0px #f9ff42,
-    //0 10px 80px #f0f;
+  animation-name: mega-sphere;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  //transform-origin: 0 0;
+  box-shadow: inset 0 0 20px 0px #fff, /*white-border*/
+  inset 0 0 50px 10px #fff, /*white*/
+  inset 0 -20px 30px 0px #f0f, /*pink*/
+  inset 0 -40px 30px 10px #4574f5, /*blue*/
+  inset 0 -45px 45px 40px #8cc2ff, /*sky-blue*/
+  inset 0 -90px 40px 30px #45ff5e, /*green*/
+  inset 0 -120px 40px 30px #c1ff45, /*yellow-green*/
+  inset 0 10px 10px 40px #fdffb5, /*yellow-white*/
+  inset 0 20px 300px 10px #f9ff42, /*yellow*/
+  0 0 50px #fff,
+  0 0px 10px #f0f,
+  //0 -5px 30px 0px #f9ff42,
+  //0 10px 80px #f0f;
+}
+
+@keyframes mega-sphere {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  25% {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  75% {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
 }
 
 // Bubbles
@@ -635,6 +656,7 @@
     transform: translate3d(0, 0, -1000px);
   }
 }
+
 .container {
   position: absolute;
   z-index: 105;
@@ -644,6 +666,7 @@
   overflow: hidden;
 
 }
+
 .bubble-wrap {
   //margin: 0 auto;
   //width: 500px;
@@ -656,6 +679,7 @@
   transform-origin: center center;
   perspective: 600px;
 }
+
 .bubble {
   position: absolute;
   top: 50%;
@@ -670,15 +694,15 @@
 }
 
 @for $i from 1 through 1000 {
-  .bubble:nth-child(#{$i}){
+  .bubble:nth-child(#{$i}) {
     $size: random(30)+px;
-    top: (random(80)*1%)+10%;
-    left: (random(80)*1%)+10%;
+    top: (random(70)*1%)+15%;
+    left: (random(70)*1%)+15%;
     height: $size;
     width: $size;
-    animation-delay: -$i * .2s;
-    transform: translate3d( (random(2000) * 1px)-1000px,  (random(2000) * 1px)-1000px, (random(4000) * 1px));
-    background: hsl( random(360) , 75%, 80%);
+    animation-delay: -$i * .1s;
+    transform: translate3d((random(2000) * 1px)-1000px, (random(2000) * 1px)-1000px, (random(4000) * 1px));
+    background: hsl(random(360), 75%, 80%);
   }
 
 }
