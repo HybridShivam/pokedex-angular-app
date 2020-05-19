@@ -474,7 +474,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       return;
     }
     this.visible = false;
-    if (!(this.pokemonForms[i]['name'].indexOf('-mega') !== -1 && this.megaEvolveAnimationEnabled)) {
+    if (!(this.pokemonForms[i]['name'].indexOf('-mega') !== -1 && this.megaEvolveAnimationEnabled && !this.imageLoading)) {
       this.imageVisible = false;
     } else {
       this.megaEvolve();
