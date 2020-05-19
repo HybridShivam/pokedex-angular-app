@@ -16,16 +16,14 @@ export class PokemonService {
   totalCounter = 0;
   activePokemon = new Subject<Pokemon>();
   previousPokemonID = new Subject<number>();
+  isMobile;
   @Output() searchItemSubject: Subject<string> = new Subject<string>();
 
 
   constructor(private http: HttpClient) {
     this.getPokemonList('https://pokeapi.co/api/v2/pokemon/?limit=50');
-    if (this.isMobileBrowser()) {
-      console.log('Mobile');
-    } else {
-      console.log('Not Mobile');
-    }
+    this.isMobile = this.isMobileBrowser(); //  Mobile Browser Check
+    console.log('Mobile Browser : ' + this.isMobile);
   }
 
   isMobileBrowser() {
