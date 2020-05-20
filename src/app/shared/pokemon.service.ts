@@ -175,7 +175,8 @@ export class PokemonService {
           results[i + noOfIDs],
           results[i + noOfIDs]['color']['name'],
           results[i + noOfIDs]['genera'],
-          results[i + noOfIDs]['varieties']
+          results[i + noOfIDs]['varieties'],
+          results[i + noOfIDs]['evolution_chain']['url']
         );
         // console.log(results[i]['id'], name, results[i + noOfIDs]['color']['name'] + ' ' + noOfIDs);
       }
@@ -205,6 +206,10 @@ export class PokemonService {
   }
 
   getAbility(url: string) {
+    return this.http.get(url);
+  }
+
+  getEvoChainByURL(url: string) {
     return this.http.get(url);
   }
 

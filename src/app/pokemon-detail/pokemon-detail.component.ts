@@ -122,12 +122,14 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         pokemonFromList.speciesDetails,
         pokemonFromList.color,
         pokemonFromList.genera,
-        pokemonFromList.varieties
+        pokemonFromList.varieties,
+        pokemonFromList.evolutionChainURL
       );
       this.pokemonDefaultColor = this.pokemon.color;
       this.pokemonService.activePokemon.next(this.pokemon);
       this.requestForms();
       this.formatFormNames();
+      this.getEvolutionChain();
       // Store as first form in array
       this.pokemonForms.push(new Pokemon(
         this.pokemon.name,
@@ -150,7 +152,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.pokemon.speciesDetails,
         this.pokemon.color,
         this.pokemon.genera,
-        this.pokemon.varieties
+        this.pokemon.varieties,
+        this.pokemon.evolutionChainURL
       ));
       this.initializePokemonFields();
       // Directly From Link
@@ -269,7 +272,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             results[1],
             results[1]['color']['name'],
             results[1]['genera'],
-            results[1]['varieties']
+            results[1]['varieties'],
+            results[1]['evolution_chain']['url']
           );
           this.pokemon.speciesDetails = results[1];
           this.pokemon.genera = results[1]['genera'];
@@ -299,18 +303,21 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             this.pokemon.speciesDetails,
             this.pokemon.color,
             this.pokemon.genera,
-            this.pokemon.varieties
+            this.pokemon.varieties,
+            this.pokemon.evolutionChainURL
           ));
           this.initializePokemonFields();
           this.requestForms();
           this.formatFormNames();
+          this.getEvolutionChain();
         }
       );
     }
   }
 
   initializePokemonFields() {
-    if (this.pokemon.varieties !== undefined && this.formColors[this.pokemon.varieties[this.selectedFormNo]['pokemon']['name']] !== undefined) {
+    if (this.pokemon.varieties !== undefined &&
+      this.formColors[this.pokemon.varieties[this.selectedFormNo]['pokemon']['name']] !== undefined) {
       this.pokemon.color = this.formColors[this.pokemon.varieties[this.selectedFormNo]['pokemon']['name']];
       this.pokemonService.activePokemon.next(this.pokemon);
     } else {
@@ -544,7 +551,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             this.pokemon.speciesDetails,
             this.pokemon.color,
             this.pokemon.genera,
-            this.pokemon.varieties
+            this.pokemon.varieties,
+            this.pokemon.evolutionChainURL
           );
         }
         this.initializePokemonFields();
@@ -655,6 +663,25 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       }
     }, 5000);
     this.megaEvolveAnimationEnabled = false;
+  }
+
+  getEvolutionChain() {
+    // this.pokemonService.getEvoChainByURL(this.pokemon.evolutionChainURL).subscribe((response) => {
+    //   let chain = response['chain'];
+    //   let evolutionChain = [];
+    //   evolutionChain.push(chain['species']['url'].match(/https:\/\/pokeapi.co\/api\/v2\/pokemon-species\/(.+)\//g));
+    //   chain = chain['evolves_to'][0];
+    //   while (chain.length > 0) {
+    //     for (let evo of chain) {
+    //       evolutionChain.push(evo['species']['url'].match(/https:\/\/pokeapi.co\/api\/v2\/pokemon-species\/(.+)\//g));
+    //     }
+    //     chain = chain['evolves_to'];
+    //   }
+    //   console.log(evolutionChain);
+    // });
+    let myRegex = /https:\/\/pokeapi.co\/api\/v2\/pokemon-species\/(.+)\//g;
+    let match = myRegex.exec('https://pokeapi.co/api/v2/pokemon-species/254/');
+    console.log(match[1]);
   }
 
   capitalizeSplitJoin(str, split: string, join: string) {

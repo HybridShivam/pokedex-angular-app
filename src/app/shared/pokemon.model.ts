@@ -22,7 +22,8 @@ export class Pokemon {
     public speciesDetails,
     public color,
     public genera,
-    public varieties
+    public varieties,
+    public evolutionChainURL
   ) {
   }
 }
