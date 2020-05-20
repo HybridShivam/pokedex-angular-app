@@ -418,7 +418,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   requestForms() {
-    if (this.pokemon.id === 801 && !this.varietiesReversed) { // For magearna Reverse the varities
+    if (this.pokemon.id === 801 && !this.varietiesReversed) { // For magearna Reverse the varieties
       this.pokemon.varieties.reverse();
       this.varietiesReversed = true;
     }
