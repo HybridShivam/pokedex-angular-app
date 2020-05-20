@@ -77,32 +77,6 @@
 }
 
 
-.evo-types {
-  margin: auto;
-  .icon {
-    border-radius: 100%;
-    height: 30px;
-    width: 30px;
-    //margin-left: auto;
-    transition: 200ms all;
-    margin: auto;
-    display: inline-flex;
-    //text-align: right;
-  }
-
-  .icon:hover {
-    filter: saturate(200%);
-    transform: scale(1.1);
-    cursor: pointer;
-  }
-
-  .icon img {
-    height: 60%;
-    width: 60%;
-    margin: 20%;
-  }
-}
-
 // Abilities Styling
 .abilities, .varieties:hover {
   cursor: pointer;
@@ -770,3 +744,51 @@
 .fIn {
   opacity: 1;
 }
+
+.evo-img:hover {
+  cursor: pointer;
+}
+
+.evo-name {
+  margin-bottom: 8px;
+  span:hover {
+    cursor: pointer;
+  }
+  border-radius: 2px;
+  padding: 2px 3px;
+  white-space: nowrap;
+  line-height: initial;
+}
+
+.evo-id {
+  color: #626262;
+}
+
+.evo-types {
+  margin: auto;
+  justify-content: center;
+
+  .icon {
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    //margin-left: auto;
+    transition: 200ms all;
+    margin: auto;
+    display: inline-flex;
+    //text-align: right;
+  }
+
+  .icon:hover {
+    filter: saturate(200%);
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  .icon img {
+    height: 60%;
+    width: 60%;
+    //margin: 20%;
+  }
+}
+
