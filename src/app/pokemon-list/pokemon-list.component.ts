@@ -30,10 +30,10 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    if (this.pokemonService.pokemons[0]) {
+    if (this.pokemonService.pokemons[0]) { // List already loaded
       this.pokemons = this.pokemonService.pokemons;
       this.noOfPokemonLoaded = this.pokemonService.noOfPokemonsLoaded;
-    } else {
+    } else { // List not already Loaded
       // console.log('New PokemonListSubscription Created');
       this.pokemonListSubscription = this.pokemonService.pokemonsListChanged.subscribe(
         (response) => {
@@ -62,7 +62,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
     this.virtualScroller.scrollToIndex(index, undefined, -192, 0);
     setTimeout(() => {
       this.scrolled = true;
-    }, 250);
+    }, 250); // Delay to allow the fade in animation to take place
   }
 
   public myTrackByFunction(index: number, pokemon: Pokemon): number {
