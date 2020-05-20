@@ -89,7 +89,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
     this.megaEvolveAnimationEnabled = !this.pokemonService.isMobile;
-    console.log('Detail');
   }
 
   ngOnInit(): void {
