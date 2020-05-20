@@ -12,12 +12,14 @@ export class PokemonService {
   pokemonsListChanged = new Subject<Pokemon[]>();
   noOfPokemonsLoaded = 0;
   newPokemonsLoaded = new Subject<number>();
-  // responseCounter = 0;
-  // totalCounter = 0;
   activePokemon = new Subject<Pokemon>();
   previousPokemonID = new Subject<number>();
   isMobile;
   @Output() searchItemSubject: Subject<string> = new Subject<string>();
+
+  // Legacy Approach Variables
+  // responseCounter = 0;
+  // totalCounter = 0;
 
 
   constructor(private http: HttpClient) {
@@ -188,7 +190,25 @@ export class PokemonService {
     });
   }
 
+  getPokemonById(Id) {
+    const url = 'https://pokeapi.co/api/v2/pokemon/' + Id + '/';
+    return this.http.get(url);
+  }
 
+  getPokemonByURL(url) {
+    return this.http.get(url);
+  }
+
+  getPokemonSpeciesById(Id) {
+    const url = 'https://pokeapi.co/api/v2/pokemon-species/' + Id + '/';
+    return this.http.get(url);
+  }
+
+  getAbility(url: string) {
+    return this.http.get(url);
+  }
+
+  // Legacy Pokemon Fetching Approach
   // getPokemonList(url: string) {
   //   this.http.get<{ count: string, next: string, previous: string, results: { name: string, url: string }[] }>
   //   (url).subscribe(
@@ -361,23 +381,4 @@ export class PokemonService {
   //   );
   //
   // }
-
-
-  getPokemonById(Id) {
-    const url = 'https://pokeapi.co/api/v2/pokemon/' + Id + '/';
-    return this.http.get(url);
-  }
-
-  getPokemonByURL(url) {
-    return this.http.get(url);
-  }
-
-  getPokemonSpeciesById(Id) {
-    const url = 'https://pokeapi.co/api/v2/pokemon-species/' + Id + '/';
-    return this.http.get(url);
-  }
-
-  getAbility(url: string) {
-    return this.http.get(url);
-  }
 }
