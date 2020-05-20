@@ -76,6 +76,33 @@
   width: 60%;
 }
 
+
+.evo-types {
+  margin: auto;
+  .icon {
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    //margin-left: auto;
+    transition: 200ms all;
+    margin: auto;
+    display: inline-flex;
+    //text-align: right;
+  }
+
+  .icon:hover {
+    filter: saturate(200%);
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  .icon img {
+    height: 60%;
+    width: 60%;
+    margin: 20%;
+  }
+}
+
 // Abilities Styling
 .abilities, .varieties:hover {
   cursor: pointer;
@@ -583,7 +610,7 @@
   animation-duration: 4s;
 }
 
-.sigil-end{
+.sigil-end {
   animation-name: sigil-end;
   animation-duration: 2.1s;
   animation-iteration-count: 1;
@@ -613,7 +640,7 @@
     filter: brightness(125%) saturate(125%);
     transform: scale(1.1) translate(-50%, -50%);
   }
-  100%{
+  100% {
     opacity: 0;
     filter: brightness(150%) saturate(150%);
     transform: scale(1.2) translate(-50%, -50%);

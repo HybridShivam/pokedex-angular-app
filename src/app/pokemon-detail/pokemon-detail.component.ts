@@ -86,6 +86,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   imageLoadedForMegaEvolution = false;
   imageLoadedForMegaEvolutionSubject = new Subject<boolean>();
 
+  evolutionChain = [];
+
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
     this.megaEvolveAnimationEnabled = !this.pokemonService.isMobile;
@@ -667,10 +669,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   getEvolutionChain() {
     this.pokemonService.getEvoChainByURL(this.pokemon.evolutionChainURL).subscribe((response) => {
-      const evolutionChain = [];
+      this.evolutionChain = [];
       let chain = response['chain'];
       do {
-        evolutionChain.push([
+        this.evolutionChain.push([
           chain['species']['name'],
           this.getIdfromURL(chain['species']['url']),
           chain['is_baby'],
@@ -678,8 +680,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         ]);
         chain = chain['evolves_to'][0];
       } while (chain !== undefined);
-      console.log(evolutionChain);
-      for (let stage of evolutionChain) {
+      console.log(this.evolutionChain);
+      for (let stage of this.evolutionChain) {
         console.log(stage[0]);
       }
     });
