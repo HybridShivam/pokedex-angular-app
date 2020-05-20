@@ -22,7 +22,7 @@ export class PokemonService {
 
 
   constructor(private http: HttpClient) {
-    this.getPokemonList('https://pokeapi.co/api/v2/pokemon/?limit=50');
+    // this.getPokemonList('https://pokeapi.co/api/v2/pokemon/?limit=50');
     this.isMobile = this.isMobileBrowser(); //  Mobile Browser Check
     console.log('Mobile Browser : ' + this.isMobile);
     this.getPokemons();
@@ -39,30 +39,223 @@ export class PokemonService {
   }
 
 
-  getPokemonList(url: string) {
-    this.http.get<{ count: string, next: string, previous: string, results: { name: string, url: string }[] }>
-    (url).subscribe(
-      (response) => {
-        const pokemons: { name: string, url: string }[] = response.results;
-        for (const pokemon of pokemons) {
-          if (pokemon.url === 'https://pokeapi.co/api/v2/pokemon/807/') {
-            this.getPokemon(pokemon.url, null);
-            return;
-          } else {
-            this.getPokemon(pokemon.url, response.next);
-          }
-        }
-      }
-    );
+  // getPokemonList(url: string) {
+  //   this.http.get<{ count: string, next: string, previous: string, results: { name: string, url: string }[] }>
+  //   (url).subscribe(
+  //     (response) => {
+  //       const pokemons: { name: string, url: string }[] = response.results;
+  //       for (const pokemon of pokemons) {
+  //         if (pokemon.url === 'https://pokeapi.co/api/v2/pokemon/807/') {
+  //           this.getPokemon(pokemon.url, null);
+  //           return;
+  //         } else {
+  //           this.getPokemon(pokemon.url, response.next);
+  //         }
+  //       }
+  //     }
+  //   );
+  // }
+  //
+  //
+  // getPokemon(url: string, morePokemons) {
+  //   this.http.get<{ name: string, id: number }>
+  //   (url).subscribe(
+  //     (response) => {
+  //       let name = response.name;
+  //       switch (response.id) { // Renaming Manually
+  //         case 29:
+  //           name = 'Nidoran';
+  //           break;
+  //         case 32:
+  //           name = 'Nidoran';
+  //           break;
+  //         case 122:
+  //           name = 'Mr. Mime';
+  //           break;
+  //         case 386:
+  //           name = 'Deoxys';
+  //           break;
+  //         case 413:
+  //           name = 'Wormadam';
+  //           break;
+  //         case 439:
+  //           name = 'Mime Jr.';
+  //           break;
+  //         case 487:
+  //           name = 'Giratina';
+  //           break;
+  //         case 492:
+  //           name = 'Shaymin';
+  //           break;
+  //         case 550:
+  //           name = 'Basculin';
+  //           break;
+  //         case 555:
+  //           name = 'Darmanitan';
+  //           break;
+  //         case 641:
+  //           name = 'Tornadus';
+  //           break;
+  //         case 642:
+  //           name = 'Thundurus';
+  //           break;
+  //         case 645:
+  //           name = 'Landorus';
+  //           break;
+  //         case 647:
+  //           name = 'Keldeo';
+  //           break;
+  //         case 648:
+  //           name = 'Meloetta';
+  //           break;
+  //         case 678:
+  //           name = 'Meowstic';
+  //           break;
+  //         case 681:
+  //           name = 'Aegislash';
+  //           break;
+  //         case 710:
+  //           name = 'Pumpkaboo';
+  //           break;
+  //         case 711:
+  //           name = 'Gourgeist';
+  //           break;
+  //         case 741:
+  //           name = 'Oricorio';
+  //           break;
+  //         case 745:
+  //           name = 'Lycanroc';
+  //           break;
+  //         case 746:
+  //           name = 'Wishiwashi';
+  //           break;
+  //         case 772:
+  //           name = 'Type: Null';
+  //           break;
+  //         case 774:
+  //           name = 'Minior';
+  //           break;
+  //         case 778:
+  //           name = 'Mimikyu';
+  //           break;
+  //         case 785:
+  //           name = 'Tapu Koko';
+  //           break;
+  //         case 786:
+  //           name = 'Tapu Lele';
+  //           break;
+  //         case 787:
+  //           name = 'Tapu Bulu';
+  //           break;
+  //         case 788:
+  //           name = 'Tapu Fini';
+  //           break;
+  //       }
+  //       this.pokemons[+response.id - 1] = new Pokemon(
+  //         name,
+  //         response.id,
+  //         response['sprites'],
+  //         response['types'].reverse(),
+  //         response['abilities'].reverse(),
+  //         response['height'],
+  //         response['weight'],
+  //         response['base_experience'],
+  //         response['forms'],
+  //         response['held_items'],
+  //         response['game_indices'],
+  //         response['is_default'],
+  //         response['location'],
+  //         response['moves'],
+  //         response['order'],
+  //         response['stats'],
+  //         response['species'],
+  //         undefined,
+  //         undefined,
+  //         undefined,
+  //         undefined
+  //       );
+  //       this.responseCounter++;
+  //       this.totalCounter++;
+  //       // Only For testing Purpose
+  //       // if (this.totalCounter === 50) {
+  //       //   this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 50;
+  //       //   this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
+  //       //   this.pokemonsListChanged.next(this.pokemons);
+  //       //   return;
+  //       // }
+  //       // Testing End
+  //       // 151 Only
+  //       // if (this.totalCounter === 150) {
+  //       //   this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 1;
+  //       //   this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
+  //       //   this.pokemonsListChanged.next(this.pokemons);
+  //       //   return;
+  //       // }
+  //       // 151 Only
+  //       if (this.totalCounter === 807) {
+  //         this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 7;
+  //         this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
+  //         this.pokemonsListChanged.next(this.pokemons);
+  //         return;
+  //       }
+  //       if (this.responseCounter === 50) {
+  //         this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 50;
+  //         this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
+  //         this.pokemonsListChanged.next(this.pokemons);
+  //         this.responseCounter = 0;
+  //         if (morePokemons != null) {
+  //           this.getPokemonList(morePokemons);
+  //         }
+  //       }
+  //     }
+  //   );
+  //
+  // }
+
+
+  getPokemonById(Id) {
+    const url = 'https://pokeapi.co/api/v2/pokemon/' + Id + '/';
+    return this.http.get(url);
   }
 
+  getPokemonByURL(url) {
+    return this.http.get(url);
+  }
 
-  getPokemon(url: string, morePokemons) {
-    this.http.get<{ name: string, id: number }>
-    (url).subscribe(
-      (response) => {
-        let name = response.name;
-        switch (response.id) { // Renaming Manually
+  getPokemonSpeciesById(Id) {
+    const url = 'https://pokeapi.co/api/v2/pokemon-species/' + Id + '/';
+    return this.http.get(url);
+  }
+
+  getAbility(url: string) {
+    return this.http.get(url);
+  }
+
+  getPokemons() {
+    const pokemonIDs: number[] = [];
+    for (let i = 1; i <= 807; i++) {
+      pokemonIDs.push(i); // 1 - 807
+    }
+    this.getPokemonsRecursive(0, pokemonIDs, 807);
+  }
+
+  getPokemonsRecursive(startID, pokemonIDs, lastID) {
+    const IDs = pokemonIDs.slice(startID, startID + 50); // index : 0-49 data : 1-50 and so on ...
+    let noOfIDs = IDs.length;
+    const requests = [];
+    for (const id of IDs) {
+      requests.push(this.getPokemonById(id)); // at max : index : 0-49 : 50 pokemon requests
+    }
+    for (const id of IDs) {
+      requests.push(this.getPokemonSpeciesById(id)); // at max : 50-99 : 50 pokemon-species requests
+    }
+    // requests array : index : 0-99 data i.e. total 100 requests
+    forkJoin(requests).subscribe((results) => {
+      for (let i = 0; i < noOfIDs; i++) { // i=index : 0-49
+        // index i pokemon result corresponds to index i+50 pokemon-species result
+        // how much pokemon=species results are offset : noOfIDs
+        let name = results[i]['name'];
+        switch (results[i]['id']) { // Renaming Manually
           case 29:
             name = 'Nidoran';
             break;
@@ -151,225 +344,41 @@ export class PokemonService {
             name = 'Tapu Fini';
             break;
         }
-        this.pokemons[+response.id - 1] = new Pokemon(
+        this.pokemons[results[i]['id'] - 1] = new Pokemon(
+          // from pokemon
           name,
-          response.id,
-          response['sprites'],
-          response['types'].reverse(),
-          response['abilities'].reverse(),
-          response['height'],
-          response['weight'],
-          response['base_experience'],
-          response['forms'],
-          response['held_items'],
-          response['game_indices'],
-          response['is_default'],
-          response['location'],
-          response['moves'],
-          response['order'],
-          response['stats'],
-          response['species'],
-          undefined,
-          undefined,
-          undefined,
-          undefined
+          results[i]['id'],
+          results[i]['sprites'],
+          results[i]['types'].reverse(),
+          results[i]['abilities'].reverse(),
+          results[i]['height'],
+          results[i]['weight'],
+          results[i]['base_experience'],
+          results[i]['forms'],
+          results[i]['held_items'],
+          results[i]['game_indices'],
+          results[i]['is_default'],
+          results[i]['location'],
+          results[i]['moves'],
+          results[i]['order'],
+          results[i]['stats'],
+          results[i]['species'],
+          // from pokemon-species
+          results[i + noOfIDs],
+          results[i + noOfIDs]['color']['name'],
+          results[i + noOfIDs]['genera'],
+          results[i + noOfIDs]['varieties']
         );
-        this.responseCounter++;
-        this.totalCounter++;
-        // Only For testing Purpose
-        // if (this.totalCounter === 50) {
-        //   this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 50;
-        //   this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
-        //   this.pokemonsListChanged.next(this.pokemons);
-        //   return;
-        // }
-        // Testing End
-        // 151 Only
-        // if (this.totalCounter === 150) {
-        //   this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 1;
-        //   this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
-        //   this.pokemonsListChanged.next(this.pokemons);
-        //   return;
-        // }
-        // 151 Only
-        if (this.totalCounter === 807) {
-          this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 7;
-          this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
-          this.pokemonsListChanged.next(this.pokemons);
-          return;
-        }
-        if (this.responseCounter === 50) {
-          this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + 50;
-          this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
-          this.pokemonsListChanged.next(this.pokemons);
-          this.responseCounter = 0;
-          if (morePokemons != null) {
-            this.getPokemonList(morePokemons);
-          }
-        }
+        // console.log(results[i]['id'], name, results[i + noOfIDs]['color']['name'] + ' ' + noOfIDs);
       }
-    );
-
-  }
-
-
-  getPokemonById(Id) {
-    const url = 'https://pokeapi.co/api/v2/pokemon/' + Id + '/';
-    return this.http.get(url);
-  }
-
-  getPokemonByURL(url) {
-    return this.http.get(url);
-  }
-
-  getPokemonSpeciesById(Id) {
-    const url = 'https://pokeapi.co/api/v2/pokemon-species/' + Id + '/';
-    return this.http.get(url);
-  }
-
-  getAbility(url: string) {
-    return this.http.get(url);
-  }
-
-  getPokemons() {
-    const pokemonIDs: number[] = [];
-    for (let i = 1; i <= 807; i++) {
-      pokemonIDs.push(i); // 1 - 807
-    }
-    let startId = 0;
-    while (startId <= 807) {
-      const IDs = pokemonIDs.slice(startId, startId + 50); // index : 0-49 data : 1-50 and so on ...
-      const requests = [];
-      for (const id of IDs) {
-        requests.push(this.getPokemonById(id)); // index : 0-49 : 50 pokemon requests
+      this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + noOfIDs;
+      console.log(this.noOfPokemonsLoaded);
+      this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
+      this.pokemonsListChanged.next(this.pokemons);
+      startID = startID + 50;
+      if (startID <= lastID) {
+        this.getPokemonsRecursive(startID, pokemonIDs, lastID);
       }
-      for (const id of IDs) {
-        requests.push(this.getPokemonSpeciesById(id)); // 50-99 : 50 pokemon-species requests
-      }
-      // requests array : index : 0-99 data i.e. total 100 requests
-      forkJoin(requests).subscribe((results) => {
-        for (let i = 0; i < 50; i++) { // i=index : 0-49
-          // index i pokemon result corresponds to index i+50 pokemon-species result
-          let name = results[i]['name'];
-          switch (results[i]['id']) { // Renaming Manually
-            case 29:
-              name = 'Nidoran';
-              break;
-            case 32:
-              name = 'Nidoran';
-              break;
-            case 122:
-              name = 'Mr. Mime';
-              break;
-            case 386:
-              name = 'Deoxys';
-              break;
-            case 413:
-              name = 'Wormadam';
-              break;
-            case 439:
-              name = 'Mime Jr.';
-              break;
-            case 487:
-              name = 'Giratina';
-              break;
-            case 492:
-              name = 'Shaymin';
-              break;
-            case 550:
-              name = 'Basculin';
-              break;
-            case 555:
-              name = 'Darmanitan';
-              break;
-            case 641:
-              name = 'Tornadus';
-              break;
-            case 642:
-              name = 'Thundurus';
-              break;
-            case 645:
-              name = 'Landorus';
-              break;
-            case 647:
-              name = 'Keldeo';
-              break;
-            case 648:
-              name = 'Meloetta';
-              break;
-            case 678:
-              name = 'Meowstic';
-              break;
-            case 681:
-              name = 'Aegislash';
-              break;
-            case 710:
-              name = 'Pumpkaboo';
-              break;
-            case 711:
-              name = 'Gourgeist';
-              break;
-            case 741:
-              name = 'Oricorio';
-              break;
-            case 745:
-              name = 'Lycanroc';
-              break;
-            case 746:
-              name = 'Wishiwashi';
-              break;
-            case 772:
-              name = 'Type: Null';
-              break;
-            case 774:
-              name = 'Minior';
-              break;
-            case 778:
-              name = 'Mimikyu';
-              break;
-            case 785:
-              name = 'Tapu Koko';
-              break;
-            case 786:
-              name = 'Tapu Lele';
-              break;
-            case 787:
-              name = 'Tapu Bulu';
-              break;
-            case 788:
-              name = 'Tapu Fini';
-              break;
-          }
-          this.pokemons2[+results['id'] - 1] = new Pokemon(
-            // from pokemon
-            name,
-            results[i]['id'],
-            results[i]['sprites'],
-            results[i]['types'].reverse(),
-            results[i]['abilities'].reverse(),
-            results[i]['height'],
-            results[i]['weight'],
-            results[i]['base_experience'],
-            results[i]['forms'],
-            results[i]['held_items'],
-            results[i]['game_indices'],
-            results[i]['is_default'],
-            results[i]['location'],
-            results[i]['moves'],
-            results[i]['order'],
-            results[i]['stats'],
-            results[i]['species'],
-            // from pokemon-species
-            results[i + 50],
-            results[i + 50]['color']['name'],
-            results[i + 50]['genera'],
-            results[i + 50]['varieties']
-          );
-          console.log(results[i]['id'], name, results[i + 50]['color']['name']);
-        }
-      });
-      startId = startId + 50;
-    }
+    });
   }
-
 }
