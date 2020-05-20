@@ -10,14 +10,14 @@ export class PokemonItemComponent implements OnInit {
 
 
   @Input() pokemon: Pokemon;
-  pokemonThumbnail;
+  // pokemonThumbnail;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.pokemonThumbnail = 'https://raw.githubusercontent.com/HybridShivam/pokemon.json/master/thumbnails/' +
-      this.pad(this.pokemon.id, 3) + '.png';
+    // this.pokemonThumbnail = 'https://raw.githubusercontent.com/HybridShivam/pokemon.json/master/thumbnails/' +
+    //   this.pad(this.pokemon.id, 3) + '.png';
   }
 
   pad(number, length) {

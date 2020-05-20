@@ -55,7 +55,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   }
 
 
-  // call this function whenever you have to focus on second item
+  // call this function whenever you have to focus
   focusOnAnItem(index) {
     // this.virtualScroller.items = this.pokemons;
     // this.virtualScroller.scrollInto(this.virtualScroller.items[50]);
