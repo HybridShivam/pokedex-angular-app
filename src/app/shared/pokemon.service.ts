@@ -9,12 +9,11 @@ import {forkJoin, Subject} from 'rxjs';
 export class PokemonService {
 
   pokemons: Pokemon[] = new Array<Pokemon>(50);
-  pokemons2: Pokemon[] = new Array<Pokemon>(50);
   pokemonsListChanged = new Subject<Pokemon[]>();
   noOfPokemonsLoaded = 0;
   newPokemonsLoaded = new Subject<number>();
-  responseCounter = 0;
-  totalCounter = 0;
+  // responseCounter = 0;
+  // totalCounter = 0;
   activePokemon = new Subject<Pokemon>();
   previousPokemonID = new Subject<number>();
   isMobile;
