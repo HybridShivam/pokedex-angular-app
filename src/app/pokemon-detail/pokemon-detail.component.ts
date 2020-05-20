@@ -124,50 +124,132 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         pokemonFromList.genera,
         pokemonFromList.varieties
       );
-      this.pokemonService.getPokemonSpeciesById(this.pokemonId).subscribe(
-        response => {
-          this.pokemon.speciesDetails = response;
-          this.pokemon.color = response['color']['name'];
-          this.pokemonDefaultColor = this.pokemon.color;
-          this.pokemonService.activePokemon.next(this.pokemon);
-          this.pokemon.genera = response['genera'];
-          this.pokemon.varieties = response['varieties'];
-          this.requestForms();
-          this.formatFormNames();
-          // Store as first form in array
-          this.pokemonForms.push(new Pokemon(
-            this.pokemon.name,
-            this.pokemon.id,
-            this.pokemon.sprite,
-            this.pokemon.types,
-            this.pokemon.abilities,
-            this.pokemon.height,
-            this.pokemon.weight,
-            this.pokemon.baseExperience,
-            this.pokemon.forms,
-            this.pokemon.heldItems,
-            this.pokemon.gameIndices,
-            this.pokemon.is_default,
-            this.pokemon.location,
-            this.pokemon.moves,
-            this.pokemon.order,
-            this.pokemon.stats,
-            this.pokemon.species,
-            this.pokemon.speciesDetails,
-            this.pokemon.color,
-            this.pokemon.genera,
-            this.pokemon.varieties
-          ));
-        }
-      );
+      this.pokemonDefaultColor = this.pokemon.color;
+      this.pokemonService.activePokemon.next(this.pokemon);
+      this.requestForms();
+      this.formatFormNames();
+      // Store as first form in array
+      this.pokemonForms.push(new Pokemon(
+        this.pokemon.name,
+        this.pokemon.id,
+        this.pokemon.sprite,
+        this.pokemon.types,
+        this.pokemon.abilities,
+        this.pokemon.height,
+        this.pokemon.weight,
+        this.pokemon.baseExperience,
+        this.pokemon.forms,
+        this.pokemon.heldItems,
+        this.pokemon.gameIndices,
+        this.pokemon.is_default,
+        this.pokemon.location,
+        this.pokemon.moves,
+        this.pokemon.order,
+        this.pokemon.stats,
+        this.pokemon.species,
+        this.pokemon.speciesDetails,
+        this.pokemon.color,
+        this.pokemon.genera,
+        this.pokemon.varieties
+      ));
       this.initializePokemonFields();
       // Directly From Link
     } else {
       forkJoin([this.pokemonService.getPokemonById(this.pokemonId),
         this.pokemonService.getPokemonSpeciesById(this.pokemonId)]).subscribe(
         results => {
+          let name = results[0]['name'];
+          switch (results[0]['id']) { // Renaming Manually
+            case 29:
+              name = 'Nidoran';
+              break;
+            case 32:
+              name = 'Nidoran';
+              break;
+            case 122:
+              name = 'Mr. Mime';
+              break;
+            case 386:
+              name = 'Deoxys';
+              break;
+            case 413:
+              name = 'Wormadam';
+              break;
+            case 439:
+              name = 'Mime Jr.';
+              break;
+            case 487:
+              name = 'Giratina';
+              break;
+            case 492:
+              name = 'Shaymin';
+              break;
+            case 550:
+              name = 'Basculin';
+              break;
+            case 555:
+              name = 'Darmanitan';
+              break;
+            case 641:
+              name = 'Tornadus';
+              break;
+            case 642:
+              name = 'Thundurus';
+              break;
+            case 645:
+              name = 'Landorus';
+              break;
+            case 647:
+              name = 'Keldeo';
+              break;
+            case 648:
+              name = 'Meloetta';
+              break;
+            case 678:
+              name = 'Meowstic';
+              break;
+            case 681:
+              name = 'Aegislash';
+              break;
+            case 710:
+              name = 'Pumpkaboo';
+              break;
+            case 711:
+              name = 'Gourgeist';
+              break;
+            case 741:
+              name = 'Oricorio';
+              break;
+            case 745:
+              name = 'Lycanroc';
+              break;
+            case 746:
+              name = 'Wishiwashi';
+              break;
+            case 772:
+              name = 'Type: Null';
+              break;
+            case 774:
+              name = 'Minior';
+              break;
+            case 778:
+              name = 'Mimikyu';
+              break;
+            case 785:
+              name = 'Tapu Koko';
+              break;
+            case 786:
+              name = 'Tapu Lele';
+              break;
+            case 787:
+              name = 'Tapu Bulu';
+              break;
+            case 788:
+              name = 'Tapu Fini';
+              break;
+          }
           this.pokemon = new Pokemon(
-            results[0]['name'],
+            name,
             results[0]['id'],
             results[0]['sprites'],
             results[0]['types'].reverse(),
@@ -471,7 +553,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   selectForm(i) {
-    if (this.selectedFormNo === i) {
+    if (this.selectedFormNo === i || this.imageLoading) {
       return;
     }
     this.visible = false;

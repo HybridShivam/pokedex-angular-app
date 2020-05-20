@@ -313,7 +313,6 @@
             <td class="formsBlock text-capitalize">
               <span class="varieties" *ngFor="let formName of formattedFormNames;let i=index" style="white-space: pre;">
                 <span class="variety {{pokemon.color}} text-uppercase"
-
                       (click)="selectForm(i)" [ngClass]="{selectedForm:selectedFormNo===i}"
                 >{{formName}}</span>
                 <ng-container *ngIf="(i+1)%2==0"><br></ng-container>

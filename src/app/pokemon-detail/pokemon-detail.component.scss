@@ -576,6 +576,7 @@
   animation-name: sigil-animation;
   animation-duration: 1s;
   animation-iteration-count: infinite;
+  will-change: opacity, filter;
 }
 
 .sigil-animate {
@@ -627,6 +628,7 @@
 // Mega Sphere
 
 .megaSphere {
+  will-change: opacity, transform;
   opacity: 0;
   transition: opacity 1s ease-in-out;
   position: absolute !important;
@@ -683,6 +685,7 @@
 }
 
 .bubbles {
+  will-change: opacity;
   opacity: 0;
   transition: opacity 1s ease-in-out;
   position: absolute;
