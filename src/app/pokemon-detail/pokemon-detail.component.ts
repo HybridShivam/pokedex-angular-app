@@ -86,6 +86,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   imageLoadedForMegaEvolutionSubject = new Subject<boolean>();
 
   evolutionChain = [];
+  evolutionDesc = [];
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -670,23 +671,135 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   getEvolutionChain() {
+    this.evolutionDesc = [];
+    console.log(this.pokemon.evolutionChainURL);
     this.pokemonService.getEvoChainByURL(this.pokemon.evolutionChainURL).subscribe((response) => {
       this.evolutionChain = [];
       let chain = response['chain'];
       do {
         this.evolutionChain.push([
-          chain['species']['name'],
-          this.getIdfromURL(chain['species']['url']),
-          chain['is_baby'],
-          chain['evolution_details']
+          chain['species']['name'], // 0
+          this.getIdfromURL(chain['species']['url']), // 1
+          chain['is_baby'], // 2
+          chain['evolution_details'] // 3
         ]);
         chain = chain['evolves_to'][0];
       } while (chain !== undefined);
       console.log(this.evolutionChain);
-      for (let stage of this.evolutionChain) {
-        console.log(stage[0]);
-      }
+      this.generateEvolutionMethods();
     });
+  }
+
+  generateEvolutionMethods() {
+    for (let link of this.evolutionChain) {
+      let stage = link[3][0];
+      if (stage !== undefined) {
+        let desc;
+        switch (stage['trigger']['name']) {
+          case 'level-up':
+            if (stage['min_level'] !== null) {
+              desc = 'Level ' + stage['min_level'] + '+';
+            } else {
+              desc = 'Level up';
+            }
+            if (stage['gender'] !== null) {
+              let gender;
+              if (stage['gender'] === 0) {
+                gender = '(Male)';
+              } else {
+                gender = '(Female)';
+              }
+              desc = desc + ' ' + gender;
+            }
+            if (stage['held_item'] !== null) {
+              const held_item = this.capitalizeSplitJoin(stage['held_item']['name'], '-', ' ');
+              desc = desc + ' holding ' + held_item;
+              // console.log(held_item);
+            }
+            if (stage['known_move'] !== null) {
+              const known_move = this.capitalizeSplitJoin(stage['known_move']['name'], '-', ' ');
+              desc = desc + ' knowing ' + known_move;
+              // console.log(known_move);
+            }
+            if (stage['known_move_type'] !== null) {
+              const known_move_type = this.capitalizeSplitJoin(stage['known_move_type']['name'], '-', ' ');
+              desc = desc + ' knowing a ' + known_move_type + ' move';
+              // console.log(known_move);
+            }
+            if (stage['min_affection'] !== null) {
+              const min_affection = stage['min_affection'];
+              desc = desc + ' with ' + min_affection + '+ Affection';
+            }
+            if (stage['min_beauty'] !== null) {
+              const min_beauty = stage['min_beauty'];
+              desc = desc + ' with ' + min_beauty + '+ Beauty';
+            }
+            if (stage['min_happiness'] !== null) {
+              const min_happiness = stage['min_happiness'];
+              desc = desc + ' with ' + min_happiness + '+ Happiness';
+            }
+            if (stage['relative_physical_stats'] !== null) {
+              let sign;
+              if (stage['relative_physical_stats'] === 1) {
+                sign = '>';
+              } else if (stage['relative_physical_stats'] === -1) {
+                sign = '<';
+              } else {
+                sign = '=';
+              }
+              desc = desc + ' with Attack ' + sign + ' Defence';
+            }
+            if (stage['party_species'] !== null) {
+              const party_species = this.capitalizeSplitJoin(stage['party_species']['name'], '-', ' ');
+              desc = desc + ' with ' + party_species + ' in party';
+            }
+            if (stage['party_type'] !== null) {
+              const party_type = this.capitalizeSplitJoin(stage['party_type']['name'], '-', ' ');
+              desc = desc + ' with a ' + party_type + ' type in party';
+            }
+            if (stage['location'] !== null) {
+              const location = this.capitalizeSplitJoin(stage['location']['name'], '-', ' ');
+              desc = desc + ' at ' + location;
+            }
+            if (stage['needs_overworld_rain'] !== false) {
+              desc = desc + ' during Rain';
+            }
+            if (stage['time_of_day'] !== '') {
+              const time_of_day = this.capitalizeSplitJoin(stage['time_of_day'], '-', ' ');
+              desc = desc + ' at ' + time_of_day + 'time';
+            }
+            if (stage['turn_upside_down'] !== false) {
+              desc = desc + ' holding 3DS upside-down';
+            }
+            // item:null;
+            // trade_species:null;
+            break;
+          case 'trade':
+            desc = 'Trade';
+            if (stage['held_item'] !== null) {
+              const held_item = this.capitalizeSplitJoin(stage['held_item']['name'], '-', ' ');
+              desc = desc + ' holding ' + held_item;
+            }
+            if (stage['trade_species'] !== null) {
+              const trade_species = this.capitalizeSplitJoin(stage['trade_species']['name'], '-', ' ');
+              desc = desc + ' with ' + trade_species;
+            }
+            break;
+          case 'use-item':
+            desc = 'Use';
+            if (stage['item'] !== null) {
+              const item = this.capitalizeSplitJoin(stage['item']['name'], '-', ' ');
+              desc = desc + ' ' + item;
+            }
+            break;
+          case 'shed':
+            desc = 'Level 20, with empty PokéBall and an open slot in party';
+            break;
+        }
+        this.evolutionDesc.push(desc);
+        console.log(desc);
+      }
+    }
   }
 
   selectEvolution() {
