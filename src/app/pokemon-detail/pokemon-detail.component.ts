@@ -1,4 +1,4 @@
-import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {PokemonService} from '../shared/pokemon.service';
 import {Pokemon} from '../shared/pokemon.model';
@@ -91,21 +91,17 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
               private pokemonService: PokemonService) {
     this.megaEvolveAnimationEnabled = !this.pokemonService.isMobile;
   }
-  @HostListener('window:scroll', [])
-  onScroll(): void {
-    console.log('I am scrolled');
-  }
 
   ngOnInit(): void {
     // Initialization Logic after Pokemon Fetching in Both If and Else Conditions
     this.activatedRoute.params.subscribe(
       (params) => {
+        console.log('got new params');
         this.pokemonId = params['id'];
         this.pokemonForms = [];
         this.formattedFormNames = [];
         // From List
         if (this.pokemonService.pokemons[this.pokemonId]) {
-          console.log('from list');
           const pokemonFromList = this.pokemonService.pokemons[this.pokemonId - 1];
           this.pokemon = new Pokemon(
             pokemonFromList.name,
