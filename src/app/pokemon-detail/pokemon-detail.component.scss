@@ -749,11 +749,18 @@
   cursor: pointer;
 }
 
+.evo-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .evo-name {
   margin-bottom: 8px;
+
   span:hover {
     cursor: pointer;
   }
+
   border-radius: 2px;
   padding: 2px 3px;
   white-space: nowrap;
@@ -792,3 +799,23 @@
   }
 }
 
+.arrow-div {
+  align-self: center;
+  text-align: center;
+}
+
+.evo-arrow {
+  width: auto;
+  height: 40px;
+}
+
+@media (max-width: 767px) {
+  .row .col-sm {
+    flex-basis: unset;
+  }
+  .evo-arrow {
+    transform: rotate(90deg);
+    padding: 10px;
+    margin: 10px;
+  }
+}

@@ -28,6 +28,10 @@ body {
         currently supported by Chrome and Opera */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 //Disable Horizontal Scrolling
 html, body {
   max-width: 100%;
