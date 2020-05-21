@@ -646,7 +646,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         }, 2100);
         setTimeout(() => {
           this.megaEvolving = false;
-        }, 2200);
+        }, 2100);
       } else {
         const imageLoadedForMegaEvolutionSubscription = this.imageLoadedForMegaEvolutionSubject.subscribe((response) => {
           if (response) {
@@ -660,7 +660,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             }, 2100);
             setTimeout(() => {
               this.megaEvolving = false;
-            }, 2200);
+            }, 2100);
             imageLoadedForMegaEvolutionSubscription.unsubscribe();
           }
         });
