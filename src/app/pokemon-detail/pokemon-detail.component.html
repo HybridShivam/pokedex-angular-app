@@ -9,8 +9,8 @@
           data-target="#descModal"
           *ngIf="pokemon.genera!=undefined">{{pokemon.genera[2]['genus']}}</span>
   </div>
-  <div class="row justify-content-center">
-    <div class="bubbles" *ngIf="megaEvolving" [ngClass]="{'fIn': BubblesVisible}">
+  <div class="row justify-content-center" style="position: relative">
+    <div class="bubbles" *ngIf="megaEvolving" [ngClass]="{'fIn': BubblesVisible}" style="position: absolute">
       <div class="bubble-wrap">
         <div class="bubble"></div>
         <div class="bubble"></div>
@@ -438,7 +438,8 @@
                  routerLink="/pokemon/{{stage[1]}}" (click)="selectEvolution()">
           </div>
           <div class="evo-id text-center">#{{stage[1]}}</div>
-          <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{stage[1]}}" (click)="selectEvolution()"
+          <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{stage[1]}}"
+               (click)="selectEvolution()"
                style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}">{{stage[0]}}</span></div>
           <div class="evo-types col-xs-5" style="padding: 0;"
                *ngIf="pokemonService.pokemons[stage[1]-1]!=undefined">
