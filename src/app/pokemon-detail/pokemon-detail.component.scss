@@ -799,11 +799,14 @@
 .arrow-div {
   align-self: center;
   text-align: center;
+  flex-direction: column;
+  display: flex;
 }
 
 .evo-arrow {
   width: auto;
   height: 40px;
+  margin: auto;
 }
 
 @media (max-width: 767px) {
@@ -813,6 +816,5 @@
   .evo-arrow {
     transform: rotate(90deg);
     padding: 10px;
-    margin: 10px;
   }
 }
