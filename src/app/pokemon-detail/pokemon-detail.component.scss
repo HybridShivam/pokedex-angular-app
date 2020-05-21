@@ -14,7 +14,7 @@
 
 }
 
-.PokemonName {
+.Section-Heading {
   opacity: 1;
   transition: opacity .6s ease-in-out;
 }
@@ -381,7 +381,7 @@
 }
 
 @media(max-width: 500px) {
-  .PokemonName {
+  .Section-Heading {
     font-size: x-large;
   }
   table td {
@@ -750,8 +750,8 @@
 }
 
 .evo-container {
-  display: flex;
-  justify-content: space-evenly;
+  //display: flex;
+  //justify-content: space-evenly;
 }
 
 .evo-name {
@@ -772,18 +772,15 @@
 }
 
 .evo-types {
-  margin: auto;
-  justify-content: center;
-
+  text-align: center;
+  margin: 0;
   .icon {
     border-radius: 100%;
     height: 30px;
     width: 30px;
-    //margin-left: auto;
     transition: 200ms all;
-    margin: auto;
+    margin: 5px;
     display: inline-flex;
-    //text-align: right;
   }
 
   .icon:hover {
