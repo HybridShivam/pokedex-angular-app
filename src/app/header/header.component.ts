@@ -11,7 +11,7 @@ import {Location} from '@angular/common';
 export class HeaderComponent implements OnInit {
   color;
   searchText = '';
-  miracleCount = 0;
+  // miracleCount = 0;
   showSearch = true;
   _timeout: any = null;
 
@@ -128,15 +128,15 @@ export class HeaderComponent implements OnInit {
   // }
 
   typingStopped() {
-    if (this.miracleCount < 1) {
-      history.pushState(null, null, window.location.href);
-      history.back();
-      history.pushState(null, null, window.location.href);
-      history.back();
-      history.pushState(null, null, window.location.href);
-      history.back();
-      this.miracleCount++;
-    }
+    // if (this.miracleCount < 1) {
+    //   history.pushState(null, null, window.location.href);
+    //   history.back();
+    //   history.pushState(null, null, window.location.href);
+    //   history.back();
+    //   history.pushState(null, null, window.location.href);
+    //   history.back();
+    //   this.miracleCount++;
+    // }
     // this.pokemonService.searchItemSubject.next(this.searchText);
     // this._timeout = null;
     if (this._timeout) {

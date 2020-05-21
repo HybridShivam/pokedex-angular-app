@@ -1,69 +1,7 @@
-//.fa {
-//  transition: 0.5s transform ease-in-out;
-//}
-//.collapsed .fa{
-//  -webkit-transform: scaleX(-1);
-//  -moz-transform: scaleX(-1);
-//  -o-transform: scaleX(-1);
-//  transform: scaleX(-1);
-//}
-
-//.btn:focus {
-//  outline: none;
-//}
-
-
-
 .page-wrapper {
   height: 100vh;
-  //
-  //.page-content {
-  //  display: inline-block;
-  //  width: 100%;
-  //  transition: padding-left .3s ease;
-  //
-  //  @media screen and (min-width: 768px) {
-  //    padding-left: 260px;
-  //  }
-  //
-  //  .overlay {
-  //    position: fixed;
-  //    top: 0;
-  //    right: 0;
-  //    bottom: 0;
-  //    left: 0;
-  //    z-index: 998;
-  //    background: #000;
-  //    opacity: .5;
-  //    display: none;
-  //
-  //    &.show {
-  //
-  //      @media screen and (max-width: 768px) {
-  //        display: block;
-  //      }
-  //    }
-  //  }
-  //}
-  //
-  //.sidebar {
-  //  left: 0px;
-  //}
-  //
-  //&.toggled {
-  //
-  //  .page-content {
-  //    padding-left: 0;
-  //  }
-  //}
-  //
-  //.attribution{
-  //  position: fixed;
-  //  bottom: 0;
-  //  right: 0;
-  //  padding: 5px;
-  //  margin: 5px;
-  //  letter-spacing: 1px;
-  //}
 }
 
+.container-fluid{
+  overflow: auto;
+}

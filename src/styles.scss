@@ -33,13 +33,13 @@ html {
 }
 
 //Disable Horizontal Scrolling
-html, body {
+body {
   max-width: 100%;
-  overflow-x: hidden;
+  //overflow-x: hidden;
 }
 
 @media (pointer: none), (pointer: coarse) and (max-width: 768px) {
-  html, body {
+  body {
     overflow-x: unset;
   }
 }
@@ -214,9 +214,9 @@ body {
   font-size: .9rem;
 }
 
-.FixScrolling {
-  position: fixed;
-}
+//.FixScrolling {
+//  position: fixed;
+//}
 
 .page-wrapper.toggled .sidebar {
   left: -300px;

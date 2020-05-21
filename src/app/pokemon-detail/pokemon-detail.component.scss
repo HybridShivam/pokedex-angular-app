@@ -2,7 +2,6 @@
   font-family: 'AlleynW01-Regular', sans-serif;
   color: #1f1f1f;
 }
-
 //Type Box
 .icon {
   border-radius: 4px;
@@ -182,9 +181,7 @@
   // BioDIv
   .bioDiv {
     perspective: 400px; // Increases Effect
-    //margin: 4em auto;
-    margin: auto 1rem;
-    //padding-right: revert;
+    margin: auto 0;
     width: 37em;
   }
 
@@ -315,53 +312,6 @@
   cursor: pointer;
 }
 
-.pokeball-spinner {
-  -webkit-animation: spin 4s linear infinite;
-  -moz-animation: spin 4s linear infinite;
-  animation: spin 4s linear infinite;
-}
-
-@-moz-keyframes spin {
-  100% {
-    -moz-transform: rotate(360deg);
-  }
-}
-
-@-webkit-keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-//.fade {
-//  //transform: scale(0);
-//  //color: red;
-//  //opacity: 0;
-//  //-webkit-transition: all 9s linear;
-//  //-o-transition: all .25s linear;
-//  //opacity: 0 !important;
-//  transition: all .1s linear !important;
-//}
-//
-//.fade.in {
-//  //opacity: 1 !important;
-//  //color: black;
-//  //transform: scale(1);
-//  //transition: all 0.1s linear !important;
-//}
-
-
-//@media (min-width: 992px){
-//
-//  }
-//}
 @media(max-width: 991px) {
   .bioDiv {
     padding-left: 0 !important;
@@ -807,6 +757,13 @@
   width: auto;
   height: 40px;
   margin: auto;
+}
+
+@media (max-width: 1300px) and (min-width:992px){
+  .table th, .table td {
+    padding-right: 0.0rem;
+    padding-left: 0.5rem;
+  }
 }
 
 @media (max-width: 767px) {
