@@ -2,6 +2,7 @@
   font-family: 'AlleynW01-Regular', sans-serif;
   color: #1f1f1f;
 }
+
 //Type Box
 .icon {
   border-radius: 4px;
@@ -700,9 +701,13 @@
   cursor: pointer;
 }
 
-.evo-container {
-  //display: flex;
-  //justify-content: space-evenly;
+.evo-div {
+  align-self: center;
+}
+
+.multi-evo-stage{
+  display: flex;
+  flex-direction: column;
 }
 
 .evo-name {
@@ -720,11 +725,13 @@
 
 .evo-id {
   color: #626262;
+  padding-bottom: 2px;
 }
 
 .evo-types {
   text-align: center;
   margin: 0;
+
   .icon {
     border-radius: 100%;
     height: 30px;
@@ -760,7 +767,7 @@
   margin: auto;
 }
 
-@media (max-width: 1300px) and (min-width:992px){
+@media (max-width: 1300px) and (min-width: 992px) {
   .table th, .table td {
     padding-right: 0.0rem;
     padding-left: 0.5rem;
@@ -774,5 +781,8 @@
   .evo-arrow {
     transform: rotate(90deg);
     padding: 10px;
+  }
+  .multi-evo-stage{
+    flex-direction: row;
   }
 }

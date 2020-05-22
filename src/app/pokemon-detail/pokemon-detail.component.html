@@ -433,7 +433,7 @@
       <ng-container [ngSwitch]="exceptionalChainType">
         <ng-container *ngSwitchCase="''">
           <ng-container class="text-capitalize" *ngFor="let stage of evolutionChain; let i =index">
-            <div class="col-sm" style="padding: 10px;">
+            <div class="col-sm evo-div" style="padding: 10px;">
               <div>
                 <img class="evo-img mx-auto d-block" alt="Internet Error"
                      src="assets/thumbnails-compressed/{{this.pad(stage[1], 3) + '.png'}}"
@@ -480,7 +480,7 @@
         <ng-container *ngSwitchCase="'112'">
           <ng-container class="text-capitalize" *ngFor="let stage of evolutionChain; let i =index">
             <ng-container *ngIf="i<evolutionChain.length-1; else LastStage">
-              <div class="col-sm" style="padding: 10px;">
+              <div class="col-sm evo-div" style="padding: 10px;">
                 <div>
                   <img class="evo-img mx-auto d-block" alt="Internet Error"
                        src="assets/thumbnails-compressed/{{this.pad(stage[1], 3) + '.png'}}"
@@ -525,9 +525,9 @@
               </div>
             </ng-container>
             <ng-template #LastStage>
-              <div class="lastStage">
+              <div class="multi-evo-stage">
                 <ng-container *ngFor="let sideStage of stage;">
-                  <div class="col-sm" style="padding: 10px;">
+                  <div class="col-sm evo-div" style="padding: 10px;">
                     <div>
                       <img class="evo-img mx-auto d-block" alt="Internet Error"
                            src="assets/thumbnails-compressed/{{this.pad(sideStage[1], 3) + '.png'}}"
