@@ -708,8 +708,6 @@
 .multi-evo-stage{
   display: flex;
   flex-direction: column;
-  //padding-left: 60px;
-  //padding-right: 65px;
 }
 
 .evo-name {
@@ -776,8 +774,8 @@
   .col-sm{
     display: flex;
     flex-direction: column-reverse;
-    padding-bottom: 50px;
-    padding-top: 50px;
+    padding-bottom: 70px;
+    padding-top: 70px;
   }
 }
 
@@ -798,5 +796,15 @@
   }
   .multi-evo-stage{
     flex-direction: row;
+  }
+  .multi-arrow-stage{
+    flex-direction: row;
+    .col-sm{
+      padding-bottom: initial;
+      padding-top: initial;
+    }
+    .arrow-div {
+      flex-basis: 100%;
+    }
   }
 }
