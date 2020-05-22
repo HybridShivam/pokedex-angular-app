@@ -813,7 +813,8 @@
   }
   .multi-arrow-stage {
     flex-direction: row;
-    padding-top: 1rem;
+    padding-top: 0.5rem;
+    flex-basis: 100%;
 
     .col-sm {
       padding-bottom: initial;
@@ -832,7 +833,8 @@
     padding: 0 !important;
   }
   .evo-img {
-    max-width: 75%;
+    //max-width: 75%;
+    max-width: 50px;
   }
   .evo-desc {
     font-size: x-small;

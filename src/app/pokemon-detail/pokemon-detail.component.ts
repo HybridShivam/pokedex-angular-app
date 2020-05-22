@@ -713,6 +713,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       } else if (this.evolutionChainExceptions_18.indexOf(chain['species']['name']) > -1) {
         console.log('excep 18');
         this.exceptionalChainType = '18';
+      } else if (this.evolutionChainExceptions_122.indexOf(chain['species']['name']) > -1) {
+        console.log('excep 122');
+        this.exceptionalChainType = '122';
       }
       var nextChain, i;
       switch (this.exceptionalChainType) {
@@ -778,6 +781,44 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             i++;
           }
           break;
+        case '122':
+          nextChain = chain;
+          this.evolutionChain.push([
+            nextChain['species']['name'], // 0
+            this.getIdfromURL(nextChain['species']['url']), // 1
+            nextChain['is_baby'], // 2
+            nextChain['evolution_details'] // 3
+          ]);
+          this.evolutionChain[1] = [];
+          nextChain = chain['evolves_to'][0]; // silcoon
+          this.evolutionChain[1].push([
+            nextChain['species']['name'], // 0
+            this.getIdfromURL(nextChain['species']['url']), // 1
+            nextChain['is_baby'], // 2
+            nextChain['evolution_details'] // 3
+          ]);
+          nextChain = chain['evolves_to'][0]['evolves_to'][1]; // cascoon
+          this.evolutionChain[1].push([
+            nextChain['species']['name'], // 0
+            this.getIdfromURL(nextChain['species']['url']), // 1
+            nextChain['is_baby'], // 2
+            nextChain['evolution_details'] // 3
+          ]);
+          this.evolutionChain[2] = [];
+          nextChain = chain['evolves_to'][0]['evolves_to'][0]; // Beautifly
+          this.evolutionChain[2].push([
+            nextChain['species']['name'], // 0
+            this.getIdfromURL(nextChain['species']['url']), // 1
+            nextChain['is_baby'], // 2
+            nextChain['evolution_details'] // 3
+          ]);
+          nextChain = chain['evolves_to'][0]['evolves_to'][1]['evolves_to'][0]; // Dustox
+          this.evolutionChain[2].push([
+            nextChain['species']['name'], // 0
+            this.getIdfromURL(nextChain['species']['url']), // 1
+            nextChain['is_baby'], // 2
+            nextChain['evolution_details'] // 3
+          ]);
       }
       console.log(this.evolutionChain);
       this.generateEvolutionMethods();
@@ -837,6 +878,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           }
           i++;
         }
+        break;
+      case '122':
+        this.evolutionDesc = [['Level 7 based on PV', 'Level 7 based on PV'],
+          ['Level 10+', 'Level 10+']];
     }
     console.log(this.evolutionDesc);
   }
