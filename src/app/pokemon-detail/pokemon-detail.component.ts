@@ -93,14 +93,14 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   evolutionChainExceptions_112 = [
     'oddish',
     'poliwag',
-    'ralts'];
+    'ralts',
+    'cosmog'];
   evolutionChainExceptions_12 = [
     'slowpoke',
     'nincada',
     'snorunt',
     'clamperl',
-    'burmy',
-    'cosmog'];
+    'burmy'];
   evolutionChainExceptions_122 = [
     'wurmple',
   ];
@@ -714,6 +714,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         console.log('excep 18');
         this.exceptionalChainType = '18';
       }
+      var nextChain, i;
       switch (this.exceptionalChainType) {
         case '': // Normal Case
           do {
@@ -727,7 +728,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           } while (chain !== undefined);
           break;
         case '112':
-          var nextChain = chain;
+          nextChain = chain;
           this.evolutionChain.push([
             nextChain['species']['name'], // 0
             this.getIdfromURL(nextChain['species']['url']), // 1
@@ -742,7 +743,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             nextChain['evolution_details'] // 3
           ]);
           this.evolutionChain[2] = [];
-          var i = 0;
+          i = 0;
           while (chain['evolves_to'][0]['evolves_to'][i] !== undefined) {
             nextChain = chain['evolves_to'][0]['evolves_to'][i];
             this.evolutionChain[2].push([
@@ -784,6 +785,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   generateEvolutionMethods() {
+    var i;
     switch (this.exceptionalChainType) {
       case '': // Normal Case
         for (let link of this.evolutionChain) {
@@ -794,7 +796,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         }
         break;
       case '112':
-        let i = 0;
+        i = 0;
         for (let link of this.evolutionChain) {
           if (i === this.evolutionChain.length - 1) {
             // Last Stage
@@ -813,6 +815,28 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           i++;
         }
         break;
+      case '12':
+      case '13':
+      case '14':
+      case '18':
+        i = 0;
+        for (let link of this.evolutionChain) {
+          if (i === this.evolutionChain.length - 1) {
+            // Last Stage
+            this.evolutionDesc.push([]);
+            for (let sideStage of link) {
+              sideStage = sideStage[3][0];
+              this.evolutionDesc[i - 1].push(this.generateEvolutionMethodsLogic(sideStage));
+            }
+          } else {
+            // Initial Stages
+            let stage = link[3][0];
+            if (stage !== undefined) {
+              this.evolutionDesc.push(this.generateEvolutionMethodsLogic(stage));
+            }
+          }
+          i++;
+        }
     }
     console.log(this.evolutionDesc);
   }
@@ -828,7 +852,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         }
         if (stage['gender'] !== null) {
           let gender;
-          if (stage['gender'] === 0) {
+          if (stage['gender'] === 2) {
             gender = '(Male)';
           } else {
             gender = '(Female)';
@@ -907,6 +931,15 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         if (stage['trade_species'] !== null) {
           const trade_species = this.capitalizeSplitJoin(stage['trade_species']['name'], '-', ' ');
           desc = desc + ' with ' + trade_species;
+        }
+        if (stage['gender'] !== null) {
+          let gender;
+          if (stage['gender'] === 2) {
+            gender = '(Male)';
+          } else {
+            gender = '(Female)';
+          }
+          desc = desc + ' ' + gender;
         }
         break;
       case 'use-item':

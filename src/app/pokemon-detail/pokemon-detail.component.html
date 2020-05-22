@@ -1,5 +1,4 @@
 <div class="col-12 fadeIn MainDiv" *ngIf="pokemon!==undefined">
-  <!--  <button type="button" class="btn" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>-->
   <br>
   <h1 class="text-center text-capitalize Section-Heading" [ngClass]="{fOut:!visible}">{{pokemon.name}}</h1>
   <div class="justify-content-center text-center">
@@ -434,6 +433,7 @@
         <ng-container *ngSwitchCase="''">
           <ng-container class="text-capitalize" *ngFor="let stage of evolutionChain; let i =index">
             <div class="col-sm evo-div" style="padding: 10px;">
+              <div *ngIf="evolutionChain.length===1" class="DNE">This Pokemon does not evolve</div>
               <div>
                 <img class="evo-img mx-auto d-block" alt="Internet Error"
                      src="assets/thumbnails-compressed/{{this.pad(stage[1], 3) + '.png'}}"
@@ -471,13 +471,14 @@
                 </ng-container>
               </div>
             </div>
-            <div class='col-sm arrow-div' *ngIf="i<evolutionChain.length-1">
+            <div class='col-sm arrow-div evo-desc' *ngIf="i<evolutionChain.length-1">
               <img src="assets/right-arrow.png" alt="Arrow" class="evo-arrow">
               {{evolutionDesc[i]}}
             </div>
           </ng-container>
         </ng-container>
-        <ng-container *ngSwitchCase="'112'">
+        <ng-container *ngSwitchCase="exceptionalChainType === '112' || exceptionalChainType === '12'|| exceptionalChainType === '13'
+        || exceptionalChainType === '14'|| exceptionalChainType === '18'? exceptionalChainType : 'null'">
           <ng-container class="text-capitalize" *ngFor="let stage of evolutionChain; let i =index">
             <ng-container *ngIf="i<evolutionChain.length-1; else LastStage">
               <div class="col-sm evo-div" style="padding: 10px;">
@@ -520,16 +521,16 @@
                 </div>
               </div>
               <ng-container *ngIf="i<evolutionChain.length-2; else LastArrowStage">
-                  <div class='col-sm arrow-div'>
-                    <img src="assets/right-arrow.png" alt="Arrow" class="evo-arrow">
-                    {{evolutionDesc[i]}}
-                  </div>
+                <div class='col-sm arrow-div evo-desc'>
+                  <img src="assets/right-arrow.png" alt="Arrow" class="evo-arrow">
+                  {{evolutionDesc[i]}}
+                </div>
               </ng-container>
               <ng-template #LastArrowStage>
                 <div class="multi-arrow-stage">
                   <ng-container *ngFor="let evolutionSideDesc of evolutionDesc[i];">
                     <div class="arrow-div" *ngIf="i<evolutionChain.length-1">
-                      <div class='col-sm'>
+                      <div class='col-sm evo-desc'>
                         <img src="assets/right-arrow.png" alt="Arrow" class="evo-arrow">
                         {{evolutionSideDesc}}
                       </div>
@@ -596,8 +597,127 @@
               </div>
             </ng-template>
           </ng-container>
-
         </ng-container>
+        <!--        <ng-container *ngSwitchCase="'12'||'13'||'14'||'18'">-->
+        <!--          <ng-container class="text-capitalize" *ngFor="let stage of evolutionChain; let i =index">-->
+        <!--            <ng-container *ngIf="i<evolutionChain.length-1; else LastStage">-->
+        <!--              <div class="col-sm evo-div" style="padding: 10px;">-->
+        <!--                <div>-->
+        <!--                  <img class="evo-img mx-auto d-block" alt="Internet Error"-->
+        <!--                       src="assets/thumbnails-compressed/{{this.pad(stage[1], 3) + '.png'}}"-->
+        <!--                       routerLink="/pokemon/{{stage[1]}}" (click)="selectEvolution()">-->
+        <!--                </div>-->
+        <!--                <div class="evo-id text-center">#{{stage[1]}}</div>-->
+        <!--                <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{stage[1]}}"-->
+        <!--                     (click)="selectEvolution()"-->
+        <!--                     style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}">{{stage[0]}}</span></div>-->
+        <!--                <div class="evo-types col-xs-5" style="padding: 0;"-->
+        <!--                     *ngIf="pokemonService.pokemons[stage[1]-1]!=undefined">-->
+        <!--                  <ng-container *ngFor="let type of pokemonService.pokemons[stage[1]-1].types">-->
+        <!--                    <ng-container [ngSwitch]="type['type']['name']">-->
+        <!--                      <div class="icon bug" *ngSwitchCase="'bug'"><img src="assets/type-icons/bug.svg"></div>-->
+        <!--                      <div class="icon dark" *ngSwitchCase="'dark'"><img src="assets/type-icons/dark.svg"></div>-->
+        <!--                      <div class="icon dragon" *ngSwitchCase="'dragon'"><img src="assets/type-icons/dragon.svg"></div>-->
+        <!--                      <div class="icon electric" *ngSwitchCase="'electric'"><img src="assets/type-icons/electric.svg">-->
+        <!--                      </div>-->
+        <!--                      <div class="icon fire" *ngSwitchCase="'fire'"><img src="assets/type-icons/fire.svg"></div>-->
+        <!--                      <div class="icon fairy" *ngSwitchCase="'fairy'"><img src="assets/type-icons/fairy.svg"></div>-->
+        <!--                      <div class="icon fighting" *ngSwitchCase="'fighting'"><img src="assets/type-icons/fighting.svg">-->
+        <!--                      </div>-->
+        <!--                      <div class="icon flying" *ngSwitchCase="'flying'"><img src="assets/type-icons/flying.svg"></div>-->
+        <!--                      <div class="icon ghost" *ngSwitchCase="'ghost'"><img src="assets/type-icons/ghost.svg"></div>-->
+        <!--                      <div class="icon grass" *ngSwitchCase="'grass'"><img src="assets/type-icons/grass.svg"></div>-->
+        <!--                      <div class="icon ground" *ngSwitchCase="'ground'"><img src="assets/type-icons/ground.svg"></div>-->
+        <!--                      <div class="icon ice" *ngSwitchCase="'ice'"><img src="assets/type-icons/ice.svg"></div>-->
+        <!--                      <div class="icon normal" *ngSwitchCase="'normal'"><img src="assets/type-icons/normal.svg"></div>-->
+        <!--                      <div class="icon poison" *ngSwitchCase="'poison'"><img src="assets/type-icons/poison.svg"></div>-->
+        <!--                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img src="assets/type-icons/psychic.svg">-->
+        <!--                      </div>-->
+        <!--                      <div class="icon rock" *ngSwitchCase="'rock'"><img src="assets/type-icons/rock.svg"></div>-->
+        <!--                      <div class="icon steel" *ngSwitchCase="'steel'"><img src="assets/type-icons/steel.svg"></div>-->
+        <!--                      <div class="icon water" *ngSwitchCase="'water'"><img src="assets/type-icons/water.svg"></div>-->
+        <!--                    </ng-container>-->
+        <!--                  </ng-container>-->
+        <!--                </div>-->
+        <!--              </div>-->
+        <!--              <ng-container *ngIf="i<evolutionChain.length-2; else LastArrowStage">-->
+        <!--                <div class='col-sm arrow-div'>-->
+        <!--                  <img src="assets/right-arrow.png" alt="Arrow" class="evo-arrow">-->
+        <!--                  {{evolutionDesc[i]}}-->
+        <!--                </div>-->
+        <!--              </ng-container>-->
+        <!--              <ng-template #LastArrowStage>-->
+        <!--                <div class="multi-arrow-stage">-->
+        <!--                  <ng-container *ngFor="let evolutionSideDesc of evolutionDesc[i];">-->
+        <!--                    <div class="arrow-div" *ngIf="i<evolutionChain.length-1">-->
+        <!--                      <div class='col-sm'>-->
+        <!--                        <img src="assets/right-arrow.png" alt="Arrow" class="evo-arrow">-->
+        <!--                        {{evolutionSideDesc}}-->
+        <!--                      </div>-->
+        <!--                    </div>-->
+        <!--                  </ng-container>-->
+        <!--                </div>-->
+        <!--              </ng-template>-->
+        <!--            </ng-container>-->
+        <!--            <ng-template #LastStage>-->
+        <!--              <div class="col-sm multi-evo-stage">-->
+        <!--                <ng-container *ngFor="let sideStage of stage;">-->
+        <!--                  <div class="col-sm evo-div" style="padding: 10px;">-->
+        <!--                    <div>-->
+        <!--                      <img class="evo-img mx-auto d-block" alt="Internet Error"-->
+        <!--                           src="assets/thumbnails-compressed/{{this.pad(sideStage[1], 3) + '.png'}}"-->
+        <!--                           routerLink="/pokemon/{{sideStage[1]}}" (click)="selectEvolution()">-->
+        <!--                    </div>-->
+        <!--                    <div class="evo-id text-center">#{{sideStage[1]}}</div>-->
+        <!--                    <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{sideStage[1]}}"-->
+        <!--                         (click)="selectEvolution()"-->
+        <!--                         style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}">{{sideStage[0]}}</span>-->
+        <!--                    </div>-->
+        <!--                    <div class="evo-types col-xs-5" style="padding: 0;"-->
+        <!--                         *ngIf="pokemonService.pokemons[sideStage[1]-1]!=undefined">-->
+        <!--                      <ng-container *ngFor="let type of pokemonService.pokemons[sideStage[1]-1].types">-->
+        <!--                        <ng-container [ngSwitch]="type['type']['name']">-->
+        <!--                          <div class="icon bug" *ngSwitchCase="'bug'"><img src="assets/type-icons/bug.svg"></div>-->
+        <!--                          <div class="icon dark" *ngSwitchCase="'dark'"><img src="assets/type-icons/dark.svg"></div>-->
+        <!--                          <div class="icon dragon" *ngSwitchCase="'dragon'"><img src="assets/type-icons/dragon.svg">-->
+        <!--                          </div>-->
+        <!--                          <div class="icon electric" *ngSwitchCase="'electric'"><img-->
+        <!--                            src="assets/type-icons/electric.svg">-->
+        <!--                          </div>-->
+        <!--                          <div class="icon fire" *ngSwitchCase="'fire'"><img src="assets/type-icons/fire.svg"></div>-->
+        <!--                          <div class="icon fairy" *ngSwitchCase="'fairy'"><img src="assets/type-icons/fairy.svg"></div>-->
+        <!--                          <div class="icon fighting" *ngSwitchCase="'fighting'"><img-->
+        <!--                            src="assets/type-icons/fighting.svg">-->
+        <!--                          </div>-->
+        <!--                          <div class="icon flying" *ngSwitchCase="'flying'"><img src="assets/type-icons/flying.svg">-->
+        <!--                          </div>-->
+        <!--                          <div class="icon ghost" *ngSwitchCase="'ghost'"><img src="assets/type-icons/ghost.svg"></div>-->
+        <!--                          <div class="icon grass" *ngSwitchCase="'grass'"><img src="assets/type-icons/grass.svg"></div>-->
+        <!--                          <div class="icon ground" *ngSwitchCase="'ground'"><img src="assets/type-icons/ground.svg">-->
+        <!--                          </div>-->
+        <!--                          <div class="icon ice" *ngSwitchCase="'ice'"><img src="assets/type-icons/ice.svg"></div>-->
+        <!--                          <div class="icon normal" *ngSwitchCase="'normal'"><img src="assets/type-icons/normal.svg">-->
+        <!--                          </div>-->
+        <!--                          <div class="icon poison" *ngSwitchCase="'poison'"><img src="assets/type-icons/poison.svg">-->
+        <!--                          </div>-->
+        <!--                          <div class="icon psychic" *ngSwitchCase="'psychic'"><img src="assets/type-icons/psychic.svg">-->
+        <!--                          </div>-->
+        <!--                          <div class="icon rock" *ngSwitchCase="'rock'"><img src="assets/type-icons/rock.svg"></div>-->
+        <!--                          <div class="icon steel" *ngSwitchCase="'steel'"><img src="assets/type-icons/steel.svg"></div>-->
+        <!--                          <div class="icon water" *ngSwitchCase="'water'"><img src="assets/type-icons/water.svg"></div>-->
+        <!--                        </ng-container>-->
+        <!--                      </ng-container>-->
+        <!--                    </div>-->
+        <!--                  </div>-->
+        <!--                  <div class='col-sm arrow-div' *ngIf="i<evolutionChain.length-1">-->
+        <!--                    <img src="assets/right-arrow.png" alt="Arrow" class="evo-arrow">-->
+        <!--                    &lt;!&ndash;              {{evolutionDesc[i]}}&ndash;&gt;-->
+        <!--                  </div>-->
+        <!--                </ng-container>-->
+        <!--              </div>-->
+        <!--            </ng-template>-->
+        <!--          </ng-container>-->
+        <!--        </ng-container>-->
       </ng-container>
     </div>
   </div>
