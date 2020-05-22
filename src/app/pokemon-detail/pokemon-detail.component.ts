@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {PokemonService} from '../shared/pokemon.service';
 import {Pokemon} from '../shared/pokemon.model';
 import {forkJoin, Subject} from 'rxjs';
+import {relativeToRootDirs} from '@angular/compiler-cli/src/transformers/util';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -87,6 +88,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   evolutionChain = [];
   evolutionDesc = [];
+  exceptionalChainType = '';
   evolutionChainExceptions_112 = [
     'oddish',
     'poliwag',
@@ -694,16 +696,16 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   getEvolutionChain() {
     this.evolutionDesc = [];
+    this.exceptionalChainType = '';
     console.log(this.pokemon.evolutionChainURL);
     this.pokemonService.getEvoChainByURL(this.pokemon.evolutionChainURL).subscribe((response) => {
       this.evolutionChain = [];
       let chain = response['chain'];
-      let excep = '';
       if (this.evolutionChainExceptions_112.indexOf(chain['species']['name']) > -1) {
         console.log('exceptional 112');
-        excep = '112';
+        this.exceptionalChainType = '112';
       }
-      switch (excep) {
+      switch (this.exceptionalChainType) {
         case '':
           do {
             this.evolutionChain.push([
@@ -752,6 +754,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   generateEvolutionMethods() {
+    if (this.exceptionalChainType !== '') {
+      return;
+    }
     for (let link of this.evolutionChain) {
       let stage = link[3][0];
       if (stage !== undefined) {
