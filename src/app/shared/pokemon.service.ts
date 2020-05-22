@@ -25,7 +25,7 @@ export class PokemonService {
   constructor(private http: HttpClient) {
     // this.getPokemonList('https://pokeapi.co/api/v2/pokemon/?limit=50');
     this.isMobile = this.isMobileBrowser(); //  Mobile Browser Check
-    console.log('Mobile Browser : ' + this.isMobile);
+    // console.log('Mobile Browser : ' + this.isMobile);
     this.getPokemons();
   }
 
@@ -181,12 +181,13 @@ export class PokemonService {
         // console.log(results[i]['id'], name, results[i + noOfIDs]['color']['name'] + ' ' + noOfIDs);
       }
       this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + noOfIDs;
-      console.log(this.noOfPokemonsLoaded);
       this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
       this.pokemonsListChanged.next(this.pokemons);
       startID = startID + 50;
       if (startID <= lastID) {
         this.getPokemonsRecursive(startID, pokemonIDs, lastID);
+      } else {
+        console.log('All Pokemon Loaded');
       }
     });
   }

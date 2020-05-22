@@ -97,7 +97,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     // Initialization Logic after Pokemon Fetching in Both If and Else Conditions
     this.activatedRoute.params.subscribe(
       (params) => {
-        console.log('got new params');
         this.pokemonId = params['id'];
         this.pokemonForms = [];
         this.formattedFormNames = [];
