@@ -742,20 +742,17 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             nextChain['evolution_details'] // 3
           ]);
           this.evolutionChain[2] = [];
-          nextChain = chain['evolves_to'][0]['evolves_to'][0];
-          this.evolutionChain[2].push([
-            nextChain['species']['name'], // 0
-            this.getIdfromURL(nextChain['species']['url']), // 1
-            nextChain['is_baby'], // 2
-            nextChain['evolution_details'] // 3
-          ]);
-          nextChain = chain['evolves_to'][0]['evolves_to'][1];
-          this.evolutionChain[2].push([
-            nextChain['species']['name'], // 0
-            this.getIdfromURL(nextChain['species']['url']), // 1
-            nextChain['is_baby'], // 2
-            nextChain['evolution_details'] // 3
-          ]);
+          var i = 0;
+          while (chain['evolves_to'][0]['evolves_to'][i] !== undefined) {
+            nextChain = chain['evolves_to'][0]['evolves_to'][i];
+            this.evolutionChain[2].push([
+              nextChain['species']['name'], // 0
+              this.getIdfromURL(nextChain['species']['url']), // 1
+              nextChain['is_baby'], // 2
+              nextChain['evolution_details'] // 3
+            ]);
+            i++;
+          }
           break;
         case '12':
         case '13':
@@ -768,7 +765,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             nextChain['evolution_details'] // 3
           ]);
           this.evolutionChain[1] = [];
-          let i = 0;
+          i = 0;
           while (chain['evolves_to'][i] !== undefined) {
             nextChain = chain['evolves_to'][i];
             this.evolutionChain[1].push([
