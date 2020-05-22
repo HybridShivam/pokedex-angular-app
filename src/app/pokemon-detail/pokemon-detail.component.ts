@@ -700,7 +700,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   getEvolutionChain() {
     this.evolutionDesc = [];
-    // this.exceptionalChainType = '';
+    this.exceptionalChainType = '';
     console.log(this.pokemon.evolutionChainURL);
     this.pokemonService.getEvoChainByURL(this.pokemon.evolutionChainURL).subscribe((response) => {
       this.evolutionChain = [];
@@ -888,6 +888,15 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         if (stage['item'] !== null) {
           const item = this.capitalizeSplitJoin(stage['item']['name'], '-', ' ');
           desc = desc + ' ' + item;
+        }
+        if (stage['gender'] !== null) {
+          let gender;
+          if (stage['gender'] === 2) {
+            gender = '(Male)';
+          } else {
+            gender = '(Female)';
+          }
+          desc = desc + ' ' + gender;
         }
         break;
       case 'shed':
