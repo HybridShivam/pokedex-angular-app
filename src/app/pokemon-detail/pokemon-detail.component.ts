@@ -87,6 +87,28 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   evolutionChain = [];
   evolutionDesc = [];
+  evolutionChainExceptions_112 = [
+    'oddish',
+    'poliwag',
+    'slowpoke',
+    'ralts',
+    'nincada',
+    'snorunt',
+    'clamperl',
+    'cosmog'];
+  evolutionChainExceptions_122 = [
+    'wurmple',
+  ];
+  evolutionChainExceptions_14 = [
+    'burmy'
+  ];
+  evolutionChainExceptions_13 = [
+    'rockruff',
+    'tyrogue'
+  ];
+  evolutionChainExceptions_18 = [
+    'eevee'];
+
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {

@@ -20,6 +20,12 @@
   height: 88px;
 }
 
+.icon:hover {
+  filter: saturate(200%);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
 
 @media (max-width: 500px) {
   .card {
