@@ -519,13 +519,27 @@
                   </ng-container>
                 </div>
               </div>
-              <div class='col-sm arrow-div' *ngIf="i<evolutionChain.length-1">
-                <img src="assets/right-arrow.png" alt="Arrow" class="evo-arrow">
-                <!--              {{evolutionDesc[i]}}-->
-              </div>
+              <ng-container *ngIf="i<evolutionChain.length-2; else LastArrowStage">
+                  <div class='col-sm arrow-div'>
+                    <img src="assets/right-arrow.png" alt="Arrow" class="evo-arrow">
+                    {{evolutionDesc[i]}}
+                  </div>
+              </ng-container>
+              <ng-template #LastArrowStage>
+                <div class="multi-arrow-stage">
+                  <ng-container *ngFor="let evolutionSideDesc of evolutionDesc[i];">
+                    <div class="arrow-div" *ngIf="i<evolutionChain.length-1">
+                      <div class='col-sm'>
+                        <img src="assets/right-arrow.png" alt="Arrow" class="evo-arrow">
+                        {{evolutionSideDesc}}
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </ng-template>
             </ng-container>
             <ng-template #LastStage>
-              <div class="multi-evo-stage">
+              <div class="col-sm multi-evo-stage">
                 <ng-container *ngFor="let sideStage of stage;">
                   <div class="col-sm evo-div" style="padding: 10px;">
                     <div>
@@ -574,10 +588,10 @@
                       </ng-container>
                     </div>
                   </div>
-                  <div class='col-sm arrow-div' *ngIf="i<evolutionChain.length-1">
-                    <img src="assets/right-arrow.png" alt="Arrow" class="evo-arrow">
-                    <!--              {{evolutionDesc[i]}}-->
-                  </div>
+                  <!--                  <div class='col-sm arrow-div' *ngIf="i<evolutionChain.length-1">-->
+                  <!--                    <img src="assets/right-arrow.png" alt="Arrow" class="evo-arrow">-->
+                  <!--                    &lt;!&ndash;              {{evolutionDesc[i]}}&ndash;&gt;-->
+                  <!--                  </div>-->
                 </ng-container>
               </div>
             </ng-template>

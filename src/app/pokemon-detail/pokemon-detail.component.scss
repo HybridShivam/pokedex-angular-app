@@ -708,6 +708,8 @@
 .multi-evo-stage{
   display: flex;
   flex-direction: column;
+  //padding-left: 60px;
+  //padding-right: 65px;
 }
 
 .evo-name {
@@ -765,6 +767,18 @@
   width: auto;
   height: 40px;
   margin: auto;
+}
+
+.multi-arrow-stage{
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  .col-sm{
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
 }
 
 @media (max-width: 1300px) and (min-width: 992px) {

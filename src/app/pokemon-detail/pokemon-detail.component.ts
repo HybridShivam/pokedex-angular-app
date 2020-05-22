@@ -86,9 +86,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   imageLoadedForMegaEvolution = false;
   imageLoadedForMegaEvolutionSubject = new Subject<boolean>();
 
+  evoChainsFetched = false;
   evolutionChain = [];
   evolutionDesc = [];
-  exceptionalChainType = '';
+  exceptionalChainType;
   evolutionChainExceptions_112 = [
     'oddish',
     'poliwag',
@@ -352,7 +353,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       this.pokemonService.activePokemon.next(this.pokemon);
     }
     this.requestAbilityDetails();
-    this.getEvolutionChain();
+    if (!this.evoChainsFetched) {
+      this.getEvolutionChain();
+      this.evoChainsFetched = true;
+    }
     // Conditionally Add HQ or Normal Images
     // if (this.pokemon.id > 151) {
     //   // Normal
@@ -696,7 +700,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   getEvolutionChain() {
     this.evolutionDesc = [];
-    this.exceptionalChainType = '';
+    // this.exceptionalChainType = '';
     console.log(this.pokemon.evolutionChainURL);
     this.pokemonService.getEvoChainByURL(this.pokemon.evolutionChainURL).subscribe((response) => {
       this.evolutionChain = [];
@@ -758,7 +762,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       case '': // Normal Case
         for (let link of this.evolutionChain) {
           let stage = link[3][0];
-          console.log(stage);
           if (stage !== undefined) {
             this.evolutionDesc.push(this.generateEvolutionMethodsLogic(stage));
           }
@@ -787,7 +790,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     }
     console.log(this.evolutionDesc);
   }
-
 
   generateEvolutionMethodsLogic(stage) {
     let desc = '';
@@ -895,7 +897,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     console.log(desc);
     return desc;
   }
-
 
   selectEvolution() {
     this.selectedFormNo = 0;
