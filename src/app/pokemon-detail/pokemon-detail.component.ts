@@ -99,15 +99,12 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     'nincada',
     'snorunt',
     'clamperl',
+    'burmy',
     'cosmog'];
   evolutionChainExceptions_122 = [
     'wurmple',
   ];
-  evolutionChainExceptions_14 = [
-    'burmy'
-  ];
   evolutionChainExceptions_13 = [
-    'rockruff',
     'tyrogue'
   ];
   evolutionChainExceptions_18 = [
@@ -706,8 +703,16 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       this.evolutionChain = [];
       let chain = response['chain'];
       if (this.evolutionChainExceptions_112.indexOf(chain['species']['name']) > -1) {
-        console.log('exceptional 112');
         this.exceptionalChainType = '112';
+      } else if (this.evolutionChainExceptions_12.indexOf(chain['species']['name']) > -1) {
+        console.log('excep 12');
+        this.exceptionalChainType = '12';
+      } else if (this.evolutionChainExceptions_13.indexOf(chain['species']['name']) > -1) {
+        console.log('excep 13');
+        this.exceptionalChainType = '13';
+      } else if (this.evolutionChainExceptions_18.indexOf(chain['species']['name']) > -1) {
+        console.log('excep 18');
+        this.exceptionalChainType = '18';
       }
       switch (this.exceptionalChainType) {
         case '': // Normal Case
@@ -722,7 +727,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           } while (chain !== undefined);
           break;
         case '112':
-          let nextChain = chain;
+          var nextChain = chain;
           this.evolutionChain.push([
             nextChain['species']['name'], // 0
             this.getIdfromURL(nextChain['species']['url']), // 1
@@ -751,6 +756,30 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             nextChain['is_baby'], // 2
             nextChain['evolution_details'] // 3
           ]);
+          break;
+        case '12':
+        case '13':
+        case '18':
+          nextChain = chain;
+          this.evolutionChain.push([
+            nextChain['species']['name'], // 0
+            this.getIdfromURL(nextChain['species']['url']), // 1
+            nextChain['is_baby'], // 2
+            nextChain['evolution_details'] // 3
+          ]);
+          this.evolutionChain[1] = [];
+          let i = 0;
+          while (chain['evolves_to'][i] !== undefined) {
+            nextChain = chain['evolves_to'][i];
+            this.evolutionChain[1].push([
+              nextChain['species']['name'], // 0
+              this.getIdfromURL(nextChain['species']['url']), // 1
+              nextChain['is_baby'], // 2
+              nextChain['evolution_details'] // 3
+            ]);
+            i++;
+          }
+          break;
       }
       console.log(this.evolutionChain);
       this.generateEvolutionMethods();
