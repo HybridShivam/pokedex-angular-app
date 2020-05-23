@@ -827,6 +827,12 @@
                 </ng-container>
               </div>
             </div>
+            <div class="arrow-div">
+              <div class='col-sm evo-desc'>
+                <img src="assets/right-arrow.png" alt="Arrow" class="evo-arrow" style="transform: rotate(180deg)">
+                {{evolutionDesc[0][3]}}
+              </div>
+            </div>
             <div class="col-sm evo-div text-capitalize" style="padding: 10px;">
               <div>
                 <img class="evo-img mx-auto d-block" alt="Internet Error"
@@ -836,7 +842,8 @@
               <div class="evo-id text-center">#{{evolutionChain[0][1]}}</div>
               <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{evolutionChain[0][1]}}"
                    (click)="selectEvolution()"
-                   style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}">{{evolutionChain[0][0]}}</span></div>
+                   style="padding: 0; bottom: 0"><span
+                class="evo-name {{pokemon.color}}">{{evolutionChain[0][0]}}</span></div>
               <div class="evo-types col-xs-5" style="padding: 0;"
                    *ngIf="pokemonService.pokemons[evolutionChain[0][1]-1]!=undefined">
                 <ng-container *ngFor="let type of pokemonService.pokemons[evolutionChain[0][1]-1].types">
@@ -866,6 +873,12 @@
                 </ng-container>
               </div>
             </div>
+            <div class="arrow-div">
+              <div class='col-sm evo-desc'>
+                <img src="assets/right-arrow.png" alt="Arrow" class="evo-arrow" style="transform: rotate(0deg)">
+                {{evolutionDesc[0][4]}}
+              </div>
+            </div>
             <div class="col-sm evo-div text-capitalize" style="padding: 10px;">
               <div>
                 <img class="evo-img mx-auto d-block" alt="Internet Error"
@@ -875,7 +888,8 @@
               <div class="evo-id text-center">#{{evolutionChain[1][3][1]}}</div>
               <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{evolutionChain[1][4][1]}}"
                    (click)="selectEvolution()"
-                   style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}">{{evolutionChain[1][4][0]}}</span></div>
+                   style="padding: 0; bottom: 0"><span
+                class="evo-name {{pokemon.color}}">{{evolutionChain[1][4][0]}}</span></div>
               <div class="evo-types col-xs-5" style="padding: 0;"
                    *ngIf="pokemonService.pokemons[evolutionChain[1][4][1]-1]!=undefined">
                 <ng-container *ngFor="let type of pokemonService.pokemons[evolutionChain[1][4][1]-1].types">
