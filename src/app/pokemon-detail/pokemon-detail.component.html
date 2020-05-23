@@ -920,6 +920,59 @@
               </div>
             </div>
           </div>
+          <div class="eeveeRow2">
+            <ng-container *ngFor="let evolutionSideDesc of evolutionDesc[0].slice(5,8);let i = index;">
+              <div class="arrow-div">
+                <div class='col-sm evo-desc' [ngClass]="{'corner3':i===0,'corner3-4':i==1,'corner4':i==2}">
+                  <img src="assets/right-arrow.png" alt="Arrow" class="evo-arrow">
+                  {{evolutionSideDesc}}
+                </div>
+              </div>
+            </ng-container>
+          </div>
+          <div class="eeveeRow1">
+            <ng-container class="text-capitalize" *ngFor="let row1 of evolutionChain[1].slice(5,8); let i =index">
+              <div class="col-sm evo-div" style="padding: 10px;">
+                <div>
+                  <img class="evo-img mx-auto d-block" alt="Internet Error"
+                       src="assets/thumbnails-compressed/{{this.pad(row1[1], 3) + '.png'}}"
+                       routerLink="/pokemon/{{row1[1]}}" (click)="selectEvolution()">
+                </div>
+                <div class="evo-id text-center">#{{row1[1]}}</div>
+                <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{row1[1]}}"
+                     (click)="selectEvolution()"
+                     style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}">{{row1[0]}}</span></div>
+                <div class="evo-types col-xs-5" style="padding: 0;"
+                     *ngIf="pokemonService.pokemons[row1[1]-1]!=undefined">
+                  <ng-container *ngFor="let type of pokemonService.pokemons[row1[1]-1].types">
+                    <ng-container [ngSwitch]="type['type']['name']">
+                      <div class="icon bug" *ngSwitchCase="'bug'"><img src="assets/type-icons/bug.svg"></div>
+                      <div class="icon dark" *ngSwitchCase="'dark'"><img src="assets/type-icons/dark.svg"></div>
+                      <div class="icon dragon" *ngSwitchCase="'dragon'"><img src="assets/type-icons/dragon.svg"></div>
+                      <div class="icon electric" *ngSwitchCase="'electric'"><img src="assets/type-icons/electric.svg">
+                      </div>
+                      <div class="icon fire" *ngSwitchCase="'fire'"><img src="assets/type-icons/fire.svg"></div>
+                      <div class="icon fairy" *ngSwitchCase="'fairy'"><img src="assets/type-icons/fairy.svg"></div>
+                      <div class="icon fighting" *ngSwitchCase="'fighting'"><img src="assets/type-icons/fighting.svg">
+                      </div>
+                      <div class="icon flying" *ngSwitchCase="'flying'"><img src="assets/type-icons/flying.svg"></div>
+                      <div class="icon ghost" *ngSwitchCase="'ghost'"><img src="assets/type-icons/ghost.svg"></div>
+                      <div class="icon grass" *ngSwitchCase="'grass'"><img src="assets/type-icons/grass.svg"></div>
+                      <div class="icon ground" *ngSwitchCase="'ground'"><img src="assets/type-icons/ground.svg"></div>
+                      <div class="icon ice" *ngSwitchCase="'ice'"><img src="assets/type-icons/ice.svg"></div>
+                      <div class="icon normal" *ngSwitchCase="'normal'"><img src="assets/type-icons/normal.svg"></div>
+                      <div class="icon poison" *ngSwitchCase="'poison'"><img src="assets/type-icons/poison.svg"></div>
+                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img src="assets/type-icons/psychic.svg">
+                      </div>
+                      <div class="icon rock" *ngSwitchCase="'rock'"><img src="assets/type-icons/rock.svg"></div>
+                      <div class="icon steel" *ngSwitchCase="'steel'"><img src="assets/type-icons/steel.svg"></div>
+                      <div class="icon water" *ngSwitchCase="'water'"><img src="assets/type-icons/water.svg"></div>
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+          </div>
         </ng-container>
       </ng-container>
     </div>
