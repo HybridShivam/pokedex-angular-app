@@ -8,7 +8,7 @@
           data-target="#descModal"
           *ngIf="pokemon.genera!=undefined">{{pokemon.genera[2]['genus']}}</span>
   </div>
-  <div class="row justify-content-center" style="position: relative;padding-bottom: 15vh">
+  <div class="row justify-content-center" style="position: relative;padding-bottom: 3rem">
     <div class="bubbles" *ngIf="megaEvolving" [ngClass]="{'fIn': BubblesVisible}" style="position: absolute">
       <div class="bubble-wrap">
         <div class="bubble"></div>
@@ -425,7 +425,8 @@
       </div>
     </div>
   </div>
-  <h1 class="Section-Heading text-center text-uppercase" [ngClass]="{fOut:!visible}">Evolution Chain</h1>
+  <h1 class="Section-Heading text-center text-uppercase" [ngClass]="{fOut:!visible}"
+  *ngIf="evolutionChain.length>0">Evolution Chain</h1>
   <div class="container">
     <div class="row justify-content-center">
       <ng-container [ngSwitch]="exceptionalChainType">
