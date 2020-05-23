@@ -87,6 +87,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   imageLoadedForMegaEvolutionSubject = new Subject<boolean>();
 
   evoChainsFetched = false;
+  selectedEvolutionId;
   evolutionChain = [];
   evolutionDesc = [];
   exceptionalChainType;
@@ -341,6 +342,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   initializePokemonFields() {
+    this.selectedEvolutionId = this.pokemon.id;
     if (this.pokemon.varieties !== undefined &&
       this.formColors[this.pokemon.varieties[this.selectedFormNo]['pokemon']['name']] !== undefined) {
       this.pokemon.color = this.formColors[this.pokemon.varieties[this.selectedFormNo]['pokemon']['name']];
@@ -354,13 +356,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       this.getEvolutionChain();
       this.evoChainsFetched = true;
     }
-    // Conditionally Add HQ or Normal Images
-    // if (this.pokemon.id > 151) {
-    //   // Normal
-    //   this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/pokemon.json/master/images/' +
-    //     this.pad(this.pokemon.id, 3) + '.png';
-    // } else {
-    // HD
     if (this.pokemon.is_default) {
       this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
         this.pad(this.pokemon.id, 3) + '.png';
@@ -1011,9 +1006,12 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     return desc;
   }
 
-  selectEvolution() {
-    this.selectedFormNo = 0;
-    this.imageVisible = false;
+  selectEvolution(id) {
+    if (this.selectedEvolutionId !== id) {
+      this.selectedFormNo = 0;
+      this.imageVisible = false;
+      this.selectedEvolutionId = id;
+    }
   }
 
   getIdfromURL(url): number {
