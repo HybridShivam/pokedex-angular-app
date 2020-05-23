@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Pokemon} from '../shared/pokemon.model';
 import {PokemonService} from '../shared/pokemon.service';
 import {VirtualScrollerComponent} from 'ngx-virtual-scroller';
@@ -16,9 +16,24 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   searchItem: string;
   searchItemSubscription;
   scrolled = true;
+  resizeTimeout = 250;
 
   @ViewChild(VirtualScrollerComponent)
   private virtualScroller: VirtualScrollerComponent;
+
+
+  @HostListener('window:resize')
+  onWindowResize() {
+    // debounce resize, wait for resize to finish before doing stuff
+    if (this.resizeTimeout) {
+      clearTimeout(this.resizeTimeout);
+    }
+    this.resizeTimeout = setTimeout((() => {
+      this.virtualScroller.invalidateCachedMeasurementAtIndex(0);
+      // console.log('Resize complete');
+    }).bind(this), 500);
+  }
+
 
   constructor(private pokemonService: PokemonService) {
     this.pokemonService.previousPokemonID.subscribe(
