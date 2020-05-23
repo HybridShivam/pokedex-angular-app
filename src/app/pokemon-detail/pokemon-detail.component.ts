@@ -1013,6 +1013,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   selectEvolution() {
     this.selectedFormNo = 0;
+    this.imageVisible = false;
   }
 
   getIdfromURL(url): number {

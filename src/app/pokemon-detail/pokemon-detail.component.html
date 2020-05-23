@@ -322,8 +322,6 @@
       </div>
     </div>
     <div class="col-lg-5 d-flex flex-wrap align-items-center">
-      <!--      <img class="img-fluid mx-auto my-auto d-block pokeball-spinner fade" src="assets/pokeball-loading.png"-->
-      <!--                style="z-index: 995;height: 60%" *ngIf="imageLoading">-->
       <div class="image-container">
         <img class="Image img-fluid mx-auto my-auto d-block fadeInOut" [src]="pokemonImageUrl" alt=""
              (load)="imagePreload()"
@@ -427,7 +425,7 @@
   </div>
   <h1 class="Section-Heading text-center text-uppercase" [ngClass]="{fOut:!visible}"
   *ngIf="evolutionChain.length>0">Evolution Chain</h1>
-  <div class="container">
+  <div class="container" *ngIf="evolutionChain.length>0">
     <div class="row justify-content-center">
       <ng-container [ngSwitch]="exceptionalChainType">
         <ng-container *ngSwitchCase="''">
