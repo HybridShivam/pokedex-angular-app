@@ -861,7 +861,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       case '14':
       case '18':
         i = 0;
-        for (let link of this.evolutionChain) {
+        for (const link of this.evolutionChain) {
           if (i === this.evolutionChain.length - 1) {
             // Last Stage
             this.evolutionDesc.push([]);
@@ -1034,6 +1034,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   // }
 
   ngOnDestroy() {
+    console.log('destroyed');
     this.pokemonService.activePokemon.next(null);
     this.pokemonService.previousPokemonID.next(this.pokemonId);
     const body = document.getElementsByTagName('body')[0];

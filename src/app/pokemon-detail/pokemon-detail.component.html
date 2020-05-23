@@ -1,6 +1,6 @@
 <div class="col-12 fadeIn MainDiv" *ngIf="pokemon!==undefined">
   <br>
-  <h1 class="text-center text-capitalize Section-Heading" [ngClass]="{fOut:!visible}">{{pokemon.name}}</h1>
+  <h1 class="text-center text-uppercase Section-Heading" [ngClass]="{fOut:!visible}">{{pokemon.name}}</h1>
   <div class="justify-content-center text-center">
     <!--    Had Padding Buttom 20px-->
     <span style="padding: 4px" *ngIf="pokemon.genera===undefined"> </span>
@@ -425,8 +425,7 @@
       </div>
     </div>
   </div>
-  <h1 class="Section-Heading text-center text-capitalize" [ngClass]="{fOut:!visible}"
-      style="margin-bottom: 40px">Evolution Chain</h1>
+  <h1 class="Section-Heading text-center text-uppercase" [ngClass]="{fOut:!visible}">Evolution Chain</h1>
   <div class="container">
     <div class="row justify-content-center">
       <ng-container [ngSwitch]="exceptionalChainType">

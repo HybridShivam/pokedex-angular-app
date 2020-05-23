@@ -365,7 +365,7 @@
   }
 }
 
-@media(max-width: 320px) {
+@media(max-width: 340px) {
   //.abilities, .varieties {
   //  font-size: x-small !important;
   //}
@@ -897,5 +897,18 @@
   }
   .evo-desc {
     font-size: x-small;
+  }
+}
+@media (max-width: 320px) {
+  .evo-div {
+    font-size: xx-small;
+    padding: 0 !important;
+  }
+  .evo-img {
+    //max-width: 75%;
+    max-width: 50px;
+  }
+  .evo-desc {
+    font-size: xx-small;
   }
 }
