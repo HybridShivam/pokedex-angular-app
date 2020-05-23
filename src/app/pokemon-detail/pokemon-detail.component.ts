@@ -583,7 +583,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             this.pokemon.varieties,
             this.pokemon.evolutionChainURL
           );
-          console.log('forms' + results[i]['name']);
+          // console.log('forms' + results[i]['name']);
         }
         // this.initializePokemonFields();
       }
@@ -698,23 +698,23 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   getEvolutionChain() {
     this.evolutionDesc = [];
     this.exceptionalChainType = '';
-    console.log(this.pokemon.evolutionChainURL);
+    // console.log(this.pokemon.evolutionChainURL);
     this.pokemonService.getEvoChainByURL(this.pokemon.evolutionChainURL).subscribe((response) => {
       this.evolutionChain = [];
       let chain = response['chain'];
       if (this.evolutionChainExceptions_112.indexOf(chain['species']['name']) > -1) {
         this.exceptionalChainType = '112';
       } else if (this.evolutionChainExceptions_12.indexOf(chain['species']['name']) > -1) {
-        console.log('excep 12');
+        // console.log('excep 12');
         this.exceptionalChainType = '12';
       } else if (this.evolutionChainExceptions_13.indexOf(chain['species']['name']) > -1) {
-        console.log('excep 13');
+        // console.log('excep 13');
         this.exceptionalChainType = '13';
       } else if (this.evolutionChainExceptions_18.indexOf(chain['species']['name']) > -1) {
-        console.log('excep 18');
+        // console.log('excep 18');
         this.exceptionalChainType = '18';
       } else if (this.evolutionChainExceptions_122.indexOf(chain['species']['name']) > -1) {
-        console.log('excep 122');
+        // console.log('excep 122');
         this.exceptionalChainType = '122';
       }
       var nextChain, i;
@@ -820,7 +820,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             nextChain['evolution_details'] // 3
           ]);
       }
-      console.log(this.evolutionChain);
+      // console.log(this.evolutionChain);
       this.generateEvolutionMethods();
     });
   }
@@ -883,7 +883,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.evolutionDesc = [['Level 7 based on PV', 'Level 7 based on PV'],
           ['Level 10+', 'Level 10+']];
     }
-    console.log(this.evolutionDesc);
+    // console.log(this.evolutionDesc);
   }
 
   generateEvolutionMethodsLogic(stage) {
@@ -1007,7 +1007,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         desc = 'Level 20, with empty PokéBall and an open slot in party';
         break;
     }
-    console.log(desc);
+    // console.log(desc);
     return desc;
   }
 
@@ -1035,7 +1035,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   // }
 
   ngOnDestroy() {
-    console.log('destroyed');
+    // console.log('destroyed');
     this.pokemonService.activePokemon.next(null);
     this.pokemonService.previousPokemonID.next(this.pokemonId);
     const body = document.getElementsByTagName('body')[0];
