@@ -240,10 +240,6 @@
           </span>
             </td>
           </tr>
-          <!--          <tr>-->
-          <!--            <td class="text-right font-weight-bold">Color</td>-->
-          <!--            <td class="text-capitalize">{{pokemon.color}}</td>-->
-          <!--          </tr>-->
           <tr>
             <td class="text-right font-weight-bold" style="vertical-align: middle;">Type</td>
             <td>
@@ -423,9 +419,9 @@
       </div>
     </div>
   </div>
-  <h1 class="Section-Heading text-center text-uppercase"
-  *ngIf="evolutionChain.length>0">Evolution Chain</h1>
-  <div class="container" *ngIf="evolutionChain.length>0">
+
+  <div class="container" *ngIf="evolutionChain.length>0" style="padding-bottom: 3rem">
+    <h1 class="Heading text-center text-uppercase">Evolution Chain</h1>
     <div class="row justify-content-center">
       <ng-container [ngSwitch]="exceptionalChainType">
         <ng-container *ngSwitchCase="''">
@@ -440,7 +436,9 @@
               <div class="evo-id text-center">#{{stage[1]}}</div>
               <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{stage[1]}}"
                    (click)="selectEvolution(stage[1])"
-                   style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}" [ngClass]="{'selectedEvo':selectedEvolutionId===stage[1]}">{{stage[0]}}</span></div>
+                   style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
+                                                       [ngClass]="{'selectedEvo':selectedEvolutionId===stage[1]}">{{stage[0]}}</span>
+              </div>
               <div class="evo-types col-xs-5" style="padding: 0;"
                    *ngIf="pokemonService.pokemons[stage[1]-1]!=undefined">
                 <ng-container *ngFor="let type of pokemonService.pokemons[stage[1]-1].types">
@@ -488,7 +486,9 @@
                 <div class="evo-id text-center">#{{stage[1]}}</div>
                 <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{stage[1]}}"
                      (click)="selectEvolution(stage[1])"
-                     style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}" [ngClass]="{'selectedEvo':selectedEvolutionId===stage[1]}">{{stage[0]}}</span></div>
+                     style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
+                                                         [ngClass]="{'selectedEvo':selectedEvolutionId===stage[1]}">{{stage[0]}}</span>
+                </div>
                 <div class="evo-types col-xs-5" style="padding: 0;"
                      *ngIf="pokemonService.pokemons[stage[1]-1]!=undefined">
                   <ng-container *ngFor="let type of pokemonService.pokemons[stage[1]-1].types">
@@ -549,7 +549,8 @@
                     <div class="evo-id text-center">#{{sideStage[1]}}</div>
                     <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{sideStage[1]}}"
                          (click)="selectEvolution(sideStage[1])"
-                         style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}" [ngClass]="{'selectedEvo':selectedEvolutionId===sideStage[1]}">{{sideStage[0]}}</span>
+                         style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
+                                                             [ngClass]="{'selectedEvo':selectedEvolutionId===sideStage[1]}">{{sideStage[0]}}</span>
                     </div>
                     <div class="evo-types col-xs-5" style="padding: 0;"
                          *ngIf="pokemonService.pokemons[sideStage[1]-1]!=undefined">
@@ -608,7 +609,9 @@
                 <div class="evo-id text-center">#{{stage[1]}}</div>
                 <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{stage[1]}}"
                      (click)="selectEvolution(stage[1])"
-                     style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}" [ngClass]="{'selectedEvo':selectedEvolutionId===stage[1]}">{{stage[0]}}</span></div>
+                     style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
+                                                         [ngClass]="{'selectedEvo':selectedEvolutionId===stage[1]}">{{stage[0]}}</span>
+                </div>
                 <div class="evo-types col-xs-5" style="padding: 0;"
                      *ngIf="pokemonService.pokemons[stage[1]-1]!=undefined">
                   <ng-container *ngFor="let type of pokemonService.pokemons[stage[1]-1].types">
@@ -669,7 +672,8 @@
                     <div class="evo-id text-center">#{{sideStage[1]}}</div>
                     <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{sideStage[1]}}"
                          (click)="selectEvolution(sideStage[1])"
-                         style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}" [ngClass]="{'selectedEvo':selectedEvolutionId===sideStage[1]}">{{sideStage[0]}}</span>
+                         style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
+                                                             [ngClass]="{'selectedEvo':selectedEvolutionId===sideStage[1]}">{{sideStage[0]}}</span>
                     </div>
                     <div class="evo-types col-xs-5" style="padding: 0;"
                          *ngIf="pokemonService.pokemons[sideStage[1]-1]!=undefined">
@@ -742,7 +746,9 @@
                 <div class="evo-id text-center">#{{row1[1]}}</div>
                 <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{row1[1]}}"
                      (click)="selectEvolution(row1[1])"
-                     style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}" [ngClass]="{'selectedEvo':selectedEvolutionId===row1[1]}">{{row1[0]}}</span></div>
+                     style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
+                                                         [ngClass]="{'selectedEvo':selectedEvolutionId===row1[1]}">{{row1[0]}}</span>
+                </div>
                 <div class="evo-types col-xs-5" style="padding: 0;"
                      *ngIf="pokemonService.pokemons[row1[1]-1]!=undefined">
                   <ng-container *ngFor="let type of pokemonService.pokemons[row1[1]-1].types">
@@ -789,13 +795,16 @@
               <div>
                 <img class="evo-img mx-auto d-block" alt="Internet Error"
                      src="assets/thumbnails-compressed/{{this.pad(evolutionChain[1][3][1], 3) + '.png'}}"
-                     routerLink="/pokemon/{{evolutionChain[1][3][1]}}" (click)="selectEvolution(evolutionChain[1][3][1])">
+                     routerLink="/pokemon/{{evolutionChain[1][3][1]}}"
+                     (click)="selectEvolution(evolutionChain[1][3][1])">
               </div>
               <div class="evo-id text-center">#{{evolutionChain[1][3][1]}}</div>
               <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{evolutionChain[1][3][1]}}"
                    (click)="selectEvolution(evolutionChain[1][3][1])"
                    style="padding: 0; bottom: 0"><span
-                class="evo-name {{pokemon.color}}" [ngClass]="{'selectedEvo':selectedEvolutionId===evolutionChain[1][3][1]}">{{evolutionChain[1][3][0]}}</span></div>
+                class="evo-name {{pokemon.color}}"
+                [ngClass]="{'selectedEvo':selectedEvolutionId===evolutionChain[1][3][1]}">{{evolutionChain[1][3][0]}}</span>
+              </div>
               <div class="evo-types col-xs-5" style="padding: 0;"
                    *ngIf="pokemonService.pokemons[evolutionChain[1][3][1]-1]!=undefined">
                 <ng-container *ngFor="let type of pokemonService.pokemons[evolutionChain[1][3][1]-1].types">
@@ -841,7 +850,9 @@
               <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{evolutionChain[0][1]}}"
                    (click)="selectEvolution(evolutionChain[0][1])"
                    style="padding: 0; bottom: 0"><span
-                class="evo-name {{pokemon.color}}" [ngClass]="{'selectedEvo':selectedEvolutionId===evolutionChain[0][1]}">{{evolutionChain[0][0]}}</span></div>
+                class="evo-name {{pokemon.color}}"
+                [ngClass]="{'selectedEvo':selectedEvolutionId===evolutionChain[0][1]}">{{evolutionChain[0][0]}}</span>
+              </div>
               <div class="evo-types col-xs-5" style="padding: 0;"
                    *ngIf="pokemonService.pokemons[evolutionChain[0][1]-1]!=undefined">
                 <ng-container *ngFor="let type of pokemonService.pokemons[evolutionChain[0][1]-1].types">
@@ -881,13 +892,16 @@
               <div>
                 <img class="evo-img mx-auto d-block" alt="Internet Error"
                      src="assets/thumbnails-compressed/{{this.pad(evolutionChain[1][4][1], 3) + '.png'}}"
-                     routerLink="/pokemon/{{evolutionChain[1][4][1]}}" (click)="selectEvolution(evolutionChain[1][4][1])">
+                     routerLink="/pokemon/{{evolutionChain[1][4][1]}}"
+                     (click)="selectEvolution(evolutionChain[1][4][1])">
               </div>
               <div class="evo-id text-center">#{{evolutionChain[1][3][1]}}</div>
               <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{evolutionChain[1][4][1]}}"
                    (click)="selectEvolution(evolutionChain[1][4][1])"
                    style="padding: 0; bottom: 0"><span
-                class="evo-name {{pokemon.color}}" [ngClass]="{'selectedEvo':selectedEvolutionId===evolutionChain[1][4][1]}">{{evolutionChain[1][4][0]}}</span></div>
+                class="evo-name {{pokemon.color}}"
+                [ngClass]="{'selectedEvo':selectedEvolutionId===evolutionChain[1][4][1]}">{{evolutionChain[1][4][0]}}</span>
+              </div>
               <div class="evo-types col-xs-5" style="padding: 0;"
                    *ngIf="pokemonService.pokemons[evolutionChain[1][4][1]-1]!=undefined">
                 <ng-container *ngFor="let type of pokemonService.pokemons[evolutionChain[1][4][1]-1].types">
@@ -939,7 +953,9 @@
                 <div class="evo-id text-center">#{{row1[1]}}</div>
                 <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{row1[1]}}"
                      (click)="selectEvolution(row1[1])"
-                     style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}" [ngClass]="{'selectedEvo':selectedEvolutionId===row1[1]}">{{row1[0]}}</span></div>
+                     style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
+                                                         [ngClass]="{'selectedEvo':selectedEvolutionId===row1[1]}">{{row1[0]}}</span>
+                </div>
                 <div class="evo-types col-xs-5" style="padding: 0;"
                      *ngIf="pokemonService.pokemons[row1[1]-1]!=undefined">
                   <ng-container *ngFor="let type of pokemonService.pokemons[row1[1]-1].types">
@@ -975,6 +991,67 @@
       </ng-container>
     </div>
   </div>
+  <div class="row justify-content-center">
+    <div class="col-lg justify-content-center">
+      <h1 class="Heading text-center text-uppercase">Training</h1>
+      <div class="inner">
+        <table class="table table-borderless">
+          <tr>
+            <td class="text-right font-weight-bold">EV yield</td>
+            <td>
+                <span *ngIf="pokemon.stats[5]['effort']!==0">{{pokemon.stats[5]['effort']+" HP "}}</span>
+                <span *ngIf="pokemon.stats[4]['effort']!==0">{{pokemon.stats[4]['effort']+" Attack "}}</span>
+                <span *ngIf="pokemon.stats[3]['effort']!==0">{{pokemon.stats[3]['effort']+" Defence "}}</span>
+                <span *ngIf="pokemon.stats[2]['effort']!==0">{{pokemon.stats[2]['effort']+" Special Attack "}}</span>
+                <span *ngIf="pokemon.stats[1]['effort']!==0">{{pokemon.stats[1]['effort']+" Special Defence "}}</span>
+                <span *ngIf="pokemon.stats[0]['effort']!==0">{{pokemon.stats[0]['effort']+" Speed "}}</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-right font-weight-bold">Catch Rate</td>
+            <td style="white-space: nowrap;">{{pokemon.speciesDetails['capture_rate']}}</td>
+          </tr>
+          <tr>
+            <td class="text-right font-weight-bold">Base Friendship</td>
+            <td style="white-space: nowrap;">{{pokemon.speciesDetails['base_happiness']}}</td>
+          </tr>
+          <tr>
+            <td class="text-right font-weight-bold">Base Exp.</td>
+            <td style="white-space: nowrap;">{{pokemon.baseExperience}}</td>
+          </tr>
+          <tr>
+            <td class="text-right font-weight-bold"> Growth Rate</td>
+            <td
+              style="white-space: nowrap;">{{capitalizeSplitJoin(pokemon.speciesDetails['growth_rate']['name'], '-', ' ')}}</td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+    <div class="col-lg justify-content-center">
+      <h1 class="Heading text-center text-uppercase">Breeding</h1>
+      <div class="inner">
+        <table class="table table-borderless">
+          <tr>
+            <td class="text-right font-weight-bold">Egg Groups</td>
+            <td class="text-capitalize">
+              <ng-container *ngFor="let eggGroup of pokemon.speciesDetails['egg_groups']">
+                {{capitalizeSplitJoin(eggGroup['name'], '-', ' ')}}</ng-container>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-right font-weight-bold">Gender Distribution</td>
+            <td style="white-space: nowrap;">{{generateGenderRates()}}</td>
+          </tr>
+          <tr>
+            <td class="text-right font-weight-bold">Egg Cycles</td>
+            <td style="white-space: nowrap;">{{pokemon.speciesDetails['hatch_counter']}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Ability Modal -->
   <div class="modal fade" id="abilityModal" tabindex="-1" role="dialog" aria-labelledby="abilityModal"

@@ -1020,6 +1020,32 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     return +match[1];
   }
 
+  generateGenderRates() {
+    const rate = this.pokemon.speciesDetails['gender_rate'];
+    switch (rate) {
+      case -1:
+        return 'Genderless';
+      case 0:
+        return '100% Male, 0% Female';
+      case 1:
+        return '87.5% Male, 12.5% Female';
+      case 2:
+        return '75% Male, 25% Female';
+      case 3:
+        return '62.5% Male, 37.5% Female';
+      case 4:
+        return '50% Male, 50% Female';
+      case 5:
+        return '37.5% Male, 62.5% Female';
+      case 6:
+        return '25% Male, 75% Female';
+      case 7:
+        return '12.5% Male, 87.5% Female';
+      case 8:
+        return '0% Male, 100% Female';
+    }
+  }
+
   capitalizeSplitJoin(str, split: string, join: string) {
     str = str.split(split);
     for (let i = 0, x = str.length; i < x; i++) {
