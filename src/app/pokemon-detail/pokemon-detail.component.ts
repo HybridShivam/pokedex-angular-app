@@ -590,7 +590,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   selectForm(i) {
-    if (this.selectedFormNo === i || this.imageLoading) {
+    if (this.selectedFormNo === i || this.imageLoading || this.pokemonForms[i] === undefined) {
       return;
     }
     this.visible = false;
