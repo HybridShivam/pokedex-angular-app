@@ -17,9 +17,12 @@
 .Section-Heading {
   opacity: 1;
   transition: opacity .6s ease-in-out;
+  color: #6d6d6d;
 }
-.Heading{
+
+.Heading {
   font-size: x-large;
+  color: #6d6d6d;
 }
 
 .bioDiv {
@@ -797,56 +800,85 @@
   flex-basis: 100%;
   flex-direction: row;
 }
-.eeveeRow2{
-  .arrow-div{
+
+.eeveeRow2 {
+  .arrow-div {
     flex-basis: 100%;
   }
-  .col-sm{
+
+  .col-sm {
     display: flex;
     flex-direction: column;
-    img{
+
+    img {
       transform: rotate(-90deg);
     }
   }
 }
 
-.eeveeRow3{
-  .col-sm{
+.eeveeRow3 {
+  .col-sm {
     flex-basis: 100% !important;
   }
 }
 
-.corner1{
+.corner1 {
   padding-right: 0;
   padding-left: 50%;
-  img{
+
+  img {
     transform: rotate(-135deg) !important;
   }
 }
-.corner2{
+
+.corner2 {
   padding-right: 50%;
   padding-left: 0;
-  img{
+
+  img {
     transform: rotate(-45deg) !important;
   }
 }
-.corner3{
+
+.corner3 {
   padding-right: 0;
   padding-left: 50%;
-  img{
+
+  img {
     transform: rotate(135deg) !important;
   }
 }
-.corner3-4{
-  img{
+
+.corner3-4 {
+  img {
     transform: rotate(90deg) !important;
   }
 }
-.corner4{
+
+.corner4 {
   padding-right: 50%;
   padding-left: 0;
-  img{
+
+  img {
     transform: rotate(45deg) !important;
+  }
+}
+
+.SubSections{
+  div{
+    width: auto;
+    padding-bottom: 0.25rem;
+    padding-top: 0.25rem;
+  }
+}
+
+@media (min-width: 1301px) {
+  .SubSections {
+    .inner {
+      table th, table td {
+        padding: 0.33rem;
+      }
+    }
   }
 }
 
@@ -854,6 +886,23 @@
   .table th, .table td {
     padding-right: 0.0rem;
     padding-left: 0.5rem;
+  }
+  .SubSections {
+    .inner {
+      table th, table td {
+        padding: 0.25rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .SubSections {
+    .inner {
+      table th, table td {
+        padding: 0.25rem;
+      }
+    }
   }
 }
 
@@ -885,6 +934,20 @@
       flex-basis: 100%;
     }
   }
+  .Heading {
+    font-size: medium;
+  }
+  .SubSections {
+    .inner {
+      font-size: small;
+      width: auto;
+
+      table th, table td {
+        padding: 0.25rem;
+      }
+    }
+  }
+
 }
 
 @media (max-width: 500px) {
@@ -899,7 +962,11 @@
   .evo-desc {
     font-size: x-small;
   }
+  .Heading {
+    font-size: medium;
+  }
 }
+
 @media (max-width: 320px) {
   .evo-div {
     font-size: xx-small;
@@ -911,5 +978,11 @@
   }
   .evo-desc {
     font-size: xx-small;
+  }
+  .SubSections {
+    .inner {
+      font-size: x-small;
+      width: auto;
+    }
   }
 }

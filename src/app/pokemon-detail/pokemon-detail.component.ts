@@ -117,6 +117,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     'eevee'];
 
 
+  typeDefences = {'4x': [], '2x': [], '1x': [], '0.5x': [], '0.25x': [], '0x': []};
+
+
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
     this.megaEvolveAnimationEnabled = !this.pokemonService.isMobile;
@@ -1047,6 +1050,29 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         return '12.5% Male, 87.5% Female';
       case 8:
         return '0% Male, 100% Female';
+    }
+  }
+
+  getExperiencePoints(growth_rate: string) {
+    switch (growth_rate) {
+      case 'slow':
+        return '1250000';
+      case 'medium':
+        return '1000000';
+      case 'fast':
+        return '800000';
+      case 'medium-slow':
+        return '1059860';
+      case 'slow-then-very-fast':
+        return '600000';
+      case 'fast-then-very-slow':
+        return '1640000';
+    }
+  }
+
+  calculateTypeEffectiveness() {
+    for (let type of this.pokemon.types) {
+      typeEffectiveness;
     }
   }
 

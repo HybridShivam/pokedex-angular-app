@@ -421,8 +421,8 @@
   </div>
 
   <div class="container" *ngIf="evolutionChain.length>0" style="padding-bottom: 3rem">
-    <h1 class="Heading text-center text-uppercase">Evolution Chain</h1>
-    <div class="row justify-content-center">
+    <h1 class="Heading text-center text-uppercase" style="margin-bottom: 1.5rem;"><span class="rounded" [ngClass]="pokemon.color" style="padding: 2px 4px 4px;">Evolution Chain</span></h1>
+    <div class="row justify-content-center" style="padding-bottom: 3rem">
       <ng-container [ngSwitch]="exceptionalChainType">
         <ng-container *ngSwitchCase="''">
           <ng-container class="text-capitalize" *ngFor="let stage of evolutionChain; let i =index">
@@ -990,69 +990,89 @@
         </ng-container>
       </ng-container>
     </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-lg justify-content-center">
-      <h1 class="Heading text-center text-uppercase">Training</h1>
-      <div class="inner">
-        <table class="table table-borderless">
-          <tr>
-            <td class="text-right font-weight-bold">EV yield</td>
-            <td>
-              <span *ngIf="pokemon.stats[5]['effort']!==0">{{pokemon.stats[5]['effort'] + " HP "}}</span>
-              <span *ngIf="pokemon.stats[4]['effort']!==0">{{pokemon.stats[4]['effort'] + " Attack "}}</span>
-              <span *ngIf="pokemon.stats[3]['effort']!==0">{{pokemon.stats[3]['effort'] + " Defence "}}</span>
-              <span *ngIf="pokemon.stats[2]['effort']!==0">{{pokemon.stats[2]['effort'] + " Sp. Attack "}}</span>
-              <span *ngIf="pokemon.stats[1]['effort']!==0">{{pokemon.stats[1]['effort'] + " Sp. Defence "}}</span>
-              <span *ngIf="pokemon.stats[0]['effort']!==0">{{pokemon.stats[0]['effort'] + " Speed "}}</span>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-right font-weight-bold">Catch Rate</td>
-            <td style="white-space: nowrap;">{{pokemon.speciesDetails['capture_rate']}}</td>
-          </tr>
-          <tr>
-            <td class="text-right font-weight-bold">Base Friendship</td>
-            <td style="white-space: nowrap;">{{pokemon.speciesDetails['base_happiness']}}</td>
-          </tr>
-          <tr>
-            <td class="text-right font-weight-bold">Base Exp.</td>
-            <td style="white-space: nowrap;">{{pokemon.baseExperience}}</td>
-          </tr>
-          <tr>
-            <td class="text-right font-weight-bold"> Growth Rate</td>
-            <td
-              style="white-space: nowrap;">{{capitalizeSplitJoin(pokemon.speciesDetails['growth_rate']['name'], '-', ' ')}}</td>
-          </tr>
-        </table>
+    <div class="row justify-content-center SubSections">
+      <div class="col-lg col-md-4 col-sm-6 justify-content-center">
+        <h1 class="Heading text-center text-uppercase">Training</h1>
+        <div class="inner">
+          <table class="table table-borderless">
+            <tr>
+              <td class="text-right font-weight-bold">EV yield</td>
+              <td>
+                <span *ngIf="pokemon.stats[5]['effort']!==0">{{pokemon.stats[5]['effort'] + " HP "}}</span>
+                <span *ngIf="pokemon.stats[4]['effort']!==0">{{pokemon.stats[4]['effort'] + " Attack "}}</span>
+                <span *ngIf="pokemon.stats[3]['effort']!==0">{{pokemon.stats[3]['effort'] + " Defence "}}</span>
+                <span *ngIf="pokemon.stats[2]['effort']!==0">{{pokemon.stats[2]['effort'] + " Sp. Attack "}}</span>
+                <span *ngIf="pokemon.stats[1]['effort']!==0">{{pokemon.stats[1]['effort'] + " Sp. Defence "}}</span>
+                <span *ngIf="pokemon.stats[0]['effort']!==0">{{pokemon.stats[0]['effort'] + " Speed "}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-right font-weight-bold">Catch Rate</td>
+              <td>{{pokemon.speciesDetails['capture_rate']}}</td>
+            </tr>
+            <tr>
+              <td class="text-right font-weight-bold">Base Friendship</td>
+              <td>{{pokemon.speciesDetails['base_happiness']}}</td>
+            </tr>
+            <tr>
+              <td class="text-right font-weight-bold">Base Exp.</td>
+              <td>{{pokemon.baseExperience}}</td>
+            </tr>
+            <tr>
+              <td class="text-right font-weight-bold">Growth Rate</td>
+              <td>{{capitalizeSplitJoin(pokemon.speciesDetails['growth_rate']['name'], '-', ' ')+
+              " ("+getExperiencePoints(pokemon.speciesDetails['growth_rate']['name'])+' Exp.)'}}</td>
+            </tr>
+          </table>
 
+        </div>
+      </div>
+      <div class="col-lg col-md-4 col-sm-6 justify-content-center">
+        <h1 class="Heading text-center text-uppercase">Breeding</h1>
+        <div class="inner">
+          <table class="table table-borderless">
+            <tr>
+              <td class="text-right font-weight-bold">Egg Groups</td>
+              <td class="text-capitalize">
+                <ng-container *ngFor="let eggGroup of pokemon.speciesDetails['egg_groups']">
+                  {{capitalizeSplitJoin(eggGroup['name'], '-', ' ')}}</ng-container>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-right font-weight-bold">Gender Distribution</td>
+              <td>{{generateGenderRates()}}</td>
+            </tr>
+            <tr>
+              <td class="text-right font-weight-bold">Egg Cycles</td>
+              <td>{{pokemon.speciesDetails['hatch_counter']+" ( "+pokemon.speciesDetails['hatch_counter']*256+" Steps )"}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col-lg col-md-4 col-sm-6 justify-content-center">
+        <h1 class="Heading text-center text-uppercase">Typing</h1>
+        <div class="inner">
+          <table class="table table-borderless">
+            <tr>
+              <td class="text-right font-weight-bold">Defences</td>
+              <td class="text-capitalize">
+                <ng-container *ngFor="let eggGroup of pokemon.speciesDetails['egg_groups']">
+                  {{capitalizeSplitJoin(eggGroup['name'], '-', ' ')}}</ng-container>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-right font-weight-bold">Gender Distribution</td>
+              <td>{{generateGenderRates()}}</td>
+            </tr>
+            <tr>
+              <td class="text-right font-weight-bold">Egg Cycles</td>
+              <td>{{pokemon.speciesDetails['hatch_counter']}}</td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
-    <div class="col-lg justify-content-center">
-      <h1 class="Heading text-center text-uppercase">Breeding</h1>
-      <div class="inner">
-        <table class="table table-borderless">
-          <tr>
-            <td class="text-right font-weight-bold">Egg Groups</td>
-            <td class="text-capitalize">
-              <ng-container *ngFor="let eggGroup of pokemon.speciesDetails['egg_groups']">
-                {{capitalizeSplitJoin(eggGroup['name'], '-', ' ')}}</ng-container>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-right font-weight-bold">Gender Distribution</td>
-            <td style="white-space: nowrap;">{{generateGenderRates()}}</td>
-          </tr>
-          <tr>
-            <td class="text-right font-weight-bold">Egg Cycles</td>
-            <td style="white-space: nowrap;">{{pokemon.speciesDetails['hatch_counter']}}</td>
-          </tr>
-        </table>
-      </div>
-    </div>
   </div>
-
-
   <!-- Ability Modal -->
   <div class="modal fade" id="abilityModal" tabindex="-1" role="dialog" aria-labelledby="abilityModal"
        aria-hidden="true" #abilityModal>
