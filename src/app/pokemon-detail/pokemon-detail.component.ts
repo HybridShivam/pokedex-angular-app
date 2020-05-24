@@ -118,6 +118,42 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
 
   typeDefences = {'4x': [], '2x': [], '1x': [], '0.5x': [], '0.25x': [], '0x': []};
+  typeChart = [{'name': 'normal', 'immunes': ['ghost'], 'weaknesses': ['rock', 'steel'], 'strengths': []},
+    {'name': 'fire', 'immunes': [], 'weaknesses': ['fire', 'water', 'rock', 'dragon'], 'strengths': ['grass', 'ice', 'bug', 'steel']},
+    {'name': 'water', 'immunes': [], 'weaknesses': ['water', 'grass', 'dragon'], 'strengths': ['fire', 'ground', 'rock']},
+    {'name': 'electric', 'immunes': ['ground'], 'weaknesses': ['electric', 'grass', 'dragon'], 'strengths': ['water', 'flying']},
+    {
+      'name': 'grass',
+      'immunes': [],
+      'weaknesses': ['fire', 'grass', 'poison', 'flying', 'bug', 'dragon', 'steel'],
+      'strengths': ['water', 'ground', 'rock']
+    },
+    {'name': 'ice', 'immunes': [], 'weaknesses': ['fire', 'water', 'ice', 'steel'], 'strengths': ['grass', 'ground', 'flying', 'dragon']},
+    {
+      'name': 'fighting',
+      'immunes': ['ghost'],
+      'weaknesses': ['poison', 'flying', 'psychic', 'bug', 'fairy'],
+      'strengths': ['normal', 'ice', 'rock', 'dark', 'steel']
+    },
+    {'name': 'poison', 'immunes': ['steel'], 'weaknesses': ['poison', 'ground', 'rock', 'ghost'], 'strengths': ['grass', 'fairy']},
+    {'name': 'ground', 'immunes': ['flying'], 'weaknesses': ['grass', 'bug'], 'strengths': ['fire', 'electric', 'poison', 'rock', 'steel']},
+    {'name': 'flying', 'immunes': [], 'weaknesses': ['electric', 'rock', 'steel'], 'strengths': ['grass', 'fighting', 'bug']},
+    {'name': 'psychic', 'immunes': ['dark'], 'weaknesses': ['psychic', 'steel'], 'strengths': ['fighting', 'poison']},
+    {
+      'name': 'bug',
+      'immunes': [],
+      'weaknesses': ['fire', 'fighting', 'poison', 'flying', 'ghost', 'steel', 'fairy'],
+      'strengths': ['grass', 'psychic', 'dark']
+    },
+    {'name': 'rock', 'immunes': [], 'weaknesses': ['fighting', 'ground', 'steel'], 'strengths': ['fire', 'ice', 'flying', 'bug']},
+    {'name': 'ghost', 'immunes': ['normal'], 'weaknesses': ['dark'], 'strengths': ['psychic', 'ghost']},
+    {'name': 'dragon', 'immunes': ['fairy'], 'weaknesses': ['steel'], 'strengths': ['dragon']},
+    {'name': 'dark', 'immunes': [], 'weaknesses': ['fighting', 'dark', 'fairy'], 'strengths': ['psychic', 'ghost']},
+    {'name': 'steel', 'immunes': [], 'weaknesses': ['fire', 'water', 'electric', 'steel'], 'strengths': ['ice', 'rock', 'fairy']},
+    {'name': 'fairy', 'immunes': [], 'weaknesses': ['fire', 'poison', 'steel'], 'strengths': ['fighting', 'dragon', 'dark']}];
+  // allTypes = ['normal', 'fire', 'water', 'electric', 'grass', 'ice',
+  //   'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug',
+  //   'rock', 'ghost', 'dragon', 'dark', 'steel', 'fairy'];
 
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -385,6 +421,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.calculateStats();
     }, 500);
+    this.calculateTypeEffectiveness();
   }
 
   pad(number, length) {
@@ -1071,9 +1108,32 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   calculateTypeEffectiveness() {
-    for (let type of this.pokemon.types) {
-      typeEffectiveness;
+    let type1 = this.pokemon.types[0]['type']['name'];
+    let type2;
+    if (this.pokemon.types[1] !== undefined) {
+      type2 = this.pokemon.types[1]['type']['name'];
+    } else {
+      type2 = '';
     }
+    console.log(type1 + ' ' + type2);
+    for (const type of this.typeChart) {
+      if ((type['immunes'].indexOf(type1) !== -1) || (type['immunes'].indexOf(type2) !== -1)) { // 0x
+        this.typeDefences['0x'].push(type['name']);
+      } else if ((type['weaknesses'].indexOf(type1) !== -1) && (type['weaknesses'].indexOf(type2) !== -1)) { // 0.25x
+        this.typeDefences['0.25x'].push(type['name']);
+      } else if (((type['strengths'].indexOf(type1) !== -1) && (type['strengths'].indexOf(type2) !== -1))) { // 4x
+        this.typeDefences['4x'].push(type['name']);
+      } else if (((type['strengths'].indexOf(type1) === -1) && (type['weaknesses'].indexOf(type2) !== -1))
+        || (((type['strengths'].indexOf(type2) === -1) && (type['weaknesses'].indexOf(type1) !== -1)))) { // 0.5x
+        this.typeDefences['0.5x'].push(type['name']);
+      } else if (((type['strengths'].indexOf(type1) !== -1) && (type['weaknesses'].indexOf(type2) === -1))
+        || (((type['strengths'].indexOf(type2) !== -1) && (type['weaknesses'].indexOf(type1) !== -1)))) { // 2x
+        this.typeDefences['2x'].push(type['name']);
+      } else {
+        this.typeDefences['1x'].push(type['name']); // 1x
+      }
+    }
+    console.log(this.typeDefences);
   }
 
   capitalizeSplitJoin(str, split: string, join: string) {
