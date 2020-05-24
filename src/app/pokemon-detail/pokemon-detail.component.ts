@@ -1062,6 +1062,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     // console.log('destroyed');
     this.pokemonService.activePokemon.next(null);
     this.pokemonService.previousPokemonID.next(this.pokemonId);
+    // Closing Open Modals
     const body = document.getElementsByTagName('body')[0];
     body.classList.remove('modal-open');
     const elements = document.getElementsByClassName('modal-backdrop');
