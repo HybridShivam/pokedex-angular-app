@@ -1133,10 +1133,10 @@
           <div class="text-center">
             <div class="row" style="margin-top: 20px">
               <h5 class="col-12 text-uppercase text-center"
-                  id="formsModalTitle">{{pokemon.name}}</h5>
+                  id="formsModalTitle">{{pokemonForms[0].name + "'s Forms"}}</h5>
             </div>
             <span class="{{pokemon.color}} rounded justify-content-center text-capitalize"
-                  style="padding: 4px 6px">{{pokemonForms[0].name + "'s Forms"}}</span>
+                  style="padding: 4px 6px">{{pokemon.speciesDetails['forms_switchable'] ? 'Forms Switchable' : 'Forms Not Switchable'}}</span>
           </div>
           <hr style="margin-top: 10px;margin-bottom: 5px">
         </div>
