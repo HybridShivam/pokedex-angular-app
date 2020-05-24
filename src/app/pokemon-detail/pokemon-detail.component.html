@@ -304,7 +304,7 @@
             </td>
           </tr>
           <tr>
-            <td class="text-right font-weight-bold">Forms</td>
+            <td class="text-right font-weight-bold" data-toggle="modal" data-target="#formsModal">Forms</td>
             <td class="formsBlock text-capitalize">
               <span class="varieties" *ngFor="let formName of formattedFormNames;let i=index" style="white-space: pre;">
                 <span class="variety {{pokemon.color}} text-uppercase"
@@ -999,12 +999,12 @@
           <tr>
             <td class="text-right font-weight-bold">EV yield</td>
             <td>
-                <span *ngIf="pokemon.stats[5]['effort']!==0">{{pokemon.stats[5]['effort']+" HP "}}</span>
-                <span *ngIf="pokemon.stats[4]['effort']!==0">{{pokemon.stats[4]['effort']+" Attack "}}</span>
-                <span *ngIf="pokemon.stats[3]['effort']!==0">{{pokemon.stats[3]['effort']+" Defence "}}</span>
-                <span *ngIf="pokemon.stats[2]['effort']!==0">{{pokemon.stats[2]['effort']+" Special Attack "}}</span>
-                <span *ngIf="pokemon.stats[1]['effort']!==0">{{pokemon.stats[1]['effort']+" Special Defence "}}</span>
-                <span *ngIf="pokemon.stats[0]['effort']!==0">{{pokemon.stats[0]['effort']+" Speed "}}</span>
+              <span *ngIf="pokemon.stats[5]['effort']!==0">{{pokemon.stats[5]['effort'] + " HP "}}</span>
+              <span *ngIf="pokemon.stats[4]['effort']!==0">{{pokemon.stats[4]['effort'] + " Attack "}}</span>
+              <span *ngIf="pokemon.stats[3]['effort']!==0">{{pokemon.stats[3]['effort'] + " Defence "}}</span>
+              <span *ngIf="pokemon.stats[2]['effort']!==0">{{pokemon.stats[2]['effort'] + " Special Attack "}}</span>
+              <span *ngIf="pokemon.stats[1]['effort']!==0">{{pokemon.stats[1]['effort'] + " Special Defence "}}</span>
+              <span *ngIf="pokemon.stats[0]['effort']!==0">{{pokemon.stats[0]['effort'] + " Speed "}}</span>
             </td>
           </tr>
           <tr>
@@ -1117,6 +1117,35 @@
           <!--        <span class="{{pokemon.color}} rounded text-center font-weight-bolder"-->
           <!--              style="padding: 4px; font-size: larger">IN-DEPTH EFFECT</span>-->
           <!--        <p style="padding-top: 6px">{{abilities[abilitySelected]['effect_entries'][0]['effect']}}</p>-->
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--FormsDescModal-->
+  <div class="modal fade" id="formsModal" tabindex="-1" role="dialog" aria-labelledby="formsModal"
+       aria-hidden="true" #formsModal>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" *ngIf="pokemon.speciesDetails!==undefined">
+        <div class="">
+          <div class="text-center">
+            <div class="row" style="margin-top: 20px">
+              <h5 class="col-12 text-uppercase text-center"
+                  id="formsModalTitle">{{pokemon.name}}</h5>
+            </div>
+            <span class="{{pokemon.color}} rounded justify-content-center text-capitalize"
+                  style="padding: 4px 6px">{{pokemonForms[0].name + "'s Forms"}}</span>
+          </div>
+          <hr style="margin-top: 10px;margin-bottom: 5px">
+        </div>
+        <div class="modal-body justify-content-center text-center">
+          <ng-container *ngFor="let entry of pokemon.speciesDetails['form_descriptions']">
+            <ng-container *ngIf="entry['language']['name']==='en'">
+              <p style="padding-top: 6px">{{entry['description']}}</p>
+            </ng-container>
+          </ng-container>
         </div>
         <div class="modal-footer justify-content-center">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
