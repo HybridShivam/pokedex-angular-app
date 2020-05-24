@@ -1116,7 +1116,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     } else {
       type2 = '';
     }
-    console.log(type1 + ' ' + type2);
     for (const type of this.typeChart) {
       if ((type['immunes'].indexOf(type1) !== -1) || (type['immunes'].indexOf(type2) !== -1)) { // 0x
         this.typeDefences['0x'].push(type['name']);

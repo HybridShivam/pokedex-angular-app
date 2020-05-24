@@ -874,7 +874,23 @@
 
 .typeDefencesRow {
   div {
-    padding: revert;
+    padding-bottom: initial;
+    padding-top: initial;
+  }
+}
+.TypeEffDiv{
+  .inner{
+    /* Remove the top border when a table is missing the header */
+    .table >tr:first-child > td {
+      border: none;
+    }
+    /* Include the border when there's a header */
+    //.table > thead + tbody > tr:first-child > td {
+    //  border-top: 1px solid #ddd;
+    //}
+    table th, table td {
+      vertical-align: middle;
+    }
   }
 }
 
