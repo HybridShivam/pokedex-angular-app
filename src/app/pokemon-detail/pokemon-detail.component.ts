@@ -576,9 +576,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             this.pokemon.color,
             this.pokemon.genera,
             this.pokemon.varieties,
-            this.pokemon.evolutionChainURL
+            this.pokemon.evolutionChainURL,
           );
-          // console.log('forms' + results[i]['name']);
         }
         // this.initializePokemonFields();
       }
@@ -617,10 +616,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       this.pokemon.abilities = this.pokemonForms[i]['abilities'];
       this.pokemon.height = this.pokemonForms[i]['height'];
       this.pokemon.weight = this.pokemonForms[i]['weight'];
-      this.pokemon.baseExperience = this.pokemonForms[i]['base_experience'];
+      this.pokemon.baseExperience = this.pokemonForms[i]['baseExperience'];
       this.pokemon.forms = this.pokemonForms[i]['forms'];
-      this.pokemon.heldItems = this.pokemonForms[i]['held_items'];
-      this.pokemon.gameIndices = this.pokemonForms[i]['game_indices'];
+      this.pokemon.heldItems = this.pokemonForms[i]['heldItems'];
+      this.pokemon.gameIndices = this.pokemonForms[i]['gameIndices'];
       this.pokemon.is_default = this.pokemonForms[i]['is_default'];
       this.pokemon.location = this.pokemonForms[i]['location'];
       this.pokemon.moves = this.pokemonForms[i]['moves'];
