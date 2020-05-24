@@ -738,7 +738,7 @@
   padding-bottom: 2px;
 }
 
-.evo-types {
+.evo-types, .typeDefencesRow {
   text-align: center;
   margin: 0;
 
@@ -864,11 +864,17 @@
   }
 }
 
-.SubSections{
-  div{
+.SubSections {
+  div {
     width: auto;
     padding-bottom: 0.25rem;
     padding-top: 0.25rem;
+  }
+}
+
+.typeDefencesRow {
+  div {
+    padding: revert;
   }
 }
 

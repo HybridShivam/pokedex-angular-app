@@ -1108,6 +1108,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   calculateTypeEffectiveness() {
+    this.typeDefences = {'4x': [], '2x': [], '1x': [], '0.5x': [], '0.25x': [], '0x': []};
     let type1 = this.pokemon.types[0]['type']['name'];
     let type2;
     if (this.pokemon.types[1] !== undefined) {
@@ -1123,11 +1124,14 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.typeDefences['0.25x'].push(type['name']);
       } else if (((type['strengths'].indexOf(type1) !== -1) && (type['strengths'].indexOf(type2) !== -1))) { // 4x
         this.typeDefences['4x'].push(type['name']);
+      } else if (((type['strengths'].indexOf(type1) !== -1) && (type['weaknesses'].indexOf(type2) !== -1))
+        || (((type['strengths'].indexOf(type2) !== -1) && (type['weaknesses'].indexOf(type1) !== -1)))) { // 1x
+        this.typeDefences['1x'].push(type['name']);
       } else if (((type['strengths'].indexOf(type1) === -1) && (type['weaknesses'].indexOf(type2) !== -1))
         || (((type['strengths'].indexOf(type2) === -1) && (type['weaknesses'].indexOf(type1) !== -1)))) { // 0.5x
         this.typeDefences['0.5x'].push(type['name']);
       } else if (((type['strengths'].indexOf(type1) !== -1) && (type['weaknesses'].indexOf(type2) === -1))
-        || (((type['strengths'].indexOf(type2) !== -1) && (type['weaknesses'].indexOf(type1) !== -1)))) { // 2x
+        || (((type['strengths'].indexOf(type2) !== -1) && (type['weaknesses'].indexOf(type1) === -1)))) { // 2x
         this.typeDefences['2x'].push(type['name']);
       } else {
         this.typeDefences['1x'].push(type['name']); // 1x
