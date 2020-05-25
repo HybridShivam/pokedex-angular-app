@@ -304,7 +304,7 @@
             </td>
           </tr>
           <tr>
-            <td class="text-right font-weight-bold" data-toggle="modal" data-target="#formsModal">Forms</td>
+            <td class="text-right font-weight-bold">Forms</td>
             <td class="formsBlock text-capitalize">
               <span class="varieties" *ngFor="let formName of formattedFormNames;let i=index" style="white-space: pre;">
                 <span class="variety {{pokemon.color}} text-uppercase"
@@ -1001,21 +1001,31 @@
             <tr>
               <td class="text-right font-weight-bold">EV yield</td>
               <td>
-                <span *ngIf="pokemon.stats[5]['effort']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[5]['effort']}}</span> HP </span>
-                <span *ngIf="pokemon.stats[4]['effort']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[4]['effort']}}</span> Attack </span>
-                <span *ngIf="pokemon.stats[3]['effort']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[3]['effort']}}</span> Defence </span>
-                <span *ngIf="pokemon.stats[2]['effort']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[2]['effort']}}</span> Sp. Attack </span>
-                <span *ngIf="pokemon.stats[1]['effort']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[1]['effort']}}</span> Sp. Defence </span>
-                <span *ngIf="pokemon.stats[0]['effort']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[0]['effort']}}</span> Speed </span>
+                <span *ngIf="pokemon.stats[5]['effort']!==0"><span
+                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[5]['effort']}}</span> HP </span>
+                <span *ngIf="pokemon.stats[4]['effort']!==0"><span
+                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[4]['effort']}}</span> Attack </span>
+                <span *ngIf="pokemon.stats[3]['effort']!==0"><span
+                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[3]['effort']}}</span> Defence </span>
+                <span *ngIf="pokemon.stats[2]['effort']!==0"><span
+                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[2]['effort']}}</span> Sp. Attack </span>
+                <span *ngIf="pokemon.stats[1]['effort']!==0"><span
+                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[1]['effort']}}</span> Sp. Defence </span>
+                <span *ngIf="pokemon.stats[0]['effort']!==0"><span
+                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[0]['effort']}}</span> Speed </span>
               </td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Catch Rate</td>
-              <td><span class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['capture_rate']}}</span>{{" (" + calculateCatchRate(pokemon.speciesDetails['capture_rate']) + ")"}}</td>
+              <td><span
+                class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['capture_rate']}}</span>{{" (" + calculateCatchRate(pokemon.speciesDetails['capture_rate']) + ")"}}
+              </td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Base Friendship</td>
-              <td><span class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['base_happiness']}}</span>{{' (' + getFriendShip(pokemon.speciesDetails['base_happiness']) + ')'}}</td>
+              <td><span
+                class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['base_happiness']}}</span>{{' (' + getFriendShip(pokemon.speciesDetails['base_happiness']) + ')'}}
+              </td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Base Exp.</td>
@@ -1023,8 +1033,9 @@
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Growth Rate</td>
-              <td><span class="{{pokemon.color+'-text'}}">{{capitalizeSplitJoin(pokemon.speciesDetails['growth_rate']['name'], '-', ' ')}}</span>
-              {{" (" + getExperiencePoints(pokemon.speciesDetails['growth_rate']['name']) + ' Exp.)'}}</td>
+              <td><span
+                class="{{pokemon.color+'-text'}}">{{capitalizeSplitJoin(pokemon.speciesDetails['growth_rate']['name'], '-', ' ')}}</span>
+                {{" (" + getExperiencePoints(pokemon.speciesDetails['growth_rate']['name']) + ' Exp.)'}}</td>
             </tr>
           </table>
 
@@ -1049,6 +1060,26 @@
               <td class="text-right font-weight-bold">Egg Cycles</td>
               <td><span class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['hatch_counter']}}
               </span>{{" (" + pokemon.speciesDetails['hatch_counter'] * 256 + " Steps)"}}</td>
+            </tr>
+          </table>
+          <h1 class="Heading text-center text-uppercase">Forms</h1>
+          <table class="table table-borderless" style="width: auto;margin: auto auto 1rem;">
+            <tr>
+              <td class="text-right font-weight-bold">Alternative Forms</td>
+              <td class="text-capitalize" class="{{pokemon.color+'-text'}}">
+                {{(pokemonForms.length - 1) === 0 ? 'No' : 'Yes'}}
+              </td>
+            </tr>
+            <tr>
+              <td class="text-right font-weight-bold">Gender Differences</td>
+              <td
+                class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['has_gender_differences'] == true ? 'Yes' : 'No'}}</td>
+            </tr>
+            <tr *ngIf="pokemon.speciesDetails['form_descriptions'].length>0">
+              <td colspan="2" class="text-center">
+                <span class='ColoredButton' [ngClass]="pokemon.color"
+                      data-toggle="modal" data-target="#formsModal">Forms Info.</span>
+              </td>
             </tr>
           </table>
         </div>

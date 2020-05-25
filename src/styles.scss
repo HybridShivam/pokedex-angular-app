@@ -35,7 +35,7 @@ html {
 //Disable Horizontal Scrolling
 body {
   max-width: 100%;
-  //overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 @media (pointer: none), (pointer: coarse) and (max-width: 768px) {

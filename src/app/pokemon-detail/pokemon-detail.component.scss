@@ -979,6 +979,14 @@
   color: hotpink !important;
 }
 
+.ColoredButton{
+  padding: 2px 3px;
+  border-radius: 0.25rem;
+}
+.ColoredButton:hover{
+  cursor: pointer;
+}
+
 @media (min-width: 1301px) {
   .SubSections {
     .inner {

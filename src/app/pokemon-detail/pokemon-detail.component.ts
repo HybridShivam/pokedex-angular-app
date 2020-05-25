@@ -151,9 +151,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     {'name': 'dark', 'immunes': [], 'weaknesses': ['fighting', 'dark', 'fairy'], 'strengths': ['psychic', 'ghost']},
     {'name': 'steel', 'immunes': [], 'weaknesses': ['fire', 'water', 'electric', 'steel'], 'strengths': ['ice', 'rock', 'fairy']},
     {'name': 'fairy', 'immunes': [], 'weaknesses': ['fire', 'poison', 'steel'], 'strengths': ['fighting', 'dragon', 'dark']}];
-  // allTypes = ['normal', 'fire', 'water', 'electric', 'grass', 'ice',
-  //   'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug',
-  //   'rock', 'ghost', 'dragon', 'dark', 'steel', 'fairy'];
 
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -641,6 +638,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     if (this.selectedFormNo === i || this.imageLoading || this.pokemonForms[i] === undefined) {
       return;
     }
+    this.selectedStat = 'base';
     this.visible = false;
     if (!(this.pokemonForms[i]['name'].indexOf('-mega') !== -1 && this.megaEvolveAnimationEnabled && !this.imageLoading)) {
       this.imageVisible = false;
