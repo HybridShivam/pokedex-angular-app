@@ -421,7 +421,10 @@
   </div>
 
   <div class="container" *ngIf="evolutionChain.length>0" style="padding-bottom: 3rem">
-    <h1 class="Heading text-center text-uppercase" style="margin-bottom: 1.5rem;"><span class="rounded" [ngClass]="pokemon.color" style="padding: 2px 4px 4px;">Evolution Chain</span></h1>
+    <h1 class="Heading text-center text-uppercase" style="margin-bottom: 1.5rem;"><span class="rounded"
+                                                                                        [ngClass]="pokemon.color"
+                                                                                        style="padding: 2px 4px 4px;">Evolution Chain</span>
+    </h1>
     <div class="row justify-content-center" style="padding-bottom: 3rem">
       <ng-container [ngSwitch]="exceptionalChainType">
         <ng-container *ngSwitchCase="''">
@@ -998,30 +1001,30 @@
             <tr>
               <td class="text-right font-weight-bold">EV yield</td>
               <td>
-                <span *ngIf="pokemon.stats[5]['effort']!==0">{{pokemon.stats[5]['effort'] + " HP "}}</span>
-                <span *ngIf="pokemon.stats[4]['effort']!==0">{{pokemon.stats[4]['effort'] + " Attack "}}</span>
-                <span *ngIf="pokemon.stats[3]['effort']!==0">{{pokemon.stats[3]['effort'] + " Defence "}}</span>
-                <span *ngIf="pokemon.stats[2]['effort']!==0">{{pokemon.stats[2]['effort'] + " Sp. Attack "}}</span>
-                <span *ngIf="pokemon.stats[1]['effort']!==0">{{pokemon.stats[1]['effort'] + " Sp. Defence "}}</span>
-                <span *ngIf="pokemon.stats[0]['effort']!==0">{{pokemon.stats[0]['effort'] + " Speed "}}</span>
+                <span *ngIf="pokemon.stats[5]['effort']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[5]['effort']}}</span> HP </span>
+                <span *ngIf="pokemon.stats[4]['effort']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[4]['effort']}}</span> Attack </span>
+                <span *ngIf="pokemon.stats[3]['effort']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[3]['effort']}}</span> Defence </span>
+                <span *ngIf="pokemon.stats[2]['effort']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[2]['effort']}}</span> Sp. Attack </span>
+                <span *ngIf="pokemon.stats[1]['effort']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[1]['effort']}}</span> Sp. Defence </span>
+                <span *ngIf="pokemon.stats[0]['effort']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[0]['effort']}}</span> Speed </span>
               </td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Catch Rate</td>
-              <td>{{pokemon.speciesDetails['capture_rate']}}</td>
+              <td><span class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['capture_rate']}}</span>{{" (" + calculateCatchRate(pokemon.speciesDetails['capture_rate']) + ")"}}</td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Base Friendship</td>
-              <td>{{pokemon.speciesDetails['base_happiness']}}</td>
+              <td><span class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['base_happiness']}}</span>{{' (' + getFriendShip(pokemon.speciesDetails['base_happiness']) + ')'}}</td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Base Exp.</td>
-              <td>{{pokemon.baseExperience}}</td>
+              <td class="{{pokemon.color+'-text'}}">{{pokemon.baseExperience}}</td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Growth Rate</td>
-              <td>{{capitalizeSplitJoin(pokemon.speciesDetails['growth_rate']['name'], '-', ' ')+
-              " ("+getExperiencePoints(pokemon.speciesDetails['growth_rate']['name'])+' Exp.)'}}</td>
+              <td><span class="{{pokemon.color+'-text'}}">{{capitalizeSplitJoin(pokemon.speciesDetails['growth_rate']['name'], '-', ' ')}}</span>
+              {{" (" + getExperiencePoints(pokemon.speciesDetails['growth_rate']['name']) + ' Exp.)'}}</td>
             </tr>
           </table>
 
@@ -1033,7 +1036,7 @@
           <table class="table table-borderless">
             <tr>
               <td class="text-right font-weight-bold">Egg Groups</td>
-              <td class="text-capitalize">
+              <td class="text-capitalize" class="{{pokemon.color+'-text'}}">
                 <ng-container *ngFor="let eggGroup of pokemon.speciesDetails['egg_groups']">
                   {{capitalizeSplitJoin(eggGroup['name'], '-', ' ')}}</ng-container>
               </td>
@@ -1044,7 +1047,8 @@
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Egg Cycles</td>
-              <td>{{pokemon.speciesDetails['hatch_counter']+" ("+pokemon.speciesDetails['hatch_counter']*256+" Steps)"}}</td>
+              <td><span class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['hatch_counter']}}
+              </span>{{" (" + pokemon.speciesDetails['hatch_counter'] * 256 + " Steps)"}}</td>
             </tr>
           </table>
         </div>
@@ -1076,7 +1080,8 @@
                       <div class="icon ice" *ngSwitchCase="'ice'"><img src="assets/type-icons/ice.svg"></div>
                       <div class="icon normal" *ngSwitchCase="'normal'"><img src="assets/type-icons/normal.svg"></div>
                       <div class="icon poison" *ngSwitchCase="'poison'"><img src="assets/type-icons/poison.svg"></div>
-                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img src="assets/type-icons/psychic.svg"></div>
+                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img src="assets/type-icons/psychic.svg">
+                      </div>
                       <div class="icon rock" *ngSwitchCase="'rock'"><img src="assets/type-icons/rock.svg"></div>
                       <div class="icon steel" *ngSwitchCase="'steel'"><img src="assets/type-icons/steel.svg"></div>
                       <div class="icon water" *ngSwitchCase="'water'"><img src="assets/type-icons/water.svg"></div>
@@ -1108,7 +1113,8 @@
                       <div class="icon ice" *ngSwitchCase="'ice'"><img src="assets/type-icons/ice.svg"></div>
                       <div class="icon normal" *ngSwitchCase="'normal'"><img src="assets/type-icons/normal.svg"></div>
                       <div class="icon poison" *ngSwitchCase="'poison'"><img src="assets/type-icons/poison.svg"></div>
-                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img src="assets/type-icons/psychic.svg"></div>
+                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img src="assets/type-icons/psychic.svg">
+                      </div>
                       <div class="icon rock" *ngSwitchCase="'rock'"><img src="assets/type-icons/rock.svg"></div>
                       <div class="icon steel" *ngSwitchCase="'steel'"><img src="assets/type-icons/steel.svg"></div>
                       <div class="icon water" *ngSwitchCase="'water'"><img src="assets/type-icons/water.svg"></div>
@@ -1140,7 +1146,8 @@
                       <div class="icon ice" *ngSwitchCase="'ice'"><img src="assets/type-icons/ice.svg"></div>
                       <div class="icon normal" *ngSwitchCase="'normal'"><img src="assets/type-icons/normal.svg"></div>
                       <div class="icon poison" *ngSwitchCase="'poison'"><img src="assets/type-icons/poison.svg"></div>
-                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img src="assets/type-icons/psychic.svg"></div>
+                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img src="assets/type-icons/psychic.svg">
+                      </div>
                       <div class="icon rock" *ngSwitchCase="'rock'"><img src="assets/type-icons/rock.svg"></div>
                       <div class="icon steel" *ngSwitchCase="'steel'"><img src="assets/type-icons/steel.svg"></div>
                       <div class="icon water" *ngSwitchCase="'water'"><img src="assets/type-icons/water.svg"></div>
@@ -1172,7 +1179,8 @@
                       <div class="icon ice" *ngSwitchCase="'ice'"><img src="assets/type-icons/ice.svg"></div>
                       <div class="icon normal" *ngSwitchCase="'normal'"><img src="assets/type-icons/normal.svg"></div>
                       <div class="icon poison" *ngSwitchCase="'poison'"><img src="assets/type-icons/poison.svg"></div>
-                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img src="assets/type-icons/psychic.svg"></div>
+                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img src="assets/type-icons/psychic.svg">
+                      </div>
                       <div class="icon rock" *ngSwitchCase="'rock'"><img src="assets/type-icons/rock.svg"></div>
                       <div class="icon steel" *ngSwitchCase="'steel'"><img src="assets/type-icons/steel.svg"></div>
                       <div class="icon water" *ngSwitchCase="'water'"><img src="assets/type-icons/water.svg"></div>
@@ -1204,7 +1212,8 @@
                       <div class="icon ice" *ngSwitchCase="'ice'"><img src="assets/type-icons/ice.svg"></div>
                       <div class="icon normal" *ngSwitchCase="'normal'"><img src="assets/type-icons/normal.svg"></div>
                       <div class="icon poison" *ngSwitchCase="'poison'"><img src="assets/type-icons/poison.svg"></div>
-                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img src="assets/type-icons/psychic.svg"></div>
+                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img src="assets/type-icons/psychic.svg">
+                      </div>
                       <div class="icon rock" *ngSwitchCase="'rock'"><img src="assets/type-icons/rock.svg"></div>
                       <div class="icon steel" *ngSwitchCase="'steel'"><img src="assets/type-icons/steel.svg"></div>
                       <div class="icon water" *ngSwitchCase="'water'"><img src="assets/type-icons/water.svg"></div>

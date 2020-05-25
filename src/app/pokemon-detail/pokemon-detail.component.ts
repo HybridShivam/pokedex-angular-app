@@ -1144,8 +1144,32 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.typeDefences['1x'].push(type['name']); // 1x
       }
     }
-    console.log(this.typeDefences);
+    // console.log(this.typeDefences);
   }
+
+  calculateCatchRate(genderRate) {
+    let perc;
+    perc = (genderRate / (3 * 255) * 100).toFixed(1);
+    perc = perc + '% PokéBall & Full HP';
+    return perc;
+  }
+
+  getFriendShip(friendship) {
+    if (friendship > 100) {
+      return 'High';
+    } else if (friendship > 70) {
+      return 'Higher than Normal';
+    } else if (friendship === 70) {
+      return 'Normal';
+    } else if (friendship >= 35) {
+      return 'Lower than Normal';
+    } else if (friendship > 0) {
+      return 'Low';
+    } else {
+      return 'Minimum';
+    }
+  }
+
 
   capitalizeSplitJoin(str, split: string, join: string) {
     str = str.split(split);
