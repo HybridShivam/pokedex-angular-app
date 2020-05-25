@@ -458,7 +458,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   calculateMaxStats() {
-    this.maxPokemonStats[0] = Math.floor((2 * this.pokemonStats[0] + 31 + 63) * 100 / 100 + 100 + 10);
+    if (this.pokemon.id === 292) { // Shedinja HP
+      this.maxPokemonStats[0] = 1;
+    } else {
+      this.maxPokemonStats[0] = Math.floor((2 * this.pokemonStats[0] + 31 + 63) * 100 / 100 + 100 + 10);
+    }
     for (let i = 1; i < 6; i++) {
       this.maxPokemonStats[i] = Math.floor(Math.floor((2 * this.pokemonStats[i] + 31 + 63) * 100 / 100 + 5) * 1.1);
     }
@@ -466,7 +470,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   calculateMinStats() {
-    this.minPokemonStats[0] = Math.floor((2 * this.pokemonStats[0]) * 100 / 100 + 100 + 10);
+    if (this.pokemon.id === 292) { // Shedinja HP
+      this.minPokemonStats[0] = 1;
+    } else {
+      this.minPokemonStats[0] = Math.floor((2 * this.pokemonStats[0]) * 100 / 100 + 100 + 10);
+    }
     for (let i = 1; i < 6; i++) {
       this.minPokemonStats[i] = Math.floor(Math.floor((2 * this.pokemonStats[i]) * 100 / 100 + 5) * 0.9);
     }
