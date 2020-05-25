@@ -1040,11 +1040,11 @@
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Gender Distribution</td>
-              <td>{{generateGenderRates()}}</td>
+              <td [innerHTML]="generateGenderRates()"></td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Egg Cycles</td>
-              <td>{{pokemon.speciesDetails['hatch_counter']+" ( "+pokemon.speciesDetails['hatch_counter']*256+" Steps )"}}</td>
+              <td>{{pokemon.speciesDetails['hatch_counter']+" ("+pokemon.speciesDetails['hatch_counter']*256+" Steps)"}}</td>
             </tr>
           </table>
         </div>

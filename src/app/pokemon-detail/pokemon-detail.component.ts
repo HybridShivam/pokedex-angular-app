@@ -1068,25 +1068,25 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     const rate = this.pokemon.speciesDetails['gender_rate'];
     switch (rate) {
       case -1:
-        return 'Genderless';
+        return 'Genderless <i class="fas fa-genderless"></i>';
       case 0:
-        return '100% Male, 0% Female';
+        return '<span class="gender-male">100% <i class="fas fa-mars"></i></span>,<span class="gender-female"> 0% <i class="fas fa-venus"></i></span>';
       case 1:
-        return '87.5% Male, 12.5% Female';
+        return '<span class="gender-male">87.5% <i class="fas fa-mars"></i></span>,<span class="gender-female">  12.5% <i class="fas fa-venus"></i></span>';
       case 2:
-        return '75% Male, 25% Female';
+        return '<span class="gender-male">75% <i class="fas fa-mars"></i></span>,<span class="gender-female">  25% <i class="fas fa-venus"></i></span>';
       case 3:
-        return '62.5% Male, 37.5% Female';
+        return '<span class="gender-male">62.5% <i class="fas fa-mars"></i></span>,<span class="gender-female">  37.5% <i class="fas fa-venus"></i></span>';
       case 4:
-        return '50% Male, 50% Female';
+        return '<span class="gender-male">50% <i class="fas fa-mars"></i></span>,<span class="gender-female">  50% <i class="fas fa-venus"></i></span>';
       case 5:
-        return '37.5% Male, 62.5% Female';
+        return '<span class="gender-male">37.5% <i class="fas fa-mars"></i></span>,<span class="gender-female">  62.5% <i class="fas fa-venus"></i></span>';
       case 6:
-        return '25% Male, 75% Female';
+        return '<span class="gender-male">25% <i class="fas fa-mars"></i></span>,<span class="gender-female">  75% <i class="fas fa-venus"></i></span>';
       case 7:
-        return '12.5% Male, 87.5% Female';
+        return '<span class="gender-male">12.5% <i class="fas fa-mars"></i></span>,<span class="gender-female">  87.5% <i class="fas fa-venus"></i></span>';
       case 8:
-        return '0% Male, 100% Female';
+        return '<span class="gender-male">0% <i class="fas fa-mars"></i></span>,<span class="gender-female">  100% <i class="fas fa-venus"></i></span>';
     }
   }
 

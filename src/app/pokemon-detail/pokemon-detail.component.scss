@@ -1,6 +1,25 @@
 .MainDiv {
   font-family: 'AlleynW01-Regular', sans-serif;
-  color: #1f1f1f;
+  color: #505050;
+}
+
+.bioDiv {
+  * {
+    color: #505050;
+  }
+}
+
+.statDiv {
+
+
+  .table > tr > td:first-child {
+    color: #505050;
+  }
+
+  .table > tr:first-child > td > button {
+    color: #505050;
+  }
+
 }
 
 //Type Box
@@ -870,6 +889,10 @@
     padding-bottom: 0.25rem;
     padding-top: 0.25rem;
   }
+
+  * {
+    color: #505050;
+  }
 }
 
 .typeDefencesRow {
@@ -878,12 +901,14 @@
     padding-top: initial;
   }
 }
-.TypeEffDiv{
-  .inner{
+
+.TypeEffDiv {
+  .inner {
     /* Remove the top border when a table is missing the header */
-    .table >tr:first-child > td {
+    .table > tr:first-child > td {
       border: none;
     }
+
     /* Include the border when there's a header */
     //.table > thead + tbody > tr:first-child > td {
     //  border-top: 1px solid #ddd;
@@ -892,6 +917,15 @@
       vertical-align: middle;
     }
   }
+}
+
+
+.gender-male {
+  color: skyblue !important;
+}
+
+.gender-female {
+  color: hotpink !important;
 }
 
 @media (min-width: 1301px) {
