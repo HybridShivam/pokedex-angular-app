@@ -271,3 +271,53 @@ body {
 .gender-female{
   color: hotpink;
 }
+// Text-Only Colors
+.black-text {
+  color: #607d8b !important;
+  transition: color 1000ms ease-in, width 1500ms ease-in-out;
+}
+
+.blue-text {
+  color: #3aaee4 !important;
+  transition: color 1000ms ease-in, width 1500ms ease-in-out;
+}
+
+.brown-text {
+  color: #a69791 !important;
+  transition: color 1000ms ease-in, width 1500ms ease-in-out;
+}
+
+.gray-text {
+  color: #949393 !important;
+  transition: color 1000ms ease-in, width 1500ms ease-in-out;
+}
+
+.green-text {
+  color: #68c96d !important;
+  transition: color 1000ms ease-in, width 1500ms ease-in-out;
+}
+
+.pink-text {
+  color: #ea89ab !important;
+  transition: color 1000ms ease-in, width 1500ms ease-in-out;
+}
+
+.purple-text {
+  color: #ad8ee7 !important;
+  transition: color 1000ms ease-in, width 1500ms ease-in-out;
+}
+
+.red-text {
+  color: #ff8a80 !important;
+  transition: color 1000ms ease-in, width 1500ms ease-in-out;
+}
+
+.white-text {
+  color: dimgray !important;
+  transition: color 1000ms ease-in, width 1500ms ease-in-out;
+}
+
+.yellow-text {
+  color: #dcb800 !important;
+  transition: color 1000ms ease-in, width 1500ms ease-in-out;
+}

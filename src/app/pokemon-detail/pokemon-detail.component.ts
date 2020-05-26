@@ -3,7 +3,6 @@ import {ActivatedRoute} from '@angular/router';
 import {PokemonService} from '../shared/pokemon.service';
 import {Pokemon} from '../shared/pokemon.model';
 import {forkJoin, Subject} from 'rxjs';
-import {relativeToRootDirs} from '@angular/compiler-cli/src/transformers/util';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -384,6 +383,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   initializePokemonFields() {
     this.selectedEvolutionId = this.pokemon.id;
+    this.selectedStat = 'base';
     if (this.pokemon.varieties !== undefined &&
       this.formColors[this.pokemon.varieties[this.selectedFormNo]['pokemon']['name']] !== undefined) {
       this.pokemon.color = this.formColors[this.pokemon.varieties[this.selectedFormNo]['pokemon']['name']];
@@ -638,7 +638,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     if (this.selectedFormNo === i || this.imageLoading || this.pokemonForms[i] === undefined) {
       return;
     }
-    this.selectedStat = 'base';
     this.visible = false;
     if (!(this.pokemonForms[i]['name'].indexOf('-mega') !== -1 && this.megaEvolveAnimationEnabled && !this.imageLoading)) {
       this.imageVisible = false;
@@ -1074,7 +1073,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     const rate = this.pokemon.speciesDetails['gender_rate'];
     switch (rate) {
       case -1:
-        return 'Genderless <i class="fas fa-genderless"></i>';
+        return '<span class="' + this.pokemon.color + '-text"' + '>Genderless <i class="fas fa-genderless"></i></span>';
       case 0:
         return '<span class="gender-male">100% <i class="fas fa-mars"></i></span>,<span class="gender-female"> 0% <i class="fas fa-venus"></i></span>';
       case 1:
