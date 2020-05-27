@@ -64,7 +64,7 @@ export class PokemonService {
     for (let i = 1; i <= 807; i++) {
       pokemonIDs.push(i); // 1 - 807
     }
-    this.getPokemonsRecursive(0, pokemonIDs, 807, 807);
+    this.getPokemonsRecursive(0, pokemonIDs, 807, 500);
   }
 
   getPokemonsRecursive(startID, pokemonIDs, lastID, maxPokemonAtATime) {
