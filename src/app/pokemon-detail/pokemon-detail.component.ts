@@ -1167,6 +1167,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     }
   }
 
+  // getHeldItems(){
+  //   this.pokemon.heldItems;
+  // }
 
   capitalizeSplitJoin(str, split: string, join: string) {
     str = str.split(split);

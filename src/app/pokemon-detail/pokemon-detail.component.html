@@ -1037,6 +1037,14 @@
                 class="{{pokemon.color+'-text'}}">{{capitalizeSplitJoin(pokemon.speciesDetails['growth_rate']['name'], '-', ' ')}}</span>
                 {{" (" + getExperiencePoints(pokemon.speciesDetails['growth_rate']['name']) + ' Exp.)'}}</td>
             </tr>
+            <tr>
+              <td class="text-right font-weight-bold">Held Items</td>
+              <td><span class="{{pokemon.color+'-text'}} d-block" *ngIf="pokemon.heldItems.length===0">None</span>
+                <span
+                class="d-block"
+                *ngFor="let heldItem of pokemon.heldItems"><span class="{{pokemon.color+'-text'}}">{{capitalizeSplitJoin(heldItem['item']['name'], '-', ' ')}}</span>{{' (' + heldItem['version_details'][0]['rarity'] + '%) '}}</span>
+              </td>
+            </tr>
           </table>
 
         </div>
