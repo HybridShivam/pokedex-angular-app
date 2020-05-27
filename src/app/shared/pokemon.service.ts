@@ -36,7 +36,7 @@ export class PokemonService {
         });
       } else {
         const toast = _notifications.error(title, content, {
-          timeOut: 1000000000,
+          timeOut: 10000,
           showProgressBar: true,
           pauseOnHover: true,
           clickToClose: true
