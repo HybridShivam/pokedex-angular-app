@@ -265,12 +265,14 @@ body {
   }
 }
 
-.gender-male{
+.gender-male {
   color: #23a2d6;
 }
-.gender-female{
+
+.gender-female {
   color: hotpink;
 }
+
 // Text-Only Colors
 .black-text {
   color: #607d8b !important;
@@ -320,4 +322,24 @@ body {
 .yellow-text {
   color: #dcb800 !important;
   transition: color 1000ms ease-in, width 1500ms ease-in-out;
+}
+
+.simple-notification-wrapper {
+  font-family: 'AlleynW01-Regular', sans-serif !important;
+  max-width: 400px;
+  .icon {
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .simple-notification-wrapper.right {
+    right: 0 !important;
+    left: 0 !important;
+  }
+  .simple-notification-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
 }

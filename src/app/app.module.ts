@@ -15,16 +15,16 @@ import {HeaderComponent} from './header/header.component';
 import {PokemonListComponent} from './pokemon-list/pokemon-list.component';
 import {PokemonItemComponent} from './pokemon-list/pokemon-item/pokemon-item.component';
 import {HttpClientModule} from '@angular/common/http';
-// import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {FormsModule} from '@angular/forms';
 import {PokemonDetailComponent} from './pokemon-detail/pokemon-detail.component';
 import {SearchFilterPipe} from './search-filter.pipe';
 import {RouteReuseStrategy} from '@angular/router';
 import {CustomRouteReuseStrategy} from './router-strategy';
 import {ScrollingModule, ScrollDispatcher} from '@angular/cdk/scrolling';
-import { VirtualScrollerModule } from 'ngx-virtual-scroller';
-
-// import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
+import {VirtualScrollerModule} from 'ngx-virtual-scroller';
+import {SimpleNotificationsModule} from 'angular2-notifications';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -37,7 +37,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PokemonListComponent,
     PokemonItemComponent,
     PokemonDetailComponent,
-    SearchFilterPipe,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -49,10 +49,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ScrollingModule,
     // Ng2SearchPipeModule,
     FormsModule,
-    VirtualScrollerModule
-    // BackButtonDisableModule.forRoot({
-    //   preserveScrollPosition: true
-    // })
+    VirtualScrollerModule,
+    BrowserAnimationsModule,
+    SimpleNotificationsModule.forRoot()
   ],
   providers: [
     ScrollDispatcher,
