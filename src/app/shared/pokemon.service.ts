@@ -64,11 +64,11 @@ export class PokemonService {
     for (let i = 1; i <= 807; i++) {
       pokemonIDs.push(i); // 1 - 807
     }
-    this.getPokemonsRecursive(0, pokemonIDs, 807);
+    this.getPokemonsRecursive(0, pokemonIDs, 807, 500);
   }
 
-  getPokemonsRecursive(startID, pokemonIDs, lastID) {
-    const IDs = pokemonIDs.slice(startID, startID + 50); // index : 0-49 data : 1-50 and so on ...
+  getPokemonsRecursive(startID, pokemonIDs, lastID, maxPokemonAtATime) {
+    const IDs = pokemonIDs.slice(startID, startID + maxPokemonAtATime); // index : 0-49 data : 1-50 and so on ...
     let noOfIDs = IDs.length;
     const requests = [];
     for (const id of IDs) {
@@ -203,9 +203,10 @@ export class PokemonService {
       this.noOfPokemonsLoaded = this.noOfPokemonsLoaded + noOfIDs;
       this.newPokemonsLoaded.next(this.noOfPokemonsLoaded);
       this.pokemonsListChanged.next(this.pokemons);
-      startID = startID + 50;
+      startID = startID + maxPokemonAtATime;
+      console.log('no of pkmn loaded' + this.noOfPokemonsLoaded);
       if (startID <= lastID) {
-        this.getPokemonsRecursive(startID, pokemonIDs, lastID);
+        this.getPokemonsRecursive(startID, pokemonIDs, lastID, maxPokemonAtATime);
       } else {
         console.log('All Pokemon Loaded');
       }
