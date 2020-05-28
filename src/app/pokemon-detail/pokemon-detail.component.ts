@@ -1286,7 +1286,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         }
       }
     }
-    console.log(this.movesList);
   }
 
   fetchMoveDetails(moveName): Move {

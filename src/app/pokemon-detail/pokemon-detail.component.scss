@@ -1017,6 +1017,29 @@
   }
 }
 
+.table-responsive{
+  padding-top: 0 !important;
+  background-color: #abf098;
+  border-radius: 6px;
+  th{
+    font-weight: 200;
+    color: white;
+  }
+  .table thead th {
+    border-bottom: none;
+  }
+  tbody{
+    background-color: #f4ffe6;
+    transition: 0.5s height ease-in-out;
+  }
+}
+.table-responsive.white{
+  th{
+    font-weight: 200;
+    color: #505050;
+  }
+}
+
 @media (min-width: 1301px) {
   .SubSections {
     .inner {

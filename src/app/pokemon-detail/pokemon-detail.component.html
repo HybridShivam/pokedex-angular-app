@@ -1278,26 +1278,34 @@
       <span class="rounded" [ngClass]="pokemon.color" style="padding: 2px 4px 4px;">Moveset</span>
     </h1>
     <div class="row justify-content-center SubSections">
-      <div class="col-lg col-md-4 col-sm-6 justify-content-center">
+      <div class="col justify-content-center">
         <h1 class="Heading text-center text-uppercase">Leveling Up</h1>
         <div class="inner scrollableTable">
-          <div class="table-responsive">
+          <div class="table-responsive {{pokemon.color}}">
             <table class="table table-fixed">
               <thead>
               <tr>
-                <th scope="col" class="col-3">Level</th>
+                <th scope="col" class="col-1">Level</th>
                 <th scope="col" class="col-3">Name</th>
-                <th scope="col" class="col-3">Type</th>
-                <th scope="col" class="col-3">Power</th>
+                <th scope="col" class="col-3">Learn</th>
+                <th scope="col" class="col-1">Power</th>
+                <th scope="col" class="col-1">Type</th>
+                <th scope="col" class="col-1">PP</th>
+                <th scope="col" class="col-1">Gen</th>
+                <th scope="col" class="col-1">Acc.</th>
               </tr>
               </thead>
               <tbody>
               <ng-container *ngFor="let move of movesList">
                 <tr>
-                  <th scope="row" class="col-3">{{move[2]}}</th>
+                  <th scope="row" class="col-1">{{move[2]}}</th>
                   <td class="col-3">{{move[0]}}</td>
                   <td class="col-3">{{move[1]}}</td>
-                  <td class="col-3">{{move[3].power}}</td>
+                  <td class="col-1">{{move[3].power}}</td>
+                  <td class="col-1">{{move[3].type_id}}</td>
+                  <td class="col-1">{{move[3].pp}}</td>
+                  <td class="col-1">{{move[3].generation_id}}</td>
+                  <td class="col-1">{{move[3].accuracy}}</td>
                 </tr>
               </ng-container>
               </tbody>
