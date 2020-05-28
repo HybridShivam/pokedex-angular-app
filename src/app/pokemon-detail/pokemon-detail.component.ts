@@ -151,6 +151,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     {'name': 'steel', 'immunes': [], 'weaknesses': ['fire', 'water', 'electric', 'steel'], 'strengths': ['ice', 'rock', 'fairy']},
     {'name': 'fairy', 'immunes': [], 'weaknesses': ['fire', 'poison', 'steel'], 'strengths': ['fighting', 'dragon', 'dark']}];
 
+  movesList = [];
+
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -1164,6 +1166,15 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       return 'Low';
     } else {
       return 'Minimum';
+    }
+  }
+
+  getMoves(version) {
+    version = 'ultra-sun-ultra-moon';
+    for (const move of this.pokemon.moves) {
+      if (move['version_group_details'] === version) {
+        this.movesList.push([move['move']['name'], move['move_learn_method'], move['move_learned_at']]);
+      }
     }
   }
 
