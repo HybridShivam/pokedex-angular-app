@@ -1090,6 +1090,12 @@
                       data-toggle="modal" data-target="#formsModal">Forms Info.</span>
               </td>
             </tr>
+            <tr *ngIf="genderDifferences[pad(pokemon.id,3)]!==undefined">
+              <td colspan="2" class="text-center">
+                <span class='ColoredButton' [ngClass]="pokemon.color"
+                      data-toggle="modal" data-target="#genderModal">Gender Info.</span>
+              </td>
+            </tr>
           </table>
         </div>
       </div>
@@ -1308,8 +1314,7 @@
           <div class="">
             <div class="text-center">
               <div class="row" style="margin-top: 20px">
-                <h5 class="col-12 text-uppercase text-center"
-                    id="abilityModalTitle">{{abilities[abilitySelected]['name']}}</h5>
+                <h5 class="col-12 text-uppercase text-center">{{abilities[abilitySelected]['name']}}</h5>
               </div>
               <span class="{{pokemon.color}} rounded justify-content-center" style="padding: 4px 6px"
                     *ngIf="pokemon.abilities[abilitySelected]!=undefined&&pokemon.abilities[abilitySelected]['is_hidden']">HIDDEN</span>
@@ -1341,8 +1346,7 @@
           <div class="">
             <div class="text-center">
               <div class="row" style="margin-top: 20px">
-                <h5 class="col-12 text-uppercase text-center"
-                    id="descModalTitle">{{pokemon.name}}</h5>
+                <h5 class="col-12 text-uppercase text-center">{{pokemon.name}}</h5>
               </div>
               <span class="{{pokemon.color}} rounded justify-content-center"
                     style="padding: 4px 6px">Pokédex Entries</span>
@@ -1379,8 +1383,7 @@
           <div class="">
             <div class="text-center">
               <div class="row" style="margin-top: 20px">
-                <h5 class="col-12 text-uppercase text-center"
-                    id="formsModalTitle">{{pokemonForms[0].name + "'s Forms"}}</h5>
+                <h5 class="col-12 text-uppercase text-center">{{pokemonForms[0].name + "'s Forms"}}</h5>
               </div>
               <span class="{{pokemon.color}} rounded justify-content-center text-capitalize"
                     style="padding: 4px 6px">{{pokemon.speciesDetails['forms_switchable'] ? 'Forms Switchable' : 'Forms Not Switchable'}}</span>
@@ -1393,6 +1396,28 @@
                 <p style="padding-top: 6px">{{entry['description']}}</p>
               </ng-container>
             </ng-container>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--GenderDifferencesModal-->
+    <div class="modal fade" id="genderModal" tabindex="-1" role="dialog" aria-labelledby="genderModal"
+         aria-hidden="true" #genderModal>
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" *ngIf="pokemon.speciesDetails!==undefined">
+          <div>
+            <div class="text-center">
+              <div class="row" style="margin-top: 20px">
+                <h5 class="col-12 text-uppercase text-center">Gender Differences</h5>
+              </div>
+            </div>
+            <hr style="margin-top: 10px;margin-bottom: 5px">
+          </div>
+          <div class="modal-body justify-content-center text-center">
+            <p style="padding-top: 6px">{{genderDifferences[pad(pokemon.id, 3)]}}.</p>
           </div>
           <div class="modal-footer justify-content-center">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
