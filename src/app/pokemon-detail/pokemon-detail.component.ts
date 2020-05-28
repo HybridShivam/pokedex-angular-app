@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {PokemonService} from '../shared/pokemon.service';
 import {Pokemon} from '../shared/pokemon.model';
 import {forkJoin, Subject} from 'rxjs';
+import {Move} from '../shared/moves.model';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -1279,13 +1280,22 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     for (const move of this.pokemon.moves) {
       for (const versionGroup of move['version_group_details']) {
         if (versionGroup['version_group']['name'] === version) {
-          this.movesList.push([move['move']['name'], versionGroup['move_learn_method']['name'], versionGroup['level_learned_at']]);
+          let moveDetails = this.fetchMoveDetails(move['move']['name']);
+          this.movesList.push([move['move']['name'], versionGroup['move_learn_method']['name'], versionGroup['level_learned_at'],
+            moveDetails]);
         }
       }
     }
     console.log(this.movesList);
   }
 
+  fetchMoveDetails(moveName): Move {
+    for (const move of this.pokemonService.movesDetails) {
+      if (moveName === move.identifier) {
+        return move;
+      }
+    }
+  }
 
   // getHeldItems(){
   //   this.pokemon.heldItems;

@@ -251,7 +251,11 @@ export class PokemonService {
             // split content based on comma
             const rowData = allTextLines[i].split(',');
             for (let j = 0; j < headers.length; j++) {
-              move[headers[j]] = rowData[j];
+              if (rowData[j] === '') {
+                move[headers[j]] = '-';
+              } else {
+                move[headers[j]] = rowData[j];
+              }
             }
             this.movesDetails.push(move);
           }
