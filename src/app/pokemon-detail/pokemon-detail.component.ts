@@ -257,9 +257,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   movesList = [];
   levelUpMovesList = [];
-  TMHMMovesList = [];
-  EggMovesList = [];
-  TutorMovesList = [];
+  machineMovesList = [];
+  eggMovesList = [];
+  tutorMovesList = [];
   selectedMove = 'level-up';
 
 
@@ -1281,13 +1281,33 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   getMoves(version) {
     version = 'ultra-sun-ultra-moon';
+    version = 'crystal';
     this.levelUpMovesList = [];
+    this.machineMovesList = [];
+    this.eggMovesList = [];
+    this.tutorMovesList = [];
     for (const move of this.pokemon.moves) {
       for (const versionGroup of move['version_group_details']) {
         if (versionGroup['version_group']['name'] === version) {
-          let moveDetails = this.fetchMoveDetails(move['move']['name']);
-          this.levelUpMovesList.push([move['move']['name'], versionGroup['move_learn_method']['name'], versionGroup['level_learned_at'],
-            moveDetails]);
+          const moveDetails = this.fetchMoveDetails(move['move']['name']);
+          switch (versionGroup['move_learn_method']['name']) {
+            case 'level-up':
+              this.levelUpMovesList.push([move['move']['name'], versionGroup['level_learned_at'],
+                moveDetails]);
+              break;
+            case 'machine':
+              this.machineMovesList.push([move['move']['name'], versionGroup['level_learned_at'],
+                moveDetails]);
+              break;
+            case 'egg':
+              this.eggMovesList.push([move['move']['name'], versionGroup['level_learned_at'],
+                moveDetails]);
+              break;
+            case 'tutor':
+              this.tutorMovesList.push([move['move']['name'], versionGroup['level_learned_at'],
+                moveDetails]);
+              break;
+          }
         }
       }
     }
@@ -1298,7 +1318,24 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     if (this.selectedMove === moveToSelect) {
       return;
     } else {
-      // this.
+      switch (moveToSelect) {
+        case 'level-up':
+          this.movesList = this.levelUpMovesList;
+          this.selectedMove = 'level-up';
+          break;
+        case 'machine':
+          this.movesList = this.machineMovesList;
+          this.selectedMove = 'machine';
+          break;
+        case 'egg':
+          this.movesList = this.eggMovesList;
+          this.selectedMove = 'egg';
+          break;
+        case 'tutor':
+          this.movesList = this.tutorMovesList;
+          this.selectedMove = 'tutor';
+          break;
+      }
     }
   }
 
