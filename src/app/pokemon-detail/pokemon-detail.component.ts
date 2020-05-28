@@ -1280,8 +1280,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   getMoves(version) {
-    version = 'ultra-sun-ultra-moon';
-    // version = 'omega-ruby-alpha-sapphire';
     this.levelUpMovesList = [];
     this.machineMovesList = [];
     this.eggMovesList = [];
