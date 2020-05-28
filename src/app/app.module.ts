@@ -23,8 +23,6 @@ import {CustomRouteReuseStrategy} from './router-strategy';
 import {ScrollingModule, ScrollDispatcher} from '@angular/cdk/scrolling';
 import {VirtualScrollerModule} from 'ngx-virtual-scroller';
 import {SimpleNotificationsModule} from 'angular2-notifications';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true

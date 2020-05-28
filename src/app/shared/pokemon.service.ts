@@ -5,6 +5,7 @@ import {forkJoin, Subject} from 'rxjs';
 import {Observable, Observer, fromEvent, merge} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {NotificationsService} from 'angular2-notifications';
+import {Move} from './moves.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class PokemonService {
   activePokemon = new Subject<Pokemon>();
   previousPokemonID = new Subject<number>();
   isMobile;
+  movesDetails;
   @Output() searchItemSubject: Subject<string> = new Subject<string>();
 
 
@@ -47,6 +49,7 @@ export class PokemonService {
     this.isMobile = this.isMobileBrowser(); //  Mobile Browser Check
     // console.log('Mobile Browser : ' + this.isMobile);
     this.getPokemons();
+    this.getMoveDetailsFromCSV();
   }
 
   isMobileBrowser() {
@@ -233,6 +236,29 @@ export class PokemonService {
 
   getEvoChainByURL(url: string) {
     return this.http.get(url);
+  }
+
+  getMoveDetailsFromCSV() {
+    this.movesDetails = [];
+    this.http.get('assets/data/moves.csv', {responseType: 'text'})
+      .subscribe(
+        data => {
+          console.log('data received');
+          const allTextLines = data.split(/\r|\n|\r/);
+          const headers = allTextLines[0].split(',');
+          for (let i = 0; i < allTextLines.length; i++) {
+            const move = new Move();
+            // split content based on comma
+            const rowData = allTextLines[i].split(',');
+            for (let j = 0; j < headers.length; j++) {
+              move[headers[j]] = rowData[j];
+            }
+            this.movesDetails.push(move);
+          }
+        },
+        error => {
+          console.log(error);
+        });
   }
 
   createOnline$() {
