@@ -1280,6 +1280,28 @@
     <div class="row justify-content-center SubSections">
       <div class="col justify-content-center">
         <h1 class="Heading text-center text-uppercase">Leveling Up</h1>
+        <div class="row" style="text-align: center;">
+        <div class="col-3">
+          <button class="btn rounded-pill font-weight-bold" (click)="showStats('base')"
+                  [ngClass]="selectedMove=='level-up' ? pokemon.color : null">Level Up
+          </button>
+        </div>
+        <div class="col-3">
+          <button class="btn rounded-pill font-weight-bold" (click)="showStats('base')"
+                  [ngClass]="selectedMove=='tm-hm' ? pokemon.color : null">TM/HM
+          </button>
+        </div>
+        <div class="col-3">
+          <button class="btn rounded-pill font-weight-bold" (click)="showStats('base')"
+                  [ngClass]="selectedMove=='egg' ? pokemon.color : null">Egg
+          </button>
+        </div>
+        <div class="col-3">
+          <button class="btn rounded-pill font-weight-bold" (click)="showStats('base')"
+                  [ngClass]="selectedMove=='tutor' ? pokemon.color : null">Tutor
+          </button>
+        </div>
+        </div>
         <div class="inner scrollableTable">
           <div class="table-responsive {{pokemon.color}}">
             <table class="table table-fixed">

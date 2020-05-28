@@ -256,6 +256,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   };
 
   movesList = [];
+  levelUpMovesList = [];
+  TMHMMovesList = [];
+  EggMovesList = [];
+  TutorMovesList = [];
+  selectedMove = 'level-up';
 
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -1276,15 +1281,24 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   getMoves(version) {
     version = 'ultra-sun-ultra-moon';
-    this.movesList = [];
+    this.levelUpMovesList = [];
     for (const move of this.pokemon.moves) {
       for (const versionGroup of move['version_group_details']) {
         if (versionGroup['version_group']['name'] === version) {
           let moveDetails = this.fetchMoveDetails(move['move']['name']);
-          this.movesList.push([move['move']['name'], versionGroup['move_learn_method']['name'], versionGroup['level_learned_at'],
+          this.levelUpMovesList.push([move['move']['name'], versionGroup['move_learn_method']['name'], versionGroup['level_learned_at'],
             moveDetails]);
         }
       }
+    }
+    this.movesList = this.levelUpMovesList;
+  }
+
+  selectMovesByLearnMethod(moveToSelect) {
+    if (this.selectedMove === moveToSelect) {
+      return;
+    } else {
+      // this.
     }
   }
 
