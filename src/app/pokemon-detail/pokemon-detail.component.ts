@@ -151,6 +151,109 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     {'name': 'steel', 'immunes': [], 'weaknesses': ['fire', 'water', 'electric', 'steel'], 'strengths': ['ice', 'rock', 'fairy']},
     {'name': 'fairy', 'immunes': [], 'weaknesses': ['fire', 'poison', 'steel'], 'strengths': ['fighting', 'dragon', 'dark']}];
 
+  genderDifferences = {
+    '003': 'Female\'s flower has a seed in it',
+    '012': 'Female has black (purple in Generation V) spots on her lower wings',
+    '019': 'Female has shorter whiskers',
+    '020': 'Female has shorter whiskers',
+    '025': 'Female\'s tail ends in the upper half of a heart',
+    '026': 'Female\'s tail lacks a point',
+    '041': 'Female has smaller fangs',
+    '042': 'Female has smaller fangs',
+    '044': 'Female has one large spot per bud',
+    '045': 'Female\'s petals have larger spots',
+    '064': 'Female has smaller whiskers',
+    '065': 'Female has smaller whiskers',
+    '084': 'Male has black necks and female has beige necks',
+    '085': 'Male has black necks and female has beige necks',
+    '097': 'Female has more collar fur',
+    '111': 'Male\'s horn is larger',
+    '112': 'Male\'s horn is larger',
+    '118': 'Male\'s horn is larger',
+    '119': 'Male\'s horn is larger',
+    '123': 'Female\'s abdomen is larger',
+    '129': 'Male has yellow whiskers and Female has white whiskers',
+    '130': 'Male has blue whiskers and female has white whiskers',
+    '133': 'Unlike other Eevee, in Pokémon: Let\'s Go, Pikachu! and Let\'s Go, Eevee!, the partner Eevee has gender differences. Male partner Eevee look the same as all other Eevee, but female partner Eevee have a unique heart-shaped tail pattern. In Generation VIII, this gender difference was applied to all female Eevee.',
+    '154': 'Female has smaller antennae',
+    '165': 'Female has smaller antennae',
+    '166': 'Female has smaller antennae',
+    '178': 'Male has three body stripes',
+    '185': 'Female\'s head "branch" is smaller',
+    '186': 'Female has smaller cheeks',
+    '190': 'Male has shorter head fur',
+    '194': 'Female has one set of gill branches',
+    '195': 'Female has smaller dorsal fins',
+    '198': 'Male\'s "hat" is larger',
+    '202': 'Female\'s mouth has lipstick-like marking',
+    '203': 'Female\'s body is more yellow',
+    '207': 'Female has smaller stinger',
+    '208': 'Female lacks an outer tooth on each side',
+    '212': 'Female\'s abdomen is larger',
+    '214': 'Female\'s horn is heart-shaped',
+    '215': 'Female\'s feather is shorter',
+    '217': 'Female has longer shoulder fur',
+    '221': 'Female has shorter tusks',
+    '224': 'Female has smaller suction cups',
+    '229': 'Female has shorter horns',
+    '232': 'Female has shorter tusks',
+    '255': 'Male has a black speck on his rear',
+    '256': 'Female has smaller head feathers',
+    '257': 'Female\'s head crest is smaller',
+    '267': 'Male\'s red spots are larger',
+    '269': 'Female has smaller antennae',
+    '272': 'Male has thicker stripes',
+    '274': 'Female has smaller leaf',
+    '275': 'Female has smaller leaves',
+    '307': 'Male\'s ears are higher than the female\'s',
+    '308': 'Male has a larger bulb on his head',
+    '315': 'Female\'s body leaf is longer',
+    '316': 'Female\'s feather is shorter',
+    '317': 'Female has shorter whiskers',
+    '322': 'Female has larger hump',
+    '323': 'Female has larger humps',
+    '332': 'Female has a large spike on her chest where male has two normal ones',
+    '350': 'Male\'s hair-like fins are shorter',
+    '369': 'Female has smaller jaw guard',
+    '396': 'Female\'s head is less white',
+    '397': 'Female\'s forehead spot is smaller',
+    '398': 'Female\'s forehead spot is smaller',
+    '399': 'Male has more tail curls',
+    '400': 'Male\'s face have two additional curls on beige mask',
+    '401': 'Female has larger collar',
+    '402': 'Female has smaller mustache',
+    '403': 'Female has blue hind feet and a shorter mane',
+    '404': 'Female has exposed ankles and a shorter mane',
+    '405': 'Female\'s mane is smaller',
+    '407': 'Female has longer cape',
+    '415': 'Male\'s lower face has no red mark',
+    '417': 'Female\'s head stripe is shorter',
+    '418': 'Male has two white spots on his back while Female has one',
+    '419': 'Male has two white bumps on his back while female has one',
+    '424': 'Male has shorter hair on his head',
+    '443': 'Male has grooved fin',
+    '444': 'Male has grooved fin',
+    '445': 'Male has grooved fin',
+    '449': 'Male and female\'s color patterns are inverted',
+    '450': 'Male\'s body is light brown while female\'s is dark gray',
+    '453': 'Female has higher "bandages"',
+    '454': 'Female\'s throat sac is smaller',
+    '456': 'Female has larger tail fins',
+    '457': 'Female has larger fins',
+    '459': 'Female\'s midsection is white',
+    '460': 'Female has longer chest fur',
+    '461': 'Female has shorter ear "feathers"',
+    '464': 'Female has smaller upper horn',
+    '465': 'Female\'s fingers are more magenta than blue',
+    '473': 'Female has smaller tusks',
+    '521': 'Male has a pink mask with long extensions while the female has a curved feather on the back of her head. Male has a green underside and female has a brown underside.',
+    '592': 'Male is blue, frowns, and has a ruffled collar, smooth, diamond-patterned tentacles, and one upper eyelash per eye. Female is pink, smiles, and has a bulbous collar, frilled tentacles, and one lower eyelash per eye. Males have a star-shaped head pattern and a stiff crown while females have a flower-shaped pattern and a limp crown.',
+    '593': 'Body color, eyes, head pattern, and tentacle differences are much the same as with Frillish, but the Female\'s eyes are now larger and have two eyelashes each. Males have a facial covering resembling a large moustache while Females have one resembling a fluffy collar. Female has a heart-shaped mouth and the male\'s is hidden inside the "moustache"',
+    '668': 'Male has a large mane shaped like the kanji character 大 ō (big or great), a stockier body, and half-brown front legs. Female has long, flowing hair similar to a ponytail and mostly-brown legs. Male\'s tail has a split in it.',
+    '678': 'Males are mostly blue with white highlights, the inverse of Females. Male\'s eyes are green with light blue sclerae, while Female\'s are red and yellow. Unlike most Pokémon, the moves Meowstic can learn vary by gender, with males learning more status moves and Females learning more attack moves. Male Meowstic have the Hidden Ability Prankster, while Female Meowstic have the Hidden Ability Competitive.',
+    '876': 'Males have lowered eyes, a triangular mouth pointing upwards like a frown, and more black on its torso, made to resemble a suit. Females have wider eyes, a triangular mouth pointing downwards like a smile, and more white on its torso, made to resemble an apron. Male Indeedee have more Attack, Special Attack, and Speed, while female Indeedee have more Defense, Special Defense, and HP.The two genders also have different moves.'
+  };
+
   movesList = [];
 
 
@@ -421,6 +524,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       this.calculateStats();
     }, 500);
     this.calculateTypeEffectiveness();
+    this.getMoves('ultra-sun-ultra-moon');
   }
 
   pad(number, length) {
@@ -1171,11 +1275,15 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   getMoves(version) {
     version = 'ultra-sun-ultra-moon';
+    this.movesList = [];
     for (const move of this.pokemon.moves) {
-      if (move['version_group_details'] === version) {
-        this.movesList.push([move['move']['name'], move['move_learn_method'], move['move_learned_at']]);
+      for (const versionGroup of move['version_group_details']) {
+        if (versionGroup['version_group']['name'] === version) {
+          this.movesList.push([move['move']['name'], versionGroup['move_learn_method']['name'], versionGroup['level_learned_at']]);
+        }
       }
     }
+    console.log(this.movesList);
   }
 
   // getHeldItems(){

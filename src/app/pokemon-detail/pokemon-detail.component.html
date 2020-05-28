@@ -1286,13 +1286,13 @@
               </tr>
               </thead>
               <tbody>
-              <ng-container>
-              <tr>
-                <th scope="row" class="col-3">1</th>
-                <td class="col-3">Mark</td>
-                <td class="col-3">Otto</td>
-                <td class="col-3">@mdo</td>
-              </tr>
+              <ng-container *ngFor="let move of movesList">
+                <tr>
+                  <th scope="row" class="col-3">{{move[2]}}</th>
+                  <td class="col-3">{{move[0]}}</td>
+                  <td class="col-3">{{move[1]}}</td>
+                  <td class="col-3">@mdo</td>
+                </tr>
               </ng-container>
               </tbody>
             </table>
