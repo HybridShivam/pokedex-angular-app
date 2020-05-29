@@ -1346,6 +1346,17 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     }
   }
 
+  getDamageClass(id) {
+    switch (id) {
+      case '1':
+        return 'Status';
+      case '2':
+        return 'Physical';
+      case '3':
+        return 'Special';
+    }
+  }
+
   // getHeldItems(){
   //   this.pokemon.heldItems;
   // }

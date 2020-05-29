@@ -1281,26 +1281,26 @@
       <div class="col justify-content-center">
         <h1 class="Heading text-center text-uppercase">Leveling Up</h1>
         <div class="row" style="text-align: center;">
-        <div class="col-3">
-          <button class="btn rounded-pill font-weight-bold" (click)="selectMovesByLearnMethod('level-up')"
-                  [ngClass]="selectedMove=='level-up' ? pokemon.color : null">Level Up
-          </button>
-        </div>
-        <div class="col-3">
-          <button class="btn rounded-pill font-weight-bold" (click)="selectMovesByLearnMethod('machine')"
-                  [ngClass]="selectedMove=='machine' ? pokemon.color : null">TM/HM
-          </button>
-        </div>
-        <div class="col-3">
-          <button class="btn rounded-pill font-weight-bold" (click)="selectMovesByLearnMethod('egg')"
-                  [ngClass]="selectedMove=='egg' ? pokemon.color : null">Egg
-          </button>
-        </div>
-        <div class="col-3">
-          <button class="btn rounded-pill font-weight-bold" (click)="selectMovesByLearnMethod('tutor')"
-                  [ngClass]="selectedMove=='tutor' ? pokemon.color : null">Tutor
-          </button>
-        </div>
+          <div class="col-3">
+            <button class="btn rounded-pill font-weight-bold" (click)="selectMovesByLearnMethod('level-up')"
+                    [ngClass]="selectedMove=='level-up' ? pokemon.color : null">Level Up
+            </button>
+          </div>
+          <div class="col-3">
+            <button class="btn rounded-pill font-weight-bold" (click)="selectMovesByLearnMethod('machine')"
+                    [ngClass]="selectedMove=='machine' ? pokemon.color : null">TM/HM
+            </button>
+          </div>
+          <div class="col-3">
+            <button class="btn rounded-pill font-weight-bold" (click)="selectMovesByLearnMethod('egg')"
+                    [ngClass]="selectedMove=='egg' ? pokemon.color : null">Egg
+            </button>
+          </div>
+          <div class="col-3">
+            <button class="btn rounded-pill font-weight-bold" (click)="selectMovesByLearnMethod('tutor')"
+                    [ngClass]="selectedMove=='tutor' ? pokemon.color : null">Tutor
+            </button>
+          </div>
         </div>
         <div class="inner scrollableTable">
           <div class="table-responsive {{pokemon.color}}">
@@ -1323,7 +1323,8 @@
                   <td class="col-1">{{move[1]}}</td>
                   <td class="col-3">{{move[0]}}</td>
                   <td class="col-2">{{move[2].type_id}}</td>
-                  <td class="col-2"><img class="img-fluid" src="assets/{{move[2].damage_class_id===2?'Physical':'Special'}}.png" alt="" style="max-width: 22%;"></td>
+                  <td class="col-2"><img class="img-fluid" src="assets/{{getDamageClass(move[2].damage_class_id)}}.png"
+                                         alt="" style="max-width: 22%;"></td>
                   <td class="col-1">{{move[2].power}}</td>
                   <td class="col-1">{{move[2].pp}}</td>
                   <td class="col-1">{{move[2].accuracy}}</td>
