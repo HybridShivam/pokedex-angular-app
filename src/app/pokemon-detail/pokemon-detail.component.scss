@@ -1086,6 +1086,11 @@
   background-color: #fffade;
 }
 
+
+.damage-cat{
+  max-width: 33px;
+}
+
 @media (min-width: 1301px) {
   .SubSections {
     .inner {
@@ -1161,7 +1166,9 @@
       }
     }
   }
-
+  .damage-cat{
+    max-width: 28px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -1178,6 +1185,9 @@
   }
   .Heading {
     font-size: medium;
+  }
+  .damage-cat{
+    max-width: 28px;
   }
 }
 
@@ -1198,5 +1208,8 @@
       font-size: x-small;
       width: auto;
     }
+  }
+  .damage-cat{
+    max-width: 22px;
   }
 }

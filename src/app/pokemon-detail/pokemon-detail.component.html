@@ -1105,7 +1105,7 @@
           <table class="table">
             <tr>
               <td class="text-right font-weight-bold">0x</td>
-              <td class="text-capitalize">
+              <td>
                 <div class="typeDefencesRow" style="padding: 0;"
                      *ngIf="typeDefences!=undefined">
                   <ng-container *ngFor="let type of typeDefences['0x']">
@@ -1138,7 +1138,7 @@
             </tr>
             <tr>
               <td class="text-right font-weight-bold">0.25x</td>
-              <td class="text-capitalize">
+              <td>
                 <div class="typeDefencesRow" style="padding: 0;"
                      *ngIf="typeDefences!=undefined">
                   <ng-container *ngFor="let type of typeDefences['0.25x']">
@@ -1171,7 +1171,7 @@
             </tr>
             <tr>
               <td class="text-right font-weight-bold">0.5x</td>
-              <td class="text-capitalize">
+              <td>
                 <div class="typeDefencesRow" style="padding: 0;"
                      *ngIf="typeDefences!=undefined">
                   <ng-container *ngFor="let type of typeDefences['0.5x']">
@@ -1204,7 +1204,7 @@
             </tr>
             <tr>
               <td class="text-right font-weight-bold">2x</td>
-              <td class="text-capitalize">
+              <td>
                 <div class="typeDefencesRow" style="padding: 0;"
                      *ngIf="typeDefences!=undefined">
                   <ng-container *ngFor="let type of typeDefences['2x']">
@@ -1237,7 +1237,7 @@
             </tr>
             <tr>
               <td class="text-right font-weight-bold">4x</td>
-              <td class="text-capitalize">
+              <td>
                 <div class="typeDefencesRow" style="padding: 0;"
                      *ngIf="typeDefences!=undefined">
                   <ng-container *ngFor="let type of typeDefences['4x']">
@@ -1322,9 +1322,36 @@
                 <tr>
                   <td class="col-1">{{move[1]}}</td>
                   <td class="col-3">{{move[0]}}</td>
-                  <td class="col-2">{{move[2].type_id}}</td>
-                  <td class="col-2"><img class="img-fluid" src="assets/{{getDamageClass(move[2].damage_class_id)}}.png"
-                                         alt="" style="max-width: 22%;"></td>
+                  <td class="col-2">
+                    <div class="typeDefencesRow" style="padding: 0;">
+                      <ng-container [ngSwitch]="move[2].type_id">
+                        <div class="icon bug" *ngSwitchCase="'7'"><img src="assets/type-icons/bug.svg"></div>
+                        <div class="icon dark" *ngSwitchCase="'17'"><img src="assets/type-icons/dark.svg"></div>
+                        <div class="icon dragon" *ngSwitchCase="'16'"><img src="assets/type-icons/dragon.svg"></div>
+                        <div class="icon electric" *ngSwitchCase="'13'"><img src="assets/type-icons/electric.svg">
+                        </div>
+                        <div class="icon fire" *ngSwitchCase="'10'"><img src="assets/type-icons/fire.svg"></div>
+                        <div class="icon fairy" *ngSwitchCase="'18'"><img src="assets/type-icons/fairy.svg"></div>
+                        <div class="icon fighting" *ngSwitchCase="'2'"><img src="assets/type-icons/fighting.svg">
+                        </div>
+                        <div class="icon flying" *ngSwitchCase="'3'"><img src="assets/type-icons/flying.svg"></div>
+                        <div class="icon ghost" *ngSwitchCase="'8'"><img src="assets/type-icons/ghost.svg"></div>
+                        <div class="icon grass" *ngSwitchCase="'12'"><img src="assets/type-icons/grass.svg"></div>
+                        <div class="icon ground" *ngSwitchCase="'5'"><img src="assets/type-icons/ground.svg"></div>
+                        <div class="icon ice" *ngSwitchCase="'15'"><img src="assets/type-icons/ice.svg"></div>
+                        <div class="icon normal" *ngSwitchCase="'1'"><img src="assets/type-icons/normal.svg"></div>
+                        <div class="icon poison" *ngSwitchCase="'4'"><img src="assets/type-icons/poison.svg"></div>
+                        <div class="icon psychic" *ngSwitchCase="'14'"><img src="assets/type-icons/psychic.svg">
+                        </div>
+                        <div class="icon rock" *ngSwitchCase="'6'"><img src="assets/type-icons/rock.svg"></div>
+                        <div class="icon steel" *ngSwitchCase="'9'"><img src="assets/type-icons/steel.svg"></div>
+                        <div class="icon water" *ngSwitchCase="'11'"><img src="assets/type-icons/water.svg"></div>
+                      </ng-container>
+                    </div>
+                  </td>
+                  <td class="col-2"><img class="img-fluid damage-cat"
+                                         src="assets/{{getDamageClass(move[2].damage_class_id)}}.png"
+                                         alt=""></td>
                   <td class="col-1">{{move[2].power}}</td>
                   <td class="col-1">{{move[2].pp}}</td>
                   <td class="col-1">{{move[2].accuracy}}</td>
