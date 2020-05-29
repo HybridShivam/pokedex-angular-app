@@ -979,16 +979,17 @@
   color: hotpink !important;
 }
 
-.ColoredButton{
+.ColoredButton {
   padding: 2px 3px;
   border-radius: 0.25rem;
 }
-.ColoredButton:hover{
+
+.ColoredButton:hover {
   cursor: pointer;
 }
 
 
-.scrollableTable{
+.scrollableTable {
   .table-fixed tbody {
     height: 300px;
     overflow-y: auto;
@@ -1017,27 +1018,72 @@
   }
 }
 
-.table-responsive{
+.table-responsive {
   padding-top: 0 !important;
   background-color: #abf098;
   border-radius: 6px;
-  th{
+
+  th {
     font-weight: 200;
     color: white;
+    border-top: none;
   }
+
   .table thead th {
     border-bottom: none;
   }
-  tbody{
+
+  tbody {
     background-color: #f4ffe6;
     transition: 0.5s height ease-in-out;
   }
 }
-.table-responsive.white{
-  th{
+
+.table-responsive.white {
+  th {
     font-weight: 200;
     color: #505050;
   }
+}
+
+.black .table tbody {
+  background-color: #f3f8fa;
+}
+
+.blue .table tbody {
+  background-color: #ecf9ff;
+}
+
+.brown .table tbody {
+  background-color: #f4f4f4;
+}
+
+.gray .table tbody {
+  background-color: #f0f0f0;
+}
+
+.green .table tbody {
+  background-color: #eeffef;
+}
+
+.pink .table tbody {
+  background-color: #fff7fa;
+}
+
+.purple .table tbody {
+  background-color: #f7f2ff;
+}
+
+.red .table tbody {
+  background-color: #fff9f9;
+}
+
+.white .table tbody {
+  background-color: #f6f7f8;
+}
+
+.yellow .table tbody {
+  background-color: #fffade;
 }
 
 @media (min-width: 1301px) {

@@ -495,6 +495,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   initializePokemonFields() {
     this.selectedEvolutionId = this.pokemon.id;
     this.selectedStat = 'base';
+    this.selectedMove = 'level-up';
     if (this.pokemon.varieties !== undefined &&
       this.formColors[this.pokemon.varieties[this.selectedFormNo]['pokemon']['name']] !== undefined) {
       this.pokemon.color = this.formColors[this.pokemon.varieties[this.selectedFormNo]['pokemon']['name']];
@@ -1290,19 +1291,19 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           const moveDetails = this.fetchMoveDetails(move['move']['name']);
           switch (versionGroup['move_learn_method']['name']) {
             case 'level-up':
-              this.levelUpMovesList.push([move['move']['name'], versionGroup['level_learned_at'],
+              this.levelUpMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
                 moveDetails]);
               break;
             case 'machine':
-              this.machineMovesList.push([move['move']['name'], versionGroup['level_learned_at'],
+              this.machineMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
                 moveDetails]);
               break;
             case 'egg':
-              this.eggMovesList.push([move['move']['name'], versionGroup['level_learned_at'],
+              this.eggMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
                 moveDetails]);
               break;
             case 'tutor':
-              this.tutorMovesList.push([move['move']['name'], versionGroup['level_learned_at'],
+              this.tutorMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
                 moveDetails]);
               break;
           }
