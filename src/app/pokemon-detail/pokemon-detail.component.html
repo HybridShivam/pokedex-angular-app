@@ -1308,13 +1308,13 @@
               <thead>
               <tr>
                 <th scope="col" class="col-1">Level</th>
-                <th scope="col" class="col-3">Name</th>
-                <th scope="col" class="col-3">Learn</th>
+                <th scope="col" class="col-3">Move</th>
+                <th scope="col" class="col-2">Type</th>
+                <th scope="col" class="col-2">Category</th>
                 <th scope="col" class="col-1">Power</th>
-                <th scope="col" class="col-1">Type</th>
                 <th scope="col" class="col-1">PP</th>
-                <th scope="col" class="col-1">Gen</th>
                 <th scope="col" class="col-1">Acc.</th>
+                <th scope="col" class="col-1">Gen</th>
               </tr>
               </thead>
               <tbody>
@@ -1322,12 +1322,12 @@
                 <tr>
                   <td class="col-1">{{move[1]}}</td>
                   <td class="col-3">{{move[0]}}</td>
-                  <td class="col-3">-</td>
+                  <td class="col-2">{{move[2].type_id}}</td>
+                  <td class="col-2"><img class="img-fluid" src="assets/{{move[2].damage_class_id===2?'Physical':'Special'}}.png" alt="" style="max-width: 22%;"></td>
                   <td class="col-1">{{move[2].power}}</td>
-                  <td class="col-1">{{move[2].type_id}}</td>
                   <td class="col-1">{{move[2].pp}}</td>
-                  <td class="col-1">{{move[2].generation_id}}</td>
                   <td class="col-1">{{move[2].accuracy}}</td>
+                  <td class="col-1">{{move[2].generation_id}}</td>
                 </tr>
               </ng-container>
               </tbody>
