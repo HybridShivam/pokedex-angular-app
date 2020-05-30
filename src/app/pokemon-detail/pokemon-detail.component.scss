@@ -808,7 +808,7 @@
   padding-bottom: 2px;
 }
 
-.evo-types, .typeDefencesRow {
+.evo-types, .typeDefencesRow, .moveTypes {
   text-align: center;
   margin: 0;
 
@@ -1089,6 +1089,16 @@
 
 .damage-cat{
   max-width: 33px;
+  //filter: drop-shadow(0 0 0.25rem gray);
+}
+
+.moveTypes{
+  .icon{
+    height: 20px;
+    width: 20px;
+    margin: -5px;
+    padding: 0;
+  }
 }
 
 @media (min-width: 1301px) {
@@ -1169,7 +1179,11 @@
   .damage-cat{
     max-width: 28px;
   }
+  .SubSections .row .col{
+    flex-basis: unset;
+  }
 }
+
 
 @media (max-width: 500px) {
   .evo-div {
@@ -1188,6 +1202,12 @@
   }
   .damage-cat{
     max-width: 28px;
+  }
+  .SubSections .row .col{
+    flex-basis: 50%;
+    .btn{
+      font-size: x-small;
+    }
   }
 }
 

@@ -1280,23 +1280,23 @@
     <div class="row justify-content-center SubSections">
       <div class="col justify-content-center">
         <h1 class="Heading text-center text-uppercase">Leveling Up</h1>
-        <div class="row" style="text-align: center;">
-          <div class="col-3">
+        <div class="row" style="text-align: center;display: flex">
+          <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectMovesByLearnMethod('level-up')"
                     [ngClass]="selectedMove=='level-up' ? pokemon.color : null">Level Up
             </button>
           </div>
-          <div class="col-3">
+          <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectMovesByLearnMethod('machine')"
                     [ngClass]="selectedMove=='machine' ? pokemon.color : null">TM/HM
             </button>
           </div>
-          <div class="col-3">
+          <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectMovesByLearnMethod('egg')"
                     [ngClass]="selectedMove=='egg' ? pokemon.color : null">Egg
             </button>
           </div>
-          <div class="col-3">
+          <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectMovesByLearnMethod('tutor')"
                     [ngClass]="selectedMove=='tutor' ? pokemon.color : null">Tutor
             </button>
@@ -1323,7 +1323,7 @@
                   <td class="col-1">{{move[1]}}</td>
                   <td class="col-3">{{move[0]}}</td>
                   <td class="col-2">
-                    <div class="typeDefencesRow" style="padding: 0;">
+                    <div class="moveTypes" style="padding: 0;">
                       <ng-container [ngSwitch]="move[2].type_id">
                         <div class="icon bug" *ngSwitchCase="'7'"><img src="assets/type-icons/png/bug.png"></div>
                         <div class="icon dark" *ngSwitchCase="'17'"><img src="assets/type-icons/png/dark.png"></div>
