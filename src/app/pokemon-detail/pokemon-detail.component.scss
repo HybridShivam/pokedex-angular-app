@@ -1087,18 +1087,22 @@
 }
 
 
-.damage-cat{
+.damage-cat {
   max-width: 33px;
   //filter: drop-shadow(0 0 0.25rem gray);
 }
 
-.moveTypes{
-  .icon{
+.moveTypes {
+  .icon {
     height: 20px;
     width: 20px;
     margin: -5px;
     padding: 0;
   }
+}
+
+.GameVersions .col {
+  flex-basis: 12%;
 }
 
 @media (min-width: 1301px) {
@@ -1132,6 +1136,9 @@
         padding: 0.25rem;
       }
     }
+  }
+  .GameVersions .col {
+    flex-basis: 10%;
   }
 }
 
@@ -1176,11 +1183,14 @@
       }
     }
   }
-  .damage-cat{
+  .damage-cat {
     max-width: 28px;
   }
-  .SubSections .row .col{
+  .SubSections .row .col {
     flex-basis: unset;
+  }
+  .GameVersions .col {
+    flex-basis: 16% !important;
   }
 }
 
@@ -1200,14 +1210,23 @@
   .Heading {
     font-size: medium;
   }
-  .damage-cat{
+  .damage-cat {
     max-width: 28px;
   }
-  .SubSections .row .col{
+  .SubSections .row .col {
     flex-basis: 50%;
-    .btn{
+
+    .btn {
       font-size: x-small;
     }
+  }
+  .GameVersions .col {
+    flex-basis: 21% !important;
+  }
+}
+@media (max-width: 380px) {
+  .GameVersions .col {
+    flex-basis: 26% !important;
   }
 }
 
@@ -1229,7 +1248,7 @@
       width: auto;
     }
   }
-  .damage-cat{
+  .damage-cat {
     max-width: 22px;
   }
 }

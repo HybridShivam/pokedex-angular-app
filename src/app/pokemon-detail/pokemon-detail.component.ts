@@ -1376,6 +1376,91 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.getMoves();
   }
 
+
+  pokemonAvailableInSelectedGen() {
+    let gen;
+    let selectedGameGen;
+    switch (this.pokemon.speciesDetails['generation']['name']) {
+      case 'generation-i':
+        gen = 1;
+        break;
+      case 'generation-ii':
+        gen = 2;
+        break;
+      case 'generation-iii':
+        gen = 3;
+        break;
+      case 'generation-iv':
+        gen = 4;
+        break;
+      case 'generation-v':
+        gen = 5;
+        break;
+      case 'generation-vi':
+        gen = 6;
+        break;
+      case 'generation-vii':
+        gen = 7;
+        break;
+    }
+    switch (this.selectedGameVersion) {
+      case 'red-blue':
+        selectedGameGen = 1;
+        break;
+      case 'yellow':
+        selectedGameGen = 1;
+        break;
+      case 'gold-silver':
+        selectedGameGen = 2;
+        break;
+      case 'crystal':
+        selectedGameGen = 2;
+        break;
+      case 'ruby-sapphire':
+        selectedGameGen = 3;
+        break;
+      case 'emerald':
+        selectedGameGen = 3;
+        break;
+      case 'firered-leafgreen':
+        selectedGameGen = 3;
+        break;
+      case 'diamond-pearl':
+        selectedGameGen = 4;
+        break;
+      case 'platinum':
+        selectedGameGen = 4;
+        break;
+      case 'heartgold-soulsilver':
+        selectedGameGen = 4;
+        break;
+      case 'black-white':
+        selectedGameGen = 5;
+        break;
+      case 'black-2-white-2':
+        selectedGameGen = 5;
+        break;
+      case 'x-y':
+        selectedGameGen = 6;
+        break;
+      case 'omega-ruby-alpha-sapphire':
+        selectedGameGen = 6;
+        break;
+      case 'sun-moon':
+        selectedGameGen = 7;
+        break;
+      case 'ultra-sun-ultra-moon':
+        selectedGameGen = 7;
+        break;
+    }
+    if (gen > selectedGameGen) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+
   // getHeldItems(){
   //   this.pokemon.heldItems;
   // }
