@@ -1435,8 +1435,9 @@
                 </tr>
               </ng-container>
               <tr *ngIf="movesList.length==0">
-                <td class="col text-center">
-                  <ng-container *ngIf="!pokemonAvailableInSelectedGen(); else noMovesLearnt">This Pokémon didn't exist in the selected
+                <td class="col text-center" style="padding-top: 8.5rem;">
+                  <ng-container *ngIf="!pokemonAvailableInSelectedGen(); else noMovesLearnt">This Pokémon didn't exist
+                    in the selected
                     Games!
                   </ng-container>
                   <ng-template #noMovesLearnt>No moves learned by this method in the selected Games.</ng-template>
@@ -1447,7 +1448,7 @@
           </div>
         </div>
         <h1 class="Heading text-center text-uppercase" style="margin-top: 1.5rem;">Game Versions</h1>
-        <div class="row GameVersions" style="text-align: center;display: flex">
+        <div class="row GameVersions text-center" style="display: flex">
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('red-blue')"
                     [ngClass]="selectedGameVersion=='red-blue' ? pokemon.color : null">RB
