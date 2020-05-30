@@ -262,6 +262,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   tutorMovesList = [];
   selectedMove = 'level-up';
 
+  selectedGameVersion = 'ultra-sun-ultra-moon';
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -495,7 +496,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   initializePokemonFields() {
     this.selectedEvolutionId = this.pokemon.id;
     this.selectedStat = 'base';
-    this.selectedMove = 'level-up';
     if (this.pokemon.varieties !== undefined &&
       this.formColors[this.pokemon.varieties[this.selectedFormNo]['pokemon']['name']] !== undefined) {
       this.pokemon.color = this.formColors[this.pokemon.varieties[this.selectedFormNo]['pokemon']['name']];
@@ -531,7 +531,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       this.calculateStats();
     }, 500);
     this.calculateTypeEffectiveness();
-    this.getMoves('ultra-sun-ultra-moon');
+    this.getMoves();
   }
 
   pad(number, length) {
@@ -1280,7 +1280,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-  getMoves(version) {
+  getMoves() {
+    const version = this.selectedGameVersion;
     this.levelUpMovesList = [];
     this.machineMovesList = [];
     this.eggMovesList = [];
@@ -1310,7 +1311,20 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         }
       }
     }
-    this.movesList = this.levelUpMovesList;
+    switch (this.selectedMove) {
+      case 'level-up':
+        this.movesList = this.levelUpMovesList;
+        break;
+      case 'machine':
+        this.movesList = this.machineMovesList;
+        break;
+      case 'egg':
+        this.movesList = this.eggMovesList;
+        break;
+      case 'tutor':
+        this.movesList = this.tutorMovesList;
+        break;
+    }
   }
 
   selectMovesByLearnMethod(moveToSelect) {
@@ -1355,6 +1369,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       case '3':
         return 'Special';
     }
+  }
+
+  selectGameVersion(name) {
+    this.selectedGameVersion = name;
+    this.getMoves();
   }
 
   // getHeldItems(){
