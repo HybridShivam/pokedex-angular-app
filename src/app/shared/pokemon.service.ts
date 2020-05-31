@@ -238,6 +238,10 @@ export class PokemonService {
     return this.http.get(url);
   }
 
+  getMoveByURL(url) {
+    return this.http.get(url);
+  }
+
   getMoveDetailsFromCSV() {
     this.movesDetails = [];
     this.http.get('assets/data/moves.csv', {responseType: 'text'})

@@ -264,6 +264,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   selectedGameVersion = 'ultra-sun-ultra-moon';
 
+  currentMoveData;
+
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
     this.megaEvolveAnimationEnabled = !this.pokemonService.isMobile;
@@ -1293,19 +1295,19 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           switch (versionGroup['move_learn_method']['name']) {
             case 'level-up':
               this.levelUpMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
-                moveDetails]);
+                moveDetails, move['move']['url']]);
               break;
             case 'machine':
               this.machineMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
-                moveDetails]);
+                moveDetails, move['move']['url']]);
               break;
             case 'egg':
               this.eggMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
-                moveDetails]);
+                moveDetails, move['move']['url']]);
               break;
             case 'tutor':
               this.tutorMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
-                moveDetails]);
+                moveDetails, move['move']['url']]);
               break;
           }
         }
@@ -1460,6 +1462,12 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     }
   }
 
+  getMove(url) {
+    console.log(url);
+    this.pokemonService.getMoveByURL(url).subscribe((response) => {
+      this.currentMoveData = response;
+    });
+  }
 
   // getHeldItems(){
   //   this.pokemon.heldItems;

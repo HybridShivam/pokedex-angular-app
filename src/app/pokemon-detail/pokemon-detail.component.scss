@@ -990,6 +990,116 @@
 
 
 .scrollableTable {
+  .black {
+    tr:hover :not(.NotFoundText) {
+      cursor: pointer;
+    }
+
+    tr:hover td:not(.NotFoundText) {
+      background-color: #9fb7c2;
+      color: white;
+    }
+  }
+
+  .blue {
+    tr:hover :not(.NotFoundText) {
+      cursor: pointer;
+    }
+
+    tr:hover td:not(.NotFoundText) {
+      background-color: #a3e2ff;
+      color: white;
+    }
+  }
+
+  .brown {
+    tr:hover :not(.NotFoundText) {
+      cursor: pointer;
+    }
+
+    tr:hover td:not(.NotFoundText) {
+      background-color: #d0c7c5;
+      color: white;
+    }
+  }
+
+  .gray {
+    tr:hover :not(.NotFoundText) {
+      cursor: pointer;
+    }
+
+    tr:hover td:not(.NotFoundText) {
+      background-color: #cccccc;
+      color: white;
+    }
+  }
+
+  .green {
+    tr:hover :not(.NotFoundText) {
+      cursor: pointer;
+    }
+
+    tr:hover td:not(.NotFoundText) {
+      background-color: #b2deb4;
+      color: white;
+    }
+  }
+
+  .pink {
+    tr:hover :not(.NotFoundText) {
+      cursor: pointer;
+    }
+
+    tr:hover td:not(.NotFoundText) {
+      background-color: #fbd2e1;
+      color: white;
+    }
+  }
+
+  .purple {
+    tr:hover :not(.NotFoundText) {
+      cursor: pointer;
+    }
+
+    tr:hover td:not(.NotFoundText) {
+      background-color: #c9b2f3;
+      color: white;
+    }
+  }
+
+  .red {
+    tr:hover :not(.NotFoundText) {
+      cursor: pointer;
+    }
+
+    tr:hover td:not(.NotFoundText) {
+      background-color: #ffb4ad;
+      color: white;
+    }
+  }
+
+  .white {
+    tr:hover :not(.NotFoundText) {
+      cursor: pointer;
+    }
+
+    tr:hover td:not(.NotFoundText) {
+      background-color: #ffffff;
+      color: dimgray;
+    }
+  }
+
+  .yellow {
+    tr:hover :not(.NotFoundText) {
+      cursor: pointer;
+    }
+
+    tr:hover td:not(.NotFoundText) {
+      background-color: #ffe15f;
+      color: white;
+    }
+  }
+
   .table-fixed tbody {
     height: 300px;
     overflow-y: auto;
@@ -1224,6 +1334,7 @@
     flex-basis: 21% !important;
   }
 }
+
 @media (max-width: 380px) {
   .GameVersions .col {
     flex-basis: 26% !important;
