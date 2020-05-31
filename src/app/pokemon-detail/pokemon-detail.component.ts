@@ -265,6 +265,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   selectedGameVersion = 'ultra-sun-ultra-moon';
 
   currentMoveData;
+  moveDetails = [];
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -1327,6 +1328,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.movesList = this.tutorMovesList;
         break;
     }
+    this.getMoveDetails();
   }
 
   selectMovesByLearnMethod(moveToSelect) {
@@ -1462,10 +1464,22 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-  getMove(url) {
-    console.log(url);
-    this.pokemonService.getMoveByURL(url).subscribe((response) => {
-      this.currentMoveData = response;
+  selectMove(id) {
+    console.log(id);
+    this.currentMoveData = this.moveDetails[id];
+  }
+
+  getMoveDetails() {
+    const moveRequests = [];
+    this.moveDetails = [];
+    for (const move of this.movesList) {
+      moveRequests.push(this.pokemonService.getMoveByURL(move[3]));
+    }
+    forkJoin(moveRequests).subscribe(results => {
+      for (const result of results) {
+        this.moveDetails.push(result);
+      }
+      console.log(this.moveDetails);
     });
   }
 
