@@ -355,6 +355,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
                 case 32:
                   name = 'Nidoran';
                   break;
+                case 83:
+                  name = 'Farfetch\'d';
+                  break;
                 case 122:
                   name = 'Mr. Mime';
                   break;
