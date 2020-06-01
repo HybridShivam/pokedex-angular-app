@@ -265,13 +265,13 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   selectedGameVersion = 'ultra-sun-ultra-moon';
 
   currentMoveData;
+  currentMoveID;
   moveDetails = [];
   moveLevelDetails = [];
   moveMachineDetails = [];
   moveEggDetails = [];
   moveTutorDetails = [];
   moveFlavorTextEntry;
-  moveDetailsLoaded;
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -1484,6 +1484,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       return;
     }
     this.currentMoveData = this.moveDetails[id];
+    this.currentMoveID = id;
     for (const entry of this.currentMoveData['flavor_text_entries']) {
       if (entry['language']['name'] === 'en') {
         this.moveFlavorTextEntry = entry['flavor_text'];
