@@ -89,10 +89,10 @@ export class PokemonService {
         let name = results[i]['name'];
         switch (results[i]['id']) { // Renaming Manually
           case 29:
-            name = 'Nidoran';
+            name = 'Nidoran♀';
             break;
           case 32:
-            name = 'Nidoran';
+            name = 'Nidoran♂';
             break;
           case 83:
             name = 'Farfetch\'d';
@@ -135,6 +135,9 @@ export class PokemonService {
             break;
           case 648:
             name = 'Meloetta';
+            break;
+          case 669:
+            name = 'Flabébé';
             break;
           case 678:
             name = 'Meowstic';

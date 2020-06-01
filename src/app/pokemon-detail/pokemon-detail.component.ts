@@ -350,10 +350,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
               let name = results[0]['name'];
               switch (results[0]['id']) { // Renaming Manually
                 case 29:
-                  name = 'Nidoran';
+                  name = 'Nidoran♀';
                   break;
                 case 32:
-                  name = 'Nidoran';
+                  name = 'Nidoran♂';
                   break;
                 case 83:
                   name = 'Farfetch\'d';
@@ -396,6 +396,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
                   break;
                 case 648:
                   name = 'Meloetta';
+                  break;
+                case 669:
+                  name = 'Flabébé';
                   break;
                 case 678:
                   name = 'Meowstic';
