@@ -247,7 +247,6 @@ export class PokemonService {
     this.http.get('assets/data/moves.csv', {responseType: 'text'})
       .subscribe(
         data => {
-          console.log('data received');
           const allTextLines = data.split(/\r|\n|\r/);
           const headers = allTextLines[0].split(',');
           for (let i = 0; i < allTextLines.length; i++) {
@@ -263,6 +262,7 @@ export class PokemonService {
             }
             this.movesDetails.push(move);
           }
+          console.log('CSV Read Complete');
         },
         error => {
           console.log(error);

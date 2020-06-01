@@ -1393,9 +1393,10 @@
                 <th scope="col" class="col-1">Gen</th>
               </tr>
               </thead>
-              <tbody>
+              <tbody [ngClass]="{'loadingCursor':moveDetails.length===0}">
               <ng-container *ngFor="let move of movesList; let i=index">
-                <tr *ngIf="move!==undefined" (click)="selectMove(i)" data-toggle="modal" data-target="#moveModal">
+                <tr *ngIf="move!==undefined" (click)="selectMove(i)" data-toggle="modal" data-target="#moveModal"
+                    [ngClass]="{'disableClicking':moveDetails.length===0}">
                   <td class="col-1">{{move[1]}}</td>
                   <td class="col-3">{{move[0]}}</td>
                   <td class="col-2">
@@ -1669,13 +1670,13 @@
           <div class="modal-body justify-content-center text-center">
           <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
                 style="padding: 4px; font-size: larger">GAME DESCRIPTION</span>
-            <p style="padding-top: 6px"></p>
+            <p style="padding-top: 6px">{{moveFlavorTextEntry}}</p>
             <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
                   style="padding: 4px; font-size: larger">EFFECT</span>
-            <p style="padding-top: 6px">{{currentMoveData['effect_entries'][0]['short_effect']}}</p>
+            <p style="padding-top: 6px;">{{currentMoveData['effect_entries'][0]['short_effect']}}</p>
             <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
                   style="padding: 4px; font-size: larger">IN-DEPTH EFFECT</span>
-            <p style="padding-top: 6px">{{currentMoveData['effect_entries'][0]['effect']}}</p>
+            <p style="padding-top: 6px;white-space: pre-wrap">{{currentMoveData['effect_entries'][0]['effect']}}</p>
           </div>
           <div class="modal-footer justify-content-center">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

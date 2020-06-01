@@ -266,6 +266,12 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   currentMoveData;
   moveDetails = [];
+  moveLevelDetails = [];
+  moveMachineDetails = [];
+  moveEggDetails = [];
+  moveTutorDetails = [];
+  moveFlavorTextEntry;
+  moveDetailsLoaded;
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -1292,7 +1298,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     for (const move of this.pokemon.moves) {
       for (const versionGroup of move['version_group_details']) {
         if (versionGroup['version_group']['name'] === version) {
-          const moveDetails = this.fetchMoveDetails(move['move']['name']);
+          const moveDetails = this.fetchMoveDetailsFromCSVData(move['move']['name']);
           switch (versionGroup['move_learn_method']['name']) {
             case 'level-up':
               this.levelUpMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
@@ -1338,25 +1344,29 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       switch (moveToSelect) {
         case 'level-up':
           this.movesList = this.levelUpMovesList;
+          this.moveDetails = this.moveLevelDetails;
           this.selectedMove = 'level-up';
           break;
         case 'machine':
           this.movesList = this.machineMovesList;
+          this.moveDetails = this.moveMachineDetails;
           this.selectedMove = 'machine';
           break;
         case 'egg':
           this.movesList = this.eggMovesList;
+          this.moveDetails = this.moveEggDetails;
           this.selectedMove = 'egg';
           break;
         case 'tutor':
           this.movesList = this.tutorMovesList;
+          this.moveDetails = this.moveTutorDetails;
           this.selectedMove = 'tutor';
           break;
       }
     }
   }
 
-  fetchMoveDetails(moveName): Move {
+  fetchMoveDetailsFromCSVData(moveName): Move {
     for (const move of this.pokemonService.movesDetails) {
       if (moveName === move.identifier) {
         return move;
@@ -1379,7 +1389,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.selectedGameVersion = name;
     this.getMoves();
   }
-
 
   pokemonAvailableInSelectedGen() {
     let gen;
@@ -1465,22 +1474,76 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   selectMove(id) {
-    console.log(id);
+    if (this.moveDetails.length === 0) {
+      return;
+    }
     this.currentMoveData = this.moveDetails[id];
+    for (const entry of this.currentMoveData['flavor_text_entries']) {
+      if (entry['language']['name'] === 'en') {
+        this.moveFlavorTextEntry = entry['flavor_text'];
+        break;
+      }
+    }
   }
 
   getMoveDetails() {
-    const moveRequests = [];
+    const moveRequests = [[], [], [], []];
     this.moveDetails = [];
-    for (const move of this.movesList) {
-      moveRequests.push(this.pokemonService.getMoveByURL(move[3]));
+    this.moveLevelDetails = [];
+    this.moveMachineDetails = [];
+    this.moveEggDetails = [];
+    this.moveTutorDetails = [];
+    for (const move of this.levelUpMovesList) {
+      moveRequests[0].push(this.pokemonService.getMoveByURL(move[3]));
     }
-    forkJoin(moveRequests).subscribe(results => {
+    for (const move of this.machineMovesList) {
+      moveRequests[1].push(this.pokemonService.getMoveByURL(move[3]));
+    }
+    for (const move of this.eggMovesList) {
+      moveRequests[2].push(this.pokemonService.getMoveByURL(move[3]));
+    }
+    for (const move of this.tutorMovesList) {
+      moveRequests[3].push(this.pokemonService.getMoveByURL(move[3]));
+    }
+    forkJoin(moveRequests[0]).subscribe(results => {
       for (const result of results) {
-        this.moveDetails.push(result);
+        this.moveLevelDetails.push(result);
       }
-      console.log(this.moveDetails);
     });
+    forkJoin(moveRequests[1]).subscribe(results => {
+      for (const result of results) {
+        this.moveMachineDetails.push(result);
+      }
+    });
+    forkJoin(moveRequests[2]).subscribe(results => {
+      for (const result of results) {
+        this.moveEggDetails.push(result);
+      }
+    });
+    forkJoin(moveRequests[3]).subscribe(results => {
+      for (const result of results) {
+        this.moveTutorDetails.push(result);
+      }
+    });
+    console.log('new move details: ' + this.selectedMove);
+    switch (this.selectedMove) {
+      case 'level-up':
+        this.moveDetails = this.moveLevelDetails;
+        break;
+      case 'machine':
+        this.moveDetails = this.moveMachineDetails;
+        break;
+      case 'egg':
+        this.moveDetails = this.moveEggDetails;
+        break;
+      case 'tutor':
+        this.moveDetails = this.moveTutorDetails;
+        break;
+    }
+    console.log(this.moveDetails);
+    for (let move of this.moveDetails) {
+      console.log(move);
+    }
   }
 
   // getHeldItems(){

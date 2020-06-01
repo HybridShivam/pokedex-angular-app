@@ -1362,3 +1362,9 @@
     max-width: 22px;
   }
 }
+.disableClicking{
+  pointer-events: none;
+}
+.loadingCursor{
+  cursor: progress;
+}
