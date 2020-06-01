@@ -24,6 +24,7 @@ export class PokemonService {
 
 
   constructor(private http: HttpClient, private _notifications: NotificationsService) {
+    this.getMoveDetailsFromCSV();
     // Check Online Connectivity
     this.createOnline$().subscribe(isOnline => {
       console.log('Online : ' + isOnline);
@@ -49,7 +50,6 @@ export class PokemonService {
     this.isMobile = this.isMobileBrowser(); //  Mobile Browser Check
     // console.log('Mobile Browser : ' + this.isMobile);
     this.getPokemons();
-    this.getMoveDetailsFromCSV();
   }
 
   isMobileBrowser() {
@@ -244,9 +244,11 @@ export class PokemonService {
 
   getMoveDetailsFromCSV() {
     this.movesDetails = [];
+    console.log('CSV Request Made');
     this.http.get('assets/data/moves.csv', {responseType: 'text'})
       .subscribe(
         data => {
+          console.log('CSV Read start');
           const allTextLines = data.split(/\r|\n|\r/);
           const headers = allTextLines[0].split(',');
           for (let i = 0; i < allTextLines.length; i++) {
