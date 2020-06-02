@@ -1660,7 +1660,7 @@
           <div>
             <div class="text-center">
               <div class="row" style="margin-top: 20px">
-                <h5 class="col-12 text-uppercase text-center">{{currentMoveData['name']}}</h5>
+                <h5 class="col-12 text-uppercase text-center">{{movesList[currentMoveID][0]}}</h5>
               </div>
               <hr style="margin-top: 0;margin-bottom: 10px">
               <div style="padding: 0;flex-wrap: nowrap;display: flex;justify-content: center">
@@ -1741,6 +1741,23 @@
                     style="align-self: center">{{currentMoveData['contest_type']['name']}}</span>
                   </div>
                 </ng-container>
+              </div>
+            </div>
+            <hr style="margin-top: 10px;margin-bottom: 5px">
+            <div class="row text-center">
+              <div class="col flex-column">
+                <div class="propertyValue {{pokemon.color+'-text'}}">{{movesList[currentMoveID][2].power}}</div>
+                <div class="movePropertyName">Power</div>
+              </div>
+              <div class="col">
+                <div class="propertyValue {{pokemon.color+'-text'}}">{{movesList[currentMoveID][2].accuracy}}
+                  <ng-container *ngIf="movesList[currentMoveID][2].accuracy!=='-'">%</ng-container>
+                </div>
+                <div class="movePropertyName">Accuracy</div>
+              </div>
+              <div class="col">
+                <div class="propertyValue {{pokemon.color+'-text'}}">{{movesList[currentMoveID][2].pp}}</div>
+                <div class="movePropertyName">PP</div>
               </div>
             </div>
             <hr style="margin-top: 10px;margin-bottom: 5px">
