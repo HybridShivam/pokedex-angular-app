@@ -1393,10 +1393,10 @@
                 <th scope="col" class="col-1">Gen</th>
               </tr>
               </thead>
-              <tbody [ngClass]="{'loadingCursor':moveDetails.length===0}">
+              <tbody [ngClass]="{'loadingCursor':moveDetails.length===0&&movesList.length!==0}">
               <ng-container *ngFor="let move of movesList; let i=index">
                 <tr *ngIf="move!==undefined" (click)="selectMove(i)" data-toggle="modal" data-target="#moveModal"
-                    [ngClass]="{'disableClicking':moveDetails.length===0}">
+                    [ngClass]="{'disableClicking':moveDetails.length===0&&movesList.length!==0}">
                   <td class="col-1">{{move[1]}}</td>
                   <td class="col-3">{{move[0]}}</td>
                   <td class="col-2">
@@ -1656,7 +1656,7 @@
     <div class="modal fade" id="moveModal" tabindex="-1" role="dialog" aria-labelledby="moveModal"
          aria-hidden="true" #moveModal>
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content" *ngIf="moveDetails.length>0&&currentMoveData!==undefined">
+        <div class="modal-content" *ngIf="moveDetails.length>0&&currentMoveData!==undefined&&currentMoveID!==null">
           <div>
             <div class="text-center">
               <div class="row" style="margin-top: 20px">
