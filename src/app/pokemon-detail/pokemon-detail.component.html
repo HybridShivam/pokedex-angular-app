@@ -430,7 +430,7 @@
         <ng-container *ngSwitchCase="''">
           <ng-container class="text-capitalize" *ngFor="let stage of evolutionChain; let i =index">
             <div class="col-sm evo-div" style="padding: 10px;">
-              <div *ngIf="evolutionChain.length===1" class="DNE">This Pokemon does not evolve</div>
+              <div *ngIf="evolutionChain.length===1" class="DNE">This Pokémon does not evolve.</div>
               <div>
                 <img class="evo-img mx-auto d-block" alt="Internet Error"
                      src="assets/thumbnails-compressed/{{this.pad(stage[1], 3) + '.png'}}"
@@ -1662,7 +1662,7 @@
               <div class="row" style="margin-top: 20px">
                 <h5 class="col-12 text-uppercase text-center">{{currentMoveData['name']}}</h5>
               </div>
-              <hr style="margin-top: 0px;margin-bottom: 10px">
+              <hr style="margin-top: 0;margin-bottom: 10px">
               <div style="padding: 0;flex-wrap: nowrap;display: flex;justify-content: center">
                 <ng-container [ngSwitch]="currentMoveData['type']['name']">
                   <div class="row icon bug moveDetails" *ngSwitchCase="'bug'"><span
@@ -1733,7 +1733,7 @@
                   <span class="col-4">
                   <img class="img-fluid damage-cat"
                        src="assets/damage-category-icons/{{getDamageClass(movesList[currentMoveID][2].damage_class_id)}}-white.png"
-                       style="width: 80%;margin-left: 2px;margin-right: 2px;"></span>
+                       style="width: 80%;margin-left: 0;margin-right: 2px;"></span>
                 </div>
                 <ng-container *ngIf="currentMoveData['contest_type']!==null">
                   <div class="row icon water moveDetails {{currentMoveData['contest_type']['name']}}"><span
