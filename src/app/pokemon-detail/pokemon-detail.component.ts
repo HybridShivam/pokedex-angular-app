@@ -282,6 +282,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     moveEggDetails = [];
     moveTutorDetails = [];
     moveFlavorTextEntry;
+    moveShortEffect;
+    moveEffect;
 
     constructor(private activatedRoute: ActivatedRoute,
                 private pokemonService: PokemonService) {
@@ -1499,6 +1501,15 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         }
         this.currentMoveData = this.moveDetails[id];
         this.currentMoveID = id;
+        if (this.currentMoveData['effect_chance'] !== null) {
+            this.moveShortEffect = this.currentMoveData['effect_entries'][0]['short_effect'].replace('$effect_chance',
+                this.currentMoveData['effect_chance']);
+            this.moveEffect = this.currentMoveData['effect_entries'][0]['effect'].replace('$effect_chance',
+                this.currentMoveData['effect_chance']);
+        } else {
+            this.moveShortEffect = this.currentMoveData['effect_entries'][0]['short_effect'];
+            this.moveEffect = this.currentMoveData['effect_entries'][0]['effect'];
+        }
         for (const entry of this.currentMoveData['flavor_text_entries']) {
             if (entry['language']['name'] === 'en') {
                 this.moveFlavorTextEntry = entry['flavor_text'];

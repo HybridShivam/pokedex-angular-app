@@ -1743,7 +1743,7 @@
                 </ng-container>
               </div>
             </div>
-            <hr style="margin-top: 10px;margin-bottom: 5px">
+            <hr style="margin-top: 10px;margin-bottom: 10px">
             <div class="row text-center">
               <div class="col flex-column">
                 <div class="propertyValue {{pokemon.color+'-text'}}">{{movesList[currentMoveID][2].power}}</div>
@@ -1768,10 +1768,10 @@
             <p style="padding-top: 6px">{{moveFlavorTextEntry}}</p>
             <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
                   style="padding: 4px; font-size: larger">EFFECT</span>
-            <p style="padding-top: 6px;">{{currentMoveData['effect_entries'][0]['short_effect']}}</p>
+            <p style="padding-top: 6px;">{{moveShortEffect}}</p>
             <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
                   style="padding: 4px; font-size: larger">IN-DEPTH EFFECT</span>
-            <p style="padding-top: 6px;white-space: pre-wrap">{{currentMoveData['effect_entries'][0]['effect']}}</p>
+            <p style="padding-top: 6px;white-space: pre-wrap">{{moveEffect}}</p>
           </div>
           <div class="modal-footer justify-content-center">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
