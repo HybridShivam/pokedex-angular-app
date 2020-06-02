@@ -29,7 +29,7 @@
   width: 90px;
   filter: saturate(100%) brightness(110%);
   transition: 200ms all;
-  margin: 0 0 0 17px;
+  margin: 0 0 0 15px;
 
 }
 
@@ -1199,6 +1199,8 @@
 
 .damage-cat {
   max-width: 33px;
+  margin-bottom: 0;
+  margin-top: 7px;
 }
 
 .moveTypes {
@@ -1212,6 +1214,52 @@
 
 .GameVersions .col {
   flex-basis: 12%;
+}
+
+.moveDetails {
+  width: 100px;
+  margin: 0 4px 0 4px;
+  img {
+    width: 55%;
+    height: 55%;
+  }
+}
+.Physical{
+  background: #D3425F;
+  box-shadow: 0 0 20px #D3425F;
+}
+.Special{
+  background: #0C69C8;
+  box-shadow: 0 0 20px #0C69C8;
+}
+.Status{
+  background: #929292;
+  box-shadow: 0 0 20px #929292;
+}
+
+.beauty {
+  background: #539DDF;
+  box-shadow: 0 0 20px #539DDF;
+}
+
+.cool {
+  background-color: #ffc619;
+  box-shadow: 0 0 20px #ffc619;
+}
+
+.cute {
+  background-color: #ff6096;
+  box-shadow: 0 0 20px #ff6096;
+}
+
+.smart {
+  background: #5FBD58;
+  box-shadow: 0 0 20px #5FBD58;
+}
+
+.tough {
+  background-color: #607d8b;
+  box-shadow: 0 0 20px #607d8b;
 }
 
 @media (min-width: 1301px) {
@@ -1362,9 +1410,11 @@
     max-width: 22px;
   }
 }
-.disableClicking{
+
+.disableClicking {
   pointer-events: none;
 }
-.loadingCursor{
+
+.loadingCursor {
   cursor: progress;
 }
