@@ -1380,6 +1380,9 @@
   .GameVersions .col {
     flex-basis: 21% !important;
   }
+  #moveModal .modal-body{
+    font-size: small;
+  }
 }
 
 @media (max-width: 380px) {

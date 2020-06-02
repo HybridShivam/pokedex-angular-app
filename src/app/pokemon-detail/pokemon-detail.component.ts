@@ -1340,6 +1340,17 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
                 }
             }
         }
+      this.levelUpMovesList = this.levelUpMovesList.sort((obj1, obj2) => {
+          if (obj1[1] > obj2[1]) {
+            return 1;
+          }
+
+          if (obj1[1] < obj2[1]) {
+            return -1;
+          }
+
+          return 0;
+        });
         switch (this.selectedMove) {
             case 'level-up':
                 this.movesList = this.levelUpMovesList;
