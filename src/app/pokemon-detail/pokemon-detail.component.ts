@@ -1361,7 +1361,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             case 'machine':
               this.machineMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
                 moveDetails, move['move']['url']]);
-              this.moveMachineNos.push(this.fetchMachineDetailsFromCSVDataSlow(moveDetails.id, versionID));
+              // this.moveMachineNos.push(this.fetchMachineDetailsFromCSVDataSlow(moveDetails.id, versionID));
               break;
             case 'egg':
               this.eggMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
@@ -1375,7 +1375,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         }
       }
     }
-    console.log(this.moveMachineNos);
     this.levelUpMovesList = this.levelUpMovesList.sort((obj1, obj2) => {
       if (obj1[1] > obj2[1]) {
         return 1;
@@ -1440,9 +1439,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     return this.pokemonService.movesDetails[moveID - 1];
   }
 
-  fetchMachineDetailsFromCSVData(machineURL): Move {
-    const moveID = machineURL.replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/move\/(\d+)\//, '$2');
-    return this.pokemonService.movesDetails[moveID - 1];
+  fetchMachineNumberFromCSVData(machineURL) {
+    const machineID = machineURL.replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/machine\/(\d+)\//, '$2');
+    const machineNumber = this.pokemonService.machineDetails[machineID - 1].machine_number;
+    return +machineNumber <= 100 ? 'TM' + this.pad(machineNumber, 2)
+      : 'HM' + this.pad(machineNumber - 100, 2);
   }
 
   fetchMachineDetailsFromCSVDataSlow(moveID, versionID) {
@@ -1466,9 +1467,13 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   selectGameVersion(name) {
-    this.selectedGameVersion = name;
-    this.currentMoveID = null;
-    this.getMoves();
+    if (this.selectedGameVersion === name) {
+      return;
+    } else {
+      this.selectedGameVersion = name;
+      this.currentMoveID = null;
+      this.getMoves();
+    }
   }
 
   pokemonAvailableInSelectedGen() {
@@ -1604,7 +1609,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     forkJoin(moveRequests[1]).subscribe(results => {
       for (const result of results) {
         this.moveMachineDetails.push(result);
+        this.getAndAddMachineNo(result['machines']);
       }
+      console.log(this.moveMachineNos);
     });
     forkJoin(moveRequests[2]).subscribe(results => {
       for (const result of results) {
@@ -1616,7 +1623,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.moveTutorDetails.push(result);
       }
     });
-    console.log('new move details: ' + this.selectedMove);
+    console.log('Selected Moves: ' + this.selectedMove);
     switch (this.selectedMove) {
       case 'level-up':
         this.moveDetails = this.moveLevelDetails;
@@ -1632,8 +1639,17 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         break;
     }
     console.log(this.moveDetails);
-    for (let move of this.moveDetails) {
+    for (const move of this.moveDetails) {
       console.log(move);
+    }
+  }
+
+  getAndAddMachineNo(machines) {
+    for (const machine of machines) {
+      if (machine['version_group']['name'] === this.selectedGameVersion) {
+        this.moveMachineNos.push([this.fetchMachineNumberFromCSVData(machine['machine']['url']), machine['machine']['url']]);
+        break;
+      }
     }
   }
 
