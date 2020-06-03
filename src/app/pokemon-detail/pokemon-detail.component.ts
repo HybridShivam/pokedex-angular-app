@@ -274,6 +274,26 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   selectedMove = 'level-up';
 
   selectedGameVersion = 'ultra-sun-ultra-moon';
+  versions = {
+    'red-blue': 1,
+    'yellow': 2,
+    'gold-silver': 3,
+    'crystal': 4,
+    'ruby-sapphire': 5,
+    'emerald': 6,
+    'firered-leafgreen': 9,
+    'diamond-pearl': 10,
+    'platinum': 11,
+    'heartgold-soulsilver': 12,
+    'black-white': 13,
+    'colosseum': 7,
+    'xd': 8,
+    'black-2-white-2': 14,
+    'x-y': 15,
+    'omega-ruby-alpha-sapphire': 16,
+    'sun-moon': 17,
+    'ultra-sun-ultra-moon': 18
+  };
 
   currentMoveData;
   currentMoveID = null;
@@ -282,6 +302,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   moveMachineDetails = [];
   moveEggDetails = [];
   moveTutorDetails = [];
+  moveMachineNos = [];
   moveFlavorTextEntry;
   moveShortEffect;
   moveEffect;
@@ -1326,6 +1347,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   getMovesLogic(version) {
+    const versionID = this.versions[version];
+    this.moveMachineNos = [];
     for (const move of this.pokemon.moves) {
       for (const versionGroup of move['version_group_details']) {
         if (versionGroup['version_group']['name'] === version) {
@@ -1338,6 +1361,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             case 'machine':
               this.machineMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
                 moveDetails, move['move']['url']]);
+              this.moveMachineNos.push(this.fetchMachineDetailsFromCSVDataSlow(moveDetails.id, versionID));
               break;
             case 'egg':
               this.eggMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
@@ -1351,6 +1375,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         }
       }
     }
+    console.log(this.moveMachineNos);
     this.levelUpMovesList = this.levelUpMovesList.sort((obj1, obj2) => {
       if (obj1[1] > obj2[1]) {
         return 1;
@@ -1376,8 +1401,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.movesList = this.tutorMovesList;
         break;
     }
-    this.getMoveDetails();
     this.movesListLoaded = true;
+    this.getMoveDetails();
   }
 
   selectMovesByLearnMethod(moveToSelect) {
@@ -1413,6 +1438,20 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   fetchMoveDetailsFromCSVData(moveURL): Move {
     const moveID = moveURL.replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/move\/(\d+)\//, '$2');
     return this.pokemonService.movesDetails[moveID - 1];
+  }
+
+  fetchMachineDetailsFromCSVData(machineURL): Move {
+    const moveID = machineURL.replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/move\/(\d+)\//, '$2');
+    return this.pokemonService.movesDetails[moveID - 1];
+  }
+
+  fetchMachineDetailsFromCSVDataSlow(moveID, versionID) {
+    for (const machine of this.pokemonService.machineDetails) {
+      if (machine.move_id == moveID && machine.version_group_id == versionID) {
+        return +machine.machine_number <= 100 ? 'TM' + this.pad(machine.machine_number, 2)
+          : 'HM' + this.pad(machine.machine_number - 100, 2);
+      }
+    }
   }
 
   getDamageClass(id) {

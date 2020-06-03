@@ -1383,7 +1383,7 @@
             <table class="table table-fixed">
               <thead>
               <tr>
-                <th scope="col" class="col-1">Level</th>
+                <th scope="col" class="col-1">{{selectedMove === 'level-up' ? 'Level' : 'TM/HM'}}</th>
                 <th scope="col" class="col-3">Move</th>
                 <th scope="col" class="col-2">Type</th>
                 <th scope="col" class="col-2">Category</th>
@@ -1398,6 +1398,7 @@
                 <tr *ngIf="move!==undefined" (click)="selectMove(i)" data-toggle="modal" data-target="#moveModal"
                     [ngClass]="{'disableClicking':moveDetails.length===0&&movesList.length!==0}">
                   <td class="col-1">{{move[1]}}</td>
+<!--                  <td class="col-1">{{fetchMachineDetailsFromCSVData(move[2].id, selectedGameVersion)}}</td>-->
                   <td class="col-3">{{move[0]}}</td>
                   <td class="col-2">
                     <div class="moveTypes" style="padding: 0;">
