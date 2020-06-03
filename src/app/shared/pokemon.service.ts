@@ -20,6 +20,7 @@ export class PokemonService {
   previousPokemonID = new Subject<number>();
   isMobile;
   movesDetails;
+  machineDetails;
   @Output() searchItemSubject: Subject<string> = new Subject<string>();
 
 
@@ -250,11 +251,11 @@ export class PokemonService {
 
   getMoveDetailsFromCSV() {
     this.movesDetails = [];
-    console.log('CSV Request Made');
+    console.log('moves.csv Request Made');
     this.http.get('assets/data/moves.csv', {responseType: 'text'})
       .subscribe(
         data => {
-          console.log('CSV Read start');
+          console.log('moves.csv Read start');
           const allTextLines = data.split(/\r|\n|\r/);
           const headers = allTextLines[0].split(',');
           for (let i = 0; i < allTextLines.length; i++) {
@@ -270,7 +271,36 @@ export class PokemonService {
             }
             this.movesDetails.push(move);
           }
-          console.log('CSV Read Complete');
+          console.log('moves.csv Read Complete');
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  getMachinesFromCSV() {
+    this.machineDetails = [];
+    console.log('machines.csv Request Made');
+    this.http.get('assets/data/machines.csv', {responseType: 'text'})
+      .subscribe(
+        data => {
+          console.log('machines.csv start');
+          const allTextLines = data.split(/\r|\n|\r/);
+          const headers = allTextLines[0].split(',');
+          for (let i = 0; i < allTextLines.length; i++) {
+            const move = new Move();
+            // split content based on comma
+            const rowData = allTextLines[i].split(',');
+            for (let j = 0; j < headers.length; j++) {
+              if (rowData[j] === '') {
+                move[headers[j]] = '-';
+              } else {
+                move[headers[j]] = rowData[j];
+              }
+            }
+            this.movesDetails.push(move);
+          }
+          console.log('machines.csv Read Complete');
         },
         error => {
           console.log(error);
