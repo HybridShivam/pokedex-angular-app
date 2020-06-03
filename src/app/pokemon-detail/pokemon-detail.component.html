@@ -1379,7 +1379,8 @@
           </div>
         </div>
         <div class="inner scrollableTable">
-          <div class="table-responsive {{pokemon.color}}">
+          <div class="table-responsive {{pokemon.color}}" style="position: relative;">
+            <div class="lds-dual-ring" *ngIf="moveDetails.length===0&&movesList.length!==0"> </div>
             <table class="table table-fixed">
               <thead>
               <tr>
@@ -1397,7 +1398,7 @@
               <ng-container *ngFor="let move of movesList; let i=index">
                 <tr *ngIf="move!==undefined" (click)="selectMove(i)" data-toggle="modal" data-target="#moveModal"
                     [ngClass]="{'disableClicking':moveDetails.length===0&&movesList.length!==0}">
-                  <td class="col-1">{{move[1]}}</td>
+                  <td class="col-1">{{selectedMove === 'machine' ? moveMachineNos[i] : move[1]}}</td>
 <!--                  <td class="col-1">{{fetchMachineDetailsFromCSVData(move[2].id, selectedGameVersion)}}</td>-->
                   <td class="col-3">{{move[0]}}</td>
                   <td class="col-2">

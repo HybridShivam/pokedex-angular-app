@@ -1338,17 +1338,16 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.eggMovesList = [];
     this.tutorMovesList = [];
     if (!this.movesListLoaded) {
-      const timeOut = setTimeout(() => {
+      setTimeout(() => {
         this.getMovesLogic(version);
-      }, 2000);
+      }, 1500);
     } else {
       this.getMovesLogic(version);
     }
   }
 
   getMovesLogic(version) {
-    const versionID = this.versions[version];
-    this.moveMachineNos = [];
+    // const versionID = this.versions[version];
     for (const move of this.pokemon.moves) {
       for (const versionGroup of move['version_group_details']) {
         if (versionGroup['version_group']['name'] === version) {
@@ -1607,11 +1606,12 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       }
     });
     forkJoin(moveRequests[1]).subscribe(results => {
+      this.moveMachineNos = [];
       for (const result of results) {
         this.moveMachineDetails.push(result);
         this.getAndAddMachineNo(result['machines']);
       }
-      console.log(this.moveMachineNos);
+      // console.log(this.moveMachineNos);
     });
     forkJoin(moveRequests[2]).subscribe(results => {
       for (const result of results) {
@@ -1647,15 +1647,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   getAndAddMachineNo(machines) {
     for (const machine of machines) {
       if (machine['version_group']['name'] === this.selectedGameVersion) {
-        this.moveMachineNos.push([this.fetchMachineNumberFromCSVData(machine['machine']['url']), machine['machine']['url']]);
+        this.moveMachineNos.push(this.fetchMachineNumberFromCSVData(machine['machine']['url']));
         break;
       }
     }
   }
-
-  // getHeldItems(){
-  //   this.pokemon.heldItems;
-  // }
 
   capitalizeSplitJoin(str, split: string, join: string) {
     str = str.split(split);
@@ -1664,10 +1660,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     }
     return str.join(join);
   }
-
-  // generateRandomInteger(min, max) {
-  //   return Math.floor(min + Math.random() * (max + 1 - min));
-  // }
 
   ngOnDestroy() {
     // console.log('destroyed');

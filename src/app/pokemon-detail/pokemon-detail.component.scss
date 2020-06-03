@@ -1219,20 +1219,24 @@
 .moveDetails {
   width: 100px;
   margin: 0 4px 0 4px;
+
   img {
     width: 55%;
     height: 55%;
   }
 }
-.Physical{
+
+.Physical {
   background: #D3425F;
   box-shadow: 0 0 20px #D3425F;
 }
-.Special{
+
+.Special {
   background: #0C69C8;
   box-shadow: 0 0 20px #0C69C8;
 }
-.Status{
+
+.Status {
   background: #929292;
   box-shadow: 0 0 20px #929292;
 }
@@ -1380,7 +1384,7 @@
   .GameVersions .col {
     flex-basis: 21% !important;
   }
-  #moveModal .modal-body{
+  #moveModal .modal-body {
     font-size: small;
   }
 }
@@ -1420,4 +1424,33 @@
 
 .loadingCursor {
   cursor: progress;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  position: absolute;
+  z-index: 100;
+  left: calc(50% - 32px);
+  top: calc(50% - 32px);
+}
+
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: auto;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #6f6f6f transparent #6f6f6f transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
