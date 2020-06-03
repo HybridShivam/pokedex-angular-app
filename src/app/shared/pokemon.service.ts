@@ -6,6 +6,7 @@ import {Observable, Observer, fromEvent, merge} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {NotificationsService} from 'angular2-notifications';
 import {Move} from './moves.model';
+import {Machine} from './machine.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +24,9 @@ export class PokemonService {
   machineDetails;
   @Output() searchItemSubject: Subject<string> = new Subject<string>();
 
-
   constructor(private http: HttpClient, private _notifications: NotificationsService) {
     this.getMoveDetailsFromCSV();
+    this.getMachinesFromCSV();
     // Check Online Connectivity
     this.createOnline$().subscribe(isOnline => {
       console.log('Online : ' + isOnline);
@@ -258,7 +259,7 @@ export class PokemonService {
           console.log('moves.csv Read start');
           const allTextLines = data.split(/\r|\n|\r/);
           const headers = allTextLines[0].split(',');
-          for (let i = 0; i < allTextLines.length; i++) {
+          for (let i = 1; i < allTextLines.length; i++) {
             const move = new Move();
             // split content based on comma
             const rowData = allTextLines[i].split(',');
@@ -287,19 +288,16 @@ export class PokemonService {
           console.log('machines.csv start');
           const allTextLines = data.split(/\r|\n|\r/);
           const headers = allTextLines[0].split(',');
-          for (let i = 0; i < allTextLines.length; i++) {
-            const move = new Move();
+          for (let i = 1; i < allTextLines.length; i++) {
+            const machine = new Machine();
             // split content based on comma
             const rowData = allTextLines[i].split(',');
             for (let j = 0; j < headers.length; j++) {
-              if (rowData[j] === '') {
-                move[headers[j]] = '-';
-              } else {
-                move[headers[j]] = rowData[j];
-              }
+              machine[headers[j]] = rowData[j];
             }
-            this.movesDetails.push(move);
+            this.machineDetails.push(machine);
           }
+          console.log(this.machineDetails);
           console.log('machines.csv Read Complete');
         },
         error => {
