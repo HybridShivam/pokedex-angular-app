@@ -1435,7 +1435,7 @@
                   <td class="col-1">{{move[2].generation_id}}</td>
                 </tr>
               </ng-container>
-              <tr *ngIf="movesList.length==0">
+              <tr *ngIf="movesList.length==0&&movesListLoaded==true">
                 <td class="col text-center NotFoundText" style="padding-top: 8.5rem;">
                   <ng-container *ngIf="!pokemonAvailableInSelectedGen(); else noMovesLearnt">This Pokémon didn't exist
                     in the selected
