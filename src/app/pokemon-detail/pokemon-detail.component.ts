@@ -1329,7 +1329,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     for (const move of this.pokemon.moves) {
       for (const versionGroup of move['version_group_details']) {
         if (versionGroup['version_group']['name'] === version) {
-          const moveDetails = this.fetchMoveDetailsFromCSVData(move['move']['name']);
+          const moveDetails = this.fetchMoveDetailsFromCSVData(move['move']['url']);
           switch (versionGroup['move_learn_method']['name']) {
             case 'level-up':
               this.levelUpMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
@@ -1410,12 +1410,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-  fetchMoveDetailsFromCSVData(moveName): Move {
-    for (const move of this.pokemonService.movesDetails) {
-      if (moveName === move.identifier) {
-        return move;
-      }
-    }
+  fetchMoveDetailsFromCSVData(moveURL): Move {
+    const moveID = moveURL.replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/move\/(\d+)\//, '$2');
+    return this.pokemonService.movesDetails[moveID - 1];
   }
 
   getDamageClass(id) {
