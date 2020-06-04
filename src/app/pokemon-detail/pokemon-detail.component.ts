@@ -573,12 +573,12 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.weightInKgs = (this.pokemon.weight * 0.1).toFixed(1);
     this.weightInPounds = (this.weightInKgs * 2.205).toFixed(1);
     this.pokemonStats = [
-      this.pokemon.stats[5]['base_stat'],
-      this.pokemon.stats[4]['base_stat'],
-      this.pokemon.stats[3]['base_stat'],
-      this.pokemon.stats[2]['base_stat'],
+      this.pokemon.stats[0]['base_stat'],
       this.pokemon.stats[1]['base_stat'],
-      this.pokemon.stats[0]['base_stat']
+      this.pokemon.stats[2]['base_stat'],
+      this.pokemon.stats[3]['base_stat'],
+      this.pokemon.stats[4]['base_stat'],
+      this.pokemon.stats[5]['base_stat']
     ];
     this.maxStat = Math.max(...this.pokemonStats);
     setTimeout(() => {
@@ -586,6 +586,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     }, 500);
     this.calculateTypeEffectiveness();
     this.getMoves();
+    console.log(this.pokemon.stats);
   }
 
   pad(number, length) {
@@ -1599,10 +1600,14 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       this.moveShortEffect = this.currentMoveData['effect_entries'][0]['short_effect'];
       this.moveEffect = this.currentMoveData['effect_entries'][0]['effect'];
     }
-    for (const entry of this.currentMoveData['flavor_text_entries']) {
-      if (entry['language']['name'] === 'en') {
-        this.moveFlavorTextEntry = entry['flavor_text'];
-        break;
+    if (this.selectedGameVersion === 'red-blue' || this.selectedGameVersion === 'yellow') {
+      this.moveFlavorTextEntry = 'Selected games had no flavor text entries!';
+    } else {
+      for (const entry of this.currentMoveData['flavor_text_entries']) {
+        if (entry['language']['name'] === 'en' && entry['version_group']['name'] === this.selectedGameVersion) {
+          this.moveFlavorTextEntry = entry['flavor_text'];
+          break;
+        }
       }
     }
   }
