@@ -588,7 +588,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     }, 500);
     this.calculateTypeEffectiveness();
     this.getMoves();
-s  }
+  }
 
   pad(number, length) {
     let str = '' + number;

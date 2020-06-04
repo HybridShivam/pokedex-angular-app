@@ -1384,10 +1384,10 @@
             <table class="table table-fixed">
               <thead>
               <tr>
-                <th scope="col" class="col-1">{{selectedMove === 'level-up' ? 'Level' : 'TM/HM'}}</th>
-                <th scope="col" class="col-4">Move</th>
-                <th scope="col" class="col-2">Type</th>
-                <th scope="col" class="col-2">Category</th>
+                <th scope="col" class="col-2">{{selectedMove === 'level-up' ? 'Level' : 'TM/HM'}}</th>
+                <th scope="col" class="col-5">Move</th>
+                <th scope="col" class="col-1">Type</th>
+                <th scope="col" class="col-1">Category</th>
                 <th scope="col" class="col-1">Power</th>
                 <th scope="col" class="col-1">PP</th>
                 <th scope="col" class="col-1">Acc.</th>
@@ -1398,10 +1398,10 @@
               <ng-container *ngFor="let move of movesList; let i=index">
                 <tr *ngIf="move!==undefined" (click)="selectMove(i)" data-toggle="modal" data-target="#moveModal"
                     [ngClass]="{'disableClicking':moveDetails.length===0&&movesList.length!==0}">
-                  <td class="col-1">{{selectedMove === 'machine' ? moveMachineNos[i] : move[1]}}</td>
+                  <td class="col-2">{{selectedMove === 'machine' ? moveMachineNos[i] : move[1]}}</td>
                   <!--                  <td class="col-1">{{fetchMachineDetailsFromCSVData(move[2].id, selectedGameVersion)}}</td>-->
-                  <td class="col-4">{{move[0]}}</td>
-                  <td class="col-2">
+                  <td class="col-5">{{move[0]}}</td>
+                  <td class="col-1">
                     <div class="moveTypes" style="padding: 0;">
                       <ng-container [ngSwitch]="move[2].type_id">
                         <div class="icon bug" *ngSwitchCase="'7'"><img src="assets/type-icons/png/bug.png"></div>
@@ -1428,7 +1428,7 @@
                       </ng-container>
                     </div>
                   </td>
-                  <td class="col-2"><img class="img-fluid damage-icon"
+                  <td class="col-1"><img class="img-fluid damage-icon"
                                          src="assets/{{getDamageClass(move[2].damage_class_id)}}.png">
                   </td>
                   <td class="col-1">{{move[2].power}}</td>
