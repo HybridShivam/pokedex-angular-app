@@ -33,6 +33,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   abilities = [];
   abilitySelected = 0;
   allAbilitiesReceived = false;
+  selectedAbilityFlavorText;
+  selectedAbilityEffect;
+  selectedAbilityShortEffect;
+  unavailableAbilityText;
 
   pokemonForms = [];
   formattedFormNames = [];
@@ -266,6 +270,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   };
 
   movesList = [];
+  delayMovesListLoad = true;
   movesListLoaded = false;
   levelUpMovesList = [];
   machineMovesList = [];
@@ -692,6 +697,24 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   abilitySelect(no: number) {
     this.abilitySelected = no;
+    this.unavailableAbilityText = '';
+    if (!this.availableInSelectedGen(this.abilities[no]['generation']['name'])) {
+      this.unavailableAbilityText = 'This ability didn\'t exist in the selected Games!';
+    } else {
+      for (const entry of this.abilities[no]['flavor_text_entries']) {
+        if (entry['language']['name'] === 'en' && entry['version_group']['name'] === this.selectedGameVersion) {
+          this.selectedAbilityFlavorText = (entry['flavor_text']);
+          break;
+        }
+      }
+      for (const entry of this.abilities[no]['effect_entries']) {
+        if (entry['language']['name'] === 'en') {
+          this.selectedAbilityEffect = entry['effect'];
+          this.selectedAbilityShortEffect = entry['short_effect'];
+          break;
+        }
+      }
+    }
   }
 
   totalBaseStats() {
@@ -1337,10 +1360,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.machineMovesList = [];
     this.eggMovesList = [];
     this.tutorMovesList = [];
-    if (!this.movesListLoaded) {
+    this.movesListLoaded = false;
+    if (this.delayMovesListLoad) {
       setTimeout(() => {
         this.getMovesLogic(version);
-      }, 1500);
+      }, 1000);
     } else {
       this.getMovesLogic(version);
     }
@@ -1469,16 +1493,18 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     if (this.selectedGameVersion === name) {
       return;
     } else {
+      this.delayMovesListLoad = false;
       this.selectedGameVersion = name;
       this.currentMoveID = null;
       this.getMoves();
+      this.delayMovesListLoad = true;
     }
   }
 
-  pokemonAvailableInSelectedGen() {
+  availableInSelectedGen(whatWeChecking) {
     let gen;
     let selectedGameGen;
-    switch (this.pokemon.speciesDetails['generation']['name']) {
+    switch (whatWeChecking) {
       case 'generation-i':
         gen = 1;
         break;
@@ -1637,10 +1663,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       case 'tutor':
         this.moveDetails = this.moveTutorDetails;
         break;
-    }
-    console.log(this.moveDetails);
-    for (const move of this.moveDetails) {
-      console.log(move);
     }
   }
 

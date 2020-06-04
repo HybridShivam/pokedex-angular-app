@@ -1380,7 +1380,7 @@
         </div>
         <div class="inner scrollableTable">
           <div class="table-responsive {{pokemon.color}}" style="position: relative;">
-            <div class="lds-dual-ring" *ngIf="moveDetails.length===0&&movesList.length!==0"> </div>
+            <div class="lds-dual-ring" *ngIf="moveDetails.length===0&&movesList.length!==0"></div>
             <table class="table table-fixed">
               <thead>
               <tr>
@@ -1399,7 +1399,7 @@
                 <tr *ngIf="move!==undefined" (click)="selectMove(i)" data-toggle="modal" data-target="#moveModal"
                     [ngClass]="{'disableClicking':moveDetails.length===0&&movesList.length!==0}">
                   <td class="col-1">{{selectedMove === 'machine' ? moveMachineNos[i] : move[1]}}</td>
-<!--                  <td class="col-1">{{fetchMachineDetailsFromCSVData(move[2].id, selectedGameVersion)}}</td>-->
+                  <!--                  <td class="col-1">{{fetchMachineDetailsFromCSVData(move[2].id, selectedGameVersion)}}</td>-->
                   <td class="col-3">{{move[0]}}</td>
                   <td class="col-2">
                     <div class="moveTypes" style="padding: 0;">
@@ -1439,7 +1439,9 @@
               </ng-container>
               <tr *ngIf="movesList.length==0&&movesListLoaded==true">
                 <td class="col text-center NotFoundText" style="padding-top: 8.5rem;">
-                  <ng-container *ngIf="!pokemonAvailableInSelectedGen(); else noMovesLearnt">This Pokémon didn't exist
+                  <ng-container
+                    *ngIf="!availableInSelectedGen(pokemon.speciesDetails['generation']['name']); else noMovesLearnt">
+                    This Pokémon didn't exist
                     in the selected
                     Games!
                   </ng-container>
@@ -1551,15 +1553,19 @@
             <hr style="margin-top: 10px;margin-bottom: 5px">
           </div>
           <div class="modal-body justify-content-center text-center">
+            <p style="padding-top: 6px"
+               *ngIf="unavailableAbilityText!=='';else availableAbility">{{unavailableAbilityText}}</p>
+            <ng-template #availableAbility>
           <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
                 style="padding: 4px; font-size: larger">GAME DESCRIPTION</span>
-            <p style="padding-top: 6px">{{abilities[abilitySelected]['flavor_text_entries'][2]['flavor_text']}}</p>
-            <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
-                  style="padding: 4px; font-size: larger">EFFECT</span>
-            <p style="padding-top: 6px">{{abilities[abilitySelected]['effect_entries'][0]['short_effect']}}</p>
-            <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
-                  style="padding: 4px; font-size: larger">IN-DEPTH EFFECT</span>
-            <p style="padding-top: 6px">{{abilities[abilitySelected]['effect_entries'][0]['effect']}}</p>
+              <p style="padding-top: 6px">{{selectedAbilityFlavorText}}</p>
+              <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
+                    style="padding: 4px; font-size: larger">EFFECT</span>
+              <p style="padding-top: 6px">{{selectedAbilityShortEffect}}</p>
+              <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
+                    style="padding: 4px; font-size: larger">IN-DEPTH EFFECT</span>
+              <p style="padding-top: 6px">{{selectedAbilityEffect}}</p>
+            </ng-template>
           </div>
           <div class="modal-footer justify-content-center">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

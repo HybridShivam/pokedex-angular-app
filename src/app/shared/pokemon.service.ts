@@ -297,7 +297,6 @@ export class PokemonService {
             }
             this.machineDetails.push(machine);
           }
-          console.log(this.machineDetails);
           console.log('machines.csv Read Complete');
         },
         error => {
