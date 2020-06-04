@@ -30,6 +30,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   selectedStat = 'base';
   stats: string[] = ['0%', '0%', '0%', '0%', '0%', '0%'];
   imageLoading = true;
+  pokemonGenera;
   abilities = [];
   abilitySelected = 0;
   allAbilitiesReceived = false;
@@ -568,6 +569,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.pad(this.pokemon.id, 3) + '.png';
     }
     // }
+    this.getGenera();
     this.heightInMetres = (this.pokemon.height * 0.1).toFixed(1);
     this.heightInFeetInches = Math.floor(this.heightInMetres * 3.2808) + '"' + Math.round(((this.heightInMetres * 3.2808) % 1) * 12) + '\'';
     this.weightInKgs = (this.pokemon.weight * 0.1).toFixed(1);
@@ -678,6 +680,14 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       } else {
         calculatedStat = 15;
         this.stats[i] = calculatedStat + '%';
+      }
+    }
+  }
+
+  getGenera() {
+    for (const genus of this.pokemon.genera) {
+      if (genus['language']['name'] === 'en') {
+        this.pokemonGenera = genus['genus'];
       }
     }
   }

@@ -6,7 +6,7 @@
     <span style="padding: 4px" *ngIf="pokemon.genera===undefined"> </span>
     <span style="padding: 4px" class="genera text-capitalize {{pokemon.color}} rounded fadeIn" data-toggle="modal"
           data-target="#descModal"
-          *ngIf="pokemon.genera!=undefined">{{pokemon.genera[2]['genus']}}</span>
+          *ngIf="pokemonGenera!=undefined">{{pokemonGenera}}</span>
   </div>
   <div class="row justify-content-center" style="position: relative;padding-bottom: 3rem">
     <div class="bubbles" *ngIf="megaEvolving" [ngClass]="{'fIn': BubblesVisible}" style="position: absolute">
