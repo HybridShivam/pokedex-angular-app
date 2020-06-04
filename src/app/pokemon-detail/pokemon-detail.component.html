@@ -1349,7 +1349,7 @@
       </div>
     </div>
   </div>
-  <div class="container" style="padding-bottom: 3rem">
+  <div class="container MovesTable" style="padding-bottom: 3rem">
     <h1 class="Heading text-center text-uppercase" style="margin-bottom: 1.5rem;">
       <span class="rounded" [ngClass]="pokemon.color" style="padding: 2px 4px 4px;">Movepool</span>
     </h1>
@@ -1385,13 +1385,13 @@
               <thead>
               <tr>
                 <th scope="col" class="col-1">{{selectedMove === 'level-up' ? 'Level' : 'TM/HM'}}</th>
-                <th scope="col" class="col-3">Move</th>
+                <th scope="col" class="col-4">Move</th>
                 <th scope="col" class="col-2">Type</th>
                 <th scope="col" class="col-2">Category</th>
                 <th scope="col" class="col-1">Power</th>
                 <th scope="col" class="col-1">PP</th>
                 <th scope="col" class="col-1">Acc.</th>
-                <th scope="col" class="col-1">Gen</th>
+<!--                <th scope="col" class="col-1">Gen</th>-->
               </tr>
               </thead>
               <tbody [ngClass]="{'loadingCursor':moveDetails.length===0&&movesList.length!==0}">
@@ -1400,7 +1400,7 @@
                     [ngClass]="{'disableClicking':moveDetails.length===0&&movesList.length!==0}">
                   <td class="col-1">{{selectedMove === 'machine' ? moveMachineNos[i] : move[1]}}</td>
                   <!--                  <td class="col-1">{{fetchMachineDetailsFromCSVData(move[2].id, selectedGameVersion)}}</td>-->
-                  <td class="col-3">{{move[0]}}</td>
+                  <td class="col-4">{{move[0]}}</td>
                   <td class="col-2">
                     <div class="moveTypes" style="padding: 0;">
                       <ng-container [ngSwitch]="move[2].type_id">
@@ -1428,13 +1428,13 @@
                       </ng-container>
                     </div>
                   </td>
-                  <td class="col-2"><img class="img-fluid" style="max-width: 33px;"
+                  <td class="col-2"><img class="img-fluid damage-icon"
                                          src="assets/{{getDamageClass(move[2].damage_class_id)}}.png">
                   </td>
                   <td class="col-1">{{move[2].power}}</td>
                   <td class="col-1">{{move[2].pp}}</td>
                   <td class="col-1">{{move[2].accuracy}}</td>
-                  <td class="col-1">{{move[2].generation_id}}</td>
+<!--                  <td class="col-1">{{move[2].generation_id}}</td>-->
                 </tr>
               </ng-container>
               <tr *ngIf="movesList.length==0&&movesListLoaded==true">
