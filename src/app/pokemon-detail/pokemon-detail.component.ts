@@ -1038,7 +1038,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             nextChain['is_baby'], // 2
             nextChain['evolution_details'] // 3
           ]);
-          nextChain = chain['evolves_to'][0]['evolves_to'][1]; // cascoon
+          nextChain = chain['evolves_to'][1]; // cascoon
           this.evolutionChain[1].push([
             nextChain['species']['name'], // 0
             this.getIdfromURL(nextChain['species']['url']), // 1
@@ -1053,7 +1053,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             nextChain['is_baby'], // 2
             nextChain['evolution_details'] // 3
           ]);
-          nextChain = chain['evolves_to'][0]['evolves_to'][1]['evolves_to'][0]; // Dustox
+          nextChain = chain['evolves_to'][1]['evolves_to'][0]; // Dustox
           this.evolutionChain[2].push([
             nextChain['species']['name'], // 0
             this.getIdfromURL(nextChain['species']['url']), // 1
