@@ -42,7 +42,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   pokemonForms = [];
   formattedFormNames = [];
   selectedFormNo = 0;
-  varietiesReversed = false; // For Magearna
+  // varietiesReversed = false; // For Magearna
   formColors = {
     'charizard-mega-x': 'black',
     'latias-mega': 'purple',
@@ -777,10 +777,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   requestForms() {
-    if (this.pokemon.id === 801 && !this.varietiesReversed) { // For magearna Reverse the varieties
-      this.pokemon.varieties.reverse();
-      this.varietiesReversed = true;
-    }
+    // if (this.pokemon.id === 801 && !this.varietiesReversed) { // For magearna Reverse the varieties
+    //   this.pokemon.varieties.reverse();
+    //   this.varietiesReversed = true;
+    // }
     const formRequests = [];
     if (this.pokemon.id !== 774) { // Skipping Minior
       for (const variety of this.pokemon.varieties.slice(1)) {
