@@ -278,6 +278,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   eggMovesList = [];
   tutorMovesList = [];
   selectedMove = 'level-up';
+  selectedMoveFirstColHeader = {'level-up': 'Level', 'machine': '#', 'egg': '-', 'tutor': '-'};
 
   selectedGameVersion = 'ultra-sun-ultra-moon';
   versions = {
