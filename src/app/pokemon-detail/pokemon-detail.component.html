@@ -1384,25 +1384,25 @@
             <table class="table table-fixed">
               <thead>
               <tr>
-                <th scope="col" class="col-1 firstCol">{{selectedMove === 'level-up' ? 'Level' : 'TM/HM'}}</th>
+                <th scope="col" class="col-1 firstCol text-center">{{selectedMove === 'level-up' ? 'Level' : 'TM/HM'}}</th>
                 <th scope="col" class="col-4 secondCol">Move</th>
-                <th scope="col" class="col-1">Type</th>
-                <th scope="col" class="col-1">Category</th>
-                <th scope="col" class="col-1">Power</th>
-                <th scope="col" class="col-1">PP</th>
-                <th scope="col" class="col-1">Accuracy</th>
-                <th scope="col" class="col-1 priorityCol">Priority</th>
-                <th scope="col" class="col-1 generationCol">Gen</th>
+                <th scope="col" class="col-1 text-center">Type</th>
+                <th scope="col" class="col-1 text-truncate text-center">Category</th>
+                <th scope="col" class="col-1 text-truncate text-center">Power</th>
+                <th scope="col" class="col-1 text-truncate text-center">PP</th>
+                <th scope="col" class="col-1 text-truncate text-center">Accuracy</th>
+                <th scope="col" class="col-1 priorityCol text-truncate text-center">Priority</th>
+                <th scope="col" class="col-1 generationCol text-truncate text-center">Generation</th>
               </tr>
               </thead>
               <tbody [ngClass]="{'loadingCursor':moveDetails.length===0&&movesList.length!==0}">
               <ng-container *ngFor="let move of movesList; let i=index">
                 <tr *ngIf="move!==undefined" (click)="selectMove(i)" data-toggle="modal" data-target="#moveModal"
                     [ngClass]="{'disableClicking':moveDetails.length===0&&movesList.length!==0}">
-                  <td class="col-1 firstCol">{{selectedMove === 'machine' ? moveMachineNos[i] : move[1]}}</td>
+                  <td class="col-1 firstCol text-center">{{selectedMove === 'machine' ? moveMachineNos[i] : move[1]}}</td>
                   <!--                  <td class="col-1">{{fetchMachineDetailsFromCSVData(move[2].id, selectedGameVersion)}}</td>-->
                   <td class="col-4 secondCol text-truncate">{{move[0]}}</td>
-                  <td class="col-1">
+                  <td class="col-1 text-center">
                     <div class="moveTypes" style="padding: 0;">
                       <ng-container [ngSwitch]="move[2].type_id">
                         <div class="icon bug" *ngSwitchCase="'7'"><img src="assets/type-icons/png/bug.png"></div>
@@ -1429,14 +1429,14 @@
                       </ng-container>
                     </div>
                   </td>
-                  <td class="col-1"><img class="img-fluid damage-icon"
+                  <td class="col-1 text-center"><img class="img-fluid damage-icon"
                                          src="assets/{{getDamageClass(move[2].damage_class_id)}}.png">
                   </td>
-                  <td class="col-1">{{move[2].power}}</td>
-                  <td class="col-1">{{move[2].pp}}</td>
-                  <td class="col-1">{{move[2].accuracy}}</td>
-                  <td class="col-1 priorityCol">{{move[2].priority}}</td>
-                  <td class="col-1 generationCol">{{move[2].generation_id}}</td>
+                  <td class="col-1 text-center">{{move[2].power}}</td>
+                  <td class="col-1 text-center">{{move[2].pp}}</td>
+                  <td class="col-1 text-center">{{move[2].accuracy}}</td>
+                  <td class="col-1 priorityCol text-center">{{move[2].priority}}</td>
+                  <td class="col-1 generationCol text-center">{{move[2].generation_id}}</td>
                 </tr>
               </ng-container>
               <tr *ngIf="movesList.length==0&&movesListLoaded==true">
