@@ -943,6 +943,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.exceptionalChainType = '';
     // console.log(this.pokemon.evolutionChainURL);
     const evoID = this.pokemon.evolutionChainURL.replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/evolution-chain\/(\d+)\//, '$2');
+    console.log(evoID-1);
     const response = this.pokemonService.evolutionChains[evoID - 1];
     // this.pokemonService.getEvoChainByURL(this.pokemon.evolutionChainURL).subscribe((response) => {
     this.evolutionChain = [];
