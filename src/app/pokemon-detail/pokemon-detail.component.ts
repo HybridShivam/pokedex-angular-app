@@ -942,130 +942,132 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.evolutionDesc = [];
     this.exceptionalChainType = '';
     // console.log(this.pokemon.evolutionChainURL);
-    this.pokemonService.getEvoChainByURL(this.pokemon.evolutionChainURL).subscribe((response) => {
-      this.evolutionChain = [];
-      let chain = response['chain'];
-      if (this.evolutionChainExceptions_112.indexOf(chain['species']['name']) > -1) {
-        this.exceptionalChainType = '112';
-      } else if (this.evolutionChainExceptions_12.indexOf(chain['species']['name']) > -1) {
-        // console.log('excep 12');
-        this.exceptionalChainType = '12';
-      } else if (this.evolutionChainExceptions_13.indexOf(chain['species']['name']) > -1) {
-        // console.log('excep 13');
-        this.exceptionalChainType = '13';
-      } else if (this.evolutionChainExceptions_18.indexOf(chain['species']['name']) > -1) {
-        // console.log('excep 18');
-        this.exceptionalChainType = '18';
-      } else if (this.evolutionChainExceptions_122.indexOf(chain['species']['name']) > -1) {
-        // console.log('excep 122');
-        this.exceptionalChainType = '122';
-      }
-      var nextChain, i;
-      switch (this.exceptionalChainType) {
-        case '': // Normal Case
-          do {
-            this.evolutionChain.push([
-              chain['species']['name'], // 0
-              this.getIdfromURL(chain['species']['url']), // 1
-              chain['is_baby'], // 2
-              chain['evolution_details'] // 3
-            ]);
-            chain = chain['evolves_to'][0];
-          } while (chain !== undefined);
-          break;
-        case '112':
-          nextChain = chain;
+    const evoID = this.pokemon.evolutionChainURL.replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/evolution-chain\/(\d+)\//, '$2');
+    const response = this.pokemonService.evolutionChains[evoID - 1];
+    // this.pokemonService.getEvoChainByURL(this.pokemon.evolutionChainURL).subscribe((response) => {
+    this.evolutionChain = [];
+    let chain = response['chain'];
+    if (this.evolutionChainExceptions_112.indexOf(chain['species']['name']) > -1) {
+      this.exceptionalChainType = '112';
+    } else if (this.evolutionChainExceptions_12.indexOf(chain['species']['name']) > -1) {
+      // console.log('excep 12');
+      this.exceptionalChainType = '12';
+    } else if (this.evolutionChainExceptions_13.indexOf(chain['species']['name']) > -1) {
+      // console.log('excep 13');
+      this.exceptionalChainType = '13';
+    } else if (this.evolutionChainExceptions_18.indexOf(chain['species']['name']) > -1) {
+      // console.log('excep 18');
+      this.exceptionalChainType = '18';
+    } else if (this.evolutionChainExceptions_122.indexOf(chain['species']['name']) > -1) {
+      // console.log('excep 122');
+      this.exceptionalChainType = '122';
+    }
+    var nextChain, i;
+    switch (this.exceptionalChainType) {
+      case '': // Normal Case
+        do {
           this.evolutionChain.push([
-            nextChain['species']['name'], // 0
-            this.getIdfromURL(nextChain['species']['url']), // 1
-            nextChain['is_baby'], // 2
-            nextChain['evolution_details'] // 3
+            chain['species']['name'], // 0
+            this.getIdfromURL(chain['species']['url']), // 1
+            chain['is_baby'], // 2
+            chain['evolution_details'] // 3
           ]);
-          nextChain = chain['evolves_to'][0];
-          this.evolutionChain.push([
-            nextChain['species']['name'], // 0
-            this.getIdfromURL(nextChain['species']['url']), // 1
-            nextChain['is_baby'], // 2
-            nextChain['evolution_details'] // 3
-          ]);
-          this.evolutionChain[2] = [];
-          i = 0;
-          while (chain['evolves_to'][0]['evolves_to'][i] !== undefined) {
-            nextChain = chain['evolves_to'][0]['evolves_to'][i];
-            this.evolutionChain[2].push([
-              nextChain['species']['name'], // 0
-              this.getIdfromURL(nextChain['species']['url']), // 1
-              nextChain['is_baby'], // 2
-              nextChain['evolution_details'] // 3
-            ]);
-            i++;
-          }
-          break;
-        case '12':
-        case '13':
-        case '18':
-          nextChain = chain;
-          this.evolutionChain.push([
-            nextChain['species']['name'], // 0
-            this.getIdfromURL(nextChain['species']['url']), // 1
-            nextChain['is_baby'], // 2
-            nextChain['evolution_details'] // 3
-          ]);
-          this.evolutionChain[1] = [];
-          i = 0;
-          while (chain['evolves_to'][i] !== undefined) {
-            nextChain = chain['evolves_to'][i];
-            this.evolutionChain[1].push([
-              nextChain['species']['name'], // 0
-              this.getIdfromURL(nextChain['species']['url']), // 1
-              nextChain['is_baby'], // 2
-              nextChain['evolution_details'] // 3
-            ]);
-            i++;
-          }
-          break;
-        case '122':
-          nextChain = chain;
-          this.evolutionChain.push([
-            nextChain['species']['name'], // 0
-            this.getIdfromURL(nextChain['species']['url']), // 1
-            nextChain['is_baby'], // 2
-            nextChain['evolution_details'] // 3
-          ]);
-          this.evolutionChain[1] = [];
-          nextChain = chain['evolves_to'][0]; // silcoon
-          this.evolutionChain[1].push([
-            nextChain['species']['name'], // 0
-            this.getIdfromURL(nextChain['species']['url']), // 1
-            nextChain['is_baby'], // 2
-            nextChain['evolution_details'] // 3
-          ]);
-          nextChain = chain['evolves_to'][1]; // cascoon
-          this.evolutionChain[1].push([
-            nextChain['species']['name'], // 0
-            this.getIdfromURL(nextChain['species']['url']), // 1
-            nextChain['is_baby'], // 2
-            nextChain['evolution_details'] // 3
-          ]);
-          this.evolutionChain[2] = [];
-          nextChain = chain['evolves_to'][0]['evolves_to'][0]; // Beautifly
+          chain = chain['evolves_to'][0];
+        } while (chain !== undefined);
+        break;
+      case '112':
+        nextChain = chain;
+        this.evolutionChain.push([
+          nextChain['species']['name'], // 0
+          this.getIdfromURL(nextChain['species']['url']), // 1
+          nextChain['is_baby'], // 2
+          nextChain['evolution_details'] // 3
+        ]);
+        nextChain = chain['evolves_to'][0];
+        this.evolutionChain.push([
+          nextChain['species']['name'], // 0
+          this.getIdfromURL(nextChain['species']['url']), // 1
+          nextChain['is_baby'], // 2
+          nextChain['evolution_details'] // 3
+        ]);
+        this.evolutionChain[2] = [];
+        i = 0;
+        while (chain['evolves_to'][0]['evolves_to'][i] !== undefined) {
+          nextChain = chain['evolves_to'][0]['evolves_to'][i];
           this.evolutionChain[2].push([
             nextChain['species']['name'], // 0
             this.getIdfromURL(nextChain['species']['url']), // 1
             nextChain['is_baby'], // 2
             nextChain['evolution_details'] // 3
           ]);
-          nextChain = chain['evolves_to'][1]['evolves_to'][0]; // Dustox
-          this.evolutionChain[2].push([
+          i++;
+        }
+        break;
+      case '12':
+      case '13':
+      case '18':
+        nextChain = chain;
+        this.evolutionChain.push([
+          nextChain['species']['name'], // 0
+          this.getIdfromURL(nextChain['species']['url']), // 1
+          nextChain['is_baby'], // 2
+          nextChain['evolution_details'] // 3
+        ]);
+        this.evolutionChain[1] = [];
+        i = 0;
+        while (chain['evolves_to'][i] !== undefined) {
+          nextChain = chain['evolves_to'][i];
+          this.evolutionChain[1].push([
             nextChain['species']['name'], // 0
             this.getIdfromURL(nextChain['species']['url']), // 1
             nextChain['is_baby'], // 2
             nextChain['evolution_details'] // 3
           ]);
-      }
-      // console.log(this.evolutionChain);
-      this.generateEvolutionMethods();
-    });
+          i++;
+        }
+        break;
+      case '122':
+        nextChain = chain;
+        this.evolutionChain.push([
+          nextChain['species']['name'], // 0
+          this.getIdfromURL(nextChain['species']['url']), // 1
+          nextChain['is_baby'], // 2
+          nextChain['evolution_details'] // 3
+        ]);
+        this.evolutionChain[1] = [];
+        nextChain = chain['evolves_to'][0]; // silcoon
+        this.evolutionChain[1].push([
+          nextChain['species']['name'], // 0
+          this.getIdfromURL(nextChain['species']['url']), // 1
+          nextChain['is_baby'], // 2
+          nextChain['evolution_details'] // 3
+        ]);
+        nextChain = chain['evolves_to'][1]; // cascoon
+        this.evolutionChain[1].push([
+          nextChain['species']['name'], // 0
+          this.getIdfromURL(nextChain['species']['url']), // 1
+          nextChain['is_baby'], // 2
+          nextChain['evolution_details'] // 3
+        ]);
+        this.evolutionChain[2] = [];
+        nextChain = chain['evolves_to'][0]['evolves_to'][0]; // Beautifly
+        this.evolutionChain[2].push([
+          nextChain['species']['name'], // 0
+          this.getIdfromURL(nextChain['species']['url']), // 1
+          nextChain['is_baby'], // 2
+          nextChain['evolution_details'] // 3
+        ]);
+        nextChain = chain['evolves_to'][1]['evolves_to'][0]; // Dustox
+        this.evolutionChain[2].push([
+          nextChain['species']['name'], // 0
+          this.getIdfromURL(nextChain['species']['url']), // 1
+          nextChain['is_baby'], // 2
+          nextChain['evolution_details'] // 3
+        ]);
+    }
+    // console.log(this.evolutionChain);
+    this.generateEvolutionMethods();
+    // });
   }
 
   generateEvolutionMethods() {

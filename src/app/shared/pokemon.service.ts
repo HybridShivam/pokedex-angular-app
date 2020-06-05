@@ -22,9 +22,11 @@ export class PokemonService {
   isMobile;
   movesDetails;
   machineDetails;
+  evolutionChains;
   @Output() searchItemSubject: Subject<string> = new Subject<string>();
 
   constructor(private http: HttpClient, private _notifications: NotificationsService) {
+    this.getEvoChainFromJSON();
     this.getMoveDetailsFromCSV();
     this.getMachinesFromCSV();
     // Check Online Connectivity
@@ -302,6 +304,15 @@ export class PokemonService {
         error => {
           console.log(error);
         });
+  }
+
+  getEvoChainFromJSON() {
+    this.http.get('assets/data/evolution-chain.json').subscribe(
+      (response) => {
+        this.evolutionChains = response['evolution-chains'];
+        console.log(this.evolutionChains);
+      }
+    );
   }
 
   createOnline$() {
