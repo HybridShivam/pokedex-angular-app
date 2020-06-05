@@ -1265,7 +1265,8 @@
   background-color: #607d8b;
   box-shadow: 0 0 20px #607d8b;
 }
-.damage-icon{
+
+.damage-icon {
   max-width: 33px;
 }
 
@@ -1356,7 +1357,7 @@
   .GameVersions .col {
     flex-basis: 16% !important;
   }
-  .MovesTable{
+  .MovesTable {
     padding-bottom: 3rem;
     padding-left: 0;
     padding-right: 0;
@@ -1364,16 +1365,35 @@
     margin-right: 0;
     width: 100%;
     max-width: 100%;
-    .col{
+
+    .col {
       padding-right: 0;
       padding-left: 0;
     }
-    td{
-      .damage-icon{
+
+    td {
+      .damage-icon {
         max-width: 28px;
       }
+
       padding-right: 0;
       padding-left: 0;
+    }
+  }
+  .scrollableTable {
+    thead, tbody {
+      .firstCol {
+        flex: 0 0 16.6666666666%;
+        max-width: 16.6666666666%;
+      }
+
+      .secondCol {
+
+      }
+
+      .generationCol {
+        display: none;
+      }
     }
   }
 }
