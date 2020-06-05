@@ -1388,10 +1388,11 @@
       }
 
       .secondCol {
-
+        flex: 0 0 41.66666666666%;
+        max-width: 41.66666666666%;
       }
 
-      .generationCol {
+      .generationCol, .priorityCol {
         display: none;
       }
     }

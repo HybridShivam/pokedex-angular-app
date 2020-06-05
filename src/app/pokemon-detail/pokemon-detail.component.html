@@ -1385,12 +1385,13 @@
               <thead>
               <tr>
                 <th scope="col" class="col-1 firstCol">{{selectedMove === 'level-up' ? 'Level' : 'TM/HM'}}</th>
-                <th scope="col" class="col-5 secondCol">Move</th>
+                <th scope="col" class="col-4 secondCol">Move</th>
                 <th scope="col" class="col-1">Type</th>
                 <th scope="col" class="col-1">Category</th>
                 <th scope="col" class="col-1">Power</th>
                 <th scope="col" class="col-1">PP</th>
-                <th scope="col" class="col-1">Acc.</th>
+                <th scope="col" class="col-1">Accuracy</th>
+                <th scope="col" class="col-1 priorityCol">Priority</th>
                 <th scope="col" class="col-1 generationCol">Gen</th>
               </tr>
               </thead>
@@ -1400,7 +1401,7 @@
                     [ngClass]="{'disableClicking':moveDetails.length===0&&movesList.length!==0}">
                   <td class="col-1 firstCol">{{selectedMove === 'machine' ? moveMachineNos[i] : move[1]}}</td>
                   <!--                  <td class="col-1">{{fetchMachineDetailsFromCSVData(move[2].id, selectedGameVersion)}}</td>-->
-                  <td class="col-5 secondCol text-truncate">{{move[0]}}</td>
+                  <td class="col-4 secondCol text-truncate">{{move[0]}}</td>
                   <td class="col-1">
                     <div class="moveTypes" style="padding: 0;">
                       <ng-container [ngSwitch]="move[2].type_id">
@@ -1434,6 +1435,7 @@
                   <td class="col-1">{{move[2].power}}</td>
                   <td class="col-1">{{move[2].pp}}</td>
                   <td class="col-1">{{move[2].accuracy}}</td>
+                  <td class="col-1 priorityCol">{{move[2].priority}}</td>
                   <td class="col-1 generationCol">{{move[2].generation_id}}</td>
                 </tr>
               </ng-container>

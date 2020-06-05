@@ -708,7 +708,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   abilitySelect(no: number) {
     this.abilitySelected = no;
     this.unavailableAbilityText = '';
-    if (!this.availableInSelectedGen(this.abilities[no]['generation']['name'])) {
+    if (['red-blue', 'yellow', 'gold-silver', 'crystal'].indexOf(this.selectedGameVersion) !== -1) {
+      this.unavailableAbilityText = 'Abilities were introduced in Generation III Games!';
+    } else if (!this.availableInSelectedGen(this.abilities[no]['generation']['name'])) {
       this.unavailableAbilityText = 'This ability didn\'t exist in the selected Games!';
     } else {
       for (const entry of this.abilities[no]['flavor_text_entries']) {
