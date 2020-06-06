@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
     // );
   }
 
-  constructor(private pokemonService: PokemonService, private meta: Meta, private lc: NgZone, private _location: Location) {
+  constructor(public pokemonService: PokemonService, private meta: Meta, private lc: NgZone, private _location: Location) {
   }
 
   // toggleSidebar() {

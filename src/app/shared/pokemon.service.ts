@@ -23,12 +23,17 @@ export class PokemonService {
   movesDetails;
   machineDetails;
   evolutionChains;
+  pokemonSpecies;
+  moveJSON;
   @Output() searchItemSubject: Subject<string> = new Subject<string>();
 
   constructor(private http: HttpClient, private _notifications: NotificationsService) {
     this.getEvoChainFromJSON();
     this.getMoveDetailsFromCSV();
     this.getMachinesFromCSV();
+    // this.getPokemonSpeciesFromJSON();
+    // this.getPokemonFromJSON();
+    this.getMovesFromJSON();
     // Check Online Connectivity
     this.createOnline$().subscribe(isOnline => {
       console.log('Online : ' + isOnline);
@@ -311,6 +316,32 @@ export class PokemonService {
       (response) => {
         this.evolutionChains = response['evolution-chains'];
         console.log(this.evolutionChains);
+      }
+    );
+  }
+
+  getPokemonSpeciesFromJSON() {
+    this.http.get('assets/data/pokemon-species.json').subscribe(
+      (response) => {
+        this.pokemonSpecies = response['pokemon-species'];
+        // console.log(this.pokemonSpecies);
+      }
+    );
+  }
+  getPokemonFromJSON() {
+    this.http.get('assets/data/pokemon.json').subscribe(
+      (response) => {
+        this.pokemonSpecies = response['pokemon'];
+        // console.log(this.pokemonSpecies);
+      }
+    );
+  }
+
+  getMovesFromJSON() {
+    this.http.get('assets/data/move.json').subscribe(
+      (response) => {
+        this.moveJSON = response['moves'];
+        console.log(this.moveJSON);
       }
     );
   }

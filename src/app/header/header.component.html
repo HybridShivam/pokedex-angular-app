@@ -55,6 +55,7 @@
                 style="padding: 4px; font-size: larger">CONTACT</span>
           <p style="padding-top: 6px;white-space: pre-wrap"><a href="">Github Repository.</a>
             <br>Report any bugs <a href="mailto:shivamunlimited@gmail.com">here</a>.</p>
+          <p *ngIf="pokemonService.moveJSON!==undefined"><ng-container *ngFor="let move of pokemonService.moveJSON">{{move['name']}}</ng-container></p>
         </div>
         <div class="modal-footer justify-content-center">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
