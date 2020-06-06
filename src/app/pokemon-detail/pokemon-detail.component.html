@@ -1753,10 +1753,10 @@
                        src="assets/damage-category-icons/{{getDamageClass(movesList[currentMoveID][2].damage_class_id)}}-white.png"
                        style="width: 80%;margin-left: 0;margin-right: 2px;"></span>
                 </div>
-                <ng-container *ngIf="currentMoveData['contest_type']!==null">
-                  <div class="row icon water moveDetails {{currentMoveData['contest_type']['name']}}"><span
+                <ng-container *ngIf="movesList[currentMoveID][2].contest_type_id!=='-'">
+                  <div class="row icon water moveDetails {{moveContestType[movesList[currentMoveID][2].contest_type_id-1]}}"><span
                     class="col-12 text-white text-capitalize"
-                    style="align-self: center">{{currentMoveData['contest_type']['name']}}</span>
+                    style="align-self: center">{{moveContestType[movesList[currentMoveID][2].contest_type_id-1]}}</span>
                   </div>
                 </ng-container>
               </div>

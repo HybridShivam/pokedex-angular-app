@@ -279,6 +279,7 @@ export class PokemonService {
             }
             this.movesDetails.push(move);
           }
+          console.log(this.movesDetails);
           console.log('moves.csv Read Complete');
         },
         error => {
@@ -315,7 +316,7 @@ export class PokemonService {
     this.http.get('assets/data/evolution-chain.json').subscribe(
       (response) => {
         this.evolutionChains = response['evolution-chains'];
-        console.log(this.evolutionChains);
+        // console.log(this.evolutionChains);
       }
     );
   }
@@ -328,6 +329,7 @@ export class PokemonService {
       }
     );
   }
+
   getPokemonFromJSON() {
     this.http.get('assets/data/pokemon.json').subscribe(
       (response) => {

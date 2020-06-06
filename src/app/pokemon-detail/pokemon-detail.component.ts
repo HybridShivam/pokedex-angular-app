@@ -313,6 +313,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   moveFlavorTextEntry;
   moveShortEffect;
   moveEffect;
+  moveContestType = ['cool', 'beauty', 'cute', 'smart', 'tough'];
 
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
@@ -943,7 +944,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.exceptionalChainType = '';
     // console.log(this.pokemon.evolutionChainURL);
     const evoID = this.pokemon.evolutionChainURL.replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/evolution-chain\/(\d+)\//, '$2');
-    console.log(evoID-1);
+    console.log(evoID - 1);
     const response = this.pokemonService.evolutionChains[evoID - 1];
     // this.pokemonService.getEvoChainByURL(this.pokemon.evolutionChainURL).subscribe((response) => {
     this.evolutionChain = [];
@@ -1380,7 +1381,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     if (this.delayMovesListLoad) {
       setTimeout(() => {
         this.getMovesLogic(version);
-      }, 1000);
+      }, 2000);
     } else {
       this.getMovesLogic(version);
     }
@@ -1635,40 +1636,49 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.moveEggDetails = [];
     this.moveTutorDetails = [];
     for (const move of this.levelUpMovesList) {
-      moveRequests[0].push(this.pokemonService.getMoveByURL(move[3]));
+      const moveID = move[3].replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/move\/(\d+)\//, '$2');
+      this.moveLevelDetails.push(this.pokemonService.moveJSON[moveID - 1]);
+      // moveRequests[0].push(this.pokemonService.getMoveByURL(move[3]));
     }
     for (const move of this.machineMovesList) {
-      moveRequests[1].push(this.pokemonService.getMoveByURL(move[3]));
+      const moveID = move[3].replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/move\/(\d+)\//, '$2');
+      this.moveMachineDetails.push(this.pokemonService.moveJSON[moveID - 1]);
+      this.getAndAddMachineNo(this.pokemonService.moveJSON[moveID - 1]['machines']);
+      // moveRequests[1].push(this.pokemonService.getMoveByURL(move[3]));
     }
     for (const move of this.eggMovesList) {
-      moveRequests[2].push(this.pokemonService.getMoveByURL(move[3]));
+      const moveID = move[3].replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/move\/(\d+)\//, '$2');
+      this.moveEggDetails.push(this.pokemonService.moveJSON[moveID - 1]);
+      // moveRequests[2].push(this.pokemonService.getMoveByURL(move[3]));
     }
     for (const move of this.tutorMovesList) {
-      moveRequests[3].push(this.pokemonService.getMoveByURL(move[3]));
+      const moveID = move[3].replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/move\/(\d+)\//, '$2');
+      this.moveTutorDetails.push(this.pokemonService.moveJSON[moveID - 1]);
+      // moveRequests[3].push(this.pokemonService.getMoveByURL(move[3]));
     }
-    forkJoin(moveRequests[0]).subscribe(results => {
-      for (const result of results) {
-        this.moveLevelDetails.push(result);
-      }
-    });
-    forkJoin(moveRequests[1]).subscribe(results => {
-      this.moveMachineNos = [];
-      for (const result of results) {
-        this.moveMachineDetails.push(result);
-        this.getAndAddMachineNo(result['machines']);
-      }
-      // console.log(this.moveMachineNos);
-    });
-    forkJoin(moveRequests[2]).subscribe(results => {
-      for (const result of results) {
-        this.moveEggDetails.push(result);
-      }
-    });
-    forkJoin(moveRequests[3]).subscribe(results => {
-      for (const result of results) {
-        this.moveTutorDetails.push(result);
-      }
-    });
+    // forkJoin(moveRequests[0]).subscribe(results => {
+    //   for (const result of results) {
+    //     this.moveLevelDetails.push(result);
+    //   }
+    // });
+    // forkJoin(moveRequests[1]).subscribe(results => {
+    //   this.moveMachineNos = [];
+    //   for (const result of results) {
+    //     this.moveMachineDetails.push(result);
+    //     this.getAndAddMachineNo(result['machines']);
+    //   }
+    //   // console.log(this.moveMachineNos);
+    // });
+    // forkJoin(moveRequests[2]).subscribe(results => {
+    //   for (const result of results) {
+    //     this.moveEggDetails.push(result);
+    //   }
+    // });
+    // forkJoin(moveRequests[3]).subscribe(results => {
+    //   for (const result of results) {
+    //     this.moveTutorDetails.push(result);
+    //   }
+    // });
     console.log('Selected Moves: ' + this.selectedMove);
     switch (this.selectedMove) {
       case 'level-up':
