@@ -1644,10 +1644,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.currentMoveData = this.moveDetails[id];
     this.currentMoveID = id;
     if (this.currentMoveData['effect_chance'] !== null) {
-      this.moveShortEffect = this.currentMoveData['effect_entries']['short_effect'].replace('$effect_chance',
-        this.currentMoveData['effect_chance']);
-      this.moveEffect = this.currentMoveData['effect_entries']['effect'].replace('$effect_chance',
-        this.currentMoveData['effect_chance']);
+      this.moveShortEffect = this.currentMoveData['effect_entries']['short_effect'].replace(/\$effect_chance/g,
+        this.movesList[id][2].effect_chance);
+      this.moveEffect = this.currentMoveData['effect_entries']['effect'].replace(/\$effect_chance/g,
+        this.movesList[id][2].effect_chance);
     } else {
       this.moveShortEffect = this.currentMoveData['effect_entries']['short_effect'];
       this.moveEffect = this.currentMoveData['effect_entries']['effect'];
@@ -1669,6 +1669,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.moveDetails = [];
     this.moveLevelDetails = [];
     this.moveMachineDetails = [];
+    this.moveMachineNos = [];
     this.moveEggDetails = [];
     this.moveTutorDetails = [];
     for (const move of this.levelUpMovesList) {
@@ -1733,14 +1734,16 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   getAndAddMachineNo(machines) {
-    if (machines[this.versions[this.selectedGameVersion]] !== undefined) {
-      this.moveMachineNos.push(this.fetchMachineNumberFromCSVData(machines[this.versions[this.selectedGameVersion]]));
-    }
+    // if (machines[this.versions[this.selectedGameVersion]] !== undefined) {
+    console.log('MachineID' + machines[this.versions[this.selectedGameVersion]]);
+    this.moveMachineNos.push(this.fetchMachineNumberFromCSVData(machines[this.versions[this.selectedGameVersion]]));
+    // }
   }
 
   fetchMachineNumberFromCSVData(machineID) {
     // const machineID = machineURL.replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/machine\/(\d+)\//, '$2');
     const machineNumber = this.pokemonService.machineDetails[machineID - 1].machine_number;
+    console.log(machineNumber);
     return +machineNumber <= 100 ? 'TM' + this.pad(machineNumber, 2)
       : 'HM' + this.pad(machineNumber - 100, 2);
   }
