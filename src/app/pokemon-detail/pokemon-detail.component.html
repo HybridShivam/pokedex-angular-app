@@ -1682,7 +1682,7 @@
               </div>
               <hr style="margin-top: 0;margin-bottom: 10px">
               <div style="padding: 0;flex-wrap: nowrap;display: flex;justify-content: center">
-                <ng-container [ngSwitch]="currentMoveData['type']['name']">
+                <ng-container [ngSwitch]="typeFromID[movesList[currentMoveID][2].type_id-1]">
                   <div class="row icon bug moveDetails" *ngSwitchCase="'bug'"><span
                     class="col-8 text-white">Bug</span><span
                     class="col-4"><img class="img-fluid" src="assets/type-icons/png/bug.png"></span></div>

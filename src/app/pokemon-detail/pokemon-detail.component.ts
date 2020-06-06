@@ -166,6 +166,49 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     {'name': 'dark', 'immunes': [], 'weaknesses': ['fighting', 'dark', 'fairy'], 'strengths': ['psychic', 'ghost']},
     {'name': 'steel', 'immunes': [], 'weaknesses': ['fire', 'water', 'electric', 'steel'], 'strengths': ['ice', 'rock', 'fairy']},
     {'name': 'fairy', 'immunes': [], 'weaknesses': ['fire', 'poison', 'steel'], 'strengths': ['fighting', 'dragon', 'dark']}];
+  // types = {
+  //   'normal': 1,
+  //   'fighting': 2,
+  //   'flying': 3,
+  //   'poison': 4,
+  //   'ground': 5,
+  //   'rock': 6,
+  //   'bug': 7,
+  //   'ghost': 8,
+  //   'steel': 9,
+  //   'fire': 10,
+  //   'water': 11,
+  //   'grass': 12,
+  //   'electric': 13,
+  //   'psychic': 14,
+  //   'ice': 15,
+  //   'dragon': 16,
+  //   'dark': 17,
+  //   'fairy': 18,
+  //   'unknown': 19,
+  //   'shadow': 20
+  // };
+  typeFromID = [
+    'normal',
+    'fighting',
+    'flying',
+    'poison',
+    'ground',
+    'rock',
+    'bug',
+    'ghost',
+    'steel',
+    'fire',
+    'water',
+    'grass',
+    'electric',
+    'psychic',
+    'ice',
+    'dragon',
+    'dark',
+    'fairy',
+    'unknown',
+    'shadow'];
 
   genderDifferences = {
     '003': 'Female\'s flower has a seed in it',
@@ -1479,13 +1522,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     return this.pokemonService.movesDetails[moveID - 1];
   }
 
-  fetchMachineNumberFromCSVData(machineURL) {
-    const machineID = machineURL.replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/machine\/(\d+)\//, '$2');
-    const machineNumber = this.pokemonService.machineDetails[machineID - 1].machine_number;
-    return +machineNumber <= 100 ? 'TM' + this.pad(machineNumber, 2)
-      : 'HM' + this.pad(machineNumber - 100, 2);
-  }
-
   fetchMachineDetailsFromCSVDataSlow(moveID, versionID) {
     for (const machine of this.pokemonService.machineDetails) {
       if (machine.move_id == moveID && machine.version_group_id == versionID) {
@@ -1608,23 +1644,23 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.currentMoveData = this.moveDetails[id];
     this.currentMoveID = id;
     if (this.currentMoveData['effect_chance'] !== null) {
-      this.moveShortEffect = this.currentMoveData['effect_entries'][0]['short_effect'].replace('$effect_chance',
+      this.moveShortEffect = this.currentMoveData['effect_entries']['short_effect'].replace('$effect_chance',
         this.currentMoveData['effect_chance']);
-      this.moveEffect = this.currentMoveData['effect_entries'][0]['effect'].replace('$effect_chance',
+      this.moveEffect = this.currentMoveData['effect_entries']['effect'].replace('$effect_chance',
         this.currentMoveData['effect_chance']);
     } else {
-      this.moveShortEffect = this.currentMoveData['effect_entries'][0]['short_effect'];
-      this.moveEffect = this.currentMoveData['effect_entries'][0]['effect'];
+      this.moveShortEffect = this.currentMoveData['effect_entries']['short_effect'];
+      this.moveEffect = this.currentMoveData['effect_entries']['effect'];
     }
     if (this.selectedGameVersion === 'red-blue' || this.selectedGameVersion === 'yellow') {
       this.moveFlavorTextEntry = 'Selected games had no flavor text entries!';
     } else {
-      for (const entry of this.currentMoveData['flavor_text_entries']) {
-        if (entry['language']['name'] === 'en' && entry['version_group']['name'] === this.selectedGameVersion) {
-          this.moveFlavorTextEntry = entry['flavor_text'];
-          break;
-        }
+      // for (const entry of this.currentMoveData['flavor_text_entries']) {
+      if (this.currentMoveData['flavor_text_entries'][this.versions[this.selectedGameVersion]] !== undefined) {
+        this.moveFlavorTextEntry = this.currentMoveData['flavor_text_entries'][this.versions[this.selectedGameVersion]];
+        // break;
       }
+      // }
     }
   }
 
@@ -1697,12 +1733,16 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   getAndAddMachineNo(machines) {
-    for (const machine of machines) {
-      if (machine['version_group']['name'] === this.selectedGameVersion) {
-        this.moveMachineNos.push(this.fetchMachineNumberFromCSVData(machine['machine']['url']));
-        break;
-      }
+    if (machines[this.versions[this.selectedGameVersion]] !== undefined) {
+      this.moveMachineNos.push(this.fetchMachineNumberFromCSVData(machines[this.versions[this.selectedGameVersion]]));
     }
+  }
+
+  fetchMachineNumberFromCSVData(machineID) {
+    // const machineID = machineURL.replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/machine\/(\d+)\//, '$2');
+    const machineNumber = this.pokemonService.machineDetails[machineID - 1].machine_number;
+    return +machineNumber <= 100 ? 'TM' + this.pad(machineNumber, 2)
+      : 'HM' + this.pad(machineNumber - 100, 2);
   }
 
   capitalizeSplitJoin(str, split: string, join: string) {
