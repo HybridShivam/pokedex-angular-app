@@ -1555,7 +1555,7 @@
           <div class="">
             <div class="text-center">
               <div class="row" style="margin-top: 20px">
-                <h5 class="col-12 text-uppercase text-center">{{abilities[abilitySelected]['name']}}</h5>
+                <h5 class="col-12 text-uppercase text-center">{{pokemon.abilities[abilitySelected]['ability']['name']}}</h5>
               </div>
               <span class="{{pokemon.color}} rounded justify-content-center" style="padding: 4px 6px"
                     *ngIf="pokemon.abilities[abilitySelected]!=undefined&&pokemon.abilities[abilitySelected]['is_hidden']">HIDDEN</span>

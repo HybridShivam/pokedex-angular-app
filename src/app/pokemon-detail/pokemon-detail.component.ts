@@ -324,25 +324,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   selectedMoveFirstColHeader = {'level-up': 'Level', 'machine': '#', 'egg': '-', 'tutor': '-'};
 
   selectedGameVersion = 'ultra-sun-ultra-moon';
+
   versions = {
-    'red-blue': 1,
-    'yellow': 2,
-    'gold-silver': 3,
-    'crystal': 4,
-    'ruby-sapphire': 5,
-    'emerald': 6,
-    'firered-leafgreen': 9,
-    'diamond-pearl': 10,
-    'platinum': 11,
-    'heartgold-soulsilver': 12,
-    'black-white': 13,
-    'colosseum': 7,
-    'xd': 8,
-    'black-2-white-2': 14,
-    'x-y': 15,
-    'omega-ruby-alpha-sapphire': 16,
-    'sun-moon': 17,
-    'ultra-sun-ultra-moon': 18
+    'red-blue': 1, 'yellow': 2, 'gold-silver': 3, 'crystal': 4, 'ruby-sapphire': 5, 'emerald': 6,
+    'firered-leafgreen': 7, 'diamond-pearl': 8, 'platinum': 9, 'heartgold-soulsilver': 10, 'black-white': 11, 'colosseum': 12,
+    'xd': 13, 'black-2-white-2': 14, 'x-y': 15, 'omega-ruby-alpha-sapphire': 16, 'sun-moon': 17, 'ultra-sun-ultra-moon': 18
   };
 
   currentMoveData;
@@ -987,7 +973,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.exceptionalChainType = '';
     // console.log(this.pokemon.evolutionChainURL);
     const evoID = this.pokemon.evolutionChainURL.replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/evolution-chain\/(\d+)\//, '$2');
-    console.log(evoID - 1);
     const response = this.pokemonService.evolutionChains[evoID - 1];
     // this.pokemonService.getEvoChainByURL(this.pokemon.evolutionChainURL).subscribe((response) => {
     this.evolutionChain = [];
@@ -1680,6 +1665,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     for (const move of this.machineMovesList) {
       const moveID = move[3].replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/move\/(\d+)\//, '$2');
       this.moveMachineDetails.push(this.pokemonService.moveJSON[moveID - 1]);
+      // console.log(this.pokemonService.moveJSON[moveID - 1]['machines']);
       this.getAndAddMachineNo(this.pokemonService.moveJSON[moveID - 1]['machines']);
       // moveRequests[1].push(this.pokemonService.getMoveByURL(move[3]));
     }
@@ -1716,7 +1702,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     //     this.moveTutorDetails.push(result);
     //   }
     // });
-    console.log('Selected Moves: ' + this.selectedMove);
     switch (this.selectedMove) {
       case 'level-up':
         this.moveDetails = this.moveLevelDetails;
@@ -1735,7 +1720,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   getAndAddMachineNo(machines) {
     // if (machines[this.versions[this.selectedGameVersion]] !== undefined) {
-    console.log('MachineID' + machines[this.versions[this.selectedGameVersion]]);
+    // console.log('MachineID' + machines[this.versions[this.selectedGameVersion]]);
     this.moveMachineNos.push(this.fetchMachineNumberFromCSVData(machines[this.versions[this.selectedGameVersion]]));
     // }
   }
@@ -1743,7 +1728,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   fetchMachineNumberFromCSVData(machineID) {
     // const machineID = machineURL.replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/machine\/(\d+)\//, '$2');
     const machineNumber = this.pokemonService.machineDetails[machineID - 1].machine_number;
-    console.log(machineNumber);
+    // console.log(machineNumber);
     return +machineNumber <= 100 ? 'TM' + this.pad(machineNumber, 2)
       : 'HM' + this.pad(machineNumber - 100, 2);
   }
