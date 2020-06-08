@@ -232,11 +232,11 @@
             <td>
             <span class="abilities" *ngFor="let ability of pokemon.abilities; let i=index">
               <ng-container *ngIf="i==2"><br></ng-container>
-              <span class="ability {{pokemon.color}} text-uppercase" [ngClass]="{'hiddenAbility':ability['is_hidden']}"
+              <span class="ability {{pokemon.color}} text-uppercase" [ngClass]="{'hiddenAbility':ability['isH']}"
                     role="button"
                     (click)="abilitySelect(i)" style="white-space:nowrap;"
                     [ngStyle]="{'display':i==2?'inline-block':'unset','margin-top':i==2?'5px':'0px'}"
-                    data-toggle="modal" data-target="#abilityModal">{{ability['ability']['name']}}</span>
+                    data-toggle="modal" data-target="#abilityModal">{{ability['n']}}</span>
           </span>
             </td>
           </tr>
@@ -245,7 +245,7 @@
             <td>
               <div class="row" style="flex-wrap: nowrap">
                 <div class="text-capitalize" *ngFor="let type of pokemon.types">
-                  <ng-container [ngSwitch]="type['type']['name']">
+                  <ng-container [ngSwitch]="type['n']">
                     <div class="row icon bug" *ngSwitchCase="'bug'"><span class="col-8 text-white">Bug</span><span
                       class="col-4"><img class="img-fluid" src="assets/type-icons/png/bug.png"></span></div>
                     <div class="row icon dark" *ngSwitchCase="'dark'"><span class="col-8 text-white">Dark</span><span
@@ -1042,30 +1042,30 @@
             <tr>
               <td class="text-right font-weight-bold">EV yield</td>
               <td>
-                <span *ngIf="pokemon.stats[5]['effort']!==0"><span
-                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[5]['effort']}}</span> HP </span>
-                <span *ngIf="pokemon.stats[4]['effort']!==0"><span
-                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[4]['effort']}}</span> Attack </span>
-                <span *ngIf="pokemon.stats[3]['effort']!==0"><span
-                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[3]['effort']}}</span> Defence </span>
-                <span *ngIf="pokemon.stats[2]['effort']!==0"><span
-                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[2]['effort']}}</span> Sp. Attack </span>
-                <span *ngIf="pokemon.stats[1]['effort']!==0"><span
-                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[1]['effort']}}</span> Sp. Defence </span>
-                <span *ngIf="pokemon.stats[0]['effort']!==0"><span
-                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[0]['effort']}}</span> Speed </span>
+                <span *ngIf="pokemon.stats[0]['EV']!==0"><span
+                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[0]['EV']}}</span> HP </span>
+                <span *ngIf="pokemon.stats[1]['EV']!==0"><span
+                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[1]['EV']}}</span> Attack </span>
+                <span *ngIf="pokemon.stats[2]['EV']!==0"><span
+                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[2]['EV']}}</span> Defence </span>
+                <span *ngIf="pokemon.stats[3]['EV']!==0"><span
+                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[3]['EV']}}</span> Sp. Attack </span>
+                <span *ngIf="pokemon.stats[4]['EV']!==0"><span
+                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[4]['EV']}}</span> Sp. Defence </span>
+                <span *ngIf="pokemon.stats[5]['EV']!==0"><span
+                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[5]['EV']}}</span> Speed </span>
               </td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Catch Rate</td>
               <td><span
-                class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['capture_rate']}}</span>{{" (" + calculateCatchRate(pokemon.speciesDetails['capture_rate']) + ")"}}
+                class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['CaR']}}</span>{{" (" + calculateCatchRate(pokemon.speciesDetails['CaR']) + ")"}}
               </td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Base Friendship</td>
               <td><span
-                class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['base_happiness']}}</span>{{' (' + getFriendShip(pokemon.speciesDetails['base_happiness']) + ')'}}
+                class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['BaH']}}</span>{{' (' + getFriendShip(pokemon.speciesDetails['BaH']) + ')'}}
               </td>
             </tr>
             <tr>
@@ -1075,8 +1075,8 @@
             <tr>
               <td class="text-right font-weight-bold">Growth Rate</td>
               <td><span
-                class="{{pokemon.color+'-text'}}">{{capitalizeSplitJoin(pokemon.speciesDetails['growth_rate']['name'], '-', ' ')}}</span>
-                {{" (" + getExperiencePoints(pokemon.speciesDetails['growth_rate']['name']) + ' Exp.)'}}</td>
+                class="{{pokemon.color+'-text'}}">{{capitalizeSplitJoin(pokemon.speciesDetails['GrR'], '-', ' ')}}</span>
+                {{" (" + getExperiencePoints(pokemon.speciesDetails['GrR']) + ' Exp.)'}}</td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Held Items</td>
@@ -1084,7 +1084,7 @@
                 <span
                   class="d-block"
                   *ngFor="let heldItem of pokemon.heldItems"><span
-                  class="{{pokemon.color+'-text'}}">{{capitalizeSplitJoin(heldItem['item']['name'], '-', ' ')}}</span>{{' (' + heldItem['version_details'][0]['rarity'] + '%) '}}</span>
+                  class="{{pokemon.color+'-text'}}">{{capitalizeSplitJoin(heldItem['n'], '-', ' ')}}</span>{{' (' + heldItem['%'] + '%) '}}</span>
               </td>
             </tr>
           </table>
@@ -1098,8 +1098,8 @@
             <tr>
               <td class="text-right font-weight-bold">Egg Groups</td>
               <td class="text-capitalize" class="{{pokemon.color+'-text'}}">
-                <ng-container *ngFor="let eggGroup of pokemon.speciesDetails['egg_groups']">
-                  {{capitalizeSplitJoin(eggGroup['name'], '-', ' ')}}</ng-container>
+                <ng-container *ngFor="let eggGroup of pokemon.speciesDetails['EgG']">
+                  {{capitalizeSplitJoin(eggGroup, '-', ' ')}}</ng-container>
               </td>
             </tr>
             <tr>
@@ -1108,8 +1108,8 @@
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Egg Cycles</td>
-              <td><span class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['hatch_counter']}}
-              </span>{{" (" + pokemon.speciesDetails['hatch_counter'] * 256 + " Steps)"}}</td>
+              <td><span class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['HaC']}}
+              </span>{{" (" + pokemon.speciesDetails['HaC'] * 256 + " Steps)"}}</td>
             </tr>
           </table>
           <h1 class="Heading text-center text-uppercase">Forms</h1>
@@ -1123,9 +1123,9 @@
             <tr>
               <td class="text-right font-weight-bold">Gender Differences</td>
               <td
-                class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['has_gender_differences'] == true ? 'Yes' : 'No'}}</td>
+                class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['GDi'] == true ? 'Yes' : 'No'}}</td>
             </tr>
-            <tr *ngIf="pokemon.speciesDetails['form_descriptions'].length>0">
+            <tr *ngIf="pokemon.speciesDetails['FD']!==null">
               <td colspan="2" class="text-center">
                 <span class='ColoredButton' [ngClass]="pokemon.color"
                       data-toggle="modal" data-target="#formsModal">Forms Info.</span>
@@ -1450,7 +1450,7 @@
               <tr *ngIf="movesList.length==0&&movesListLoaded==true">
                 <td class="col text-center NotFoundText" style="padding-top: 8.5rem;">
                   <ng-container
-                    *ngIf="!availableInSelectedGen(pokemon.speciesDetails['generation']['name']); else noMovesLearnt">
+                    *ngIf="!availableInSelectedGen(pokemon.speciesDetails['Gen']); else noMovesLearnt">
                     This Pokémon didn't exist
                     in the selected
                     Games!
@@ -1555,10 +1555,10 @@
           <div class="">
             <div class="text-center">
               <div class="row" style="margin-top: 20px">
-                <h5 class="col-12 text-uppercase text-center">{{pokemon.abilities[abilitySelected]['ability']['name']}}</h5>
+                <h5 class="col-12 text-uppercase text-center">{{pokemon.abilities[abilitySelected]['n']}}</h5>
               </div>
               <span class="{{pokemon.color}} rounded justify-content-center" style="padding: 4px 6px"
-                    *ngIf="pokemon.abilities[abilitySelected]!=undefined&&pokemon.abilities[abilitySelected]['is_hidden']">HIDDEN</span>
+                    *ngIf="pokemon.abilities[abilitySelected]!=undefined&&pokemon.abilities[abilitySelected]['isH']">HIDDEN</span>
             </div>
             <hr style="margin-top: 10px;margin-bottom: 5px">
           </div>
@@ -1599,12 +1599,12 @@
             <hr style="margin-top: 10px;margin-bottom: 5px">
           </div>
           <div class="modal-body justify-content-center text-center">
-            <ng-container *ngFor="let entry of pokemon.speciesDetails['flavor_text_entries']">
-              <ng-container *ngIf="entry['language']['name']==='en'">
+            <ng-container *ngFor="let entry of pokemon.speciesDetails['FTE']">
+<!--              <ng-container *ngIf="entry['language']['name']==='en'">-->
             <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
-                  style="padding: 4px; font-size: larger">Pokémon {{entry['version']['name'].replace('-', ' ')|titlecase}}</span>
-                <p style="padding-top: 6px">{{entry['flavor_text'].replace('', ' ')}}</p>
-              </ng-container>
+                  style="padding: 4px; font-size: larger">Pokémon {{entry['v'].replace('-', ' ')|titlecase}}</span>
+                <p style="padding-top: 6px">{{entry['e'].replace('', ' ')}}</p>
+<!--              </ng-container>-->
             </ng-container>
 
             <!--        <span class="{{pokemon.color}} rounded text-center font-weight-bolder"-->

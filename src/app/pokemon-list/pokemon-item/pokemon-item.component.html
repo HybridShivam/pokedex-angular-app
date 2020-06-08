@@ -9,7 +9,7 @@
         </div>
         <div class="col-xs-5 col-3" style="padding: 0;">
           <ng-container *ngFor="let type of pokemon.types">
-            <ng-container [ngSwitch]="type['type']['name']">
+            <ng-container [ngSwitch]="type['n']">
               <div class="icon bug" *ngSwitchCase="'bug'"><img src="assets/type-icons/png/bug.png"></div>
               <div class="icon dark" *ngSwitchCase="'dark'"><img src="assets/type-icons/png/dark.png"></div>
               <div class="icon dragon" *ngSwitchCase="'dragon'"><img src="assets/type-icons/png/dragon.png"></div>

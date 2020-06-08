@@ -357,24 +357,19 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.pokemonForms = [];
         this.formattedFormNames = [];
         // From List
-        if (this.pokemonService.pokemons[this.pokemonId]) {
-          const pokemonFromList = this.pokemonService.pokemons[this.pokemonId - 1];
+        if (this.pokemonService.pokemons2[this.pokemonId]) {
+          const pokemonFromList = this.pokemonService.pokemons2[this.pokemonId - 1];
           this.pokemon = new Pokemon(
             pokemonFromList.name,
             pokemonFromList.id,
-            pokemonFromList.sprite,
             pokemonFromList.types,
             pokemonFromList.abilities,
             pokemonFromList.height,
             pokemonFromList.weight,
             pokemonFromList.baseExperience,
-            pokemonFromList.forms,
             pokemonFromList.heldItems,
-            pokemonFromList.gameIndices,
             pokemonFromList.is_default,
-            pokemonFromList.location,
             pokemonFromList.moves,
-            pokemonFromList.order,
             pokemonFromList.stats,
             pokemonFromList.species,
             pokemonFromList.speciesDetails,
@@ -391,19 +386,14 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           this.pokemonForms[0] = new Pokemon(
             this.pokemon.name,
             this.pokemon.id,
-            this.pokemon.sprite,
             this.pokemon.types,
             this.pokemon.abilities,
             this.pokemon.height,
             this.pokemon.weight,
             this.pokemon.baseExperience,
-            this.pokemon.forms,
             this.pokemon.heldItems,
-            this.pokemon.gameIndices,
             this.pokemon.is_default,
-            this.pokemon.location,
             this.pokemon.moves,
-            this.pokemon.order,
             this.pokemon.stats,
             this.pokemon.species,
             this.pokemon.speciesDetails,
@@ -517,19 +507,14 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
               this.pokemon = new Pokemon(
                 name,
                 results[0]['id'],
-                results[0]['sprites'],
                 results[0]['types'],
                 results[0]['abilities'],
                 results[0]['height'],
                 results[0]['weight'],
                 results[0]['base_experience'],
-                results[0]['forms'],
                 results[0]['held_items'],
-                results[0]['game_indices'],
                 results[0]['is_default'],
-                results[0]['location'],
                 results[0]['moves'],
-                results[0]['order'],
                 results[0]['stats'],
                 results[0]['species'],
                 results[1],
@@ -548,19 +533,14 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
               this.pokemonForms[0] = new Pokemon(
                 this.pokemon.name,
                 this.pokemon.id,
-                this.pokemon.sprite,
                 this.pokemon.types,
                 this.pokemon.abilities,
                 this.pokemon.height,
                 this.pokemon.weight,
                 this.pokemon.baseExperience,
-                this.pokemon.forms,
                 this.pokemon.heldItems,
-                this.pokemon.gameIndices,
                 this.pokemon.is_default,
-                this.pokemon.location,
                 this.pokemon.moves,
-                this.pokemon.order,
                 this.pokemon.stats,
                 this.pokemon.species,
                 this.pokemon.speciesDetails,
@@ -582,9 +562,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   initializePokemonFields() {
     this.selectedEvolutionId = this.pokemon.id;
     this.selectedStat = 'base';
+    this.abilitySelected = 0;
     if (this.pokemon.varieties !== undefined &&
-      this.formColors[this.pokemon.varieties[this.selectedFormNo]['pokemon']['name']] !== undefined) {
-      this.pokemon.color = this.formColors[this.pokemon.varieties[this.selectedFormNo]['pokemon']['name']];
+      this.formColors[this.pokemon.varieties[this.selectedFormNo]['n']] !== undefined) {
+      this.pokemon.color = this.formColors[this.pokemon.varieties[this.selectedFormNo]['n']];
       this.pokemonService.activePokemon.next(this.pokemon);
     } else {
       this.pokemon.color = this.pokemonDefaultColor;
@@ -605,13 +586,14 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.heightInFeetInches = Math.floor(this.heightInMetres * 3.2808) + '"' + Math.round(((this.heightInMetres * 3.2808) % 1) * 12) + '\'';
     this.weightInKgs = (this.pokemon.weight * 0.1).toFixed(1);
     this.weightInPounds = (this.weightInKgs * 2.205).toFixed(1);
+    console.log(this.pokemonStats);
     this.pokemonStats = [
-      this.pokemon.stats[0]['base_stat'],
-      this.pokemon.stats[1]['base_stat'],
-      this.pokemon.stats[2]['base_stat'],
-      this.pokemon.stats[3]['base_stat'],
-      this.pokemon.stats[4]['base_stat'],
-      this.pokemon.stats[5]['base_stat']
+      this.pokemon.stats[0]['bs'],
+      this.pokemon.stats[1]['bs'],
+      this.pokemon.stats[2]['bs'],
+      this.pokemon.stats[3]['bs'],
+      this.pokemon.stats[4]['bs'],
+      this.pokemon.stats[5]['bs']
     ];
     this.maxStat = Math.max(...this.pokemonStats);
     setTimeout(() => {
@@ -715,25 +697,32 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   getGenera() {
-    for (const genus of this.pokemon.genera) {
-      if (genus['language']['name'] === 'en') {
-        this.pokemonGenera = genus['genus'];
-      }
-    }
+    this.pokemonGenera = this.pokemon.genera;
+    // for (const genus of this.pokemon.genera) {
+    //   if (genus['language']['name'] === 'en') {
+    //     this.pokemonGenera = genus['genus'];
+    //   }
+    // }
   }
 
   requestAbilityDetails() {
-    const requests = [];
+    // const requests = [];
+    this.abilities = [];
     for (const ability of this.pokemon.abilities) {
-      requests.push(this.pokemonService.getAbility(ability['ability']['url']));
+      const abilityID = ability['id'];
+      this.abilities.push(this.pokemonService.abilityJSON[abilityID - 1]);
+      // requests.push(this.pokemonService.getAbility(ability['ability']['url']));
     }
-    forkJoin(...requests).subscribe(
-      (responses) => {
-        for (let i = 0; i < responses.length; i++) {
-          this.abilities[i] = responses[i];
-        }
-        this.allAbilitiesReceived = true;
-      });
+    // console.log(this.abilities);
+    this.allAbilitiesReceived = true;
+    console.log(this.abilities);
+    // forkJoin(...requests).subscribe(
+    //   (responses) => {
+    //     for (let i = 0; i < responses.length; i++) {
+    //       this.abilities[i] = responses[i];
+    //     }
+    //     this.allAbilitiesReceived = true;
+    //   });
   }
 
   abilitySelect(no: number) {
@@ -744,19 +733,15 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     } else if (!this.availableInSelectedGen(this.abilities[no]['generation']['name'])) {
       this.unavailableAbilityText = 'This ability didn\'t exist in the selected Games!';
     } else {
-      for (const entry of this.abilities[no]['flavor_text_entries']) {
-        if (entry['language']['name'] === 'en' && entry['version_group']['name'] === this.selectedGameVersion) {
-          this.selectedAbilityFlavorText = (entry['flavor_text']);
-          break;
-        }
-      }
-      for (const entry of this.abilities[no]['effect_entries']) {
-        if (entry['language']['name'] === 'en') {
-          this.selectedAbilityEffect = entry['effect'];
-          this.selectedAbilityShortEffect = entry['short_effect'];
-          break;
-        }
-      }
+      // for (const entry of this.abilities[no]['flavor_text_entries']) {
+      //   if (entry['language']['name'] === 'en' && entry['version_group']['name'] === this.selectedGameVersion) {
+      //     this.selectedAbilityFlavorText = (entry['flavor_text']);
+      //     break;
+      //   }
+      // }
+      this.selectedAbilityFlavorText = this.abilities[no]['flavor_text_entries'][this.versions[this.selectedGameVersion]];
+      this.selectedAbilityEffect = this.abilities[no]['effect_entries']['effect'];
+      this.selectedAbilityShortEffect = this.abilities[no]['effect_entries']['short_effect'];
     }
   }
 
@@ -768,7 +753,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   formatFormNames() {
     for (let i = 0; i < this.pokemon.varieties.length; i++) {
       var formattedName;
-      var name = this.pokemon.varieties[i]['pokemon']['name'];
+      var name = this.pokemon.varieties[i]['n'];
+      console.log(name);
       if (this.pokemon.id !== 774) { // excluding Minior
         if (name.indexOf('-totem') !== -1 || name.indexOf('-battle-bond') !== -1) {
           continue;
@@ -780,15 +766,15 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           } else if (name === 'necrozma-dawn') {
             formattedName = 'Dawn Wings Necrozma';
           } else {
-            const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
+            const re = '(' + this.pokemon.species['n'] + ')[-]([a-z]*)';
             const regExp = new RegExp(re, 'g');
             formattedName = name.replace(regExp, '$2 $1');
             formattedName = formattedName.replace(/-/g, ' ');
           }
         } else if (name.indexOf('-alola') !== -1 && this.pokemon.id !== 25) { // Excluding Alola-Cap Pikachu
-          formattedName = 'Alolan ' + this.pokemon.species['name'];
+          formattedName = 'Alolan ' + this.pokemon.species['n'];
         } else {
-          const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
+          const re = '(' + this.pokemon.species['n'] + ')[-]([a-z]*)';
           const regExp = new RegExp(re, 'g');
           formattedName = name.replace(regExp, '$2');
           if (this.pokemon.id !== 250) { // excluding Ho-Oh
@@ -813,53 +799,76 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     //   this.pokemon.varieties.reverse();
     //   this.varietiesReversed = true;
     // }
-    const formRequests = [];
+    const formIDs = [];
     if (this.pokemon.id !== 774) { // Skipping Minior
       for (const variety of this.pokemon.varieties.slice(1)) {
-        if (variety['pokemon']['name'].indexOf('-totem') !== -1 || variety['pokemon']['name'] === 'greninja-battle-bond') {
+        if (variety['n'].indexOf('-totem') !== -1 || variety['n'] === 'greninja-battle-bond') {
           continue;
           // Skipping these forms
         }
-        formRequests.push(this.pokemonService.getPokemonByURL(variety['pokemon']['url']));
+        formIDs.push(variety['id']);
+        // formRequests.push(this.pokemonService.getPokemonByURL(variety['id']));
       }
     } else {
       for (const variety of this.pokemon.varieties.slice(1)) {
-        if (variety['pokemon']['name'] === 'minior-red' || variety['pokemon']['name'] === 'minior-red-meteor') {
-          formRequests.push(this.pokemonService.getPokemonByURL(variety['pokemon']['url']));
+        if (variety['n'] === 'minior-red' || variety['n'] === 'minior-red-meteor') {
+          formIDs.push(variety['id']);
         }
       }
     }
-    forkJoin(formRequests).subscribe(
-      results => {
-        for (let i = 0; i < results.length; i++) {
-          this.pokemonForms[i + 1] = new Pokemon(
-            results[i]['name'],
-            this.pokemon.id,
-            results[i]['sprites'],
-            results[i]['types'],
-            results[i]['abilities'],
-            results[i]['height'],
-            results[i]['weight'],
-            results[i]['base_experience'],
-            results[i]['forms'],
-            results[i]['held_items'],
-            results[i]['game_indices'],
-            results[i]['is_default'],
-            results[i]['location'],
-            results[i]['moves'],
-            results[i]['order'],
-            results[i]['stats'],
-            results[i]['species'],
-            this.pokemon.speciesDetails,
-            this.pokemon.color,
-            this.pokemon.genera,
-            this.pokemon.varieties,
-            this.pokemon.evolutionChainURL,
-          );
-        }
-        // this.initializePokemonFields();
-      }
-    );
+    for (const id of formIDs) {
+      const form = this.pokemonService.pokemonJSON[id.toString()];
+      this.pokemonForms.push(new Pokemon(
+        form['n'],
+        this.pokemon.id,
+        form['T'],
+        form['Ab'],
+        form['H'],
+        form['W'],
+        form['BE'],
+        form['HI'],
+        form['isD'],
+        this.pokemonService.pokemonMovesCSV[id.toString()],
+        form['St'],
+        form['Sp'],
+        this.pokemon.speciesDetails,
+        this.pokemon.color,
+        this.pokemon.genera,
+        this.pokemon.varieties,
+        this.pokemon.evolutionChainURL,
+      ));
+    }
+    // forkJoin(formRequests).subscribe(
+    //   results => {
+    //     for (let i = 0; i < results.length; i++) {
+    //       this.pokemonForms[i + 1] = new Pokemon(
+    //         results[i]['name'],
+    //         this.pokemon.id,
+    //         results[i]['sprites'],
+    //         results[i]['types'],
+    //         results[i]['abilities'],
+    //         results[i]['height'],
+    //         results[i]['weight'],
+    //         results[i]['base_experience'],
+    //         results[i]['forms'],
+    //         results[i]['held_items'],
+    //         results[i]['game_indices'],
+    //         results[i]['is_default'],
+    //         results[i]['location'],
+    //         results[i]['moves'],
+    //         results[i]['order'],
+    //         results[i]['stats'],
+    //         results[i]['species'],
+    //         this.pokemon.speciesDetails,
+    //         this.pokemon.color,
+    //         this.pokemon.genera,
+    //         this.pokemon.varieties,
+    //         this.pokemon.evolutionChainURL,
+    //       );
+    //     }
+    //     // this.initializePokemonFields();
+    //   }
+    // );
   }
 
   selectForm(i) {
@@ -972,7 +981,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.evolutionDesc = [];
     this.exceptionalChainType = '';
     // console.log(this.pokemon.evolutionChainURL);
-    const evoID = this.pokemon.evolutionChainURL.replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/evolution-chain\/(\d+)\//, '$2');
+    const evoID = this.pokemon.evolutionChainURL;
     const response = this.pokemonService.evolutionChains[evoID - 1];
     // this.pokemonService.getEvoChainByURL(this.pokemon.evolutionChainURL).subscribe((response) => {
     this.evolutionChain = [];
@@ -1302,7 +1311,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   generateGenderRates() {
-    const rate = this.pokemon.speciesDetails['gender_rate'];
+    const rate = this.pokemon.speciesDetails['GeR'];
     switch (rate) {
       case -1:
         return '<span class="' + this.pokemon.color + '-text"' + '>Genderless <i class="fas fa-genderless"></i></span>';
@@ -1346,10 +1355,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   calculateTypeEffectiveness() {
     this.typeDefences = {'4x': [], '2x': [], '1x': [], '0.5x': [], '0.25x': [], '0x': []};
-    let type1 = this.pokemon.types[0]['type']['name'];
+    let type1 = this.pokemon.types[0]['n'];
     let type2;
     if (this.pokemon.types[1] !== undefined) {
-      type2 = this.pokemon.types[1]['type']['name'];
+      type2 = this.pokemon.types[1]['n'];
     } else {
       type2 = '';
     }
@@ -1416,39 +1425,43 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   getMovesLogic(version) {
-    // const versionID = this.versions[version];
+    const moveLearnMethods = {'level-up': 1, 'egg': 2, 'tutor': 3, 'machine': 4};
+    console.log('vers' + version);
+    const versionID = this.versions[version];
+    console.log(this.pokemon.moves);
     for (const move of this.pokemon.moves) {
-      for (const versionGroup of move['version_group_details']) {
-        if (versionGroup['version_group']['name'] === version) {
-          const moveDetails = this.fetchMoveDetailsFromCSVData(move['move']['url']);
-          switch (versionGroup['move_learn_method']['name']) {
-            case 'level-up':
-              this.levelUpMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
-                moveDetails, move['move']['url']]);
-              break;
-            case 'machine':
-              this.machineMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
-                moveDetails, move['move']['url']]);
-              // this.moveMachineNos.push(this.fetchMachineDetailsFromCSVDataSlow(moveDetails.id, versionID));
-              break;
-            case 'egg':
-              this.eggMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
-                moveDetails, move['move']['url']]);
-              break;
-            case 'tutor':
-              this.tutorMovesList.push([this.capitalizeSplitJoin(move['move']['name'], '-', ' '), versionGroup['level_learned_at'],
-                moveDetails, move['move']['url']]);
-              break;
-          }
+      // for (const versionGroup of move['version_group_details']) {
+      if (move.version_group_id == versionID) {
+        const moveDetails = this.pokemonService.movesDetails[move.move_id - 1];
+        console.log(move.pokemon_move_method_id);
+        switch (move.pokemon_move_method_id) {
+          case '1': // level-up
+            this.levelUpMovesList.push([this.capitalizeSplitJoin(moveDetails.identifier, '-', ' '), move.level,
+              moveDetails, move.move_id]);
+            break;
+          case '2': // egg
+            this.eggMovesList.push([this.capitalizeSplitJoin(moveDetails.identifier, '-', ' '), move.level,
+              moveDetails, move.move_id]);
+            break;
+          case '3': // tutor
+            this.tutorMovesList.push([this.capitalizeSplitJoin(moveDetails.identifier, '-', ' '), move.level,
+              moveDetails, move.move_id]);
+            break;
+          case '4': // machine
+            this.machineMovesList.push([this.capitalizeSplitJoin(moveDetails.identifier, '-', ' '), move.level,
+              moveDetails, move.move_id]);
+            // this.moveMachineNos.push(this.fetchMachineDetailsFromCSVDataSlow(moveDetails.id, versionID));
+            break;
         }
       }
+      // }
     }
     this.levelUpMovesList = this.levelUpMovesList.sort((obj1, obj2) => {
-      if (obj1[1] > obj2[1]) {
+      if (+obj1[1] > +obj2[1]) {
         return 1;
       }
 
-      if (obj1[1] < obj2[1]) {
+      if (+obj1[1] < +obj2[1]) {
         return -1;
       }
 
@@ -1502,10 +1515,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-  fetchMoveDetailsFromCSVData(moveURL): Move {
-    const moveID = moveURL.replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/move\/(\d+)\//, '$2');
-    return this.pokemonService.movesDetails[moveID - 1];
-  }
+  // fetchMoveDetailsFromCSVData(moveID): Move {
+  //   return this.pokemonService.movesDetails[moveID - 1];
+  // }
 
   fetchMachineDetailsFromCSVDataSlow(moveID, versionID) {
     for (const machine of this.pokemonService.machineDetails) {
