@@ -40,21 +40,6 @@ export class HeaderComponent implements OnInit {
   constructor(public pokemonService: PokemonService, private meta: Meta, private lc: NgZone, private _location: Location) {
   }
 
-  // toggleSidebar() {
-  //   this.sidebarservice.toggle();
-  // }
-  //
-  // toggleBackgroundImage() {
-  //   this.sidebarservice.hasBackgroundImage = !this.sidebarservice.hasBackgroundImage;
-  // }
-  //
-  // getSideBarState() {
-  //   return this.sidebarservice.getSidebarState();
-  // }
-  //
-  // hideSidebar() {
-  //   this.sidebarservice.setSidebarState(true);
-  // }
 
   setTitleBarColor(color: string) {
     let hexColor = '#FFFFFF';

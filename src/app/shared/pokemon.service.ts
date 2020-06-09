@@ -14,8 +14,7 @@ import {PokemonMove} from './pokemon-move.model';
 })
 export class PokemonService {
 
-  pokemons: Pokemon[] = new Array<Pokemon>(50);
-  pokemons2: Pokemon[] = [];
+  pokemons: Pokemon[] = [];
   pokemonsListChanged = new Subject<Pokemon[]>();
   noOfPokemonsLoaded = 0;
   newPokemonsLoaded = new Subject<number>();
@@ -31,16 +30,20 @@ export class PokemonService {
   abilityJSON;
   pokemonMovesCSV;
   @Output() searchItemSubject: Subject<string> = new Subject<string>();
+  @Output() EverythingLoaded: Subject<boolean> = new Subject<boolean>();
 
   constructor(private http: HttpClient, private _notifications: NotificationsService) {
-    this.getPokemonFromJSON();
-    this.getPokemonSpeciesFromJSON();
-    this.getEvoChainFromJSON();
-    this.getMoveDetailsFromCSV();
-    this.getPokemonMovesFromCSV();
-    this.getMachinesFromCSV();
-    this.getAbilityFromJSON();
-    this.getMovesFlavorFromJSON();
+    this.requestALL();
+    // this.getPokemonSpeciesFromJSON();
+    // this.getPokemonMovesFromCSV();
+    // this.getEvoChainFromJSON();
+    // this.getMoveDetailsFromCSV();
+    // this.getMachinesFromCSV();
+    // this.getAbilityFromJSON();
+    // this.getMovesFlavorFromJSON();
+    // setTimeout(() => {
+    //   this.getPokemonFromJSON();
+    // }, 2000);
     // Check Online Connectivity
     this.createOnline$().subscribe(isOnline => {
       console.log('Online : ' + isOnline);
@@ -403,55 +406,34 @@ export class PokemonService {
     return this.http.get(url);
   }
 
-  getPokemonByURL(url) {
-    return this.http.get(url);
-  }
+  // getPokemonByURL(url) {
+  //   return this.http.get(url);
+  // }
 
   getPokemonSpeciesById(Id) {
     const url = 'https://pokeapi.co/api/v2/pokemon-species/' + Id + '/';
     return this.http.get(url);
   }
 
-  getAbility(url: string) {
-    return this.http.get(url);
-  }
+  // getAbility(url: string) {
+  //   return this.http.get(url);
+  // }
+  //
+  // getEvoChainByURL(url: string) {
+  //   return this.http.get(url);
+  // }
+  //
+  // getMoveByURL(url) {
+  //   return this.http.get(url);
+  // }
 
-  getEvoChainByURL(url: string) {
-    return this.http.get(url);
-  }
-
-  getMoveByURL(url) {
-    return this.http.get(url);
-  }
-
-  getMoveDetailsFromCSV() {
-    this.movesDetails = [];
-    console.log('moves.csv Request Made');
-    this.http.get('assets/data/moves.csv', {responseType: 'text'})
-      .subscribe(
-        data => {
-          console.log('moves.csv Read start');
-          const allTextLines = data.split(/\r|\n|\r/);
-          const headers = allTextLines[0].split(',');
-          for (let i = 1; i < allTextLines.length; i++) {
-            const move = new Move();
-            // split content based on comma
-            const rowData = allTextLines[i].split(',');
-            for (let j = 0; j < headers.length; j++) {
-              if (rowData[j] === '') {
-                move[headers[j]] = '-';
-              } else {
-                move[headers[j]] = rowData[j];
-              }
-            }
-            this.movesDetails.push(move);
-          }
-          // console.log(this.movesDetails);
-          console.log('moves.csv Read Complete');
-        },
-        error => {
-          console.log(error);
-        });
+  getPokemonSpeciesFromJSON() {
+    this.http.get('assets/data/pokemon-species.json').subscribe(
+      (response) => {
+        this.pokemonSpeciesJSON = response['pokemon-species'];
+        console.log('Species.json Loaded From Json');
+      }
+    );
   }
 
   getPokemonMovesFromCSV() {
@@ -485,12 +467,181 @@ export class PokemonService {
         });
   }
 
+  getPokemonFromJSON() {
+    this.http.get('assets/data/pokemon.json').subscribe(
+      (response) => {
+        this.getMoveDetailsFromCSV();
+        this.pokemonJSON = response['pokemon'];
+        console.log('Pokemon.json Loaded from JSON');
+        for (let i = 0; i < 807; i++) {
+          const pokemonData = this.pokemonJSON[(i + 1).toString()];
+          const pokemonSpeciesData = this.pokemonSpeciesJSON[i];
+          let name = pokemonData['N'];
+          switch (pokemonData['id']) { // Renaming Manually
+            case 29:
+              name = 'Nidoran♀';
+              break;
+            case 32:
+              name = 'Nidoran♂';
+              break;
+            case 83:
+              name = 'Farfetch\'d';
+              break;
+            case 122:
+              name = 'Mr. Mime';
+              break;
+            case 386:
+              name = 'Deoxys';
+              break;
+            case 413:
+              name = 'Wormadam';
+              break;
+            case 439:
+              name = 'Mime Jr.';
+              break;
+            case 487:
+              name = 'Giratina';
+              break;
+            case 492:
+              name = 'Shaymin';
+              break;
+            case 550:
+              name = 'Basculin';
+              break;
+            case 555:
+              name = 'Darmanitan';
+              break;
+            case 641:
+              name = 'Tornadus';
+              break;
+            case 642:
+              name = 'Thundurus';
+              break;
+            case 645:
+              name = 'Landorus';
+              break;
+            case 647:
+              name = 'Keldeo';
+              break;
+            case 648:
+              name = 'Meloetta';
+              break;
+            case 669:
+              name = 'Flabébé';
+              break;
+            case 678:
+              name = 'Meowstic';
+              break;
+            case 681:
+              name = 'Aegislash';
+              break;
+            case 710:
+              name = 'Pumpkaboo';
+              break;
+            case 711:
+              name = 'Gourgeist';
+              break;
+            case 741:
+              name = 'Oricorio';
+              break;
+            case 745:
+              name = 'Lycanroc';
+              break;
+            case 746:
+              name = 'Wishiwashi';
+              break;
+            case 772:
+              name = 'Type: Null';
+              break;
+            case 774:
+              name = 'Minior';
+              break;
+            case 778:
+              name = 'Mimikyu';
+              break;
+            case 785:
+              name = 'Tapu Koko';
+              break;
+            case 786:
+              name = 'Tapu Lele';
+              break;
+            case 787:
+              name = 'Tapu Bulu';
+              break;
+            case 788:
+              name = 'Tapu Fini';
+              break;
+          }
+          this.pokemons.push(new Pokemon(
+            // from pokemon
+            name,
+            pokemonData['id'],
+            // null,
+            pokemonData['T'],
+            pokemonData['Ab'],
+            pokemonData['H'],
+            pokemonData['W'],
+            pokemonData['BE'],
+            // null,
+            pokemonData['HI'],
+            // null,
+            pokemonData['isD'],
+            // null,
+            this.pokemonMovesCSV[(i + 1).toString()],
+            // null,
+            pokemonData['St'],
+            pokemonData['Sp'],
+            // from pokemon-species
+            pokemonSpeciesData,
+            pokemonSpeciesData['Co'],
+            pokemonSpeciesData['G'],
+            pokemonSpeciesData['varieties'],
+            pokemonSpeciesData['EvC']
+          ));
+        }
+        this.newPokemonsLoaded.next(807);
+        this.pokemonsListChanged.next(this.pokemons);
+      }
+    );
+  }
+
+  getMoveDetailsFromCSV() {
+    this.movesDetails = [];
+    console.log('moves.csv Request Made');
+    this.http.get('assets/data/moves.csv', {responseType: 'text'})
+      .subscribe(
+        data => {
+          this.getMachinesFromCSV();
+          console.log('moves.csv Read start');
+          const allTextLines = data.split(/\r|\n|\r/);
+          const headers = allTextLines[0].split(',');
+          for (let i = 1; i < allTextLines.length; i++) {
+            const move = new Move();
+            // split content based on comma
+            const rowData = allTextLines[i].split(',');
+            for (let j = 0; j < headers.length; j++) {
+              if (rowData[j] === '') {
+                move[headers[j]] = '-';
+              } else {
+                move[headers[j]] = rowData[j];
+              }
+            }
+            this.movesDetails.push(move);
+          }
+          console.log('moves.csv Read Complete');
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
   getMachinesFromCSV() {
     this.machineDetails = [];
     console.log('machines.csv Request Made');
     this.http.get('assets/data/machines.csv', {responseType: 'text'})
       .subscribe(
         data => {
+          this.getMovesFlavorFromJSON();
           console.log('machines.csv start');
           const allTextLines = data.split(/\r|\n|\r/);
           const headers = allTextLines[0].split(',');
@@ -510,171 +661,22 @@ export class PokemonService {
         });
   }
 
-  getEvoChainFromJSON() {
-    this.http.get('assets/data/evolution-chain.json').subscribe(
-      (response) => {
-        this.evolutionChains = response['evolution-chains'];
-        // console.log(this.evolutionChains);
-      }
-    );
-  }
-
-  getPokemonSpeciesFromJSON() {
-    this.http.get('assets/data/pokemon-species.json').subscribe(
-      (response) => {
-        this.pokemonSpeciesJSON = response['pokemon-species'];
-        console.log('Species Loaded From Json');
-      }
-    );
-  }
-
-  getPokemonFromJSON() {
-    this.http.get('assets/data/pokemon.json').subscribe(
-      (response) => {
-        this.pokemonJSON = response['pokemon'];
-        console.log('Pokemon Loaded from JSON');
-        setTimeout(() => {
-          for (let i = 0; i < 807; i++) {
-            const pokemonData = this.pokemonJSON[(i + 1).toString()];
-            const pokemonSpeciesData = this.pokemonSpeciesJSON[i];
-            let name = pokemonData['N'];
-            switch (pokemonData['id']) { // Renaming Manually
-              case 29:
-                name = 'Nidoran♀';
-                break;
-              case 32:
-                name = 'Nidoran♂';
-                break;
-              case 83:
-                name = 'Farfetch\'d';
-                break;
-              case 122:
-                name = 'Mr. Mime';
-                break;
-              case 386:
-                name = 'Deoxys';
-                break;
-              case 413:
-                name = 'Wormadam';
-                break;
-              case 439:
-                name = 'Mime Jr.';
-                break;
-              case 487:
-                name = 'Giratina';
-                break;
-              case 492:
-                name = 'Shaymin';
-                break;
-              case 550:
-                name = 'Basculin';
-                break;
-              case 555:
-                name = 'Darmanitan';
-                break;
-              case 641:
-                name = 'Tornadus';
-                break;
-              case 642:
-                name = 'Thundurus';
-                break;
-              case 645:
-                name = 'Landorus';
-                break;
-              case 647:
-                name = 'Keldeo';
-                break;
-              case 648:
-                name = 'Meloetta';
-                break;
-              case 669:
-                name = 'Flabébé';
-                break;
-              case 678:
-                name = 'Meowstic';
-                break;
-              case 681:
-                name = 'Aegislash';
-                break;
-              case 710:
-                name = 'Pumpkaboo';
-                break;
-              case 711:
-                name = 'Gourgeist';
-                break;
-              case 741:
-                name = 'Oricorio';
-                break;
-              case 745:
-                name = 'Lycanroc';
-                break;
-              case 746:
-                name = 'Wishiwashi';
-                break;
-              case 772:
-                name = 'Type: Null';
-                break;
-              case 774:
-                name = 'Minior';
-                break;
-              case 778:
-                name = 'Mimikyu';
-                break;
-              case 785:
-                name = 'Tapu Koko';
-                break;
-              case 786:
-                name = 'Tapu Lele';
-                break;
-              case 787:
-                name = 'Tapu Bulu';
-                break;
-              case 788:
-                name = 'Tapu Fini';
-                break;
-            }
-            this.pokemons2.push(new Pokemon(
-              // from pokemon
-              name,
-              pokemonData['id'],
-              // null,
-              pokemonData['T'],
-              pokemonData['Ab'],
-              pokemonData['H'],
-              pokemonData['W'],
-              pokemonData['BE'],
-              // null,
-              pokemonData['HI'],
-              // null,
-              pokemonData['isD'],
-              // null,
-              this.pokemonMovesCSV[(i + 1).toString()],
-              // null,
-              pokemonData['St'],
-              pokemonData['Sp'],
-              // from pokemon-species
-              pokemonSpeciesData,
-              pokemonSpeciesData['Co'],
-              pokemonSpeciesData['G'],
-              pokemonSpeciesData['varieties'],
-              pokemonSpeciesData['EvC']
-            ));
-          }
-          console.log(this.pokemons);
-          console.log('2');
-          console.log(this.pokemons2);
-          this.newPokemonsLoaded.next(807);
-          this.pokemonsListChanged.next(this.pokemons2);
-        }, 5000);
-      }
-    );
-  }
-
   getMovesFlavorFromJSON() {
     this.http.get('assets/data/move.json').subscribe(
       (response) => {
+        this.getEvoChainFromJSON();
         this.moveJSON = response['moves'];
         console.log('moves.json Loaded');
+      }
+    );
+  }
+
+  getEvoChainFromJSON() {
+    this.http.get('assets/data/evolution-chain.json').subscribe(
+      (response) => {
+        this.getAbilityFromJSON();
+        this.evolutionChains = response['evolution-chains'];
+        console.log('evo.json loaded');
       }
     );
   }
@@ -683,9 +685,49 @@ export class PokemonService {
     this.http.get('assets/data/ability.json').subscribe(
       (response) => {
         this.abilityJSON = response['abilities'];
-        // console.log(this.abilityJSON);
+        console.log('abilit.jsn loadede');
+        this.EverythingLoaded.next(true);
       }
     );
+  }
+
+  requestALL() {
+    const requests = [];
+    requests.push(this.http.get('assets/data/pokemon-species.json'));
+    requests.push(this.http.get('assets/data/pokemon-moves.csv', {responseType: 'text'}));
+    // requests.push(this.http.get('assets/data/pokemon.json'));
+    // requests.push(this.http.get('assets/data/moves.csv', {responseType: 'text'}));
+    // requests.push(this.http.get('assets/data/machines.csv', {responseType: 'text'}));
+    // requests.push(this.http.get('assets/data/move.json'));
+    // requests.push(this.http.get('assets/data/evolution-chain.json'));
+    // requests.push(this.http.get('assets/data/ability.json'));
+    this.pokemonMovesCSV = {};
+    console.log('pokemon-moves.csv Request Made');
+    forkJoin(requests).subscribe(([species, movesCSV]: [any, string]) => {
+      this.getPokemonFromJSON();
+      this.pokemonSpeciesJSON = species['pokemon-species'];
+      console.log('Species.json Loaded From Json');
+      const data = movesCSV;
+      console.log('pokemon-moves.csv Read start');
+      const allTextLines = data.split(/\r|\n|\r/);
+      const headers = allTextLines[0].split(',');
+      for (let i = 1; i < allTextLines.length; i++) {
+        // split content based on comma
+        const rowData = allTextLines[i].split(',');
+        const pokemon_id = rowData[0];
+        if (this.pokemonMovesCSV[pokemon_id] === undefined) {
+          this.pokemonMovesCSV[pokemon_id] = [];
+        }
+        const move = new PokemonMove();
+        // const move = [];
+        for (let j = 0; j < headers.length - 1; j++) {
+          move[headers[j]] = rowData[j];
+        }
+        this.pokemonMovesCSV[pokemon_id].push(move);
+      }
+      // console.log(this.pokemonMovesCSV);
+      console.log('pokemon-moves.csv Read Complete');
+    });
   }
 
   createOnline$() {

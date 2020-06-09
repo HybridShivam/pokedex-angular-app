@@ -1,12 +1,10 @@
 <div class="page-wrapper" style="min-height: 100vh">
-<!--&lt;!&ndash;  <div class="page-wrapper" [ngClass]="{'toggled' : getSideBarState()}" style="width: 100vw">&ndash;&gt;-->
-<!--&lt;!&ndash;  <app-sidebar></app-sidebar>&ndash;&gt;-->
   <main class="page-content">
     <app-header></app-header>
       <div class="container-fluid">
+        <div class="lds-dual-ring" *ngIf="!loaded"></div>
               <router-outlet></router-outlet>
       </div>
-<!--      <div class="overlay" (click)="toggleSidebar()" [ngClass]="{'show' : !getSideBarState()}"></div>-->
   </main>
 </div>
 <simple-notifications></simple-notifications>

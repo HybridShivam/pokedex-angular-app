@@ -1,0 +1,40 @@
+FileETag None
+
+<Files *.js.gz>
+  AddType "text/javascript" .gz
+  AddEncoding gzip .gz
+</Files>
+<Files *.css.gz>
+  AddType "text/css" .gz
+  AddEncoding gzip .gz
+</Files>
+<Files *.json.gz>
+  AddType "application/json" .gz
+  AddEncoding gzip .gz
+</Files>
+<Files *.js.br>
+  AddType "text/javascript" .br
+  AddEncoding br .br
+</Files>
+<Files *.css.br>
+  AddType "text/css" .br
+  AddEncoding br .br
+</Files>
+<Files *.json.br>
+  AddType "application/css" .br
+  AddEncoding br .br
+</Files>
+<Files *.csv.br>
+  AddType "text/csv" .br
+  AddEncoding br .br
+</Files>
+
+RewriteEngine On
+
+RewriteCond %{HTTP:Accept-Encoding} br
+RewriteCond %{REQUEST_FILENAME}.br -f
+RewriteRule ^(.*)$ $1.br [L]
+
+RewriteCond %{HTTP:Accept-Encoding} gzip
+RewriteCond %{REQUEST_FILENAME}.gz -f
+RewriteRule ^(.*)$ $1.gz [L]

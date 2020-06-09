@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {PokemonService} from './shared/pokemon.service';
 
 @Component({
   selector: 'app-root',
@@ -6,24 +7,18 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'pokedex';
 
-  constructor() {
+  loaded = false;
+
+  constructor(private pokemonService: PokemonService) {
+    this.pokemonService.EverythingLoaded.subscribe(res => {
+      this.loaded = res;
+    });
   }
 
-  // toggleSidebar() {
-  //   this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState());
-  // }
-  //
-  // toggleBackgroundImage() {
-  //   this.sidebarservice.hasBackgroundImage = !this.sidebarservice.hasBackgroundImage;
-  // }
-  //
-  // getSideBarState() {
-  //   return this.sidebarservice.getSidebarState();
-  // }
-  //
-  // hideSidebar() {
-  //   this.sidebarservice.setSidebarState(true);
+  // constructor(private pokemonService) {
+  //   this.pokemonService.EverythingLoaded.subscribe(res => {
+  //     // this.loaded = res;
+  //   });
   // }
 }

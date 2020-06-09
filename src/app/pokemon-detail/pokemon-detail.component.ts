@@ -357,8 +357,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.pokemonForms = [];
         this.formattedFormNames = [];
         // From List
-        if (this.pokemonService.pokemons2[this.pokemonId]) {
-          const pokemonFromList = this.pokemonService.pokemons2[this.pokemonId - 1];
+        if (this.pokemonService.pokemons[this.pokemonId]) {
+          const pokemonFromList = this.pokemonService.pokemons[this.pokemonId - 1];
           this.pokemon = new Pokemon(
             pokemonFromList.name,
             pokemonFromList.id,
@@ -405,155 +405,202 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           this.initializePokemonFields();
           // Directly From Link
         } else {
-          forkJoin([this.pokemonService.getPokemonById(this.pokemonId),
-            this.pokemonService.getPokemonSpeciesById(this.pokemonId)]).subscribe(
-            results => {
-              let name = results[0]['name'];
-              switch (results[0]['id']) { // Renaming Manually
-                case 29:
-                  name = 'Nidoran♀';
-                  break;
-                case 32:
-                  name = 'Nidoran♂';
-                  break;
-                case 83:
-                  name = 'Farfetch\'d';
-                  break;
-                case 122:
-                  name = 'Mr. Mime';
-                  break;
-                case 386:
-                  name = 'Deoxys';
-                  break;
-                case 413:
-                  name = 'Wormadam';
-                  break;
-                case 439:
-                  name = 'Mime Jr.';
-                  break;
-                case 487:
-                  name = 'Giratina';
-                  break;
-                case 492:
-                  name = 'Shaymin';
-                  break;
-                case 550:
-                  name = 'Basculin';
-                  break;
-                case 555:
-                  name = 'Darmanitan';
-                  break;
-                case 641:
-                  name = 'Tornadus';
-                  break;
-                case 642:
-                  name = 'Thundurus';
-                  break;
-                case 645:
-                  name = 'Landorus';
-                  break;
-                case 647:
-                  name = 'Keldeo';
-                  break;
-                case 648:
-                  name = 'Meloetta';
-                  break;
-                case 669:
-                  name = 'Flabébé';
-                  break;
-                case 678:
-                  name = 'Meowstic';
-                  break;
-                case 681:
-                  name = 'Aegislash';
-                  break;
-                case 710:
-                  name = 'Pumpkaboo';
-                  break;
-                case 711:
-                  name = 'Gourgeist';
-                  break;
-                case 741:
-                  name = 'Oricorio';
-                  break;
-                case 745:
-                  name = 'Lycanroc';
-                  break;
-                case 746:
-                  name = 'Wishiwashi';
-                  break;
-                case 772:
-                  name = 'Type: Null';
-                  break;
-                case 774:
-                  name = 'Minior';
-                  break;
-                case 778:
-                  name = 'Mimikyu';
-                  break;
-                case 785:
-                  name = 'Tapu Koko';
-                  break;
-                case 786:
-                  name = 'Tapu Lele';
-                  break;
-                case 787:
-                  name = 'Tapu Bulu';
-                  break;
-                case 788:
-                  name = 'Tapu Fini';
-                  break;
-              }
-              this.pokemon = new Pokemon(
-                name,
-                results[0]['id'],
-                results[0]['types'],
-                results[0]['abilities'],
-                results[0]['height'],
-                results[0]['weight'],
-                results[0]['base_experience'],
-                results[0]['held_items'],
-                results[0]['is_default'],
-                results[0]['moves'],
-                results[0]['stats'],
-                results[0]['species'],
-                results[1],
-                results[1]['color']['name'],
-                results[1]['genera'],
-                results[1]['varieties'],
-                results[1]['evolution_chain']['url']
-              );
-              this.pokemon.speciesDetails = results[1];
-              this.pokemon.genera = results[1]['genera'];
-              this.pokemon.color = results[1]['color']['name'];
-              this.pokemonDefaultColor = this.pokemon.color;
-              // Why do i need this ???????????????????
-              this.pokemonService.activePokemon.next(this.pokemon);
-              // Store as first form in array
-              this.pokemonForms[0] = new Pokemon(
-                this.pokemon.name,
-                this.pokemon.id,
-                this.pokemon.types,
-                this.pokemon.abilities,
-                this.pokemon.height,
-                this.pokemon.weight,
-                this.pokemon.baseExperience,
-                this.pokemon.heldItems,
-                this.pokemon.is_default,
-                this.pokemon.moves,
-                this.pokemon.stats,
-                this.pokemon.species,
-                this.pokemon.speciesDetails,
-                this.pokemon.color,
-                this.pokemon.genera,
-                this.pokemon.varieties,
-                this.pokemon.evolutionChainURL
-              );
-              this.initializePokemonFields();
-              this.requestForms();
-              this.formatFormNames();
-            }
-          );
+          this.pokemonService.EverythingLoaded.subscribe(res => {
+            const pokemonFromList = this.pokemonService.pokemons[this.pokemonId - 1];
+            this.pokemon = new Pokemon(
+              pokemonFromList.name,
+              pokemonFromList.id,
+              pokemonFromList.types,
+              pokemonFromList.abilities,
+              pokemonFromList.height,
+              pokemonFromList.weight,
+              pokemonFromList.baseExperience,
+              pokemonFromList.heldItems,
+              pokemonFromList.is_default,
+              pokemonFromList.moves,
+              pokemonFromList.stats,
+              pokemonFromList.species,
+              pokemonFromList.speciesDetails,
+              pokemonFromList.color,
+              pokemonFromList.genera,
+              pokemonFromList.varieties,
+              pokemonFromList.evolutionChainURL
+            );
+            this.pokemonDefaultColor = this.pokemon.color;
+            this.pokemonService.activePokemon.next(this.pokemon);
+            this.requestForms();
+            this.formatFormNames();
+            // Store as first form in array
+            this.pokemonForms[0] = new Pokemon(
+              this.pokemon.name,
+              this.pokemon.id,
+              this.pokemon.types,
+              this.pokemon.abilities,
+              this.pokemon.height,
+              this.pokemon.weight,
+              this.pokemon.baseExperience,
+              this.pokemon.heldItems,
+              this.pokemon.is_default,
+              this.pokemon.moves,
+              this.pokemon.stats,
+              this.pokemon.species,
+              this.pokemon.speciesDetails,
+              this.pokemon.color,
+              this.pokemon.genera,
+              this.pokemon.varieties,
+              this.pokemon.evolutionChainURL
+            );
+            this.initializePokemonFields();
+          });
+          // forkJoin([this.pokemonService.getPokemonById(this.pokemonId),
+          //   this.pokemonService.getPokemonSpeciesById(this.pokemonId)]).subscribe(
+          //   results => {
+          //     let name = results[0]['name'];
+          //     switch (results[0]['id']) { // Renaming Manually
+          //       case 29:
+          //         name = 'Nidoran♀';
+          //         break;
+          //       case 32:
+          //         name = 'Nidoran♂';
+          //         break;
+          //       case 83:
+          //         name = 'Farfetch\'d';
+          //         break;
+          //       case 122:
+          //         name = 'Mr. Mime';
+          //         break;
+          //       case 386:
+          //         name = 'Deoxys';
+          //         break;
+          //       case 413:
+          //         name = 'Wormadam';
+          //         break;
+          //       case 439:
+          //         name = 'Mime Jr.';
+          //         break;
+          //       case 487:
+          //         name = 'Giratina';
+          //         break;
+          //       case 492:
+          //         name = 'Shaymin';
+          //         break;
+          //       case 550:
+          //         name = 'Basculin';
+          //         break;
+          //       case 555:
+          //         name = 'Darmanitan';
+          //         break;
+          //       case 641:
+          //         name = 'Tornadus';
+          //         break;
+          //       case 642:
+          //         name = 'Thundurus';
+          //         break;
+          //       case 645:
+          //         name = 'Landorus';
+          //         break;
+          //       case 647:
+          //         name = 'Keldeo';
+          //         break;
+          //       case 648:
+          //         name = 'Meloetta';
+          //         break;
+          //       case 669:
+          //         name = 'Flabébé';
+          //         break;
+          //       case 678:
+          //         name = 'Meowstic';
+          //         break;
+          //       case 681:
+          //         name = 'Aegislash';
+          //         break;
+          //       case 710:
+          //         name = 'Pumpkaboo';
+          //         break;
+          //       case 711:
+          //         name = 'Gourgeist';
+          //         break;
+          //       case 741:
+          //         name = 'Oricorio';
+          //         break;
+          //       case 745:
+          //         name = 'Lycanroc';
+          //         break;
+          //       case 746:
+          //         name = 'Wishiwashi';
+          //         break;
+          //       case 772:
+          //         name = 'Type: Null';
+          //         break;
+          //       case 774:
+          //         name = 'Minior';
+          //         break;
+          //       case 778:
+          //         name = 'Mimikyu';
+          //         break;
+          //       case 785:
+          //         name = 'Tapu Koko';
+          //         break;
+          //       case 786:
+          //         name = 'Tapu Lele';
+          //         break;
+          //       case 787:
+          //         name = 'Tapu Bulu';
+          //         break;
+          //       case 788:
+          //         name = 'Tapu Fini';
+          //         break;
+          //     }
+          //     this.pokemon = new Pokemon(
+          //       name,
+          //       results[0]['id'],
+          //       results[0]['types'],
+          //       results[0]['abilities'],
+          //       results[0]['height'],
+          //       results[0]['weight'],
+          //       results[0]['base_experience'],
+          //       results[0]['held_items'],
+          //       results[0]['is_default'],
+          //       results[0]['moves'],
+          //       results[0]['stats'],
+          //       results[0]['species'],
+          //       results[1],
+          //       results[1]['color']['name'],
+          //       results[1]['genera'],
+          //       results[1]['varieties'],
+          //       results[1]['evolution_chain']['url']
+          //     );
+          //     this.pokemon.speciesDetails = results[1];
+          //     this.pokemon.genera = results[1]['genera'];
+          //     this.pokemon.color = results[1]['color']['name'];
+          //     this.pokemonDefaultColor = this.pokemon.color;
+          //     // Why do i need this ???????????????????
+          //     this.pokemonService.activePokemon.next(this.pokemon);
+          //     // Store as first form in array
+          //     this.pokemonForms[0] = new Pokemon(
+          //       this.pokemon.name,
+          //       this.pokemon.id,
+          //       this.pokemon.types,
+          //       this.pokemon.abilities,
+          //       this.pokemon.height,
+          //       this.pokemon.weight,
+          //       this.pokemon.baseExperience,
+          //       this.pokemon.heldItems,
+          //       this.pokemon.is_default,
+          //       this.pokemon.moves,
+          //       this.pokemon.stats,
+          //       this.pokemon.species,
+          //       this.pokemon.speciesDetails,
+          //       this.pokemon.color,
+          //       this.pokemon.genera,
+          //       this.pokemon.varieties,
+          //       this.pokemon.evolutionChainURL
+          //     );
+          //     this.initializePokemonFields();
+          //     this.requestForms();
+          //     this.formatFormNames();
+          //   }
+          // );
         }
       }
     );
@@ -586,7 +633,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.heightInFeetInches = Math.floor(this.heightInMetres * 3.2808) + '"' + Math.round(((this.heightInMetres * 3.2808) % 1) * 12) + '\'';
     this.weightInKgs = (this.pokemon.weight * 0.1).toFixed(1);
     this.weightInPounds = (this.weightInKgs * 2.205).toFixed(1);
-    console.log(this.pokemonStats);
     this.pokemonStats = [
       this.pokemon.stats[0]['bs'],
       this.pokemon.stats[1]['bs'],
@@ -715,7 +761,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     }
     // console.log(this.abilities);
     this.allAbilitiesReceived = true;
-    console.log(this.abilities);
+    // console.log(this.abilities);
     // forkJoin(...requests).subscribe(
     //   (responses) => {
     //     for (let i = 0; i < responses.length; i++) {
@@ -807,6 +853,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           // Skipping these forms
         }
         formIDs.push(variety['id']);
+        console.log('pushing' + variety['id']);
         // formRequests.push(this.pokemonService.getPokemonByURL(variety['id']));
       }
     } else {
@@ -816,11 +863,13 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         }
       }
     }
+    let i = 1;
     for (const id of formIDs) {
       const form = this.pokemonService.pokemonJSON[id.toString()];
-      this.pokemonForms.push(new Pokemon(
-        form['n'],
-        this.pokemon.id,
+      console.log(form);
+      this.pokemonForms[i] = new Pokemon(
+        form['N'],
+        form['id'],
         form['T'],
         form['Ab'],
         form['H'],
@@ -836,7 +885,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.pokemon.genera,
         this.pokemon.varieties,
         this.pokemon.evolutionChainURL,
-      ));
+      );
+      i = i + 1;
     }
     // forkJoin(formRequests).subscribe(
     //   results => {
@@ -877,48 +927,43 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     }
     this.currentMoveID = null;
     this.visible = false;
-    if (!(this.pokemonForms[i]['name'].indexOf('-mega') !== -1 && this.megaEvolveAnimationEnabled && !this.imageLoading)) {
+    if (!(this.pokemonForms[i].name.indexOf('-mega') !== -1 && this.megaEvolveAnimationEnabled && !this.imageLoading)) {
       this.imageVisible = false;
     } else {
       this.megaEvolve();
     }
     setTimeout(() => {
       this.selectedFormNo = i;
-      if (this.pokemonForms[i]['name'] === this.pokemon.species['name']) {
-        this.pokemon.name = this.pokemon.species['name'];
+      if (this.pokemonForms[i].name === this.pokemon.species['n']) {
+        this.pokemon.name = this.pokemon.species['n'];
       } else if ((this.pokemon.id !== 25) // excluding Pikachu
-        && ((this.pokemonForms[i]['name'].indexOf('-mega') !== -1)
-          || (this.pokemonForms[i]['name'].indexOf('-primal') !== -1)
-          || (this.pokemonForms[i]['name'].indexOf('-alola') !== -1)
-          || (this.pokemonForms[i]['name'] === 'greninja-ash')
+        && ((this.pokemonForms[i].name.indexOf('-mega') !== -1)
+          || (this.pokemonForms[i].name.indexOf('-primal') !== -1)
+          || (this.pokemonForms[i].name.indexOf('-alola') !== -1)
+          || (this.pokemonForms[i].name === 'greninja-ash')
           || (this.pokemon.id === 800)) // Necrozma
       ) {
         this.pokemon.name = this.formattedFormNames[i];
       } else {
-        this.pokemon.name = this.pokemon.species['name'] + ' [' + this.formattedFormNames[i] + ']';
+        this.pokemon.name = this.pokemon.species['n'] + ' [' + this.formattedFormNames[i] + ']';
       }
 
       // this.pokemon.id = this.pokemonForms[i]['id'];
-      this.pokemon.sprites = this.pokemonForms[i]['sprites'];
-      this.pokemon.types = this.pokemonForms[i]['types'];
-      this.pokemon.abilities = this.pokemonForms[i]['abilities'];
-      this.pokemon.height = this.pokemonForms[i]['height'];
-      this.pokemon.weight = this.pokemonForms[i]['weight'];
-      this.pokemon.baseExperience = this.pokemonForms[i]['baseExperience'];
-      this.pokemon.forms = this.pokemonForms[i]['forms'];
-      this.pokemon.heldItems = this.pokemonForms[i]['heldItems'];
-      this.pokemon.gameIndices = this.pokemonForms[i]['gameIndices'];
-      this.pokemon.is_default = this.pokemonForms[i]['is_default'];
-      this.pokemon.location = this.pokemonForms[i]['location'];
-      this.pokemon.moves = this.pokemonForms[i]['moves'];
-      this.pokemon.order = this.pokemonForms[i]['order'];
-      this.pokemon.stats = this.pokemonForms[i]['stats'];
-      this.pokemon.species = this.pokemonForms[i]['species'];
+      this.pokemon.types = this.pokemonForms[i].types;
+      this.pokemon.abilities = this.pokemonForms[i].abilities;
+      this.pokemon.height = this.pokemonForms[i].height;
+      this.pokemon.weight = this.pokemonForms[i].weight;
+      this.pokemon.baseExperience = this.pokemonForms[i].baseExperience;
+      this.pokemon.heldItems = this.pokemonForms[i].heldItems;
+      this.pokemon.is_default = this.pokemonForms[i].is_default;
+      this.pokemon.moves = this.pokemonService.pokemonMovesCSV[this.pokemonForms[i].id.toString()];
+      this.pokemon.stats = this.pokemonForms[i].stats;
+      this.pokemon.species = this.pokemonForms[i].species;
       // For Non Default Forms Only
       if (!this.pokemon.is_default) {
-        const re = '(' + this.pokemon.species['name'] + ')[-]([a-z]*)';
+        const re = '(' + this.pokemon.species['n'] + ')[-]([a-z]*)';
         const regExp = new RegExp(re, 'g');
-        const str = this.pokemonForms[i]['name'].replace(regExp, '$2');
+        const str = this.pokemonForms[i].name.replace(regExp, '$2');
         this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
           this.pad(this.pokemon.id, 3) + '-' + this.capitalizeSplitJoin(str, '-', '-') + '.png';
         // console.log(this.pokemonImageUrl);
@@ -1425,15 +1470,12 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   getMovesLogic(version) {
-    const moveLearnMethods = {'level-up': 1, 'egg': 2, 'tutor': 3, 'machine': 4};
-    console.log('vers' + version);
+    // const moveLearnMethods = {'level-up': 1, 'egg': 2, 'tutor': 3, 'machine': 4};
     const versionID = this.versions[version];
-    console.log(this.pokemon.moves);
     for (const move of this.pokemon.moves) {
       // for (const versionGroup of move['version_group_details']) {
       if (move.version_group_id == versionID) {
         const moveDetails = this.pokemonService.movesDetails[move.move_id - 1];
-        console.log(move.pokemon_move_method_id);
         switch (move.pokemon_move_method_id) {
           case '1': // level-up
             this.levelUpMovesList.push([this.capitalizeSplitJoin(moveDetails.identifier, '-', ' '), move.level,
@@ -1519,14 +1561,14 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   //   return this.pokemonService.movesDetails[moveID - 1];
   // }
 
-  fetchMachineDetailsFromCSVDataSlow(moveID, versionID) {
-    for (const machine of this.pokemonService.machineDetails) {
-      if (machine.move_id == moveID && machine.version_group_id == versionID) {
-        return +machine.machine_number <= 100 ? 'TM' + this.pad(machine.machine_number, 2)
-          : 'HM' + this.pad(machine.machine_number - 100, 2);
-      }
-    }
-  }
+  // fetchMachineDetailsFromCSVDataSlow(moveID, versionID) {
+  //   for (const machine of this.pokemonService.machineDetails) {
+  //     if (machine.move_id == moveID && machine.version_group_id == versionID) {
+  //       return +machine.machine_number <= 100 ? 'TM' + this.pad(machine.machine_number, 2)
+  //         : 'HM' + this.pad(machine.machine_number - 100, 2);
+  //     }
+  //   }
+  // }
 
   getDamageClass(id) {
     switch (id) {
