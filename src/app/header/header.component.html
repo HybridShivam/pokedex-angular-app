@@ -34,11 +34,20 @@
           <hr style="margin-top: 10px;margin-bottom: 5px">
         </div>
         <div class="modal-body justify-content-center text-center">
+          <div class="row mt-1 mb-4">
+            <div class="col"><span class="installBtn">INSTALL</span></div>
+          </div>
+          <div [ngClass]="{'hideSettingsOnMobile':this.pokemonService.isMobile}">
           <span class="rounded text-center font-weight-bolder"
                 style="padding: 4px; font-size: larger">SETTINGS</span>
-          <div class="row mt-2 mb-4">
-            <div class="col-8 text-right" style="font-size: medium">Mega Evolution Animation</div>
-            <div class="col-4 text-left"><input id="s2" type="checkbox" class="switch" checked></div>
+            <div class="row mt-2 mb-1">
+              <div class="col-8 text-right" style="font-size: medium">Mega Evolution Animation</div>
+              <div class="col-4 text-left" style="align-self: center">
+                <input id="s2" type="checkbox" class="switch" checked name="megaSwitch" [(ngModel)]="megaSwitch"
+                       (change)="checkBoxChange($event)"></div>
+            </div>
+            <p>If enabled, the animation takes place once for each species after the base form's image have been
+              downloaded. [Desktop Browsers Only] </p>
           </div>
           <span class="rounded text-center font-weight-bolder"
                 style="padding: 4px; font-size: larger">ABOUT</span>
@@ -52,7 +61,8 @@
             Nintendo, Game Freak, and The Pokémon Company for making such an awesome series of games.</p>
           <span class="rounded text-center font-weight-bolder"
                 style="padding: 4px; font-size: larger">CONTACT</span>
-          <p style="padding-top: 6px;white-space: pre-wrap"><a href="">Github Repository.</a>
+          <p style="padding-top: 6px;white-space: pre-wrap"><a
+            href="https://github.com/HybridShivam/pokedex-angular-app">Github Repository.</a>
             <br>Report any bugs <a href="mailto:shivamunlimited@gmail.com">here</a>.</p>
         </div>
         <div class="modal-footer justify-content-center">

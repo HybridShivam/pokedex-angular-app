@@ -13,11 +13,13 @@
   font-family: 'AlleynW01-Regular', sans-serif;
   //background-image: url("https://www.transparenttextures.com/patterns/light-wool.png");
 }
-.modal{
+
+.modal {
   font-family: 'AlleynW01-Regular', sans-serif;
   color: gray;
 }
-.modal a:hover{
+
+.modal a:hover {
   text-decoration: none;
 }
 
@@ -175,19 +177,37 @@
   visibility: visible;
 }
 
-.back-arrow-fade{
+.back-arrow-fade {
   opacity: 0;
   visibility: hidden;
 }
 
+.installBtn {
+  border: 1px solid gray;
+  padding: 3px 4px;
+  border-radius: 4px;
+  transition: all 250ms ease-in-out;
+  font-size: x-large;
+}
+
+.installBtn:hover {
+  color: white;
+  background-color: gray;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+.switch{
+  margin-top: 1px;
+}
+
 // Material Buttons
-@supports(-webkit-appearance: none) or (-moz-appearance: none) {
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
   input[type='checkbox'],
   input[type='radio'] {
     --active: gray;
     --active-inner: #fff;
     --focus: 2px black;
-    --border: #BBC1E1;
+    --border: gray;
     --border-hover: black;
     --background: #fff;
     --disabled: #F6F8FF;
@@ -204,6 +224,7 @@
     border: 1px solid var(--bc, var(--border));
     background: var(--b, var(--background));
     transition: background .3s, border-color .3s, box-shadow .2s;
+
     &:after {
       content: '';
       display: block;
@@ -212,6 +233,7 @@
       position: absolute;
       transition: transform var(--d-t, .3s) var(--d-t-e, ease), opacity var(--d-o, .2s);
     }
+
     &:checked {
       --b: var(--active);
       --bc: var(--active);
@@ -219,18 +241,22 @@
       --d-t: .6s;
       --d-t-e: cubic-bezier(.2, .85, .32, 1.2);
     }
+
     &:disabled {
       --b: var(--disabled);
       cursor: not-allowed;
       opacity: .9;
+
       &:checked {
         --b: var(--disabled-inner);
         --bc: var(--border);
       }
+
       & + label {
         cursor: not-allowed;
       }
     }
+
     &:hover {
       &:not(:checked) {
         &:not(:disabled) {
@@ -238,18 +264,23 @@
         }
       }
     }
+
     &:focus {
       box-shadow: 0 0 0 var(--focus);
     }
+
     &:not(.switch) {
       width: 21px;
+
       &:after {
         opacity: var(--o, 0);
       }
+
       &:checked {
         --o: 1;
       }
     }
+
     & + label {
       font-size: 14px;
       line-height: 21px;
@@ -262,6 +293,7 @@
   input[type='checkbox'] {
     &:not(.switch) {
       border-radius: 7px;
+
       &:after {
         width: 5px;
         height: 9px;
@@ -272,13 +304,16 @@
         top: 4px;
         transform: rotate(var(--r, 20deg));
       }
+
       &:checked {
         --r: 43deg;
       }
     }
+
     &.switch {
       width: 38px;
       border-radius: 11px;
+
       &:after {
         left: 2px;
         top: 2px;
@@ -288,10 +323,12 @@
         background: var(--ab, var(--border));
         transform: translateX(var(--x, 0));
       }
+
       &:checked {
         --ab: var(--active-inner);
         --x: 17px;
       }
+
       &:disabled {
         &:not(:checked) {
           &:after {
@@ -303,6 +340,7 @@
   }
   input[type='radio'] {
     border-radius: 50%;
+
     &:after {
       width: 19px;
       height: 19px;
@@ -311,10 +349,15 @@
       opacity: 0;
       transform: scale(var(--s, .7));
     }
+
     &:checked {
       --s: .5;
     }
   }
+}
+
+.hideSettingsOnMobile{
+  display: none;
 }
 
 @media (max-width: 575px) {

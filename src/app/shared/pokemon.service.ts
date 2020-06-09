@@ -30,12 +30,15 @@ export class PokemonService {
   abilityJSON;
   pokemonMovesCSV;
   firstTime = false;
+  megaEvolutionMainSwitch;
   @Output() searchItemSubject: Subject<string> = new Subject<string>();
   @Output() EverythingLoaded: Subject<boolean> = new Subject<boolean>();
+  @Output() megaSwitchSubscription: Subject<boolean> = new Subject<boolean>();
 
   constructor(private http: HttpClient, public _notifications: NotificationsService) {
-    localStorage.clear();
-    console.log(localStorage.getItem('visitedOnce'));
+    this.megaSwitchSubscription.subscribe((res) => {
+      this.megaEvolutionMainSwitch = res;
+    });
     if (localStorage.getItem('visitedOnce') === null) {
       this.firstTime = true;
       localStorage.setItem('visitedOnce', 'true');

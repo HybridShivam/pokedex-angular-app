@@ -1,4 +1,4 @@
-import {Component, NgZone, OnInit} from '@angular/core';
+import {Component, NgZone, OnInit, Output} from '@angular/core';
 import {PokemonService} from '../shared/pokemon.service';
 import {Meta} from '@angular/platform-browser';
 import {Location} from '@angular/common';
@@ -13,10 +13,14 @@ export class HeaderComponent implements OnInit {
   searchText = '';
   showSearch = true;
   _timeout: any = null;
+  megaSwitch;
 
 
   ngOnInit(): void {
-
+    if (localStorage.getItem('megaEnabled') == null) {
+      localStorage.setItem('megaEnabled', 'true');
+    }
+    this.megaSwitch = localStorage.getItem('megaEnabled') == 'true';
     this.color = this.pokemonService.activePokemon.subscribe(
       response => {
         if (response === null) {
@@ -86,6 +90,11 @@ export class HeaderComponent implements OnInit {
     this.meta.updateTag({name: 'theme-color', content: hexColor});
     this.meta.updateTag({name: 'msapplication-navbutton-color', content: hexColor});
     this.meta.updateTag({name: 'apple-mobile-web-app-status-bar-style', content: hexColor});
+  }
+
+  checkBoxChange(values: any) {
+    this.pokemonService.megaSwitchSubscription.next(values.currentTarget.checked);
+    localStorage.setItem('megaEnabled', values.currentTarget.checked.toString());
   }
 
 

@@ -562,11 +562,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   getGenera() {
     this.pokemonGenera = this.pokemon.genera;
-    // for (const genus of this.pokemon.genera) {
-    //   if (genus['language']['name'] === 'en') {
-    //     this.pokemonGenera = genus['genus'];
-    //   }
-    // }
   }
 
   requestAbilityDetails() {
@@ -694,37 +689,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       );
       i = i + 1;
     }
-    // forkJoin(formRequests).subscribe(
-    //   results => {
-    //     for (let i = 0; i < results.length; i++) {
-    //       this.pokemonForms[i + 1] = new Pokemon(
-    //         results[i]['name'],
-    //         this.pokemon.id,
-    //         results[i]['sprites'],
-    //         results[i]['types'],
-    //         results[i]['abilities'],
-    //         results[i]['height'],
-    //         results[i]['weight'],
-    //         results[i]['base_experience'],
-    //         results[i]['forms'],
-    //         results[i]['held_items'],
-    //         results[i]['game_indices'],
-    //         results[i]['is_default'],
-    //         results[i]['location'],
-    //         results[i]['moves'],
-    //         results[i]['order'],
-    //         results[i]['stats'],
-    //         results[i]['species'],
-    //         this.pokemon.speciesDetails,
-    //         this.pokemon.color,
-    //         this.pokemon.genera,
-    //         this.pokemon.varieties,
-    //         this.pokemon.evolutionChainID,
-    //       );
-    //     }
-    //     // this.initializePokemonFields();
-    //   }
-    // );
   }
 
   selectForm(i) {
@@ -733,11 +697,12 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     }
     this.currentMoveID = null;
     this.visible = false;
-    if (!(this.pokemonForms[i].name.indexOf('-mega') !== -1) || !(this.megaEvolveAnimationEnabled) || (!this.isOnline) || this.imageLoading) {
-      this.imageVisible = false;
-      this.megaEvolveAnimationEnabled = false;
-    } else {
+    if ((this.pokemonForms[i].name.indexOf('-mega') !== -1) && (this.pokemonForms[this.selectedFormNo].name.indexOf('-mega') === -1)
+      && (this.megaEvolveAnimationEnabled) && (this.isOnline) && (this.pokemonService.megaEvolutionMainSwitch) && (!this.imageLoading)) {
       this.megaEvolve();
+    } else {
+      this.imageVisible = false;
+      // this.megaEvolveAnimationEnabled = false;
     }
     setTimeout(() => {
       this.selectedFormNo = i;

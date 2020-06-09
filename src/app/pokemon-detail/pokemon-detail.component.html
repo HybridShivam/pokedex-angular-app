@@ -606,10 +606,6 @@
                       </ng-container>
                     </div>
                   </div>
-                  <!--                  <div class='col-sm arrow-div' *ngIf="i<evolutionChain.length-1">-->
-                  <!--                    <img src="assets/right-arrow.png" alt="Arrow" class="evo-arrow">-->
-                  <!--                    &lt;!&ndash;              {{evolutionDesc[i]}}&ndash;&gt;-->
-                  <!--                  </div>-->
                 </ng-container>
               </div>
             </ng-template>
@@ -1396,10 +1392,9 @@
                 <th scope="col" class="col-1 Col9 text-truncate text-center">Generation</th>
               </tr>
               </thead>
-              <tbody [ngClass]="{'loadingCursor':moveDetails.length===0&&movesList.length!==0}">
+              <tbody>
               <ng-container *ngFor="let move of movesList; let i=index">
-                <tr *ngIf="move!==undefined" (click)="selectMove(i)" data-toggle="modal" data-target="#moveModal"
-                    [ngClass]="{'disableClicking':moveDetails.length===0&&movesList.length!==0}">
+                <tr *ngIf="move!==undefined" (click)="selectMove(i)" data-toggle="modal" data-target="#moveModal">
                   <td class="col-1 Col1 text-center">
                     <ng-container [ngSwitch]="selectedMove">
                       <ng-container *ngSwitchCase="'level-up'">{{move[1]}}</ng-container>
@@ -1408,8 +1403,6 @@
                       <ng-container *ngSwitchCase="'tutor'">-</ng-container>
                     </ng-container>
                   </td>
-                    <!--                    {{selectedMove === 'machine' ? moveMachineNos[i] : move[1]}}</td>-->
-                    <!--                  <td class="col-1">{{fetchMachineDetailsFromCSVData(move[2].id, selectedGameVersion)}}</td>-->
                   <td class="col-4 Col2 text-truncate">{{move[0]}}</td>
                   <td class="col-1 Col3 text-center">
                     <div class="moveTypes" style="padding: 0;">
