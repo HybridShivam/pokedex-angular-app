@@ -358,252 +358,63 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.formattedFormNames = [];
         // From List
         if (this.pokemonService.pokemons[this.pokemonId]) {
-          const pokemonFromList = this.pokemonService.pokemons[this.pokemonId - 1];
-          this.pokemon = new Pokemon(
-            pokemonFromList.name,
-            pokemonFromList.id,
-            pokemonFromList.types,
-            pokemonFromList.abilities,
-            pokemonFromList.height,
-            pokemonFromList.weight,
-            pokemonFromList.baseExperience,
-            pokemonFromList.heldItems,
-            pokemonFromList.is_default,
-            pokemonFromList.moves,
-            pokemonFromList.stats,
-            pokemonFromList.species,
-            pokemonFromList.speciesDetails,
-            pokemonFromList.color,
-            pokemonFromList.genera,
-            pokemonFromList.varieties,
-            pokemonFromList.evolutionChainURL
-          );
-          this.pokemonDefaultColor = this.pokemon.color;
-          this.pokemonService.activePokemon.next(this.pokemon);
-          this.requestForms();
-          this.formatFormNames();
-          // Store as first form in array
-          this.pokemonForms[0] = new Pokemon(
-            this.pokemon.name,
-            this.pokemon.id,
-            this.pokemon.types,
-            this.pokemon.abilities,
-            this.pokemon.height,
-            this.pokemon.weight,
-            this.pokemon.baseExperience,
-            this.pokemon.heldItems,
-            this.pokemon.is_default,
-            this.pokemon.moves,
-            this.pokemon.stats,
-            this.pokemon.species,
-            this.pokemon.speciesDetails,
-            this.pokemon.color,
-            this.pokemon.genera,
-            this.pokemon.varieties,
-            this.pokemon.evolutionChainURL
-          );
-          this.initializePokemonFields();
+          this.initializePokemonAndForms();
           // Directly From Link
         } else {
           this.pokemonService.EverythingLoaded.subscribe(res => {
-            const pokemonFromList = this.pokemonService.pokemons[this.pokemonId - 1];
-            this.pokemon = new Pokemon(
-              pokemonFromList.name,
-              pokemonFromList.id,
-              pokemonFromList.types,
-              pokemonFromList.abilities,
-              pokemonFromList.height,
-              pokemonFromList.weight,
-              pokemonFromList.baseExperience,
-              pokemonFromList.heldItems,
-              pokemonFromList.is_default,
-              pokemonFromList.moves,
-              pokemonFromList.stats,
-              pokemonFromList.species,
-              pokemonFromList.speciesDetails,
-              pokemonFromList.color,
-              pokemonFromList.genera,
-              pokemonFromList.varieties,
-              pokemonFromList.evolutionChainURL
-            );
-            this.pokemonDefaultColor = this.pokemon.color;
-            this.pokemonService.activePokemon.next(this.pokemon);
-            this.requestForms();
-            this.formatFormNames();
-            // Store as first form in array
-            this.pokemonForms[0] = new Pokemon(
-              this.pokemon.name,
-              this.pokemon.id,
-              this.pokemon.types,
-              this.pokemon.abilities,
-              this.pokemon.height,
-              this.pokemon.weight,
-              this.pokemon.baseExperience,
-              this.pokemon.heldItems,
-              this.pokemon.is_default,
-              this.pokemon.moves,
-              this.pokemon.stats,
-              this.pokemon.species,
-              this.pokemon.speciesDetails,
-              this.pokemon.color,
-              this.pokemon.genera,
-              this.pokemon.varieties,
-              this.pokemon.evolutionChainURL
-            );
-            this.initializePokemonFields();
+            this.initializePokemonAndForms();
           });
-          // forkJoin([this.pokemonService.getPokemonById(this.pokemonId),
-          //   this.pokemonService.getPokemonSpeciesById(this.pokemonId)]).subscribe(
-          //   results => {
-          //     let name = results[0]['name'];
-          //     switch (results[0]['id']) { // Renaming Manually
-          //       case 29:
-          //         name = 'Nidoran♀';
-          //         break;
-          //       case 32:
-          //         name = 'Nidoran♂';
-          //         break;
-          //       case 83:
-          //         name = 'Farfetch\'d';
-          //         break;
-          //       case 122:
-          //         name = 'Mr. Mime';
-          //         break;
-          //       case 386:
-          //         name = 'Deoxys';
-          //         break;
-          //       case 413:
-          //         name = 'Wormadam';
-          //         break;
-          //       case 439:
-          //         name = 'Mime Jr.';
-          //         break;
-          //       case 487:
-          //         name = 'Giratina';
-          //         break;
-          //       case 492:
-          //         name = 'Shaymin';
-          //         break;
-          //       case 550:
-          //         name = 'Basculin';
-          //         break;
-          //       case 555:
-          //         name = 'Darmanitan';
-          //         break;
-          //       case 641:
-          //         name = 'Tornadus';
-          //         break;
-          //       case 642:
-          //         name = 'Thundurus';
-          //         break;
-          //       case 645:
-          //         name = 'Landorus';
-          //         break;
-          //       case 647:
-          //         name = 'Keldeo';
-          //         break;
-          //       case 648:
-          //         name = 'Meloetta';
-          //         break;
-          //       case 669:
-          //         name = 'Flabébé';
-          //         break;
-          //       case 678:
-          //         name = 'Meowstic';
-          //         break;
-          //       case 681:
-          //         name = 'Aegislash';
-          //         break;
-          //       case 710:
-          //         name = 'Pumpkaboo';
-          //         break;
-          //       case 711:
-          //         name = 'Gourgeist';
-          //         break;
-          //       case 741:
-          //         name = 'Oricorio';
-          //         break;
-          //       case 745:
-          //         name = 'Lycanroc';
-          //         break;
-          //       case 746:
-          //         name = 'Wishiwashi';
-          //         break;
-          //       case 772:
-          //         name = 'Type: Null';
-          //         break;
-          //       case 774:
-          //         name = 'Minior';
-          //         break;
-          //       case 778:
-          //         name = 'Mimikyu';
-          //         break;
-          //       case 785:
-          //         name = 'Tapu Koko';
-          //         break;
-          //       case 786:
-          //         name = 'Tapu Lele';
-          //         break;
-          //       case 787:
-          //         name = 'Tapu Bulu';
-          //         break;
-          //       case 788:
-          //         name = 'Tapu Fini';
-          //         break;
-          //     }
-          //     this.pokemon = new Pokemon(
-          //       name,
-          //       results[0]['id'],
-          //       results[0]['types'],
-          //       results[0]['abilities'],
-          //       results[0]['height'],
-          //       results[0]['weight'],
-          //       results[0]['base_experience'],
-          //       results[0]['held_items'],
-          //       results[0]['is_default'],
-          //       results[0]['moves'],
-          //       results[0]['stats'],
-          //       results[0]['species'],
-          //       results[1],
-          //       results[1]['color']['name'],
-          //       results[1]['genera'],
-          //       results[1]['varieties'],
-          //       results[1]['evolution_chain']['url']
-          //     );
-          //     this.pokemon.speciesDetails = results[1];
-          //     this.pokemon.genera = results[1]['genera'];
-          //     this.pokemon.color = results[1]['color']['name'];
-          //     this.pokemonDefaultColor = this.pokemon.color;
-          //     // Why do i need this ???????????????????
-          //     this.pokemonService.activePokemon.next(this.pokemon);
-          //     // Store as first form in array
-          //     this.pokemonForms[0] = new Pokemon(
-          //       this.pokemon.name,
-          //       this.pokemon.id,
-          //       this.pokemon.types,
-          //       this.pokemon.abilities,
-          //       this.pokemon.height,
-          //       this.pokemon.weight,
-          //       this.pokemon.baseExperience,
-          //       this.pokemon.heldItems,
-          //       this.pokemon.is_default,
-          //       this.pokemon.moves,
-          //       this.pokemon.stats,
-          //       this.pokemon.species,
-          //       this.pokemon.speciesDetails,
-          //       this.pokemon.color,
-          //       this.pokemon.genera,
-          //       this.pokemon.varieties,
-          //       this.pokemon.evolutionChainURL
-          //     );
-          //     this.initializePokemonFields();
-          //     this.requestForms();
-          //     this.formatFormNames();
-          //   }
-          // );
         }
       }
     );
+  }
+
+  initializePokemonAndForms() {
+    const pokemonFromList = this.pokemonService.pokemons[this.pokemonId - 1];
+    this.pokemon = new Pokemon(
+      pokemonFromList.name,
+      pokemonFromList.id,
+      pokemonFromList.types,
+      pokemonFromList.abilities,
+      pokemonFromList.height,
+      pokemonFromList.weight,
+      pokemonFromList.baseExperience,
+      pokemonFromList.heldItems,
+      pokemonFromList.is_default,
+      pokemonFromList.moves,
+      pokemonFromList.stats,
+      pokemonFromList.species,
+      pokemonFromList.speciesDetails,
+      pokemonFromList.color,
+      pokemonFromList.genera,
+      pokemonFromList.varieties,
+      pokemonFromList.evolutionChainURL
+    );
+    this.pokemonDefaultColor = this.pokemon.color;
+    this.pokemonService.activePokemon.next(this.pokemon);
+    this.requestForms();
+    this.formatFormNames();
+    // Store as first form in array
+    this.pokemonForms[0] = new Pokemon(
+      this.pokemon.name,
+      this.pokemon.id,
+      this.pokemon.types,
+      this.pokemon.abilities,
+      this.pokemon.height,
+      this.pokemon.weight,
+      this.pokemon.baseExperience,
+      this.pokemon.heldItems,
+      this.pokemon.is_default,
+      this.pokemon.moves,
+      this.pokemon.stats,
+      this.pokemon.species,
+      this.pokemon.speciesDetails,
+      this.pokemon.color,
+      this.pokemon.genera,
+      this.pokemon.varieties,
+      this.pokemon.evolutionChainURL
+    );
+    this.initializePokemonFields();
   }
 
   initializePokemonFields() {
