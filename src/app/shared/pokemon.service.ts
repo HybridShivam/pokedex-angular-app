@@ -37,7 +37,7 @@ export class PokemonService {
     // Check Online Connectivity
     this.createOnline$().subscribe(isOnline => {
       const title = isOnline ? 'Online' : 'Offline';
-      const content = isOnline ? 'Refresh if required' : 'New Content won\'t be loaded ...';
+      const content = isOnline ? 'Images will load now ...' : 'Images won\'t be loaded ...';
       if (isOnline) {
         const toast = _notifications.success(title, content, {
           timeOut: 10000,

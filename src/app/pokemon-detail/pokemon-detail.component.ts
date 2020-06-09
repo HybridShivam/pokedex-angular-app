@@ -344,6 +344,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   moveEffect;
   moveContestType = ['cool', 'beauty', 'cute', 'smart', 'tough'];
 
+  isOnline;
+
   constructor(private activatedRoute: ActivatedRoute,
               private pokemonService: PokemonService) {
     this.megaEvolveAnimationEnabled = !this.pokemonService.isMobile;
@@ -367,6 +369,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         }
       }
     );
+    // Subscribe to online check
+    this.pokemonService.createOnline$().subscribe(isOnline => {
+      this.isOnline = isOnline;
+      console.log('Pokemon :' + this.isOnline);
+    });
   }
 
   initializePokemonAndForms() {
@@ -721,13 +728,14 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   selectForm(i) {
-    if (this.selectedFormNo === i || this.imageLoading || this.pokemonForms[i] === undefined) {
+    if (this.selectedFormNo === i || this.pokemonForms[i] === undefined) {
       return;
     }
     this.currentMoveID = null;
     this.visible = false;
-    if (!(this.pokemonForms[i].name.indexOf('-mega') !== -1 && this.megaEvolveAnimationEnabled && !this.imageLoading)) {
+    if (!(this.pokemonForms[i].name.indexOf('-mega') !== -1) || !(this.megaEvolveAnimationEnabled) || (!this.isOnline) || this.imageLoading) {
       this.imageVisible = false;
+      this.megaEvolveAnimationEnabled = false;
     } else {
       this.megaEvolve();
     }
@@ -1023,7 +1031,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         }
         if (stage['known_move'] !== null) {
           const known_move = this.capitalizeSplitJoin(stage['known_move']['name'], '-', ' ');
-          desc = desc + ' knowing ' + known_move;}
+          desc = desc + ' knowing ' + known_move;
+        }
         if (stage['known_move_type'] !== null) {
           const known_move_type = this.capitalizeSplitJoin(stage['known_move_type']['name'], '-', ' ');
           desc = desc + ' knowing a ' + known_move_type + ' move';
