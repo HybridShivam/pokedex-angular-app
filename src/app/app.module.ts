@@ -49,7 +49,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FormsModule,
     VirtualScrollerModule,
     BrowserAnimationsModule,
-    SimpleNotificationsModule.forRoot()
+    SimpleNotificationsModule.forRoot({preventDuplicates: true})
   ],
   providers: [
     ScrollDispatcher,

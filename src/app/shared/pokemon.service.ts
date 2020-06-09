@@ -29,10 +29,17 @@ export class PokemonService {
   moveJSON;
   abilityJSON;
   pokemonMovesCSV;
+  firstTime = false;
   @Output() searchItemSubject: Subject<string> = new Subject<string>();
   @Output() EverythingLoaded: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private http: HttpClient, private _notifications: NotificationsService) {
+  constructor(private http: HttpClient, public _notifications: NotificationsService) {
+    localStorage.clear();
+    console.log(localStorage.getItem('visitedOnce'));
+    if (localStorage.getItem('visitedOnce') === null) {
+      this.firstTime = true;
+      localStorage.setItem('visitedOnce', 'true');
+    }
     this.requestALL();
     // Check Online Connectivity
     this.createOnline$().subscribe(isOnline => {
