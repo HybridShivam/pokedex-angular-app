@@ -11,7 +11,6 @@ import {Location} from '@angular/common';
 export class HeaderComponent implements OnInit {
   color;
   searchText = '';
-  // miracleCount = 0;
   showSearch = true;
   _timeout: any = null;
 
@@ -30,11 +29,6 @@ export class HeaderComponent implements OnInit {
         this.setTitleBarColor(this.color);
       }
     );
-    // this.pokemonService.searchItemSubject.subscribe(
-    //   (response) => {
-    //     this.searchText = response;
-    //   }
-    // );
   }
 
   constructor(public pokemonService: PokemonService, private meta: Meta, private lc: NgZone, private _location: Location) {
@@ -89,41 +83,13 @@ export class HeaderComponent implements OnInit {
       }
 
     }
-    // const themeColor = this.meta.getTag('name=theme-color');
-    // this.meta.removeTagElement(themeColor);
-    // this.meta.addTag({name: 'theme-color', content: hexColor});
     this.meta.updateTag({name: 'theme-color', content: hexColor});
-    // document.querySelector('meta[name="theme-color"]').setAttribute('content', hexColor);
     this.meta.updateTag({name: 'msapplication-navbutton-color', content: hexColor});
     this.meta.updateTag({name: 'apple-mobile-web-app-status-bar-style', content: hexColor});
   }
 
 
-  // typing($event) {
-  //   if (this.miracleCount < 1) {
-  //     history.pushState(null, null, window.location.href);
-  //     history.back();
-  //     history.pushState(null, null, window.location.href);
-  //     history.back();
-  //     this.miracleCount++;
-  //   }
-  //   // console.log('typing');
-  //   // this.setTitleBarColor(this.color);
-  //   this.pokemonService.searchItemSubject.next(this.searchText);
-  // }
-
   typingStopped() {
-    // if (this.miracleCount < 1) {
-    //   history.pushState(null, null, window.location.href);
-    //   history.back();
-    //   history.pushState(null, null, window.location.href);
-    //   history.back();
-    //   history.pushState(null, null, window.location.href);
-    //   history.back();
-    //   this.miracleCount++;
-    // }
-    // this.pokemonService.searchItemSubject.next(this.searchText);
-    // this._timeout = null;
     if (this._timeout) {
       // if there is already a timeout in process cancel it
       window.clearTimeout(this._timeout);
@@ -137,8 +103,4 @@ export class HeaderComponent implements OnInit {
       ;
     }, 50);
   }
-
-  // goBack() {
-  //   this._location.back();
-  // }
 }

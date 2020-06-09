@@ -570,16 +570,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       this.abilities.push(this.pokemonService.abilityJSON[abilityID - 1]);
       // requests.push(this.pokemonService.getAbility(ability['ability']['url']));
     }
-    // console.log(this.abilities);
     this.allAbilitiesReceived = true;
-    // console.log(this.abilities);
-    // forkJoin(...requests).subscribe(
-    //   (responses) => {
-    //     for (let i = 0; i < responses.length; i++) {
-    //       this.abilities[i] = responses[i];
-    //     }
-    //     this.allAbilitiesReceived = true;
-    //   });
   }
 
   abilitySelect(no: number) {
@@ -611,7 +602,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     for (let i = 0; i < this.pokemon.varieties.length; i++) {
       var formattedName;
       var name = this.pokemon.varieties[i]['n'];
-      console.log(name);
       if (this.pokemon.id !== 774) { // excluding Minior
         if (name.indexOf('-totem') !== -1 || name.indexOf('-battle-bond') !== -1) {
           continue;
@@ -664,7 +654,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           // Skipping these forms
         }
         formIDs.push(variety['id']);
-        console.log('pushing' + variety['id']);
         // formRequests.push(this.pokemonService.getPokemonByURL(variety['id']));
       }
     } else {
@@ -677,7 +666,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     let i = 1;
     for (const id of formIDs) {
       const form = this.pokemonService.pokemonJSON[id.toString()];
-      console.log(form);
       this.pokemonForms[i] = new Pokemon(
         form['N'],
         form['id'],
@@ -759,7 +747,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.pokemon.name = this.pokemon.species['n'] + ' [' + this.formattedFormNames[i] + ']';
       }
 
-      // this.pokemon.id = this.pokemonForms[i]['id'];
       this.pokemon.types = this.pokemonForms[i].types;
       this.pokemon.abilities = this.pokemonForms[i].abilities;
       this.pokemon.height = this.pokemonForms[i].height;
@@ -777,15 +764,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         const str = this.pokemonForms[i].name.replace(regExp, '$2');
         this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
           this.pad(this.pokemon.id, 3) + '-' + this.capitalizeSplitJoin(str, '-', '-') + '.png';
-        // console.log(this.pokemonImageUrl);
       }
       // For Default Forms and Initializing Fields
       this.initializePokemonFields();
       this.visible = true;
-      // if (this.pokemonForms[i]['name'].indexOf('-mega') !== -1 && this.megaEvolveAnimationEnabled) {
-      //   // console.log('Mega Evolve Animation !!!');
-      //   this.megaEvolve();
-      // }
     }, 400);
   }
 
@@ -836,25 +818,19 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   getEvolutionChain() {
     this.evolutionDesc = [];
     this.exceptionalChainType = '';
-    // console.log(this.pokemon.evolutionChainID);
     const evoID = this.pokemon.evolutionChainID;
     const response = this.pokemonService.evolutionChains[evoID - 1];
-    // this.pokemonService.getEvoChainByURL(this.pokemon.evolutionChainID).subscribe((response) => {
     this.evolutionChain = [];
     let chain = response['chain'];
     if (this.evolutionChainExceptions_112.indexOf(chain['species']['name']) > -1) {
       this.exceptionalChainType = '112';
     } else if (this.evolutionChainExceptions_12.indexOf(chain['species']['name']) > -1) {
-      // console.log('excep 12');
       this.exceptionalChainType = '12';
     } else if (this.evolutionChainExceptions_13.indexOf(chain['species']['name']) > -1) {
-      // console.log('excep 13');
       this.exceptionalChainType = '13';
     } else if (this.evolutionChainExceptions_18.indexOf(chain['species']['name']) > -1) {
-      // console.log('excep 18');
       this.exceptionalChainType = '18';
     } else if (this.evolutionChainExceptions_122.indexOf(chain['species']['name']) > -1) {
-      // console.log('excep 122');
       this.exceptionalChainType = '122';
     }
     var nextChain, i;
@@ -960,9 +936,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           nextChain['evolution_details'] // 3
         ]);
     }
-    // console.log(this.evolutionChain);
     this.generateEvolutionMethods();
-    // });
   }
 
   generateEvolutionMethods() {
@@ -1023,7 +997,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.evolutionDesc = [['Level 7 based on PV', 'Level 7 based on PV'],
           ['Level 10+', 'Level 10+']];
     }
-    // console.log(this.evolutionDesc);
   }
 
   generateEvolutionMethodsLogic(stage) {
@@ -1047,13 +1020,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         if (stage['held_item'] !== null) {
           const held_item = this.capitalizeSplitJoin(stage['held_item']['name'], '-', ' ');
           desc = desc + ' holding ' + held_item;
-          // console.log(held_item);
         }
         if (stage['known_move'] !== null) {
           const known_move = this.capitalizeSplitJoin(stage['known_move']['name'], '-', ' ');
-          desc = desc + ' knowing ' + known_move;
-          // console.log(known_move);
-        }
+          desc = desc + ' knowing ' + known_move;}
         if (stage['known_move_type'] !== null) {
           const known_move_type = this.capitalizeSplitJoin(stage['known_move_type']['name'], '-', ' ');
           desc = desc + ' knowing a ' + known_move_type + ' move';
@@ -1147,7 +1117,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         desc = 'Level 20, with empty PokéBall and an open slot in party';
         break;
     }
-    // console.log(desc);
     return desc;
   }
 
@@ -1238,7 +1207,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.typeDefences['1x'].push(type['name']); // 1x
       }
     }
-    // console.log(this.typeDefences);
   }
 
   calculateCatchRate(genderRate) {
@@ -1367,19 +1335,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       }
     }
   }
-
-  // fetchMoveDetailsFromCSVData(moveID): Move {
-  //   return this.pokemonService.movesDetails[moveID - 1];
-  // }
-
-  // fetchMachineDetailsFromCSVDataSlow(moveID, versionID) {
-  //   for (const machine of this.pokemonService.machineDetails) {
-  //     if (machine.move_id == moveID && machine.version_group_id == versionID) {
-  //       return +machine.machine_number <= 100 ? 'TM' + this.pad(machine.machine_number, 2)
-  //         : 'HM' + this.pad(machine.machine_number - 100, 2);
-  //     }
-  //   }
-  // }
 
   getDamageClass(id) {
     switch (id) {
@@ -1530,9 +1485,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     for (const move of this.machineMovesList) {
       const moveID = move[3].replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/move\/(\d+)\//, '$2');
       this.moveMachineDetails.push(this.pokemonService.moveJSON[moveID - 1]);
-      // console.log(this.pokemonService.moveJSON[moveID - 1]['machines']);
       this.getAndAddMachineNo(this.pokemonService.moveJSON[moveID - 1]['machines']);
-      // moveRequests[1].push(this.pokemonService.getMoveByURL(move[3]));
     }
     for (const move of this.eggMovesList) {
       const moveID = move[3].replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/move\/(\d+)\//, '$2');
@@ -1542,31 +1495,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     for (const move of this.tutorMovesList) {
       const moveID = move[3].replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/move\/(\d+)\//, '$2');
       this.moveTutorDetails.push(this.pokemonService.moveJSON[moveID - 1]);
-      // moveRequests[3].push(this.pokemonService.getMoveByURL(move[3]));
     }
-    // forkJoin(moveRequests[0]).subscribe(results => {
-    //   for (const result of results) {
-    //     this.moveLevelDetails.push(result);
-    //   }
-    // });
-    // forkJoin(moveRequests[1]).subscribe(results => {
-    //   this.moveMachineNos = [];
-    //   for (const result of results) {
-    //     this.moveMachineDetails.push(result);
-    //     this.getAndAddMachineNo(result['machines']);
-    //   }
-    //   // console.log(this.moveMachineNos);
-    // });
-    // forkJoin(moveRequests[2]).subscribe(results => {
-    //   for (const result of results) {
-    //     this.moveEggDetails.push(result);
-    //   }
-    // });
-    // forkJoin(moveRequests[3]).subscribe(results => {
-    //   for (const result of results) {
-    //     this.moveTutorDetails.push(result);
-    //   }
-    // });
     switch (this.selectedMove) {
       case 'level-up':
         this.moveDetails = this.moveLevelDetails;
@@ -1584,16 +1513,11 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   getAndAddMachineNo(machines) {
-    // if (machines[this.versions[this.selectedGameVersion]] !== undefined) {
-    // console.log('MachineID' + machines[this.versions[this.selectedGameVersion]]);
     this.moveMachineNos.push(this.fetchMachineNumberFromCSVData(machines[this.versions[this.selectedGameVersion]]));
-    // }
   }
 
   fetchMachineNumberFromCSVData(machineID) {
-    // const machineID = machineURL.replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/machine\/(\d+)\//, '$2');
     const machineNumber = this.pokemonService.machineDetails[machineID - 1].machine_number;
-    // console.log(machineNumber);
     return +machineNumber <= 100 ? 'TM' + this.pad(machineNumber, 2)
       : 'HM' + this.pad(machineNumber - 100, 2);
   }
@@ -1607,7 +1531,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    // console.log('destroyed');
     this.pokemonService.activePokemon.next(null);
     this.pokemonService.previousPokemonID.next(this.pokemonId);
     // Closing Open Modals
@@ -1617,6 +1540,5 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     while (elements.length > 0) {
       elements[0].remove();
     }
-    // this.pokemonService.searchItemSubject.next('');
   }
 }
