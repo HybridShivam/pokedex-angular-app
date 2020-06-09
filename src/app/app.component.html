@@ -1,10 +1,10 @@
 <div class="page-wrapper" style="min-height: 100vh">
   <main class="page-content">
     <app-header></app-header>
-      <div class="container-fluid">
-        <div class="lds-dual-ring" *ngIf="!loaded"></div>
-              <router-outlet></router-outlet>
-      </div>
+    <div class="container-fluid" [ngClass]="{'disableClicks':!loaded}">
+      <div class="lds-dual-ring" *ngIf="!loaded"></div>
+      <router-outlet></router-outlet>
+    </div>
   </main>
 </div>
 <simple-notifications></simple-notifications>

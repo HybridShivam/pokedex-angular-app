@@ -5,3 +5,7 @@
 .container-fluid{
   overflow: auto;
 }
+
+.disableClicks{
+  pointer-events: none;
+}

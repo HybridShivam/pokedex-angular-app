@@ -388,7 +388,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       pokemonFromList.color,
       pokemonFromList.genera,
       pokemonFromList.varieties,
-      pokemonFromList.evolutionChainURL
+      pokemonFromList.evolutionChainID
     );
     this.pokemonDefaultColor = this.pokemon.color;
     this.pokemonService.activePokemon.next(this.pokemon);
@@ -412,7 +412,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       this.pokemon.color,
       this.pokemon.genera,
       this.pokemon.varieties,
-      this.pokemon.evolutionChainURL
+      this.pokemon.evolutionChainID
     );
     this.initializePokemonFields();
   }
@@ -695,7 +695,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.pokemon.color,
         this.pokemon.genera,
         this.pokemon.varieties,
-        this.pokemon.evolutionChainURL,
+        this.pokemon.evolutionChainID,
       );
       i = i + 1;
     }
@@ -724,7 +724,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     //         this.pokemon.color,
     //         this.pokemon.genera,
     //         this.pokemon.varieties,
-    //         this.pokemon.evolutionChainURL,
+    //         this.pokemon.evolutionChainID,
     //       );
     //     }
     //     // this.initializePokemonFields();
@@ -836,10 +836,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   getEvolutionChain() {
     this.evolutionDesc = [];
     this.exceptionalChainType = '';
-    // console.log(this.pokemon.evolutionChainURL);
-    const evoID = this.pokemon.evolutionChainURL;
+    // console.log(this.pokemon.evolutionChainID);
+    const evoID = this.pokemon.evolutionChainID;
     const response = this.pokemonService.evolutionChains[evoID - 1];
-    // this.pokemonService.getEvoChainByURL(this.pokemon.evolutionChainURL).subscribe((response) => {
+    // this.pokemonService.getEvoChainByURL(this.pokemon.evolutionChainID).subscribe((response) => {
     this.evolutionChain = [];
     let chain = response['chain'];
     if (this.evolutionChainExceptions_112.indexOf(chain['species']['name']) > -1) {

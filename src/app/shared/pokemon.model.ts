@@ -23,7 +23,7 @@ export class Pokemon {
     public color,
     public genera,
     public varieties,
-    public evolutionChainURL
+    public evolutionChainID
   ) {
   }
 }
