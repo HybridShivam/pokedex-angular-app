@@ -36,7 +36,7 @@
         <div class="modal-body justify-content-center text-center">
           <p style="padding: 10px;margin: 0" *ngIf="pokemonService.firstTime">Open this menu anytime by clicking <strong>PokéDex</strong></p>
           <div class="row mt-1 mb-4">
-            <div class="col" *ngIf="Pwa.promptEvent"><span class="installBtn" (click)="installPwa()">INSTALL APP</span></div>
+            <div class="col-12" *ngIf="Pwa.promptEvent"><span class="installBtn" (click)="installPwa()">INSTALL APP</span></div>
             <p style="padding: 10px;margin: auto">Assets load in background for <strong>offline</strong> usage.</p>
           </div>
           <div [ngClass]="{'hideSettingsOnMobile':this.pokemonService.isMobile}">
