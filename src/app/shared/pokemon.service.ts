@@ -40,7 +40,6 @@ export class PokemonService {
     this.megaSwitchSubscription.subscribe((res) => {
       this.megaEvolutionMainSwitch = res;
     });
-    localStorage.clear() ;
     if (localStorage.getItem('visitedOnce') === null) {
       this.firstTime = true;
       localStorage.setItem('visitedOnce', 'true');
@@ -49,7 +48,7 @@ export class PokemonService {
     // Check Online Connectivity
     this.createOnline$().subscribe(isOnline => {
       const title = isOnline ? 'Online' : 'Offline';
-      const content = isOnline ? 'Images will load now ...' : 'Images won\'t be loaded ...';
+      const content = isOnline ? 'Images will load now ...' : 'New Images won\'t be loaded ...';
       if (isOnline) {
         const toast = _notifications.success(title, content, {
           timeOut: 10000,

@@ -691,6 +691,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   selectForm(i) {
+    console.log('Main Switch' + this.pokemonService.megaEvolutionMainSwitch);
     if (this.selectedFormNo === i || this.pokemonForms[i] === undefined) {
       return;
     }

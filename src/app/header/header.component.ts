@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
       localStorage.setItem('megaEnabled', 'true');
     }
     this.megaSwitch = localStorage.getItem('megaEnabled') == 'true';
+    this.pokemonService.megaSwitchSubscription.next(this.megaSwitch);
     this.color = this.pokemonService.activePokemon.subscribe(
       response => {
         if (response === null) {

@@ -4,7 +4,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
-import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
+// import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 
 import {AppComponent} from './app.component';
 
@@ -20,7 +20,7 @@ import {PokemonDetailComponent} from './pokemon-detail/pokemon-detail.component'
 import {SearchFilterPipe} from './search-filter.pipe';
 import {RouteReuseStrategy} from '@angular/router';
 import {CustomRouteReuseStrategy} from './router-strategy';
-import {ScrollingModule, ScrollDispatcher} from '@angular/cdk/scrolling';
+// import {ScrollingModule, ScrollDispatcher} from '@angular/cdk/scrolling';
 import {VirtualScrollerModule} from 'ngx-virtual-scroller';
 import {SimpleNotificationsModule} from 'angular2-notifications';
 
@@ -42,9 +42,9 @@ import {SimpleNotificationsModule} from 'angular2-notifications';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    BsDropdownModule.forRoot(),
+    // BsDropdownModule.forRoot(),
     // PerfectScrollbarModule,
-    ScrollingModule,
+    // ScrollingModule,
     // Ng2SearchPipeModule,
     FormsModule,
     VirtualScrollerModule,
@@ -52,7 +52,7 @@ import {SimpleNotificationsModule} from 'angular2-notifications';
     SimpleNotificationsModule.forRoot({preventDuplicates: true})
   ],
   providers: [
-    ScrollDispatcher,
+    // ScrollDispatcher,
     // {
     //   provide: PERFECT_SCROLLBAR_CONFIG,
     //   useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
