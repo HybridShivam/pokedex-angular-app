@@ -15,6 +15,8 @@ import {RouteReuseStrategy} from '@angular/router';
 import {CustomRouteReuseStrategy} from './router-strategy';
 import {VirtualScrollerModule} from 'ngx-virtual-scroller';
 import {SimpleNotificationsModule} from 'angular2-notifications';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import {SimpleNotificationsModule} from 'angular2-notifications';
     FormsModule,
     VirtualScrollerModule,
     BrowserAnimationsModule,
-    SimpleNotificationsModule.forRoot({preventDuplicates: true})
+    SimpleNotificationsModule.forRoot({preventDuplicates: true}),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     {

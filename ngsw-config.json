@@ -1,0 +1,53 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/manifest.webmanifest",
+          "/*.css",
+          "/*.js"
+        ],
+        "urls": [
+          "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/**/*"
+        ]
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/type-icons/png/*.png",
+          "/assets/*.png",
+          "/assets/thumbnails-compressed/*.png",
+          "/assets/damage-category-icons/*.png",
+          "/assets/**/*.json",
+          "/assets/**/*.csv",
+          "/assets/Fonts/AlleynW01-Regular/AlleynW01-Regular.woff2"
+        ]
+      }
+    },
+    {
+      "name": "fonts-and-icons",
+      "installMode": "lazy",
+      "updateMode": "lazy",
+      "resources": {
+        "files": [
+          "/assets/icons/*.png",
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)",
+          "/assets/Fonts/AlleynW01-Regular/*.(eot|svg|ttf|woff)"
+        ],
+        "urls": [
+          "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/*.png"
+        ]
+      }
+    }
+  ]
+}

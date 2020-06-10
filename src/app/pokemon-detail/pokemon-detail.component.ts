@@ -371,7 +371,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     // Subscribe to online check
     this.pokemonService.createOnline$().subscribe(isOnline => {
       this.isOnline = isOnline;
-      console.log('Pokemon :' + this.isOnline);
     });
   }
 
@@ -691,7 +690,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   selectForm(i) {
-    console.log('Main Switch' + this.pokemonService.megaEvolutionMainSwitch);
     if (this.selectedFormNo === i || this.pokemonForms[i] === undefined) {
       return;
     }
@@ -1001,7 +999,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         if (stage['known_move_type'] !== null) {
           const known_move_type = this.capitalizeSplitJoin(stage['known_move_type']['name'], '-', ' ');
           desc = desc + ' knowing a ' + known_move_type + ' move';
-          // console.log(known_move);
         }
         if (stage['min_affection'] !== null) {
           const min_affection = stage['min_affection'];
@@ -1113,25 +1110,25 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     const rate = this.pokemon.speciesDetails['GeR'];
     switch (rate) {
       case -1:
-        return '<span class="' + this.pokemon.color + '-text"' + '>Genderless <i class="fas fa-genderless"></i></span>';
+        return '<span class="' + this.pokemon.color + '-text"' + '>Genderless <i class="fa fa-genderless"></i></span>';
       case 0:
-        return '<span class="gender-male">100% <i class="fas fa-mars"></i></span>,<span class="gender-female"> 0% <i class="fas fa-venus"></i></span>';
+        return '<span class="gender-male">100% <i class="fa fa-mars"></i></span>,<span class="gender-female"> 0% <i class="fa fa-venus"></i></span>';
       case 1:
-        return '<span class="gender-male">87.5% <i class="fas fa-mars"></i></span>,<span class="gender-female">  12.5% <i class="fas fa-venus"></i></span>';
+        return '<span class="gender-male">87.5% <i class="fa fa-mars"></i></span>,<span class="gender-female">  12.5% <i class="fa fa-venus"></i></span>';
       case 2:
-        return '<span class="gender-male">75% <i class="fas fa-mars"></i></span>,<span class="gender-female">  25% <i class="fas fa-venus"></i></span>';
+        return '<span class="gender-male">75% <i class="fa fa-mars"></i></span>,<span class="gender-female">  25% <i class="fa fa-venus"></i></span>';
       case 3:
-        return '<span class="gender-male">62.5% <i class="fas fa-mars"></i></span>,<span class="gender-female">  37.5% <i class="fas fa-venus"></i></span>';
+        return '<span class="gender-male">62.5% <i class="fa fa-mars"></i></span>,<span class="gender-female">  37.5% <i class="fa fa-venus"></i></span>';
       case 4:
-        return '<span class="gender-male">50% <i class="fas fa-mars"></i></span>,<span class="gender-female">  50% <i class="fas fa-venus"></i></span>';
+        return '<span class="gender-male">50% <i class="fa fa-mars"></i></span>,<span class="gender-female">  50% <i class="fa fa-venus"></i></span>';
       case 5:
-        return '<span class="gender-male">37.5% <i class="fas fa-mars"></i></span>,<span class="gender-female">  62.5% <i class="fas fa-venus"></i></span>';
+        return '<span class="gender-male">37.5% <i class="fa fa-mars"></i></span>,<span class="gender-female">  62.5% <i class="fa fa-venus"></i></span>';
       case 6:
-        return '<span class="gender-male">25% <i class="fas fa-mars"></i></span>,<span class="gender-female">  75% <i class="fas fa-venus"></i></span>';
+        return '<span class="gender-male">25% <i class="fa fa-mars"></i></span>,<span class="gender-female">  75% <i class="fa fa-venus"></i></span>';
       case 7:
-        return '<span class="gender-male">12.5% <i class="fas fa-mars"></i></span>,<span class="gender-female">  87.5% <i class="fas fa-venus"></i></span>';
+        return '<span class="gender-male">12.5% <i class="fa fa-mars"></i></span>,<span class="gender-female">  87.5% <i class="fa fa-venus"></i></span>';
       case 8:
-        return '<span class="gender-male">0% <i class="fas fa-mars"></i></span>,<span class="gender-female">  100% <i class="fas fa-venus"></i></span>';
+        return '<span class="gender-male">0% <i class="fa fa-mars"></i></span>,<span class="gender-female">  100% <i class="fa fa-venus"></i></span>';
     }
   }
 
