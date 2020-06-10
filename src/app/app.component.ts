@@ -1,5 +1,6 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {PokemonService} from './shared/pokemon.service';
+import {HeaderComponent} from './header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ import {PokemonService} from './shared/pokemon.service';
 export class AppComponent implements AfterViewInit {
 
   loaded = false;
+  @ViewChild('header') headerComponent: HeaderComponent;
 
   constructor(private pokemonService: PokemonService) {
     this.pokemonService.EverythingLoaded.subscribe(res => {
@@ -17,28 +19,30 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log(this.pokemonService.firstTime);
     setTimeout(() => {
       if (this.pokemonService.firstTime) {
-        const toast = this.pokemonService._notifications.success('Welcome To The PokéDex', 'Preloading Data ...', {
-          timeOut: 10000,
+        const toast = this.pokemonService._notifications.success('Welcome To The PokéDex', 'Loading Data ...', {
+          timeOut: 0,
           showProgressBar: true,
           pauseOnHover: true,
           clickToClose: true,
         });
         toast.click.subscribe((event) => {
-          const toast2 = this.pokemonService._notifications.info('Hate Waiting ?', 'Don\'t Worry, This app can work OFFLINE thereafter,', {
-            timeOut: 10000,
+          const toast2 = this.pokemonService._notifications.info('Hate Waiting ?', 'Don\'t Worry, This app can work OFFLINE thereafter...', {
+            timeOut: 0,
             showProgressBar: true,
             pauseOnHover: true,
             clickToClose: true,
           });
-          toast2.click.subscribe((event) => {
-            const toast2 = this.pokemonService._notifications.info('Even Better !!!', 'It can be installed!', {
-              timeOut: 10000,
+          toast2.click.subscribe((event2) => {
+            const toast2 = this.pokemonService._notifications.info('It\'s Installable too!', 'Click here for more info.', {
+              timeOut: 0,
               showProgressBar: true,
               pauseOnHover: true,
               clickToClose: true,
+            });
+            toast2.click.subscribe((event3) => {
+              this.headerComponent.openMenu();
             });
           });
         });

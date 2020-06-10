@@ -34,11 +34,13 @@ export class PokemonService {
   @Output() searchItemSubject: Subject<string> = new Subject<string>();
   @Output() EverythingLoaded: Subject<boolean> = new Subject<boolean>();
   @Output() megaSwitchSubscription: Subject<boolean> = new Subject<boolean>();
+  @Output() OpenMenu: Subject<boolean> = new Subject<boolean>();
 
   constructor(private http: HttpClient, public _notifications: NotificationsService) {
     this.megaSwitchSubscription.subscribe((res) => {
       this.megaEvolutionMainSwitch = res;
     });
+    localStorage.clear() ;
     if (localStorage.getItem('visitedOnce') === null) {
       this.firstTime = true;
       localStorage.setItem('visitedOnce', 'true');

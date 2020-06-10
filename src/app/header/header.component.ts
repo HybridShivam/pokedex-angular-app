@@ -1,4 +1,4 @@
-import {Component, NgZone, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, NgZone, OnInit, ViewChild} from '@angular/core';
 import {PokemonService} from '../shared/pokemon.service';
 import {Meta} from '@angular/platform-browser';
 import {Location} from '@angular/common';
@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   showSearch = true;
   _timeout: any = null;
   megaSwitch;
-
+  @ViewChild('menu') menu: ElementRef;
 
   ngOnInit(): void {
     if (localStorage.getItem('megaEnabled') == null) {
@@ -95,6 +95,10 @@ export class HeaderComponent implements OnInit {
   checkBoxChange(values: any) {
     this.pokemonService.megaSwitchSubscription.next(values.currentTarget.checked);
     localStorage.setItem('megaEnabled', values.currentTarget.checked.toString());
+  }
+
+  openMenu() {
+    this.menu.nativeElement.click();
   }
 
 

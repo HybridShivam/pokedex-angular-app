@@ -30,7 +30,6 @@
     "jquery": "^3.4.1",
     "ng2-search-filter": "^0.5.1",
     "ngx-bootstrap": "^5.6.1",
-    "ngx-perfect-scrollbar": "^9.0.0",
     "ngx-virtual-scroller": "^4.0.3",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.5",

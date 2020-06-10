@@ -8,9 +8,9 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 
 import {AppComponent} from './app.component';
 
-import {PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
-import {PERFECT_SCROLLBAR_CONFIG} from 'ngx-perfect-scrollbar';
-import {PerfectScrollbarConfigInterface} from 'ngx-perfect-scrollbar';
+// import {PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
+// import {PERFECT_SCROLLBAR_CONFIG} from 'ngx-perfect-scrollbar';
+// import {PerfectScrollbarConfigInterface} from 'ngx-perfect-scrollbar';
 import {HeaderComponent} from './header/header.component';
 import {PokemonListComponent} from './pokemon-list/pokemon-list.component';
 import {PokemonItemComponent} from './pokemon-list/pokemon-item/pokemon-item.component';
@@ -24,9 +24,9 @@ import {ScrollingModule, ScrollDispatcher} from '@angular/cdk/scrolling';
 import {VirtualScrollerModule} from 'ngx-virtual-scroller';
 import {SimpleNotificationsModule} from 'angular2-notifications';
 
-const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-  suppressScrollX: true
-};
+// const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+//   suppressScrollX: true
+// };
 
 @NgModule({
   declarations: [
@@ -43,7 +43,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AppRoutingModule,
     HttpClientModule,
     BsDropdownModule.forRoot(),
-    PerfectScrollbarModule,
+    // PerfectScrollbarModule,
     ScrollingModule,
     // Ng2SearchPipeModule,
     FormsModule,
@@ -53,10 +53,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   ],
   providers: [
     ScrollDispatcher,
-    {
-      provide: PERFECT_SCROLLBAR_CONFIG,
-      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    },
+    // {
+    //   provide: PERFECT_SCROLLBAR_CONFIG,
+    //   useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    // },
     {
       provide: RouteReuseStrategy,
       useClass: CustomRouteReuseStrategy

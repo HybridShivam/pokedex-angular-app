@@ -2,8 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {PokemonService} from '../shared/pokemon.service';
 import {Pokemon} from '../shared/pokemon.model';
-import {forkJoin, Subject} from 'rxjs';
-import {Move} from '../shared/moves.model';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -1510,6 +1509,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     // Closing Open Modals
     const body = document.getElementsByTagName('body')[0];
     body.classList.remove('modal-open');
+    body.style.paddingRight = 'unset';
     const elements = document.getElementsByClassName('modal-backdrop');
     while (elements.length > 0) {
       elements[0].remove();
