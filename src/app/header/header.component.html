@@ -34,8 +34,10 @@
           <hr style="margin-top: 10px;margin-bottom: 5px">
         </div>
         <div class="modal-body justify-content-center text-center">
+          <p style="padding: 10px;margin: 0" *ngIf="pokemonService.firstTime">Open this menu anytime by clicking the <strong>PokéDex</strong> Header.</p>
           <div class="row mt-1 mb-4">
-            <div class="col"><span class="installBtn">INSTALL</span></div>
+            <div class="col"><span class="installBtn">INSTALL APP</span></div>
+            <p style="padding: 10px;margin: 0">Alternatively, use the <strong>Add to Home Screen</strong> (Mobile Chrome)/ <strong>Install</strong> (Desktop Chrome) option.</p>
           </div>
           <div [ngClass]="{'hideSettingsOnMobile':this.pokemonService.isMobile}">
           <span class="rounded text-center font-weight-bolder"
@@ -47,23 +49,30 @@
                        (change)="checkBoxChange($event)"></div>
             </div>
             <p>If enabled, the animation takes place once for each species after the base form's image have been
-              downloaded. [Desktop Browsers Only] </p>
+              downloaded.</p>
           </div>
           <span class="rounded text-center font-weight-bolder"
                 style="padding: 4px; font-size: larger">ABOUT</span>
-          <p style="padding-top: 6px">The current PokéDex is up to date with the data from the PokéAPI (Uptu Gen VII).
-            This PWA (Progressive Web App) can be installed for offline usage.
-            <br>Made with <i class="fa fa-heart" aria-hidden="true"></i> Pokémon & Angular.</p>
+          <p style="padding-top: 6px">The current PokéDex is up to date with the data from the PokéAPI (Uptu Gen VII). Earlier this app used to call the API but
+            now all the data is cached locally to facilitate offline usage.
+            <br>Made with <i class="fa fa-heart" aria-hidden="true"></i> for Pokémon.</p>
           <span class="rounded text-center font-weight-bolder"
                 style="padding: 4px; font-size: larger">SPECIAL THANKS</span>
-          <p style="padding-top: 6px;"><a href="https://github.com/PokeAPI/pokeapi">PokéAPI.co</a>, <a
-            href="https://bulbapedia.bulbagarden.net/wiki/Main_Page">Bulbapedia</a> for the data and of course to
+          <p style="padding-top: 6px;"><a href="https://github.com/PokeAPI/pokeapi" target="_blank">PokéAPI.co</a> for the data, <a
+            href="https://bulbapedia.bulbagarden.net/wiki/Main_Page" target="_blank">Bulbapedia</a> for the images, <a
+            href="https://github.com/duiker101/pokemon-type-svg-icons" target="_blank">duiker101</a> for the type icons and of course to
             Nintendo, Game Freak, and The Pokémon Company for making such an awesome series of games.</p>
           <span class="rounded text-center font-weight-bolder"
                 style="padding: 4px; font-size: larger">CONTACT</span>
-          <p style="padding-top: 6px;white-space: pre-wrap"><a
-            href="https://github.com/HybridShivam/pokedex-angular-app">Github Repository.</a>
-            <br>Report any bugs <a href="mailto:shivamunlimited@gmail.com">here</a>.</p>
+          <p style="padding-top: 6px;white-space: pre-wrap">
+            If you liked it you can <i class="fa fa-star" aria-hidden="true"></i> the repo.
+            <a href="https://github.com/HybridShivam/pokedex-angular-app" target="_blank">@Github/PokéDex</a><br>
+            And here's the repo. containing all other resources <a href="https://github.com/HybridShivam/Pokemon" target="_blank">@Github/Pokémon</a>
+            <br>Report any bugs to my <a href="mailto:shivamunlimited@gmail.com">MailBox</a>.</p>
+          <span class="rounded text-center font-weight-bolder"
+                style="padding: 4px; font-size: larger">DISCLAIMER</span>
+          <p style="padding-top: 6px">This is an unofficial, free fan-made app and is NOT affiliated, endorsed or supported by Nintendo, Game Freak and The Pokémon Company in any way.
+            <br>No copyright infringement intended.
         </div>
         <div class="modal-footer justify-content-center">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

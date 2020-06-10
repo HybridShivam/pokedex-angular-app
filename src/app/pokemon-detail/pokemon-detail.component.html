@@ -244,7 +244,7 @@
           <tr>
             <td class="text-right font-weight-bold" style="vertical-align: middle;">Type</td>
             <td>
-              <div class="row" style="flex-wrap: nowrap">
+              <div class="row" style="flex-wrap: nowrap" data-toggle="modal" data-target="#typesModal">
                 <div class="text-capitalize" *ngFor="let type of pokemon.types">
                   <ng-container [ngSwitch]="type['n']">
                     <div class="row icon bug" *ngSwitchCase="'bug'"><span class="col-8 text-white">Bug</span><span

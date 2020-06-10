@@ -373,6 +373,12 @@
       max-height: 26px;
     }
   }
+  .modal-body{
+    font-size: smaller;
+    .installBtn{
+      font-size: medium;
+    }
+  }
   #searchIcon {
     padding: 0px 10px;
   }

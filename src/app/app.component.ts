@@ -28,7 +28,8 @@ export class AppComponent implements AfterViewInit {
           clickToClose: true,
         });
         toast.click.subscribe((event) => {
-          const toast2 = this.pokemonService._notifications.info('Hate Waiting ?', 'Don\'t Worry, This app can work OFFLINE thereafter...', {
+          const toast2 = this.pokemonService._notifications.info('Hate Waiting ?',
+            'Don\'t Worry, This app can work OFFLINE thereafter...', {
             timeOut: 0,
             showProgressBar: true,
             pauseOnHover: true,
