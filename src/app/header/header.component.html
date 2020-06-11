@@ -37,7 +37,8 @@
           <p style="padding: 10px;margin: 0" *ngIf="pokemonService.firstTime">Open this menu anytime by clicking <strong>PokéDex</strong></p>
           <div class="row mt-1 mb-4">
             <div class="col-12" *ngIf="Pwa.promptEvent"><span class="installBtn" (click)="installPwa()">INSTALL APP</span></div>
-            <p style="padding: 10px;margin: auto">Assets load in background for <strong>offline</strong> usage.</p>
+            <p style="padding: 10px;margin: auto">App can be used <strong>offline</strong> right away but for best experience let all the thumbnails (about 3MB only) load in background first.<br>
+            Main images are loaded only when opened and once loaded they will be available for offline usage.</p>
           </div>
           <div [ngClass]="{'hideSettingsOnMobile':this.pokemonService.isMobile}">
           <span class="rounded text-center font-weight-bolder"
@@ -53,12 +54,12 @@
           </div>
           <span class="rounded text-center font-weight-bolder"
                 style="padding: 4px; font-size: larger">ABOUT</span>
-          <p style="padding-top: 6px">The current PokéDex is up to date with the data from the PokéAPI (Uptu Gen VII). Earlier this app used to call the API but
-            now all the data is cached locally to facilitate offline usage.
+          <p style="padding-top: 6px">v1.0<br>The current PokéDex is up to date with the data from the PokéAPI (Uptu Gen VII). Earlier this app used to call the API but
+            now all the data is completely stored locally to facilitate offline usage. So this app works independently from the API.
             <br>Made with <i class="fa fa-heart" aria-hidden="true"></i> for Pokémon.</p>
           <span class="rounded text-center font-weight-bolder"
                 style="padding: 4px; font-size: larger">SPECIAL THANKS</span>
-          <p style="padding-top: 6px;"><a href="https://github.com/PokeAPI/pokeapi" target="_blank">PokéAPI.co</a> for the data, <a
+          <p style="padding-top: 6px;"><a href="https://github.com/PokeAPI/pokeapi" target="_blank">PokéAPI.co</a> & <a href="https://github.com/veekun/pokedex" target="_blank">Veekun</a> for the data, <a
             href="https://bulbapedia.bulbagarden.net/wiki/Main_Page" target="_blank">Bulbapedia</a> for the images, <a
             href="https://github.com/duiker101/pokemon-type-svg-icons" target="_blank">duiker101</a> for the type icons and of course to
             Nintendo, Game Freak, and The Pokémon Company for making such an awesome series of games.</p>
@@ -67,7 +68,7 @@
           <p style="padding-top: 6px;white-space: pre-wrap">
             If you liked it you can <i class="fa fa-star" aria-hidden="true"></i> the repo.
             <a href="https://github.com/HybridShivam/pokedex-angular-app" target="_blank">@Github/PokéDex</a><br>
-            And here's the repo. containing all other resources <a href="https://github.com/HybridShivam/Pokemon" target="_blank">@Github/Pokémon</a>
+            And here's the repo. containing all other resources (images) <a href="https://github.com/HybridShivam/Pokemon" target="_blank">@Github/Pokémon</a>
             <br>Report any bugs to my <a href="mailto:shivamunlimited@gmail.com">MailBox</a>.</p>
           <span class="rounded text-center font-weight-bolder"
                 style="padding: 4px; font-size: larger">DISCLAIMER</span>
