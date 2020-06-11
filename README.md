@@ -44,8 +44,8 @@
 1. Make sure you use the latest version of the CLI (upgrade guide below)
 1. ~Run `ng serve` to see the app in action (try `npm start` in case `ng serve` fails).~
 1. ~Connect to app on `localhost:4200`~
-1. Due to `angular-pwa` this can can only be viewed on production builds so use `ng build --prod`
-1. To serve this you'll need http server : `npm install -g http-server`, this creates a build in `\dist` directory. 
+1. Due to `angular-pwa` this can can only be viewed on production builds so use `ng build --prod` , this creates a build in `\dist` directory.
+1. To serve this you'll need http server : `npm install -g http-server`
 1. Run the server using `http-server -c-1 dist\pokedex`
 
 **Upgrading Angular CLI version**
