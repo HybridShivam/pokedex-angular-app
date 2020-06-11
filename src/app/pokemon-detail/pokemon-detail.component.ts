@@ -358,7 +358,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.pokemonForms = [];
         this.formattedFormNames = [];
         // From List
-        if (this.pokemonService.pokemons[this.pokemonId]) {
+        if (this.pokemonService.pokemons[this.pokemonId - 1]) {
           this.initializePokemonAndForms();
           // Directly From Link
         } else {
