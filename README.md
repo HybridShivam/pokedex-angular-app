@@ -12,9 +12,9 @@
   ![Node](https://img.shields.io/badge/Node-13.12.0-blue)
 </p>
 <p align="center">
-   For my love of Pokemon.
-   A PWA (Progressive Web App) Built on Angular 9 with Service Workers.
-   Works Offline and can be installed.
+   A PWA (Progressive Web App) Built using Angular 9 with Service Workers.
+   Works Offline and can be installed.<br>
+   Built using the PokéAPI.
 </p>
  
 # Screenshots
