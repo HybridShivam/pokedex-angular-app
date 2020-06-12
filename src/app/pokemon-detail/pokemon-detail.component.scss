@@ -993,6 +993,7 @@
   .table-fixed tr {
     display: flow-root !important;
   }
+
   .black {
     tbody tr:hover:not(.NotFoundText) {
       background-color: #9fb7c2;
@@ -1438,8 +1439,8 @@
   .scrollableTable {
     thead, tbody {
       .Col1 {
-        flex: 0 0 14.722222%;
-        max-width: 14.722222%;
+        flex: 0 0 13%;
+        max-width: 13%;
       }
 
       .Col2 {
@@ -1464,6 +1465,74 @@
 
       .Col7 {
         padding-left: 0;
+        flex: 0 0 11.444444%;
+        max-width: 11.444444%;
+      }
+
+      .Col8, .Col9 {
+        display: none;
+      }
+    }
+
+    thead {
+      .Col3 {
+        flex: 0 0 17.444444%;
+        max-width: 17.444444%;
+      }
+
+      .Col4 {
+        display: none;
+      }
+
+      .Col5 {
+        flex: 0 0 12.722222%;
+        max-width: 12.722222%;
+      }
+
+      .Col6 {
+        flex: 0 0 8.722222%;
+        max-width: 8.722222%;
+      }
+    }
+  }
+}
+
+@media(max-width: 400px) {
+  .scrollableTable {
+    font-size: smaller !important;
+    width: auto;
+  }
+  .scrollableTable {
+    thead, tbody {
+      .Col1 {
+        flex: 0 0 13%;
+        max-width: 13%;
+      }
+
+      .Col2 {
+        flex: 0 0 35.666666%;
+        max-width: 35.666666%;
+      }
+
+      .Col3 {
+        flex: 0 0 8.722222%;
+        max-width: 8.722222%;
+      }
+
+      .Col4 {
+        flex: 0 0 8.722222%;
+        max-width: 8.722222%;
+      }
+
+      .Col5 {
+        flex: 0 0 11.722222%;
+        max-width: 11.722222%;
+      }
+
+      .Col7 {
+        padding-left: 0;
+        flex: 0 0 12.444444%;
+        max-width: 12.444444%;
       }
 
       .Col8, .Col9 {
