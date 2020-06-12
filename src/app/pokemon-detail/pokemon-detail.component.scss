@@ -990,112 +990,115 @@
 
 
 .scrollableTable {
+  .table-fixed tr {
+    display: flow-root !important;
+  }
   .black {
-    tr:hover :not(.NotFoundText) {
+    tbody tr:hover:not(.NotFoundText) {
+      background-color: #9fb7c2;
       cursor: pointer;
     }
 
     tr:hover td:not(.NotFoundText) {
-      background-color: #9fb7c2;
       color: white;
     }
   }
 
   .blue {
-    tr:hover :not(.NotFoundText) {
+    tbody tr:hover:not(.NotFoundText) {
       cursor: pointer;
+      background-color: #a3e2ff;
     }
 
     tr:hover td:not(.NotFoundText) {
-      background-color: #a3e2ff;
       color: white;
     }
   }
 
   .brown {
-    tr:hover :not(.NotFoundText) {
+    tbody tr:hover:not(.NotFoundText) {
       cursor: pointer;
+      background-color: #d0c7c5;
     }
 
     tr:hover td:not(.NotFoundText) {
-      background-color: #d0c7c5;
       color: white;
     }
   }
 
   .gray {
-    tr:hover :not(.NotFoundText) {
+    tbody tr:hover:not(.NotFoundText) {
       cursor: pointer;
+      background-color: #cccccc;
     }
 
     tr:hover td:not(.NotFoundText) {
-      background-color: #cccccc;
       color: white;
     }
   }
 
   .green {
-    tr:hover :not(.NotFoundText) {
+    tbody tr:hover:not(.NotFoundText) {
       cursor: pointer;
+      background-color: #b2deb4;
     }
 
     tr:hover td:not(.NotFoundText) {
-      background-color: #b2deb4;
       color: white;
     }
   }
 
   .pink {
-    tr:hover :not(.NotFoundText) {
+    tbody tr:hover:not(.NotFoundText) {
       cursor: pointer;
+      background-color: #fbd2e1;
     }
 
     tr:hover td:not(.NotFoundText) {
-      background-color: #fbd2e1;
       color: white;
     }
   }
 
   .purple {
-    tr:hover :not(.NotFoundText) {
+    tbody tr:hover:not(.NotFoundText) {
       cursor: pointer;
+      background-color: #c9b2f3;
     }
 
     tr:hover td:not(.NotFoundText) {
-      background-color: #c9b2f3;
       color: white;
     }
   }
 
   .red {
-    tr:hover :not(.NotFoundText) {
+    tbody tr:hover:not(.NotFoundText) {
       cursor: pointer;
+      background-color: #ffb4ad;
     }
 
     tr:hover td:not(.NotFoundText) {
-      background-color: #ffb4ad;
       color: white;
     }
   }
 
   .white {
-    tr:hover :not(.NotFoundText) {
+    tbody tr:hover:not(.NotFoundText) {
       cursor: pointer;
+      background-color: #ffffff;
     }
 
     tr:hover td:not(.NotFoundText) {
-      background-color: #ffffff;
       color: dimgray;
     }
   }
 
   .yellow {
-    tr:hover :not(.NotFoundText) {
+    tbody tr:hover:not(.NotFoundText) {
       cursor: pointer;
+      background-color: #ffe15f;
     }
 
     tr:hover td:not(.NotFoundText) {
-      background-color: #ffe15f;
       color: white;
     }
   }
@@ -1477,11 +1480,13 @@
       .Col4 {
         display: none;
       }
-      .Col5{
+
+      .Col5 {
         flex: 0 0 12.722222%;
         max-width: 12.722222%;
       }
-      .Col6{
+
+      .Col6 {
         flex: 0 0 8.722222%;
         max-width: 8.722222%;
       }
@@ -1509,7 +1514,7 @@
       width: auto;
     }
   }
-  .ability{
+  .ability {
     font-size: x-small;
   }
 }
