@@ -11,6 +11,10 @@ virtual-scroller {
   //display: flex;
 }
 
+.pokemon-list{
+  will-change: transform;
+}
+
 .scrollable-content {
   justify-content: center !important;
 }

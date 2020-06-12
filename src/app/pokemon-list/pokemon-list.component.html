@@ -7,7 +7,7 @@
 <!--<button (click)="focusOnAnItem(100)">Focus</button>-->
 
 
-<div class="row justify-content-center faded" #scrollingBlock [ngClass]="{fade:scrolled}">
+<div class="pokemon-list row justify-content-center faded" #scrollingBlock [ngClass]="{fade:scrolled}">
   <virtual-scroller #scroll [items]="pokemons| searchFilter: searchItem" [parentScroll]="scrollingBlock"
                     class="justify-content-center" scrollAnimationTime="0">
     <app-pokemon-item *ngFor="let pokemon of scroll.viewPortItems; trackBy: myTrackByFunction; let i = index;"
