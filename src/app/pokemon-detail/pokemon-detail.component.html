@@ -1377,7 +1377,7 @@
         </div>
         <div class="inner scrollableTable">
           <div class="table-responsive {{pokemon.color}}" style="position: relative;">
-            <div class="lds-dual-ring" *ngIf="moveDetails.length===0&&movesList.length!==0"></div>
+<!--            <div class="lds-dual-ring" *ngIf="moveDetails.length===0&&movesList.length!==0"></div>-->
             <table class="table table-fixed">
               <thead>
               <tr>
@@ -1441,7 +1441,7 @@
                   <td class="col-1 Col9 text-center">{{move[2].generation_id}}</td>
                 </tr>
               </ng-container>
-              <tr *ngIf="movesList.length==0&&movesListLoaded==true">
+              <tr class="disableClicking" *ngIf="movesList.length==0&&movesListLoaded==true">
                 <td class="col text-center NotFoundText" style="padding-top: 8.5rem;">
                   <ng-container
                     *ngIf="!availableInSelectedGen(pokemon.speciesDetails['Gen']); else noMovesLearnt">
