@@ -46,6 +46,8 @@
 
 # Getting Started:
 
+**Repo with all the assets : [PokeDex Assets](https://github.com/HybridShivam/pokedex-angular-app/)**
+
 **Setting up the environment:**
 1. Install Node.js and use `node -v` to check version.
 1. IMP Note: You might need to use sudo depending on the npm configuration.
