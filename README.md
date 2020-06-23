@@ -46,7 +46,7 @@
 
 # Getting Started:
 
-**Repo with all the assets : [PokeDex Assets](https://github.com/HybridShivam/pokedex-angular-app/)**
+**Repo with all the assets : [PokeDex Assets](https://github.com/HybridShivam/pokemon/)**
 
 **Setting up the environment:**
 1. Install Node.js and use `node -v` to check version.
