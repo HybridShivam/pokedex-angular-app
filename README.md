@@ -16,6 +16,8 @@
    Works Offline and can be installed.<br>
    Built using the PokéAPI.
 </p>
+
+<p align="center">Leave a :star: if you liked it, also share :link: with those who may be interested.<p>
  
 # Screenshots
 <p align="center"><img src="https://user-images.githubusercontent.com/28728749/84378747-4d005180-ac02-11ea-802e-705c80cbbccc.png" width="300"> <img src="https://user-images.githubusercontent.com/28728749/84378755-51c50580-ac02-11ea-9e3d-b25b138642ca.png" width="300"> <img src="https://user-images.githubusercontent.com/28728749/84378759-54bff600-ac02-11ea-922c-a8fce6a35479.png" width="300">
@@ -41,8 +43,8 @@
  * Evolution Chains.
  * Training, Breeding, Typing and Forms.
  * Flavor Text according to the selected the Games.
- * *Works Offline.*
- * *Can be installed.*
+ * *Works Offline.* :heavy_check_mark:
+ * *Can be installed.* :heavy_check_mark:
 
 # Getting Started:
 
@@ -83,3 +85,4 @@ Thanks to [PokéAPI.co](https://github.com/PokeAPI/pokeapi). & [Veekun](https://
 
 # Copyright Notice
 This is an unofficial, non-commercial, fan-made app and is NOT affiliated, endorsed or supported by Nintendo, Game Freak and The Pokémon Company in any way. Many images used in this app are copyrighted and are supported under fair use. Pokémon and Pokémon character names are trademarks of Nintendo. No copyright infringement intended.
+
