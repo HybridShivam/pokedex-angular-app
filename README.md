@@ -75,7 +75,7 @@
       1. Run the server using `http-server -c-1 dist\pokedex`
 
 **Upgrading Angular CLI version**
-* Run the below commands - only use "sudo" on Mac/ Linux.
+* Run the below commands - use "sudo" only on Mac/ Linux.
 1. `sudo npm uninstall -g angular-cli @angular/cli`
 1. `npm cache clean --force`
 1. `sudo npm install -g @angular/cli`
