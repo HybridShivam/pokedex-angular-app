@@ -15,6 +15,8 @@
    A PWA (Progressive Web App) Built using Angular 9 with Service Workers.
    Works Offline and can be installed.<br>
    Built using the PokéAPI.
+  
+   <p align="center">Website : <a href="https://hybridshivam.tech/pokedex/">hybridshivam.tech/pokedex</a></p>
 </p>
 
 <p align="center">Leave a :star: if you liked it, also share :link: with those who may be interested.<p>
