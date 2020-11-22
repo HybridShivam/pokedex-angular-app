@@ -15,6 +15,8 @@
    A PWA (Progressive Web App) Built using Angular 9 with Service Workers.
    Works Offline and can be installed.<br>
    Built using the PokéAPI.
+  
+   <p align="center">Website : <a href="https://hybridshivam.tech/pokedex/">hybridshivam.tech/pokedex</a><br>[For best experience use Chrome or any other Chromium-based browser]</p>
 </p>
 
 <p align="center">Leave a :star: if you liked it, also share :link: with those who may be interested.<p>
@@ -75,7 +77,7 @@
       1. Run the server using `http-server -c-1 dist\pokedex`
 
 **Upgrading Angular CLI version**
-* Run the below commands - only use "sudo" on Mac/ Linux.
+* Run the below commands - use "sudo" only on Mac/ Linux.
 1. `sudo npm uninstall -g angular-cli @angular/cli`
 1. `npm cache clean --force`
 1. `sudo npm install -g @angular/cli`
