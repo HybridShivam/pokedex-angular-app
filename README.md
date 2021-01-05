@@ -44,7 +44,7 @@
  * Moves.
  * Evolution Chains.
  * Training, Breeding, Typing and Forms.
- * Flavor Text according to the selected the Games.
+ * Flavor Text according to the selected games.
  * *Works Offline.* :heavy_check_mark:
  * *Can be installed.* :heavy_check_mark:
 
