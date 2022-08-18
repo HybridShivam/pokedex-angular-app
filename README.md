@@ -66,13 +66,13 @@
       1. Connect to app on `localhost:4200`
       (I use `ng serve -o --host 0.0.0.0` so that I can connect to the server via my Mobile device while on the same network and navigating to `<ip-address-of-server>:4200`)
     * With Service Worker
-      1. Due to `angular-pwa` this can can only be viewed on production builds so use `ng build --prod --serviceWorker true` , this creates a build in `\dist` directory.
+      1. Due to `angular-pwa` restrictions, this can only be viewed on production builds so use `ng build --prod --serviceWorker true` , this creates a build in `\dist` directory.
       1. To serve this you'll need http server : `npm install -g http-server`
       1. Run the server using `http-server -c-1 dist\pokedex`
 
   * If `true`
     * With Service Worker
-      1. As service worker is enable here, it can can only be viewed on production builds so use `ng build --prod` , this creates a build in `\dist` directory.
+      1. As service worker is enabled here, it can only be viewed on production builds so use `ng build --prod` , this creates a build in `\dist` directory.
       1. To serve this you'll need http server : `npm install -g http-server`
       1. Run the server using `http-server -c-1 dist\pokedex`
 
