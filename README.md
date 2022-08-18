@@ -1,4 +1,4 @@
-<p align="center">
+<div align="center">
   <a href="https://hybridshivam.com/pokedex/"><img src="https://raw.githubusercontent.com/HybridShivam/pokedex-angular-app/master/pokedex.png" width="250px"></a>
   
   ![Website](https://img.shields.io/badge/Website-Up-green)
@@ -9,7 +9,8 @@
   ![Angular CLI](https://img.shields.io/badge/Angular_CLI-9.1.1-orange)
   ![NPM](https://img.shields.io/badge/NPM-6.14.4-yellow)
   ![Node](https://img.shields.io/badge/Node-13.12.0-blue)
-</p>
+  
+</div>
 <p align="center">
    A PWA (Progressive Web App) Built using Angular 9 with Service Workers.
    Works Offline and can be installed.<br>
