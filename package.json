@@ -1,6 +1,6 @@
 {
-  "name": "angular-pro-sidebar",
-  "version": "0.0.0",
+  "name": "pokedex-angular-app",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
