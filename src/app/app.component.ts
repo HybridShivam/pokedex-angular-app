@@ -1,7 +1,6 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {PokemonService} from './shared/pokemon.service';
-import {HeaderComponent} from './header/header.component';
-
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { PokemonService } from './shared/pokemon.service';
+import { HeaderComponent } from './header/header.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

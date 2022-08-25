@@ -4,213 +4,15 @@
   <h1 class="text-center text-uppercase Section-Heading" [ngClass]="{fOut:!visible}">{{pokemon.name}}</h1>
   <div class="justify-content-center text-center">
     <!--    Had Padding Buttom 20px-->
-    <span style="padding: 4px" *ngIf="pokemon.genera===undefined"> </span>
-    <span style="padding: 4px" class="genera text-capitalize {{pokemon.color}} rounded fadeIn" data-toggle="modal"
-          data-target="#descModal"
-          *ngIf="pokemonGenera!=undefined">{{pokemonGenera}}</span>
+    <span style="padding: 4px" class="genera text-capitalize {{pokemon.color}} rounded fadeIn" data-toggle="modal" data-target="#descModal"
+      *ngIf="pokemonGenera!=undefined">{{pokemonGenera}}</span>
   </div>
   <div class="row justify-content-center" style="position: relative;padding-bottom: 3rem">
-    <div class="bubbles" *ngIf="megaEvolving" [ngClass]="{'fIn': BubblesVisible}" style="position: absolute">
+    <div class="bubbles" *ngIf="megaEvolving" [ngClass]="{'fIn': BubblesVisible}">
       <div class="bubble-wrap">
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
+        <ng-container *ngFor="let _ of [].constructor(200)">
+          <div class="bubble"></div>
+        </ng-container>
       </div>
     </div>
     <div class="col-lg-3 col-md-2 bioDiv d-flex flex-wrap justify-content-center" [ngClass]="{fOut:!visible}">
@@ -231,76 +33,20 @@
           <tr>
             <td class="text-right font-weight-bold">Abilities</td>
             <td>
-            <span class="abilities" *ngFor="let ability of pokemon.abilities; let i=index">
-              <ng-container *ngIf="i==2"><br></ng-container>
-              <span class="ability {{pokemon.color}} text-uppercase" [ngClass]="{'hiddenAbility':ability['isH']}"
-                    role="button"
-                    (click)="abilitySelect(i)" style="white-space:nowrap;"
-                    [ngStyle]="{'display':i==2?'inline-block':'unset','margin-top':i==2?'5px':'0px'}"
-                    data-toggle="modal" data-target="#abilityModal">{{ability['n']}}</span>
-          </span>
+              <span class="abilities" *ngFor="let ability of pokemon.abilities; let i=index">
+                <ng-container *ngIf="i==2"><br></ng-container>
+                <span class="ability {{pokemon.color}} text-uppercase" [ngClass]="{'hiddenAbility':ability['isH']}" role="button" (click)="selectAbility(i)"
+                  style="white-space:nowrap;" [ngStyle]="{'display':i==2?'inline-block':'unset','margin-top':i==2?'5px':'0px'}" data-toggle="modal"
+                  data-target="#abilityModal">{{ability['n']}}</span>
+              </span>
             </td>
           </tr>
           <tr>
             <td class="text-right font-weight-bold" style="vertical-align: middle;">Type</td>
             <td>
               <div class="row" style="flex-wrap: nowrap" data-toggle="modal" data-target="#typesModal">
-                <div class="text-capitalize" *ngFor="let type of pokemon.types">
-                  <ng-container [ngSwitch]="type['n']">
-                    <div class="row icon bug" *ngSwitchCase="'bug'"><span class="col-8 text-white">Bug</span><span
-                      class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/bug.png"></span></div>
-                    <div class="row icon dark" *ngSwitchCase="'dark'"><span class="col-8 text-white">Dark</span><span
-                      class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/dark.png"></span></div>
-                    <div class="row icon dragon" *ngSwitchCase="'dragon'"><span
-                      class="col-8 text-white">Dragon</span><span class="col-4"><img alt="" class="img-fluid"
-                                                                                     src="assets/type-icons/png/dragon.png"></span>
-                    </div>
-                    <div class="row icon electric" *ngSwitchCase="'electric'"><span
-                      class="col-8 text-white">Electric</span><span class="col-4"><img alt="" class="img-fluid"
-                                                                                       src="assets/type-icons/png/electric.png"></span>
-                    </div>
-                    <div class="row icon fire" *ngSwitchCase="'fire'"><span class="col-8 text-white">Fire</span><span
-                      class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/fire.png"></span></div>
-                    <div class="row icon fairy" *ngSwitchCase="'fairy'"><span class="col-8 text-white">Fairy</span><span
-                      class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/fairy.png"></span></div>
-                    <div class="row icon fighting" *ngSwitchCase="'fighting'"><span
-                      class="col-8 text-white">Fighting</span><span class="col-4"><img alt="" class="img-fluid"
-                                                                                       src="assets/type-icons/png/fighting.png"></span>
-                    </div>
-                    <div class="row icon flying" *ngSwitchCase="'flying'"><span
-                      class="col-8 text-white">Flying</span><span class="col-4"><img alt="" class="img-fluid"
-                                                                                     src="assets/type-icons/png/flying.png"></span>
-                    </div>
-                    <div class="row icon ghost" *ngSwitchCase="'ghost'"><span class="col-8 text-white">Ghost</span><span
-                      class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/ghost.png"></span></div>
-                    <div class="row icon grass" *ngSwitchCase="'grass'"><span class="col-8 text-white">Grass</span><span
-                      class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/grass.png"></span></div>
-                    <div class="row icon ground" *ngSwitchCase="'ground'"><span
-                      class="col-8 text-white">Ground</span><span class="col-4"><img alt="" class="img-fluid"
-                                                                                     src="assets/type-icons/png/ground.png"></span>
-                    </div>
-                    <div class="row icon ice" *ngSwitchCase="'ice'"><span class="col-8 text-white">Ice</span><span
-                      class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/ice.png"></span></div>
-                    <div class="row icon normal" *ngSwitchCase="'normal'"><span
-                      class="col-8 text-white">Normal</span><span class="col-4"><img alt="" class="img-fluid"
-                                                                                     src="assets/type-icons/png/normal.png"></span>
-                    </div>
-                    <div class="row icon poison" *ngSwitchCase="'poison'"><span
-                      class="col-8 text-white">Poison</span><span class="col-4"><img alt="" class="img-fluid"
-                                                                                     src="assets/type-icons/png/poison.png"></span>
-                    </div>
-                    <div class="row icon psychic" *ngSwitchCase="'psychic'"><span
-                      class="col-8 text-white">Psychic</span><span class="col-4"><img alt="" class="img-fluid"
-                                                                                      src="assets/type-icons/png/psychic.png"></span>
-                    </div>
-                    <div class="row icon rock" *ngSwitchCase="'rock'"><span class="col-8 text-white">Rock</span><span
-                      class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/rock.png"></span></div>
-                    <div class="row icon steel" *ngSwitchCase="'steel'"><span class="col-8 text-white">Steel</span><span
-                      class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/steel.png"></span></div>
-                    <div class="row icon water" *ngSwitchCase="'water'"><span class="col-8 text-white">Water</span><span
-                      class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/water.png"></span></div>
-                  </ng-container>
-                </div>
+                <div class="text-capitalize row icon {{type['n']}}" *ngFor="let type of pokemon.types"><span class="col-8 text-white">{{type['n']}}</span><span
+                    class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/{{type['n']}}.png"></span></div>
               </div>
             </td>
           </tr>
@@ -308,9 +54,7 @@
             <td class="text-right font-weight-bold">Forms</td>
             <td class="formsBlock text-capitalize">
               <span class="varieties" *ngFor="let formName of formattedFormNames;let i=index" style="white-space: pre;">
-                <span class="variety {{pokemon.color}} text-uppercase"
-                      (click)="selectForm(i)" [ngClass]="{selectedForm:selectedFormNo===i}"
-                >{{formName}}</span>
+                <span class="variety {{pokemon.color}} text-uppercase" (click)="selectForm(i)" [ngClass]="{selectedForm:selectedFormNo===i}">{{formName}}</span>
                 <ng-container *ngIf="(i+1)%2==0"><br></ng-container>
               </span>
             </td>
@@ -320,12 +64,9 @@
     </div>
     <div class="col-lg-5 d-flex flex-wrap align-items-center">
       <div class="image-container">
-        <img alt="" class="Image img-fluid mx-auto my-auto d-block fadeInOut" [src]="pokemonImageUrl"
-             (load)="imagePreload()"
-             [ngClass]="{fadeImg: !imageLoading,fOut :!imageVisible}"
-             style="z-index: 100!important;max-width: 85%;height: auto;padding-top: 10px;">
-        <img alt="" class="mega-sigil" src="assets/Mega-Evolution-Sigil.png" *ngIf="megaEvolving"
-             [ngClass]="{'fIn': SigilVisible, 'sigil-end': sigilEnd}">
+        <img alt="" class="Image img-fluid mx-auto my-auto d-block fadeInOut" [src]="pokemonImageUrl" (load)="imagePreload()"
+          [ngClass]="{fadeImg: !imageLoading,fOut :!imageVisible}">
+        <img alt="" class="mega-sigil" src="assets/Mega-Evolution-Sigil.png" *ngIf="megaEvolving" [ngClass]="{'fIn': SigilVisible, 'sigil-end': sigilEnd}">
         <div class="megaSphere" *ngIf="megaEvolving" [ngClass]="{'fIn': SphereVisible}"></div>
       </div>
     </div>
@@ -335,18 +76,15 @@
           <tr>
             <td></td>
             <td>
-              <button class="btn rounded-pill font-weight-bold" (click)="showStats('base')"
-                      [ngClass]="selectedStat=='base' ? pokemon.color : null">Base
+              <button class="btn rounded-pill font-weight-bold" (click)="showStats('base')" [ngClass]="selectedStat=='base' ? pokemon.color : null">Base
               </button>
             </td>
             <td>
-              <button class="btn rounded-pill font-weight-bold" (click)="showStats('min')"
-                      [ngClass]="selectedStat=='min' ? pokemon.color : null">Min
+              <button class="btn rounded-pill font-weight-bold" (click)="showStats('min')" [ngClass]="selectedStat=='min' ? pokemon.color : null">Min
               </button>
             </td>
             <td>
-              <button class="btn rounded-pill font-weight-bold" (click)="showStats('max')"
-                      [ngClass]="selectedStat=='max' ? pokemon.color : null">Max
+              <button class="btn rounded-pill font-weight-bold" (click)="showStats('max')" [ngClass]="selectedStat=='max' ? pokemon.color : null">Max
               </button>
             </td>
           </tr>
@@ -354,9 +92,10 @@
             <td class="text-right font-weight-bold" style="white-space:nowrap;">HP</td>
             <td colspan="3">
               <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
-                     aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
-                     style="width:{{stats[0]}}"><span>{{statsToShow[0]}}</span></div>
+                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar" aria-valuenow="" aria-valuemin="0"
+                  aria-valuemax="255" [ngClass]="pokemon.color" [ngStyle]="{'width': stats[0]}">
+                  <span>{{statsToShow[0]}}</span>
+                </div>
               </div>
             </td>
           </tr>
@@ -364,9 +103,10 @@
             <td class="text-right font-weight-bold" style="white-space:nowrap;">Attack</td>
             <td colspan="3">
               <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
-                     aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
-                     style="width:{{stats[1]}}"><span>{{statsToShow[1]}}</span></div>
+                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar" aria-valuenow="" aria-valuemin="0"
+                  aria-valuemax="255" [ngClass]="pokemon.color" [ngStyle]="{'width': stats[1]}">
+                  <span>{{statsToShow[1]}}</span>
+                </div>
               </div>
             </td>
           </tr>
@@ -374,9 +114,10 @@
             <td class="text-right font-weight-bold" style="white-space:nowrap;">Defence</td>
             <td colspan="3">
               <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
-                     aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
-                     style="width:{{stats[2]}}"><span>{{statsToShow[2]}}</span></div>
+                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar" aria-valuenow="" aria-valuemin="0"
+                  aria-valuemax="255" [ngClass]="pokemon.color" [ngStyle]="{'width': stats[2]}">
+                  <span>{{statsToShow[2]}}</span>
+                </div>
               </div>
             </td>
           </tr>
@@ -384,9 +125,10 @@
             <td class="text-right font-weight-bold" style="white-space:nowrap;">Sp. Attack</td>
             <td colspan="3">
               <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
-                     aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
-                     style="width:{{stats[3]}}"><span>{{statsToShow[3]}}</span></div>
+                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar" aria-valuenow="" aria-valuemin="0"
+                  aria-valuemax="255" [ngClass]="pokemon.color" [ngStyle]="{'width': stats[3]}">
+                  <span>{{statsToShow[3]}}</span>
+                </div>
               </div>
             </td>
           </tr>
@@ -394,9 +136,10 @@
             <td class="text-right font-weight-bold" style="white-space:nowrap;">Sp. Defence</td>
             <td colspan="3">
               <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
-                     aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
-                     style="width:{{stats[4]}}"><span>{{statsToShow[4]}}</span></div>
+                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar" aria-valuenow="" aria-valuemin="0"
+                  aria-valuemax="255" [ngClass]="pokemon.color" [ngStyle]="{'width': stats[4]}">
+                  <span>{{statsToShow[4]}}</span>
+                </div>
               </div>
             </td>
           </tr>
@@ -404,9 +147,10 @@
             <td class="text-right font-weight-bold" style="white-space:nowrap;">Speed</td>
             <td colspan="3">
               <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar"
-                     aria-valuenow="" aria-valuemin="0" aria-valuemax="255" [ngClass]="pokemon.color"
-                     style="width:{{stats[5]}}"><span>{{statsToShow[5]}}</span></div>
+                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm" role="progressbar" aria-valuenow="" aria-valuemin="0"
+                  aria-valuemax="255" [ngClass]="pokemon.color" [ngStyle]="{'width': stats[5]}">
+                  <span>{{statsToShow[5]}}</span>
+                </div>
               </div>
             </td>
           </tr>
@@ -422,9 +166,9 @@
   </div>
 
   <div class="container" *ngIf="evolutionChain.length>0" style="padding-bottom: 3rem">
-    <h1 class="Heading text-center text-uppercase" style="margin-bottom: 1.5rem;"><span class="rounded"
-                                                                                        [ngClass]="pokemon.color"
-                                                                                        style="padding: 2px 4px 4px;">Evolution Chain</span>
+    <h1 class="Heading text-center text-uppercase" style="margin-bottom: 1.5rem;"><span class="rounded" [ngClass]="pokemon.color"
+        style="padding: 2px 4px 4px;">Evolution
+        Chain</span>
     </h1>
     <div class="row justify-content-center" style="padding-bottom: 3rem">
       <ng-container [ngSwitch]="exceptionalChainType">
@@ -433,43 +177,17 @@
             <div class="col-sm evo-div" style="padding: 10px;">
               <div *ngIf="evolutionChain.length===1" class="DNE">This Pokémon does not evolve.</div>
               <div>
-                <img alt="" class="evo-img mx-auto d-block"
-                     src="assets/thumbnails-compressed/{{this.pad(stage[1], 3) + '.png'}}"
-                     routerLink="/pokemon/{{stage[1]}}" (click)="selectEvolution(stage[1])">
+                <img alt="" class="evo-img mx-auto d-block" src="assets/thumbnails-compressed/{{this.pad(stage[1], 3) + '.png'}}"
+                  routerLink="/pokemon/{{stage[1]}}" (click)="selectEvolution(stage[1])">
               </div>
               <div class="evo-id text-center">#{{stage[1]}}</div>
-              <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{stage[1]}}"
-                   (click)="selectEvolution(stage[1])"
-                   style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
-                                                       [ngClass]="{'selectedEvo':selectedEvolutionId===stage[1]}">{{stage[0]}}</span>
+              <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{stage[1]}}" (click)="selectEvolution(stage[1])"
+                style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
+                  [ngClass]="{'selectedEvo':selectedEvolutionId===stage[1]}">{{stage[0]}}</span>
               </div>
-              <div class="evo-types col-xs-5" style="padding: 0;"
-                   *ngIf="pokemonService.pokemons[stage[1]-1]!=undefined">
-                <ng-container *ngFor="let type of pokemonService.pokemons[stage[1]-1].types">
-                  <ng-container [ngSwitch]="type['n']">
-                    <div class="icon bug" *ngSwitchCase="'bug'"><img alt="" src="assets/type-icons/png/bug.png"></div>
-                    <div class="icon dark" *ngSwitchCase="'dark'"><img alt="" src="assets/type-icons/png/dark.png"></div>
-                    <div class="icon dragon" *ngSwitchCase="'dragon'"><img alt="" src="assets/type-icons/png/dragon.png"></div>
-                    <div class="icon electric" *ngSwitchCase="'electric'"><img alt="" src="assets/type-icons/png/electric.png">
-                    </div>
-                    <div class="icon fire" *ngSwitchCase="'fire'"><img alt="" src="assets/type-icons/png/fire.png"></div>
-                    <div class="icon fairy" *ngSwitchCase="'fairy'"><img alt="" src="assets/type-icons/png/fairy.png"></div>
-                    <div class="icon fighting" *ngSwitchCase="'fighting'"><img alt="" src="assets/type-icons/png/fighting.png">
-                    </div>
-                    <div class="icon flying" *ngSwitchCase="'flying'"><img alt="" src="assets/type-icons/png/flying.png"></div>
-                    <div class="icon ghost" *ngSwitchCase="'ghost'"><img alt="" src="assets/type-icons/png/ghost.png"></div>
-                    <div class="icon grass" *ngSwitchCase="'grass'"><img alt="" src="assets/type-icons/png/grass.png"></div>
-                    <div class="icon ground" *ngSwitchCase="'ground'"><img alt="" src="assets/type-icons/png/ground.png"></div>
-                    <div class="icon ice" *ngSwitchCase="'ice'"><img alt="" src="assets/type-icons/png/ice.png"></div>
-                    <div class="icon normal" *ngSwitchCase="'normal'"><img alt="" src="assets/type-icons/png/normal.png"></div>
-                    <div class="icon poison" *ngSwitchCase="'poison'"><img alt="" src="assets/type-icons/png/poison.png"></div>
-                    <div class="icon psychic" *ngSwitchCase="'psychic'"><img alt="" src="assets/type-icons/png/psychic.png">
-                    </div>
-                    <div class="icon rock" *ngSwitchCase="'rock'"><img alt="" src="assets/type-icons/png/rock.png"></div>
-                    <div class="icon steel" *ngSwitchCase="'steel'"><img alt="" src="assets/type-icons/png/steel.png"></div>
-                    <div class="icon water" *ngSwitchCase="'water'"><img alt="" src="assets/type-icons/png/water.png"></div>
-                  </ng-container>
-                </ng-container>
+              <div class="evo-types col-xs-5" style="padding: 0;" *ngIf="pokemonService.pokemons[stage[1]-1]!=undefined">
+                <div class="icon {{type['n']}}" *ngFor="let type of pokemonService.pokemons[stage[1]-1].types"><img alt=""
+                    src="assets/type-icons/png/{{type['n']}}.png"></div>
               </div>
             </div>
             <div class='col-sm arrow-div evo-desc' *ngIf="i<evolutionChain.length-1">
@@ -484,50 +202,17 @@
             <ng-container *ngIf="i<evolutionChain.length-1; else MultiStage">
               <div class="col-sm evo-div" style="padding: 10px;">
                 <div>
-                  <img alt="" class="evo-img mx-auto d-block"
-                       src="assets/thumbnails-compressed/{{this.pad(stage[1], 3) + '.png'}}"
-                       routerLink="/pokemon/{{stage[1]}}" (click)="selectEvolution(stage[1])">
+                  <img alt="" class="evo-img mx-auto d-block" src="assets/thumbnails-compressed/{{this.pad(stage[1], 3) + '.png'}}"
+                    routerLink="/pokemon/{{stage[1]}}" (click)="selectEvolution(stage[1])">
                 </div>
                 <div class="evo-id text-center">#{{stage[1]}}</div>
-                <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{stage[1]}}"
-                     (click)="selectEvolution(stage[1])"
-                     style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
-                                                         [ngClass]="{'selectedEvo':selectedEvolutionId===stage[1]}">{{stage[0]}}</span>
+                <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{stage[1]}}" (click)="selectEvolution(stage[1])"
+                  style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
+                    [ngClass]="{'selectedEvo':selectedEvolutionId===stage[1]}">{{stage[0]}}</span>
                 </div>
-                <div class="evo-types col-xs-5" style="padding: 0;"
-                     *ngIf="pokemonService.pokemons[stage[1]-1]!=undefined">
-                  <ng-container *ngFor="let type of pokemonService.pokemons[stage[1]-1].types">
-                    <ng-container [ngSwitch]="type['n']">
-                      <div class="icon bug" *ngSwitchCase="'bug'"><img alt="" src="assets/type-icons/png/bug.png"></div>
-                      <div class="icon dark" *ngSwitchCase="'dark'"><img alt="" src="assets/type-icons/png/dark.png"></div>
-                      <div class="icon dragon" *ngSwitchCase="'dragon'"><img alt="" src="assets/type-icons/png/dragon.png">
-                      </div>
-                      <div class="icon electric" *ngSwitchCase="'electric'"><img alt=""
-                        src="assets/type-icons/png/electric.png">
-                      </div>
-                      <div class="icon fire" *ngSwitchCase="'fire'"><img alt="" src="assets/type-icons/png/fire.png"></div>
-                      <div class="icon fairy" *ngSwitchCase="'fairy'"><img alt="" src="assets/type-icons/png/fairy.png"></div>
-                      <div class="icon fighting" *ngSwitchCase="'fighting'"><img alt=""
-                        src="assets/type-icons/png/fighting.png">
-                      </div>
-                      <div class="icon flying" *ngSwitchCase="'flying'"><img alt="" src="assets/type-icons/png/flying.png">
-                      </div>
-                      <div class="icon ghost" *ngSwitchCase="'ghost'"><img alt="" src="assets/type-icons/png/ghost.png"></div>
-                      <div class="icon grass" *ngSwitchCase="'grass'"><img alt="" src="assets/type-icons/png/grass.png"></div>
-                      <div class="icon ground" *ngSwitchCase="'ground'"><img alt="" src="assets/type-icons/png/ground.png">
-                      </div>
-                      <div class="icon ice" *ngSwitchCase="'ice'"><img alt="" src="assets/type-icons/png/ice.png"></div>
-                      <div class="icon normal" *ngSwitchCase="'normal'"><img alt="" src="assets/type-icons/png/normal.png">
-                      </div>
-                      <div class="icon poison" *ngSwitchCase="'poison'"><img alt="" src="assets/type-icons/png/poison.png">
-                      </div>
-                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img alt="" src="assets/type-icons/png/psychic.png">
-                      </div>
-                      <div class="icon rock" *ngSwitchCase="'rock'"><img alt="" src="assets/type-icons/png/rock.png"></div>
-                      <div class="icon steel" *ngSwitchCase="'steel'"><img alt="" src="assets/type-icons/png/steel.png"></div>
-                      <div class="icon water" *ngSwitchCase="'water'"><img alt="" src="assets/type-icons/png/water.png"></div>
-                    </ng-container>
-                  </ng-container>
+                <div class="evo-types col-xs-5" style="padding: 0;" *ngIf="pokemonService.pokemons[stage[1]-1]!=undefined">
+                  <div class="icon {{type['n']}}" *ngFor="let type of pokemonService.pokemons[stage[1]-1].types"><img alt=""
+                      src="assets/type-icons/png/{{type['n']}}.png"></div>
                 </div>
               </div>
               <ng-container *ngIf="i<evolutionChain.length-2; else MultiArrowStage">
@@ -554,56 +239,18 @@
                 <ng-container *ngFor="let sideStage of stage;">
                   <div class="col-sm evo-div" style="padding: 10px;">
                     <div>
-                      <img alt="" class="evo-img mx-auto d-block"
-                           src="assets/thumbnails-compressed/{{this.pad(sideStage[1], 3) + '.png'}}"
-                           routerLink="/pokemon/{{sideStage[1]}}" (click)="selectEvolution(sideStage[1])">
+                      <img alt="" class="evo-img mx-auto d-block" src="assets/thumbnails-compressed/{{this.pad(sideStage[1], 3) + '.png'}}"
+                        routerLink="/pokemon/{{sideStage[1]}}" (click)="selectEvolution(sideStage[1])">
                     </div>
                     <div class="evo-id text-center">#{{sideStage[1]}}</div>
-                    <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{sideStage[1]}}"
-                         (click)="selectEvolution(sideStage[1])"
-                         style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
-                                                             [ngClass]="{'selectedEvo':selectedEvolutionId===sideStage[1]}">{{sideStage[0]}}</span>
+                    <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{sideStage[1]}}" (click)="selectEvolution(sideStage[1])"
+                      style="padding: 0; bottom: 0">
+                      <span class="evo-name {{pokemon.color}}" [ngClass]="{'selectedEvo':selectedEvolutionId===sideStage[1]}">{{sideStage[0]}}</span>
                     </div>
-                    <div class="evo-types col-xs-5" style="padding: 0;"
-                         *ngIf="pokemonService.pokemons[sideStage[1]-1]!=undefined">
-                      <ng-container *ngFor="let type of pokemonService.pokemons[sideStage[1]-1].types">
-                        <ng-container [ngSwitch]="type['n']">
-                          <div class="icon bug" *ngSwitchCase="'bug'"><img alt="" src="assets/type-icons/png/bug.png"></div>
-                          <div class="icon dark" *ngSwitchCase="'dark'"><img alt="" src="assets/type-icons/png/dark.png"></div>
-                          <div class="icon dragon" *ngSwitchCase="'dragon'"><img alt="" src="assets/type-icons/png/dragon.png">
-                          </div>
-                          <div class="icon electric" *ngSwitchCase="'electric'"><img alt=""
-                            src="assets/type-icons/png/electric.png">
-                          </div>
-                          <div class="icon fire" *ngSwitchCase="'fire'"><img alt="" src="assets/type-icons/png/fire.png"></div>
-                          <div class="icon fairy" *ngSwitchCase="'fairy'"><img alt="" src="assets/type-icons/png/fairy.png">
-                          </div>
-                          <div class="icon fighting" *ngSwitchCase="'fighting'"><img alt=""
-                            src="assets/type-icons/png/fighting.png">
-                          </div>
-                          <div class="icon flying" *ngSwitchCase="'flying'"><img alt="" src="assets/type-icons/png/flying.png">
-                          </div>
-                          <div class="icon ghost" *ngSwitchCase="'ghost'"><img alt="" src="assets/type-icons/png/ghost.png">
-                          </div>
-                          <div class="icon grass" *ngSwitchCase="'grass'"><img alt="" src="assets/type-icons/png/grass.png">
-                          </div>
-                          <div class="icon ground" *ngSwitchCase="'ground'"><img alt="" src="assets/type-icons/png/ground.png">
-                          </div>
-                          <div class="icon ice" *ngSwitchCase="'ice'"><img alt="" src="assets/type-icons/png/ice.png"></div>
-                          <div class="icon normal" *ngSwitchCase="'normal'"><img alt="" src="assets/type-icons/png/normal.png">
-                          </div>
-                          <div class="icon poison" *ngSwitchCase="'poison'"><img alt="" src="assets/type-icons/png/poison.png">
-                          </div>
-                          <div class="icon psychic" *ngSwitchCase="'psychic'"><img alt=""
-                            src="assets/type-icons/png/psychic.png">
-                          </div>
-                          <div class="icon rock" *ngSwitchCase="'rock'"><img alt="" src="assets/type-icons/png/rock.png"></div>
-                          <div class="icon steel" *ngSwitchCase="'steel'"><img alt="" src="assets/type-icons/png/steel.png">
-                          </div>
-                          <div class="icon water" *ngSwitchCase="'water'"><img alt="" src="assets/type-icons/png/water.png">
-                          </div>
-                        </ng-container>
-                      </ng-container>
+                    <div class="evo-types col-xs-5" style="padding: 0;" *ngIf="pokemonService.pokemons[sideStage[1]-1]!=undefined">
+                      <div class="icon {{type['n']}}" *ngFor="let type of pokemonService.pokemons[sideStage[1]-1].types"><img alt=""
+                          src="assets/type-icons/png/{{type['n']}}.png">
+                      </div>
                     </div>
                   </div>
                 </ng-container>
@@ -616,50 +263,17 @@
             <ng-container *ngIf="i<evolutionChain.length-2; else MultiStage">
               <div class="col-sm evo-div" style="padding: 10px;">
                 <div>
-                  <img alt="" class="evo-img mx-auto d-block"
-                       src="assets/thumbnails-compressed/{{this.pad(stage[1], 3) + '.png'}}"
-                       routerLink="/pokemon/{{stage[1]}}" (click)="selectEvolution(stage[1])">
+                  <img alt="" class="evo-img mx-auto d-block" src="assets/thumbnails-compressed/{{this.pad(stage[1], 3) + '.png'}}"
+                    routerLink="/pokemon/{{stage[1]}}" (click)="selectEvolution(stage[1])">
                 </div>
                 <div class="evo-id text-center">#{{stage[1]}}</div>
-                <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{stage[1]}}"
-                     (click)="selectEvolution(stage[1])"
-                     style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
-                                                         [ngClass]="{'selectedEvo':selectedEvolutionId===stage[1]}">{{stage[0]}}</span>
+                <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{stage[1]}}" (click)="selectEvolution(stage[1])"
+                  style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
+                    [ngClass]="{'selectedEvo':selectedEvolutionId===stage[1]}">{{stage[0]}}</span>
                 </div>
-                <div class="evo-types col-xs-5" style="padding: 0;"
-                     *ngIf="pokemonService.pokemons[stage[1]-1]!=undefined">
-                  <ng-container *ngFor="let type of pokemonService.pokemons[stage[1]-1].types">
-                    <ng-container [ngSwitch]="type['n']">
-                      <div class="icon bug" *ngSwitchCase="'bug'"><img alt="" src="assets/type-icons/png/bug.png"></div>
-                      <div class="icon dark" *ngSwitchCase="'dark'"><img alt="" src="assets/type-icons/png/dark.png"></div>
-                      <div class="icon dragon" *ngSwitchCase="'dragon'"><img alt="" src="assets/type-icons/png/dragon.png">
-                      </div>
-                      <div class="icon electric" *ngSwitchCase="'electric'"><img alt=""
-                        src="assets/type-icons/png/electric.png">
-                      </div>
-                      <div class="icon fire" *ngSwitchCase="'fire'"><img alt="" src="assets/type-icons/png/fire.png"></div>
-                      <div class="icon fairy" *ngSwitchCase="'fairy'"><img alt="" src="assets/type-icons/png/fairy.png"></div>
-                      <div class="icon fighting" *ngSwitchCase="'fighting'"><img alt=""
-                        src="assets/type-icons/png/fighting.png">
-                      </div>
-                      <div class="icon flying" *ngSwitchCase="'flying'"><img alt="" src="assets/type-icons/png/flying.png">
-                      </div>
-                      <div class="icon ghost" *ngSwitchCase="'ghost'"><img alt="" src="assets/type-icons/png/ghost.png"></div>
-                      <div class="icon grass" *ngSwitchCase="'grass'"><img alt="" src="assets/type-icons/png/grass.png"></div>
-                      <div class="icon ground" *ngSwitchCase="'ground'"><img alt="" src="assets/type-icons/png/ground.png">
-                      </div>
-                      <div class="icon ice" *ngSwitchCase="'ice'"><img alt="" src="assets/type-icons/png/ice.png"></div>
-                      <div class="icon normal" *ngSwitchCase="'normal'"><img alt="" src="assets/type-icons/png/normal.png">
-                      </div>
-                      <div class="icon poison" *ngSwitchCase="'poison'"><img alt="" src="assets/type-icons/png/poison.png">
-                      </div>
-                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img alt="" src="assets/type-icons/png/psychic.png">
-                      </div>
-                      <div class="icon rock" *ngSwitchCase="'rock'"><img alt="" src="assets/type-icons/png/rock.png"></div>
-                      <div class="icon steel" *ngSwitchCase="'steel'"><img alt="" src="assets/type-icons/png/steel.png"></div>
-                      <div class="icon water" *ngSwitchCase="'water'"><img alt="" src="assets/type-icons/png/water.png"></div>
-                    </ng-container>
-                  </ng-container>
+                <div class="evo-types col-xs-5" style="padding: 0;" *ngIf="pokemonService.pokemons[stage[1]-1]!=undefined">
+                  <div class="icon {{type['n']}}" *ngFor="let type of pokemonService.pokemons[stage[1]-1].types"><img alt=""
+                      src="assets/type-icons/png/{{type['n']}}.png"></div>
                 </div>
               </div>
               <ng-container *ngIf="i<evolutionChain.length-3; else MultiArrowStage">
@@ -686,56 +300,18 @@
                 <ng-container *ngFor="let sideStage of stage;">
                   <div class="col-sm evo-div" style="padding: 10px;">
                     <div>
-                      <img alt="" class="evo-img mx-auto d-block"
-                           src="assets/thumbnails-compressed/{{this.pad(sideStage[1], 3) + '.png'}}"
-                           routerLink="/pokemon/{{sideStage[1]}}" (click)="selectEvolution(sideStage[1])">
+                      <img alt="" class="evo-img mx-auto d-block" src="assets/thumbnails-compressed/{{this.pad(sideStage[1], 3) + '.png'}}"
+                        routerLink="/pokemon/{{sideStage[1]}}" (click)="selectEvolution(sideStage[1])">
                     </div>
                     <div class="evo-id text-center">#{{sideStage[1]}}</div>
-                    <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{sideStage[1]}}"
-                         (click)="selectEvolution(sideStage[1])"
-                         style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
-                                                             [ngClass]="{'selectedEvo':selectedEvolutionId===sideStage[1]}">{{sideStage[0]}}</span>
+                    <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{sideStage[1]}}" (click)="selectEvolution(sideStage[1])"
+                      style="padding: 0; bottom: 0">
+                      <span class="evo-name {{pokemon.color}}" [ngClass]="{'selectedEvo':selectedEvolutionId===sideStage[1]}">{{sideStage[0]}}</span>
                     </div>
-                    <div class="evo-types col-xs-5" style="padding: 0;"
-                         *ngIf="pokemonService.pokemons[sideStage[1]-1]!=undefined">
-                      <ng-container *ngFor="let type of pokemonService.pokemons[sideStage[1]-1].types">
-                        <ng-container [ngSwitch]="type['n']">
-                          <div class="icon bug" *ngSwitchCase="'bug'"><img alt="" src="assets/type-icons/png/bug.png"></div>
-                          <div class="icon dark" *ngSwitchCase="'dark'"><img alt="" src="assets/type-icons/png/dark.png"></div>
-                          <div class="icon dragon" *ngSwitchCase="'dragon'"><img alt="" src="assets/type-icons/png/dragon.png">
-                          </div>
-                          <div class="icon electric" *ngSwitchCase="'electric'"><img alt=""
-                            src="assets/type-icons/png/electric.png">
-                          </div>
-                          <div class="icon fire" *ngSwitchCase="'fire'"><img alt="" src="assets/type-icons/png/fire.png"></div>
-                          <div class="icon fairy" *ngSwitchCase="'fairy'"><img alt="" src="assets/type-icons/png/fairy.png">
-                          </div>
-                          <div class="icon fighting" *ngSwitchCase="'fighting'"><img alt=""
-                            src="assets/type-icons/png/fighting.png">
-                          </div>
-                          <div class="icon flying" *ngSwitchCase="'flying'"><img alt="" src="assets/type-icons/png/flying.png">
-                          </div>
-                          <div class="icon ghost" *ngSwitchCase="'ghost'"><img alt="" src="assets/type-icons/png/ghost.png">
-                          </div>
-                          <div class="icon grass" *ngSwitchCase="'grass'"><img alt="" src="assets/type-icons/png/grass.png">
-                          </div>
-                          <div class="icon ground" *ngSwitchCase="'ground'"><img alt="" src="assets/type-icons/png/ground.png">
-                          </div>
-                          <div class="icon ice" *ngSwitchCase="'ice'"><img alt="" src="assets/type-icons/png/ice.png"></div>
-                          <div class="icon normal" *ngSwitchCase="'normal'"><img alt="" src="assets/type-icons/png/normal.png">
-                          </div>
-                          <div class="icon poison" *ngSwitchCase="'poison'"><img alt="" src="assets/type-icons/png/poison.png">
-                          </div>
-                          <div class="icon psychic" *ngSwitchCase="'psychic'"><img alt=""
-                            src="assets/type-icons/png/psychic.png">
-                          </div>
-                          <div class="icon rock" *ngSwitchCase="'rock'"><img alt="" src="assets/type-icons/png/rock.png"></div>
-                          <div class="icon steel" *ngSwitchCase="'steel'"><img alt="" src="assets/type-icons/png/steel.png">
-                          </div>
-                          <div class="icon water" *ngSwitchCase="'water'"><img alt="" src="assets/type-icons/png/water.png">
-                          </div>
-                        </ng-container>
-                      </ng-container>
+                    <div class="evo-types col-xs-5" style="padding: 0;" *ngIf="pokemonService.pokemons[sideStage[1]-1]!=undefined">
+                      <div class="icon {{type['n']}}" *ngFor="let type of pokemonService.pokemons[sideStage[1]-1].types"><img alt=""
+                          src="assets/type-icons/png/{{type['n']}}.png">
+                      </div>
                     </div>
                   </div>
                 </ng-container>
@@ -766,50 +342,17 @@
             <ng-container class="text-capitalize" *ngFor="let row1 of evolutionChain[1].slice(0,3); let i =index">
               <div class="col-sm evo-div" style="padding: 10px;">
                 <div>
-                  <img alt="" class="evo-img mx-auto d-block"
-                       src="assets/thumbnails-compressed/{{this.pad(row1[1], 3) + '.png'}}"
-                       routerLink="/pokemon/{{row1[1]}}" (click)="selectEvolution(row1[1])">
+                  <img alt="" class="evo-img mx-auto d-block" src="assets/thumbnails-compressed/{{this.pad(row1[1], 3) + '.png'}}"
+                    routerLink="/pokemon/{{row1[1]}}" (click)="selectEvolution(row1[1])">
                 </div>
                 <div class="evo-id text-center">#{{row1[1]}}</div>
-                <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{row1[1]}}"
-                     (click)="selectEvolution(row1[1])"
-                     style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
-                                                         [ngClass]="{'selectedEvo':selectedEvolutionId===row1[1]}">{{row1[0]}}</span>
+                <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{row1[1]}}" (click)="selectEvolution(row1[1])"
+                  style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
+                    [ngClass]="{'selectedEvo':selectedEvolutionId===row1[1]}">{{row1[0]}}</span>
                 </div>
-                <div class="evo-types col-xs-5" style="padding: 0;"
-                     *ngIf="pokemonService.pokemons[row1[1]-1]!=undefined">
-                  <ng-container *ngFor="let type of pokemonService.pokemons[row1[1]-1].types">
-                    <ng-container [ngSwitch]="type['n']">
-                      <div class="icon bug" *ngSwitchCase="'bug'"><img alt="" src="assets/type-icons/png/bug.png"></div>
-                      <div class="icon dark" *ngSwitchCase="'dark'"><img alt="" src="assets/type-icons/png/dark.png"></div>
-                      <div class="icon dragon" *ngSwitchCase="'dragon'"><img alt="" src="assets/type-icons/png/dragon.png">
-                      </div>
-                      <div class="icon electric" *ngSwitchCase="'electric'"><img alt=""
-                        src="assets/type-icons/png/electric.png">
-                      </div>
-                      <div class="icon fire" *ngSwitchCase="'fire'"><img alt="" src="assets/type-icons/png/fire.png"></div>
-                      <div class="icon fairy" *ngSwitchCase="'fairy'"><img alt="" src="assets/type-icons/png/fairy.png"></div>
-                      <div class="icon fighting" *ngSwitchCase="'fighting'"><img alt=""
-                        src="assets/type-icons/png/fighting.png">
-                      </div>
-                      <div class="icon flying" *ngSwitchCase="'flying'"><img alt="" src="assets/type-icons/png/flying.png">
-                      </div>
-                      <div class="icon ghost" *ngSwitchCase="'ghost'"><img alt="" src="assets/type-icons/png/ghost.png"></div>
-                      <div class="icon grass" *ngSwitchCase="'grass'"><img alt="" src="assets/type-icons/png/grass.png"></div>
-                      <div class="icon ground" *ngSwitchCase="'ground'"><img alt="" src="assets/type-icons/png/ground.png">
-                      </div>
-                      <div class="icon ice" *ngSwitchCase="'ice'"><img alt="" src="assets/type-icons/png/ice.png"></div>
-                      <div class="icon normal" *ngSwitchCase="'normal'"><img alt="" src="assets/type-icons/png/normal.png">
-                      </div>
-                      <div class="icon poison" *ngSwitchCase="'poison'"><img alt="" src="assets/type-icons/png/poison.png">
-                      </div>
-                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img alt="" src="assets/type-icons/png/psychic.png">
-                      </div>
-                      <div class="icon rock" *ngSwitchCase="'rock'"><img alt="" src="assets/type-icons/png/rock.png"></div>
-                      <div class="icon steel" *ngSwitchCase="'steel'"><img alt="" src="assets/type-icons/png/steel.png"></div>
-                      <div class="icon water" *ngSwitchCase="'water'"><img alt="" src="assets/type-icons/png/water.png"></div>
-                    </ng-container>
-                  </ng-container>
+                <div class="evo-types col-xs-5" style="padding: 0;" *ngIf="pokemonService.pokemons[row1[1]-1]!=undefined">
+                  <div class="icon {{type['n']}}" *ngFor="let type of pokemonService.pokemons[row1[1]-1].types"><img alt=""
+                      src="assets/type-icons/png/{{type['n']}}.png"></div>
                 </div>
               </div>
             </ng-container>
@@ -827,45 +370,17 @@
           <div class="eeveeRow3">
             <div class="col-sm evo-div text-capitalize" style="padding: 10px;">
               <div>
-                <img alt="" class="evo-img mx-auto d-block"
-                     src="assets/thumbnails-compressed/{{this.pad(evolutionChain[1][3][1], 3) + '.png'}}"
-                     routerLink="/pokemon/{{evolutionChain[1][3][1]}}"
-                     (click)="selectEvolution(evolutionChain[1][3][1])">
+                <img alt="" class="evo-img mx-auto d-block" src="assets/thumbnails-compressed/{{this.pad(evolutionChain[1][3][1], 3) + '.png'}}"
+                  routerLink="/pokemon/{{evolutionChain[1][3][1]}}" (click)="selectEvolution(evolutionChain[1][3][1])">
               </div>
               <div class="evo-id text-center">#{{evolutionChain[1][3][1]}}</div>
               <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{evolutionChain[1][3][1]}}"
-                   (click)="selectEvolution(evolutionChain[1][3][1])"
-                   style="padding: 0; bottom: 0"><span
-                class="evo-name {{pokemon.color}}"
-                [ngClass]="{'selectedEvo':selectedEvolutionId===evolutionChain[1][3][1]}">{{evolutionChain[1][3][0]}}</span>
+                (click)="selectEvolution(evolutionChain[1][3][1])" style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
+                  [ngClass]="{'selectedEvo':selectedEvolutionId===evolutionChain[1][3][1]}">{{evolutionChain[1][3][0]}}</span>
               </div>
-              <div class="evo-types col-xs-5" style="padding: 0;"
-                   *ngIf="pokemonService.pokemons[evolutionChain[1][3][1]-1]!=undefined">
-                <ng-container *ngFor="let type of pokemonService.pokemons[evolutionChain[1][3][1]-1].types">
-                  <ng-container [ngSwitch]="type['n']">
-                    <div class="icon bug" *ngSwitchCase="'bug'"><img alt="" src="assets/type-icons/png/bug.png"></div>
-                    <div class="icon dark" *ngSwitchCase="'dark'"><img alt="" src="assets/type-icons/png/dark.png"></div>
-                    <div class="icon dragon" *ngSwitchCase="'dragon'"><img alt="" src="assets/type-icons/png/dragon.png"></div>
-                    <div class="icon electric" *ngSwitchCase="'electric'"><img alt="" src="assets/type-icons/png/electric.png">
-                    </div>
-                    <div class="icon fire" *ngSwitchCase="'fire'"><img alt="" src="assets/type-icons/png/fire.png"></div>
-                    <div class="icon fairy" *ngSwitchCase="'fairy'"><img alt="" src="assets/type-icons/png/fairy.png"></div>
-                    <div class="icon fighting" *ngSwitchCase="'fighting'"><img alt="" src="assets/type-icons/png/fighting.png">
-                    </div>
-                    <div class="icon flying" *ngSwitchCase="'flying'"><img alt="" src="assets/type-icons/png/flying.png"></div>
-                    <div class="icon ghost" *ngSwitchCase="'ghost'"><img alt="" src="assets/type-icons/png/ghost.png"></div>
-                    <div class="icon grass" *ngSwitchCase="'grass'"><img alt="" src="assets/type-icons/png/grass.png"></div>
-                    <div class="icon ground" *ngSwitchCase="'ground'"><img alt="" src="assets/type-icons/png/ground.png"></div>
-                    <div class="icon ice" *ngSwitchCase="'ice'"><img alt="" src="assets/type-icons/png/ice.png"></div>
-                    <div class="icon normal" *ngSwitchCase="'normal'"><img alt="" src="assets/type-icons/png/normal.png"></div>
-                    <div class="icon poison" *ngSwitchCase="'poison'"><img alt="" src="assets/type-icons/png/poison.png"></div>
-                    <div class="icon psychic" *ngSwitchCase="'psychic'"><img alt="" src="assets/type-icons/png/psychic.png">
-                    </div>
-                    <div class="icon rock" *ngSwitchCase="'rock'"><img alt="" src="assets/type-icons/png/rock.png"></div>
-                    <div class="icon steel" *ngSwitchCase="'steel'"><img alt="" src="assets/type-icons/png/steel.png"></div>
-                    <div class="icon water" *ngSwitchCase="'water'"><img alt="" src="assets/type-icons/png/water.png"></div>
-                  </ng-container>
-                </ng-container>
+              <div class="evo-types col-xs-5" style="padding: 0;" *ngIf="pokemonService.pokemons[evolutionChain[1][3][1]-1]!=undefined">
+                <div class="icon {{type['n']}}" *ngFor="let type of pokemonService.pokemons[evolutionChain[1][3][1]-1].types"><img alt=""
+                    src="assets/type-icons/png/{{type['n']}}.png"></div>
               </div>
             </div>
             <div class="arrow-div">
@@ -876,44 +391,17 @@
             </div>
             <div class="col-sm evo-div text-capitalize" style="padding: 10px;">
               <div>
-                <img alt="" class="evo-img mx-auto d-block"
-                     src="assets/thumbnails-compressed/{{this.pad(evolutionChain[0][1], 3) + '.png'}}"
-                     routerLink="/pokemon/{{evolutionChain[0][1]}}" (click)="selectEvolution(evolutionChain[0][1])">
+                <img alt="" class="evo-img mx-auto d-block" src="assets/thumbnails-compressed/{{this.pad(evolutionChain[0][1], 3) + '.png'}}"
+                  routerLink="/pokemon/{{evolutionChain[0][1]}}" (click)="selectEvolution(evolutionChain[0][1])">
               </div>
               <div class="evo-id text-center">#{{evolutionChain[0][1]}}</div>
-              <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{evolutionChain[0][1]}}"
-                   (click)="selectEvolution(evolutionChain[0][1])"
-                   style="padding: 0; bottom: 0"><span
-                class="evo-name {{pokemon.color}}"
-                [ngClass]="{'selectedEvo':selectedEvolutionId===evolutionChain[0][1]}">{{evolutionChain[0][0]}}</span>
+              <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{evolutionChain[0][1]}}" (click)="selectEvolution(evolutionChain[0][1])"
+                style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
+                  [ngClass]="{'selectedEvo':selectedEvolutionId===evolutionChain[0][1]}">{{evolutionChain[0][0]}}</span>
               </div>
-              <div class="evo-types col-xs-5" style="padding: 0;"
-                   *ngIf="pokemonService.pokemons[evolutionChain[0][1]-1]!=undefined">
-                <ng-container *ngFor="let type of pokemonService.pokemons[evolutionChain[0][1]-1].types">
-                  <ng-container [ngSwitch]="type['n']">
-                    <div class="icon bug" *ngSwitchCase="'bug'"><img alt="" src="assets/type-icons/png/bug.png"></div>
-                    <div class="icon dark" *ngSwitchCase="'dark'"><img alt="" src="assets/type-icons/png/dark.png"></div>
-                    <div class="icon dragon" *ngSwitchCase="'dragon'"><img alt="" src="assets/type-icons/png/dragon.png"></div>
-                    <div class="icon electric" *ngSwitchCase="'electric'"><img alt="" src="assets/type-icons/png/electric.png">
-                    </div>
-                    <div class="icon fire" *ngSwitchCase="'fire'"><img alt="" src="assets/type-icons/png/fire.png"></div>
-                    <div class="icon fairy" *ngSwitchCase="'fairy'"><img alt="" src="assets/type-icons/png/fairy.png"></div>
-                    <div class="icon fighting" *ngSwitchCase="'fighting'"><img alt="" src="assets/type-icons/png/fighting.png">
-                    </div>
-                    <div class="icon flying" *ngSwitchCase="'flying'"><img alt="" src="assets/type-icons/png/flying.png"></div>
-                    <div class="icon ghost" *ngSwitchCase="'ghost'"><img alt="" src="assets/type-icons/png/ghost.png"></div>
-                    <div class="icon grass" *ngSwitchCase="'grass'"><img alt="" src="assets/type-icons/png/grass.png"></div>
-                    <div class="icon ground" *ngSwitchCase="'ground'"><img alt="" src="assets/type-icons/png/ground.png"></div>
-                    <div class="icon ice" *ngSwitchCase="'ice'"><img alt="" src="assets/type-icons/png/ice.png"></div>
-                    <div class="icon normal" *ngSwitchCase="'normal'"><img alt="" src="assets/type-icons/png/normal.png"></div>
-                    <div class="icon poison" *ngSwitchCase="'poison'"><img alt="" src="assets/type-icons/png/poison.png"></div>
-                    <div class="icon psychic" *ngSwitchCase="'psychic'"><img alt="" src="assets/type-icons/png/psychic.png">
-                    </div>
-                    <div class="icon rock" *ngSwitchCase="'rock'"><img alt="" src="assets/type-icons/png/rock.png"></div>
-                    <div class="icon steel" *ngSwitchCase="'steel'"><img alt="" src="assets/type-icons/png/steel.png"></div>
-                    <div class="icon water" *ngSwitchCase="'water'"><img alt="" src="assets/type-icons/png/water.png"></div>
-                  </ng-container>
-                </ng-container>
+              <div class="evo-types col-xs-5" style="padding: 0;" *ngIf="pokemonService.pokemons[evolutionChain[0][1]-1]!=undefined">
+                <div class="icon {{type['n']}}" *ngFor="let type of pokemonService.pokemons[evolutionChain[0][1]-1].types"><img alt=""
+                    src="assets/type-icons/png/{{type['n']}}.png"></div>
               </div>
             </div>
             <div class="arrow-div">
@@ -924,45 +412,17 @@
             </div>
             <div class="col-sm evo-div text-capitalize" style="padding: 10px;">
               <div>
-                <img alt="" class="evo-img mx-auto d-block"
-                     src="assets/thumbnails-compressed/{{this.pad(evolutionChain[1][4][1], 3) + '.png'}}"
-                     routerLink="/pokemon/{{evolutionChain[1][4][1]}}"
-                     (click)="selectEvolution(evolutionChain[1][4][1])">
+                <img alt="" class="evo-img mx-auto d-block" src="assets/thumbnails-compressed/{{this.pad(evolutionChain[1][4][1], 3) + '.png'}}"
+                  routerLink="/pokemon/{{evolutionChain[1][4][1]}}" (click)="selectEvolution(evolutionChain[1][4][1])">
               </div>
               <div class="evo-id text-center">#{{evolutionChain[1][3][1]}}</div>
               <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{evolutionChain[1][4][1]}}"
-                   (click)="selectEvolution(evolutionChain[1][4][1])"
-                   style="padding: 0; bottom: 0"><span
-                class="evo-name {{pokemon.color}}"
-                [ngClass]="{'selectedEvo':selectedEvolutionId===evolutionChain[1][4][1]}">{{evolutionChain[1][4][0]}}</span>
+                (click)="selectEvolution(evolutionChain[1][4][1])" style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
+                  [ngClass]="{'selectedEvo':selectedEvolutionId===evolutionChain[1][4][1]}">{{evolutionChain[1][4][0]}}</span>
               </div>
-              <div class="evo-types col-xs-5" style="padding: 0;"
-                   *ngIf="pokemonService.pokemons[evolutionChain[1][4][1]-1]!=undefined">
-                <ng-container *ngFor="let type of pokemonService.pokemons[evolutionChain[1][4][1]-1].types">
-                  <ng-container [ngSwitch]="type['n']">
-                    <div class="icon bug" *ngSwitchCase="'bug'"><img alt="" src="assets/type-icons/png/bug.png"></div>
-                    <div class="icon dark" *ngSwitchCase="'dark'"><img alt="" src="assets/type-icons/png/dark.png"></div>
-                    <div class="icon dragon" *ngSwitchCase="'dragon'"><img alt="" src="assets/type-icons/png/dragon.png"></div>
-                    <div class="icon electric" *ngSwitchCase="'electric'"><img alt="" src="assets/type-icons/png/electric.png">
-                    </div>
-                    <div class="icon fire" *ngSwitchCase="'fire'"><img alt="" src="assets/type-icons/png/fire.png"></div>
-                    <div class="icon fairy" *ngSwitchCase="'fairy'"><img alt="" src="assets/type-icons/png/fairy.png"></div>
-                    <div class="icon fighting" *ngSwitchCase="'fighting'"><img alt="" src="assets/type-icons/png/fighting.png">
-                    </div>
-                    <div class="icon flying" *ngSwitchCase="'flying'"><img alt="" src="assets/type-icons/png/flying.png"></div>
-                    <div class="icon ghost" *ngSwitchCase="'ghost'"><img alt="" src="assets/type-icons/png/ghost.png"></div>
-                    <div class="icon grass" *ngSwitchCase="'grass'"><img alt="" src="assets/type-icons/png/grass.png"></div>
-                    <div class="icon ground" *ngSwitchCase="'ground'"><img alt="" src="assets/type-icons/png/ground.png"></div>
-                    <div class="icon ice" *ngSwitchCase="'ice'"><img alt="" src="assets/type-icons/png/ice.png"></div>
-                    <div class="icon normal" *ngSwitchCase="'normal'"><img alt="" src="assets/type-icons/png/normal.png"></div>
-                    <div class="icon poison" *ngSwitchCase="'poison'"><img alt="" src="assets/type-icons/png/poison.png"></div>
-                    <div class="icon psychic" *ngSwitchCase="'psychic'"><img alt="" src="assets/type-icons/png/psychic.png">
-                    </div>
-                    <div class="icon rock" *ngSwitchCase="'rock'"><img alt="" src="assets/type-icons/png/rock.png"></div>
-                    <div class="icon steel" *ngSwitchCase="'steel'"><img alt="" src="assets/type-icons/png/steel.png"></div>
-                    <div class="icon water" *ngSwitchCase="'water'"><img alt="" src="assets/type-icons/png/water.png"></div>
-                  </ng-container>
-                </ng-container>
+              <div class="evo-types col-xs-5" style="padding: 0;" *ngIf="pokemonService.pokemons[evolutionChain[1][4][1]-1]!=undefined">
+                <div class="icon {{type['n']}}" *ngFor="let type of pokemonService.pokemons[evolutionChain[1][4][1]-1].types"><img alt=""
+                    src="assets/type-icons/png/{{type['n']}}.png"></div>
               </div>
             </div>
           </div>
@@ -980,50 +440,17 @@
             <ng-container class="text-capitalize" *ngFor="let row1 of evolutionChain[1].slice(5,8); let i =index">
               <div class="col-sm evo-div" style="padding: 10px;">
                 <div>
-                  <img alt="" class="evo-img mx-auto d-block"
-                       src="assets/thumbnails-compressed/{{this.pad(row1[1], 3) + '.png'}}"
-                       routerLink="/pokemon/{{row1[1]}}" (click)="selectEvolution(row1[1])">
+                  <img alt="" class="evo-img mx-auto d-block" src="assets/thumbnails-compressed/{{this.pad(row1[1], 3) + '.png'}}"
+                    routerLink="/pokemon/{{row1[1]}}" (click)="selectEvolution(row1[1])">
                 </div>
                 <div class="evo-id text-center">#{{row1[1]}}</div>
-                <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{row1[1]}}"
-                     (click)="selectEvolution(row1[1])"
-                     style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
-                                                         [ngClass]="{'selectedEvo':selectedEvolutionId===row1[1]}">{{row1[0]}}</span>
+                <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{row1[1]}}" (click)="selectEvolution(row1[1])"
+                  style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
+                    [ngClass]="{'selectedEvo':selectedEvolutionId===row1[1]}">{{row1[0]}}</span>
                 </div>
-                <div class="evo-types col-xs-5" style="padding: 0;"
-                     *ngIf="pokemonService.pokemons[row1[1]-1]!=undefined">
-                  <ng-container *ngFor="let type of pokemonService.pokemons[row1[1]-1].types">
-                    <ng-container [ngSwitch]="type['n']">
-                      <div class="icon bug" *ngSwitchCase="'bug'"><img alt="" src="assets/type-icons/png/bug.png"></div>
-                      <div class="icon dark" *ngSwitchCase="'dark'"><img alt="" src="assets/type-icons/png/dark.png"></div>
-                      <div class="icon dragon" *ngSwitchCase="'dragon'"><img alt="" src="assets/type-icons/png/dragon.png">
-                      </div>
-                      <div class="icon electric" *ngSwitchCase="'electric'"><img alt=""
-                        src="assets/type-icons/png/electric.png">
-                      </div>
-                      <div class="icon fire" *ngSwitchCase="'fire'"><img alt="" src="assets/type-icons/png/fire.png"></div>
-                      <div class="icon fairy" *ngSwitchCase="'fairy'"><img alt="" src="assets/type-icons/png/fairy.png"></div>
-                      <div class="icon fighting" *ngSwitchCase="'fighting'"><img alt=""
-                        src="assets/type-icons/png/fighting.png">
-                      </div>
-                      <div class="icon flying" *ngSwitchCase="'flying'"><img alt="" src="assets/type-icons/png/flying.png">
-                      </div>
-                      <div class="icon ghost" *ngSwitchCase="'ghost'"><img alt="" src="assets/type-icons/png/ghost.png"></div>
-                      <div class="icon grass" *ngSwitchCase="'grass'"><img alt="" src="assets/type-icons/png/grass.png"></div>
-                      <div class="icon ground" *ngSwitchCase="'ground'"><img alt="" src="assets/type-icons/png/ground.png">
-                      </div>
-                      <div class="icon ice" *ngSwitchCase="'ice'"><img alt="" src="assets/type-icons/png/ice.png"></div>
-                      <div class="icon normal" *ngSwitchCase="'normal'"><img alt="" src="assets/type-icons/png/normal.png">
-                      </div>
-                      <div class="icon poison" *ngSwitchCase="'poison'"><img alt="" src="assets/type-icons/png/poison.png">
-                      </div>
-                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img alt="" src="assets/type-icons/png/psychic.png">
-                      </div>
-                      <div class="icon rock" *ngSwitchCase="'rock'"><img alt="" src="assets/type-icons/png/rock.png"></div>
-                      <div class="icon steel" *ngSwitchCase="'steel'"><img alt="" src="assets/type-icons/png/steel.png"></div>
-                      <div class="icon water" *ngSwitchCase="'water'"><img alt="" src="assets/type-icons/png/water.png"></div>
-                    </ng-container>
-                  </ng-container>
+                <div class="evo-types col-xs-5" style="padding: 0;" *ngIf="pokemonService.pokemons[row1[1]-1]!=undefined">
+                  <div class="icon {{type['n']}}" *ngFor="let type of pokemonService.pokemons[row1[1]-1].types"><img alt=""
+                      src="assets/type-icons/png/{{type['n']}}.png"></div>
                 </div>
               </div>
             </ng-container>
@@ -1039,30 +466,24 @@
             <tr>
               <td class="text-right font-weight-bold">EV yield</td>
               <td>
-                <span *ngIf="pokemon.stats[0]['EV']!==0"><span
-                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[0]['EV']}}</span> HP </span>
-                <span *ngIf="pokemon.stats[1]['EV']!==0"><span
-                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[1]['EV']}}</span> Attack </span>
-                <span *ngIf="pokemon.stats[2]['EV']!==0"><span
-                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[2]['EV']}}</span> Defence </span>
-                <span *ngIf="pokemon.stats[3]['EV']!==0"><span
-                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[3]['EV']}}</span> Sp. Attack </span>
-                <span *ngIf="pokemon.stats[4]['EV']!==0"><span
-                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[4]['EV']}}</span> Sp. Defence </span>
-                <span *ngIf="pokemon.stats[5]['EV']!==0"><span
-                  class="{{pokemon.color+'-text'}}">{{pokemon.stats[5]['EV']}}</span> Speed </span>
+                <span *ngIf="pokemon.stats[0]['EV']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[0]['EV']}}</span> HP </span>
+                <span *ngIf="pokemon.stats[1]['EV']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[1]['EV']}}</span> Attack </span>
+                <span *ngIf="pokemon.stats[2]['EV']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[2]['EV']}}</span> Defence </span>
+                <span *ngIf="pokemon.stats[3]['EV']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[3]['EV']}}</span> Sp. Attack </span>
+                <span *ngIf="pokemon.stats[4]['EV']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[4]['EV']}}</span> Sp. Defence </span>
+                <span *ngIf="pokemon.stats[5]['EV']!==0"><span class="{{pokemon.color+'-text'}}">{{pokemon.stats[5]['EV']}}</span> Speed </span>
               </td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Catch Rate</td>
-              <td><span
-                class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['CaR']}}</span>{{" (" + calculateCatchRate(pokemon.speciesDetails['CaR']) + ")"}}
+              <td><span class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['CaR']}}</span>{{" (" +
+                calculateCatchRate(pokemon.speciesDetails['CaR']) + ")"}}
               </td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Base Friendship</td>
-              <td><span
-                class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['BaH']}}</span>{{' (' + getFriendShip(pokemon.speciesDetails['BaH']) + ')'}}
+              <td><span class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['BaH']}}</span>{{' (' +
+                getFriendShip(pokemon.speciesDetails['BaH']) + ')'}}
               </td>
             </tr>
             <tr>
@@ -1071,17 +492,17 @@
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Growth Rate</td>
-              <td><span
-                class="{{pokemon.color+'-text'}}">{{capitalizeSplitJoin(pokemon.speciesDetails['GrR'], '-', ' ')}}</span>
+              <td><span class="{{pokemon.color+'-text'}}">{{capitalizeSplitJoin(pokemon.speciesDetails['GrR'], '-', '
+                  ')}}</span>
                 {{" (" + getExperiencePoints(pokemon.speciesDetails['GrR']) + ' Exp.)'}}</td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Held Items</td>
               <td><span class="{{pokemon.color+'-text'}} d-block" *ngIf="pokemon.heldItems.length===0">None</span>
-                <span
-                  class="d-block"
-                  *ngFor="let heldItem of pokemon.heldItems"><span
-                  class="{{pokemon.color+'-text'}}">{{capitalizeSplitJoin(heldItem['n'], '-', ' ')}}</span>{{' (' + heldItem['%'] + '%) '}}</span>
+                <span class="d-block" *ngFor="let heldItem of pokemon.heldItems"><span class="{{pokemon.color+'-text'}}">{{capitalizeSplitJoin(heldItem['n'],
+                    '-', ' ')}}</span>{{'
+                  (' +
+                  heldItem['%'] + '%) '}}</span>
               </td>
             </tr>
           </table>
@@ -1106,7 +527,7 @@
             <tr>
               <td class="text-right font-weight-bold">Egg Cycles</td>
               <td><span class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['HaC']}}
-              </span>{{" (" + pokemon.speciesDetails['HaC'] * 256 + " Steps)"}}</td>
+                </span>{{" (" + pokemon.speciesDetails['HaC'] * 256 + " Steps)"}}</td>
             </tr>
           </table>
           <h1 class="Heading text-center text-uppercase">Forms</h1>
@@ -1119,19 +540,16 @@
             </tr>
             <tr>
               <td class="text-right font-weight-bold">Gender Differences</td>
-              <td
-                class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['GDi'] == true ? 'Yes' : 'No'}}</td>
+              <td class="{{pokemon.color+'-text'}}">{{pokemon.speciesDetails['GDi'] == true ? 'Yes' : 'No'}}</td>
             </tr>
             <tr *ngIf="pokemon.speciesDetails['FD']!==null">
               <td colspan="2" class="text-center">
-                <span class='ColoredButton' [ngClass]="pokemon.color"
-                      data-toggle="modal" data-target="#formsModal">Forms Info.</span>
+                <span class='ColoredButton' [ngClass]="pokemon.color" data-toggle="modal" data-target="#formsModal">Forms Info.</span>
               </td>
             </tr>
             <tr *ngIf="genderDifferences[pad(pokemon.id,3)]!==undefined">
               <td colspan="2" class="text-center">
-                <span class='ColoredButton' [ngClass]="pokemon.color"
-                      data-toggle="modal" data-target="#genderModal">Gender Info.</span>
+                <span class='ColoredButton' [ngClass]="pokemon.color" data-toggle="modal" data-target="#genderModal">Gender Info.</span>
               </td>
             </tr>
           </table>
@@ -1144,200 +562,41 @@
             <tr>
               <td class="text-right font-weight-bold">0x</td>
               <td>
-                <div class="typeDefencesRow" style="padding: 0;"
-                     *ngIf="typeDefences!=undefined">
-                  <ng-container *ngFor="let type of typeDefences['0x']">
-                    <ng-container [ngSwitch]="type">
-                      <div class="icon bug" *ngSwitchCase="'bug'"><img alt="" src="assets/type-icons/png/bug.png"></div>
-                      <div class="icon dark" *ngSwitchCase="'dark'"><img alt="" src="assets/type-icons/png/dark.png"></div>
-                      <div class="icon dragon" *ngSwitchCase="'dragon'"><img alt="" src="assets/type-icons/png/dragon.png">
-                      </div>
-                      <div class="icon electric" *ngSwitchCase="'electric'"><img alt=""
-                        src="assets/type-icons/png/electric.png">
-                      </div>
-                      <div class="icon fire" *ngSwitchCase="'fire'"><img alt="" src="assets/type-icons/png/fire.png"></div>
-                      <div class="icon fairy" *ngSwitchCase="'fairy'"><img alt="" src="assets/type-icons/png/fairy.png"></div>
-                      <div class="icon fighting" *ngSwitchCase="'fighting'"><img alt=""
-                        src="assets/type-icons/png/fighting.png">
-                      </div>
-                      <div class="icon flying" *ngSwitchCase="'flying'"><img alt="" src="assets/type-icons/png/flying.png">
-                      </div>
-                      <div class="icon ghost" *ngSwitchCase="'ghost'"><img alt="" src="assets/type-icons/png/ghost.png"></div>
-                      <div class="icon grass" *ngSwitchCase="'grass'"><img alt="" src="assets/type-icons/png/grass.png"></div>
-                      <div class="icon ground" *ngSwitchCase="'ground'"><img alt="" src="assets/type-icons/png/ground.png">
-                      </div>
-                      <div class="icon ice" *ngSwitchCase="'ice'"><img alt="" src="assets/type-icons/png/ice.png"></div>
-                      <div class="icon normal" *ngSwitchCase="'normal'"><img alt="" src="assets/type-icons/png/normal.png">
-                      </div>
-                      <div class="icon poison" *ngSwitchCase="'poison'"><img alt="" src="assets/type-icons/png/poison.png">
-                      </div>
-                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img alt="" src="assets/type-icons/png/psychic.png">
-                      </div>
-                      <div class="icon rock" *ngSwitchCase="'rock'"><img alt="" src="assets/type-icons/png/rock.png"></div>
-                      <div class="icon steel" *ngSwitchCase="'steel'"><img alt="" src="assets/type-icons/png/steel.png"></div>
-                      <div class="icon water" *ngSwitchCase="'water'"><img alt="" src="assets/type-icons/png/water.png"></div>
-                    </ng-container>
-                  </ng-container>
+                <div class="typeDefencesRow" style="padding: 0;" *ngIf="typeDefences!=undefined">
+                  <div class="icon {{type}}" *ngFor="let type of typeDefences['0x']"><img alt="" src="assets/type-icons/png/{{type}}.png"></div>
                 </div>
               </td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">0.25x</td>
               <td>
-                <div class="typeDefencesRow" style="padding: 0;"
-                     *ngIf="typeDefences!=undefined">
-                  <ng-container *ngFor="let type of typeDefences['0.25x']">
-                    <ng-container [ngSwitch]="type">
-                      <div class="icon bug" *ngSwitchCase="'bug'"><img alt="" src="assets/type-icons/png/bug.png"></div>
-                      <div class="icon dark" *ngSwitchCase="'dark'"><img alt="" src="assets/type-icons/png/dark.png"></div>
-                      <div class="icon dragon" *ngSwitchCase="'dragon'"><img alt="" src="assets/type-icons/png/dragon.png">
-                      </div>
-                      <div class="icon electric" *ngSwitchCase="'electric'"><img alt=""
-                        src="assets/type-icons/png/electric.png">
-                      </div>
-                      <div class="icon fire" *ngSwitchCase="'fire'"><img alt="" src="assets/type-icons/png/fire.png"></div>
-                      <div class="icon fairy" *ngSwitchCase="'fairy'"><img alt="" src="assets/type-icons/png/fairy.png"></div>
-                      <div class="icon fighting" *ngSwitchCase="'fighting'"><img alt=""
-                        src="assets/type-icons/png/fighting.png">
-                      </div>
-                      <div class="icon flying" *ngSwitchCase="'flying'"><img alt="" src="assets/type-icons/png/flying.png">
-                      </div>
-                      <div class="icon ghost" *ngSwitchCase="'ghost'"><img alt="" src="assets/type-icons/png/ghost.png"></div>
-                      <div class="icon grass" *ngSwitchCase="'grass'"><img alt="" src="assets/type-icons/png/grass.png"></div>
-                      <div class="icon ground" *ngSwitchCase="'ground'"><img alt="" src="assets/type-icons/png/ground.png">
-                      </div>
-                      <div class="icon ice" *ngSwitchCase="'ice'"><img alt="" src="assets/type-icons/png/ice.png"></div>
-                      <div class="icon normal" *ngSwitchCase="'normal'"><img alt="" src="assets/type-icons/png/normal.png">
-                      </div>
-                      <div class="icon poison" *ngSwitchCase="'poison'"><img alt="" src="assets/type-icons/png/poison.png">
-                      </div>
-                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img alt="" src="assets/type-icons/png/psychic.png">
-                      </div>
-                      <div class="icon rock" *ngSwitchCase="'rock'"><img alt="" src="assets/type-icons/png/rock.png"></div>
-                      <div class="icon steel" *ngSwitchCase="'steel'"><img alt="" src="assets/type-icons/png/steel.png"></div>
-                      <div class="icon water" *ngSwitchCase="'water'"><img alt="" src="assets/type-icons/png/water.png"></div>
-                    </ng-container>
-                  </ng-container>
+                <div class="typeDefencesRow" style="padding: 0;" *ngIf="typeDefences!=undefined">
+                  <div class="icon {{type}}" *ngFor="let type of typeDefences['0.25x']"><img alt="" src="assets/type-icons/png/{{type}}.png"></div>
                 </div>
               </td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">0.5x</td>
               <td>
-                <div class="typeDefencesRow" style="padding: 0;"
-                     *ngIf="typeDefences!=undefined">
-                  <ng-container *ngFor="let type of typeDefences['0.5x']">
-                    <ng-container [ngSwitch]="type">
-                      <div class="icon bug" *ngSwitchCase="'bug'"><img alt="" src="assets/type-icons/png/bug.png"></div>
-                      <div class="icon dark" *ngSwitchCase="'dark'"><img alt="" src="assets/type-icons/png/dark.png"></div>
-                      <div class="icon dragon" *ngSwitchCase="'dragon'"><img alt="" src="assets/type-icons/png/dragon.png">
-                      </div>
-                      <div class="icon electric" *ngSwitchCase="'electric'"><img alt=""
-                        src="assets/type-icons/png/electric.png">
-                      </div>
-                      <div class="icon fire" *ngSwitchCase="'fire'"><img alt="" src="assets/type-icons/png/fire.png"></div>
-                      <div class="icon fairy" *ngSwitchCase="'fairy'"><img alt="" src="assets/type-icons/png/fairy.png"></div>
-                      <div class="icon fighting" *ngSwitchCase="'fighting'"><img alt=""
-                        src="assets/type-icons/png/fighting.png">
-                      </div>
-                      <div class="icon flying" *ngSwitchCase="'flying'"><img alt="" src="assets/type-icons/png/flying.png">
-                      </div>
-                      <div class="icon ghost" *ngSwitchCase="'ghost'"><img alt="" src="assets/type-icons/png/ghost.png"></div>
-                      <div class="icon grass" *ngSwitchCase="'grass'"><img alt="" src="assets/type-icons/png/grass.png"></div>
-                      <div class="icon ground" *ngSwitchCase="'ground'"><img alt="" src="assets/type-icons/png/ground.png">
-                      </div>
-                      <div class="icon ice" *ngSwitchCase="'ice'"><img alt="" src="assets/type-icons/png/ice.png"></div>
-                      <div class="icon normal" *ngSwitchCase="'normal'"><img alt="" src="assets/type-icons/png/normal.png">
-                      </div>
-                      <div class="icon poison" *ngSwitchCase="'poison'"><img alt="" src="assets/type-icons/png/poison.png">
-                      </div>
-                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img alt="" src="assets/type-icons/png/psychic.png">
-                      </div>
-                      <div class="icon rock" *ngSwitchCase="'rock'"><img alt="" src="assets/type-icons/png/rock.png"></div>
-                      <div class="icon steel" *ngSwitchCase="'steel'"><img alt="" src="assets/type-icons/png/steel.png"></div>
-                      <div class="icon water" *ngSwitchCase="'water'"><img alt="" src="assets/type-icons/png/water.png"></div>
-                    </ng-container>
-                  </ng-container>
+                <div class="typeDefencesRow" style="padding: 0;" *ngIf="typeDefences!=undefined">
+                  <div class="icon {{type}}" *ngFor="let type of typeDefences['0.5x']"><img alt="" src="assets/type-icons/png/{{type}}.png"></div>
                 </div>
               </td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">2x</td>
               <td>
-                <div class="typeDefencesRow" style="padding: 0;"
-                     *ngIf="typeDefences!=undefined">
-                  <ng-container *ngFor="let type of typeDefences['2x']">
-                    <ng-container [ngSwitch]="type">
-                      <div class="icon bug" *ngSwitchCase="'bug'"><img alt="" src="assets/type-icons/png/bug.png"></div>
-                      <div class="icon dark" *ngSwitchCase="'dark'"><img alt="" src="assets/type-icons/png/dark.png"></div>
-                      <div class="icon dragon" *ngSwitchCase="'dragon'"><img alt="" src="assets/type-icons/png/dragon.png">
-                      </div>
-                      <div class="icon electric" *ngSwitchCase="'electric'"><img alt=""
-                        src="assets/type-icons/png/electric.png">
-                      </div>
-                      <div class="icon fire" *ngSwitchCase="'fire'"><img alt="" src="assets/type-icons/png/fire.png"></div>
-                      <div class="icon fairy" *ngSwitchCase="'fairy'"><img alt="" src="assets/type-icons/png/fairy.png"></div>
-                      <div class="icon fighting" *ngSwitchCase="'fighting'"><img alt=""
-                        src="assets/type-icons/png/fighting.png">
-                      </div>
-                      <div class="icon flying" *ngSwitchCase="'flying'"><img alt="" src="assets/type-icons/png/flying.png">
-                      </div>
-                      <div class="icon ghost" *ngSwitchCase="'ghost'"><img alt="" src="assets/type-icons/png/ghost.png"></div>
-                      <div class="icon grass" *ngSwitchCase="'grass'"><img alt="" src="assets/type-icons/png/grass.png"></div>
-                      <div class="icon ground" *ngSwitchCase="'ground'"><img alt="" src="assets/type-icons/png/ground.png">
-                      </div>
-                      <div class="icon ice" *ngSwitchCase="'ice'"><img alt="" src="assets/type-icons/png/ice.png"></div>
-                      <div class="icon normal" *ngSwitchCase="'normal'"><img alt="" src="assets/type-icons/png/normal.png">
-                      </div>
-                      <div class="icon poison" *ngSwitchCase="'poison'"><img alt="" src="assets/type-icons/png/poison.png">
-                      </div>
-                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img alt="" src="assets/type-icons/png/psychic.png">
-                      </div>
-                      <div class="icon rock" *ngSwitchCase="'rock'"><img alt="" src="assets/type-icons/png/rock.png"></div>
-                      <div class="icon steel" *ngSwitchCase="'steel'"><img alt="" src="assets/type-icons/png/steel.png"></div>
-                      <div class="icon water" *ngSwitchCase="'water'"><img alt="" src="assets/type-icons/png/water.png"></div>
-                    </ng-container>
-                  </ng-container>
+                <div class="typeDefencesRow" style="padding: 0;" *ngIf="typeDefences!=undefined">
+                  <div class="icon {{type}}" *ngFor="let type of typeDefences['2x']"><img alt="" src="assets/type-icons/png/{{type}}.png"></div>
                 </div>
               </td>
             </tr>
             <tr>
               <td class="text-right font-weight-bold">4x</td>
               <td>
-                <div class="typeDefencesRow" style="padding: 0;"
-                     *ngIf="typeDefences!=undefined">
-                  <ng-container *ngFor="let type of typeDefences['4x']">
-                    <ng-container [ngSwitch]="type">
-                      <div class="icon bug" *ngSwitchCase="'bug'"><img alt="" src="assets/type-icons/png/bug.png"></div>
-                      <div class="icon dark" *ngSwitchCase="'dark'"><img alt="" src="assets/type-icons/png/dark.png"></div>
-                      <div class="icon dragon" *ngSwitchCase="'dragon'"><img alt="" src="assets/type-icons/png/dragon.png">
-                      </div>
-                      <div class="icon electric" *ngSwitchCase="'electric'"><img alt=""
-                        src="assets/type-icons/png/electric.png">
-                      </div>
-                      <div class="icon fire" *ngSwitchCase="'fire'"><img alt="" src="assets/type-icons/png/fire.png"></div>
-                      <div class="icon fairy" *ngSwitchCase="'fairy'"><img alt="" src="assets/type-icons/png/fairy.png"></div>
-                      <div class="icon fighting" *ngSwitchCase="'fighting'"><img alt=""
-                        src="assets/type-icons/png/fighting.png">
-                      </div>
-                      <div class="icon flying" *ngSwitchCase="'flying'"><img alt="" src="assets/type-icons/png/flying.png">
-                      </div>
-                      <div class="icon ghost" *ngSwitchCase="'ghost'"><img alt="" src="assets/type-icons/png/ghost.png"></div>
-                      <div class="icon grass" *ngSwitchCase="'grass'"><img alt="" src="assets/type-icons/png/grass.png"></div>
-                      <div class="icon ground" *ngSwitchCase="'ground'"><img alt="" src="assets/type-icons/png/ground.png">
-                      </div>
-                      <div class="icon ice" *ngSwitchCase="'ice'"><img alt="" src="assets/type-icons/png/ice.png"></div>
-                      <div class="icon normal" *ngSwitchCase="'normal'"><img alt="" src="assets/type-icons/png/normal.png">
-                      </div>
-                      <div class="icon poison" *ngSwitchCase="'poison'"><img alt="" src="assets/type-icons/png/poison.png">
-                      </div>
-                      <div class="icon psychic" *ngSwitchCase="'psychic'"><img alt="" src="assets/type-icons/png/psychic.png">
-                      </div>
-                      <div class="icon rock" *ngSwitchCase="'rock'"><img alt="" src="assets/type-icons/png/rock.png"></div>
-                      <div class="icon steel" *ngSwitchCase="'steel'"><img alt="" src="assets/type-icons/png/steel.png"></div>
-                      <div class="icon water" *ngSwitchCase="'water'"><img alt="" src="assets/type-icons/png/water.png"></div>
-                    </ng-container>
-                  </ng-container>
+                <div class="typeDefencesRow" style="padding: 0;" *ngIf="typeDefences!=undefined">
+                  <div class="icon {{type}}" *ngFor="let type of typeDefences['4x']"><img alt="" src="assets/type-icons/png/{{type}}.png"></div>
+
                 </div>
               </td>
             </tr>
@@ -1356,102 +615,77 @@
         <div class="row" style="text-align: center;display: flex">
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectMovesByLearnMethod('level-up')"
-                    [ngClass]="selectedMove=='level-up' ? pokemon.color : null">Level Up
+              [ngClass]="selectedMove=='level-up' ? pokemon.color : null">Level Up
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectMovesByLearnMethod('machine')"
-                    [ngClass]="selectedMove=='machine' ? pokemon.color : null">TM/HM
+              [ngClass]="selectedMove=='machine' ? pokemon.color : null">TM/HM
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectMovesByLearnMethod('egg')"
-                    [ngClass]="selectedMove=='egg' ? pokemon.color : null">Egg
+              [ngClass]="selectedMove=='egg' ? pokemon.color : null">Egg
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectMovesByLearnMethod('tutor')"
-                    [ngClass]="selectedMove=='tutor' ? pokemon.color : null">Tutor
+              [ngClass]="selectedMove=='tutor' ? pokemon.color : null">Tutor
             </button>
           </div>
         </div>
         <div class="inner scrollableTable">
           <div class="table-responsive {{pokemon.color}}" style="position: relative;">
-<!--            <div class="lds-dual-ring" *ngIf="moveDetails.length===0&&movesList.length!==0"></div>-->
+            <div class="lds-dual-ring" *ngIf="!movesListLoaded"></div>
             <table class="table table-fixed">
               <thead>
-              <tr>
-                <th scope="col" class="col-1 Col1 text-center">{{selectedMoveFirstColHeader[selectedMove]}}</th>
-                <th scope="col" class="col-4 Col2">Move</th>
-                <th scope="col" class="col-1 Col3 text-center">Type</th>
-                <th scope="col" class="col-1 Col4 text-truncate text-center">Category</th>
-                <th scope="col" class="col-1 Col5 text-truncate text-center">Power</th>
-                <th scope="col" class="col-1 Col6 text-truncate text-center">PP</th>
-                <th scope="col" class="col-1 Col7 text-truncate text-center">Accuracy</th>
-                <th scope="col" class="col-1 Col8 text-truncate text-center">Priority</th>
-                <th scope="col" class="col-1 Col9 text-truncate text-center">Generation</th>
-              </tr>
+                <tr>
+                  <th scope="col" class="col-1 Col1 text-center">{{selectedMoveFirstColHeader[selectedMove]}}</th>
+                  <th scope="col" class="col-4 Col2">Move</th>
+                  <th scope="col" class="col-1 Col3 text-center">Type</th>
+                  <th scope="col" class="col-1 Col4 text-truncate text-center">Category</th>
+                  <th scope="col" class="col-1 Col5 text-truncate text-center">Power</th>
+                  <th scope="col" class="col-1 Col6 text-truncate text-center">PP</th>
+                  <th scope="col" class="col-1 Col7 text-truncate text-center">Accuracy</th>
+                  <th scope="col" class="col-1 Col8 text-truncate text-center">Priority</th>
+                  <th scope="col" class="col-1 Col9 text-truncate text-center">Generation</th>
+                </tr>
               </thead>
               <tbody>
-              <ng-container *ngFor="let move of movesList; let i=index">
-                <tr *ngIf="move!==undefined" (click)="selectMove(i)" data-toggle="modal" data-target="#moveModal">
-                  <td class="col-1 Col1 text-center">
-                    <ng-container [ngSwitch]="selectedMove">
-                      <ng-container *ngSwitchCase="'level-up'">{{move[1]}}</ng-container>
-                      <ng-container *ngSwitchCase="'machine'">{{moveMachineNos[i]}}</ng-container>
-                      <ng-container *ngSwitchCase="'egg'">-</ng-container>
-                      <ng-container *ngSwitchCase="'tutor'">-</ng-container>
-                    </ng-container>
-                  </td>
-                  <td class="col-4 Col2 text-truncate">{{move[0]}}</td>
-                  <td class="col-1 Col3 text-center">
-                    <div class="moveTypes" style="padding: 0;">
-                      <ng-container [ngSwitch]="move[2].type_id">
-                        <div class="icon bug" *ngSwitchCase="'7'"><img alt="" src="assets/type-icons/png/bug.png"></div>
-                        <div class="icon dark" *ngSwitchCase="'17'"><img alt="" src="assets/type-icons/png/dark.png"></div>
-                        <div class="icon dragon" *ngSwitchCase="'16'"><img alt="" src="assets/type-icons/png/dragon.png"></div>
-                        <div class="icon electric" *ngSwitchCase="'13'"><img alt="" src="assets/type-icons/png/electric.png">
-                        </div>
-                        <div class="icon fire" *ngSwitchCase="'10'"><img alt="" src="assets/type-icons/png/fire.png"></div>
-                        <div class="icon fairy" *ngSwitchCase="'18'"><img alt="" src="assets/type-icons/png/fairy.png"></div>
-                        <div class="icon fighting" *ngSwitchCase="'2'"><img alt="" src="assets/type-icons/png/fighting.png">
-                        </div>
-                        <div class="icon flying" *ngSwitchCase="'3'"><img alt="" src="assets/type-icons/png/flying.png"></div>
-                        <div class="icon ghost" *ngSwitchCase="'8'"><img alt="" src="assets/type-icons/png/ghost.png"></div>
-                        <div class="icon grass" *ngSwitchCase="'12'"><img alt="" src="assets/type-icons/png/grass.png"></div>
-                        <div class="icon ground" *ngSwitchCase="'5'"><img alt="" src="assets/type-icons/png/ground.png"></div>
-                        <div class="icon ice" *ngSwitchCase="'15'"><img alt="" src="assets/type-icons/png/ice.png"></div>
-                        <div class="icon normal" *ngSwitchCase="'1'"><img alt="" src="assets/type-icons/png/normal.png"></div>
-                        <div class="icon poison" *ngSwitchCase="'4'"><img alt="" src="assets/type-icons/png/poison.png"></div>
-                        <div class="icon psychic" *ngSwitchCase="'14'"><img alt="" src="assets/type-icons/png/psychic.png">
-                        </div>
-                        <div class="icon rock" *ngSwitchCase="'6'"><img alt="" src="assets/type-icons/png/rock.png"></div>
-                        <div class="icon steel" *ngSwitchCase="'9'"><img alt="" src="assets/type-icons/png/steel.png"></div>
-                        <div class="icon water" *ngSwitchCase="'11'"><img alt="" src="assets/type-icons/png/water.png"></div>
+                <ng-container *ngFor="let move of movesList; let i=index">
+                  <tr *ngIf="move!==undefined" (click)="selectMove(i)" data-toggle="modal" data-target="#moveModal">
+                    <td class="col-1 Col1 text-center">
+                      <ng-container [ngSwitch]="selectedMove">
+                        <ng-container *ngSwitchCase="'level-up'">{{move[1]}}</ng-container>
+                        <ng-container *ngSwitchCase="'machine'">{{move[4]}}</ng-container>
+                        <ng-container *ngSwitchCase="'egg'">-</ng-container>
+                        <ng-container *ngSwitchCase="'tutor'">-</ng-container>
                       </ng-container>
-                    </div>
+                    </td>
+                    <td class="col-4 Col2 text-truncate">{{move[0]}}</td>
+                    <td class="col-1 Col3 text-center">
+                      <div class="moveTypes" style="padding: 0;">
+                        <div class="icon {{types[move[2].type_id-1]}}"><img alt="" src="assets/type-icons/png/{{types[move[2].type_id-1]}}.png"></div>
+                      </div>
+                    </td>
+                    <td class="col-1 Col4 text-center"><img alt="" class="img-fluid damage-icon" src="assets/{{getDamageClass(move[2].damage_class_id)}}.png">
+                    </td>
+                    <td class="col-1 Col5 text-center">{{move[2].power}}</td>
+                    <td class="col-1 Col6 text-center">{{move[2].pp}}</td>
+                    <td class="col-1 Col7 text-center">{{move[2].accuracy}}</td>
+                    <td class="col-1 Col8 text-center">{{move[2].priority}}</td>
+                    <td class="col-1 Col9 text-center">{{move[2].generation_id}}</td>
+                  </tr>
+                </ng-container>
+                <tr class="disableClicking" *ngIf="movesList.length==0&&movesListLoaded==true">
+                  <td class="col text-center NotFoundText" style="padding-top: 8.5rem;">
+                    <ng-container *ngIf="!availableInSelectedGen(pokemon.speciesDetails['Gen']); else noMovesLearnt">
+                      This Pokémon didn't exist in the selected games!
+                    </ng-container>
+                    <ng-template #noMovesLearnt>No moves learned by this method in the selected games found.
+                    </ng-template>
                   </td>
-                  <td class="col-1 Col4 text-center"><img alt="" class="img-fluid damage-icon"
-                                                     src="assets/{{getDamageClass(move[2].damage_class_id)}}.png">
-                  </td>
-                  <td class="col-1 Col5 text-center">{{move[2].power}}</td>
-                  <td class="col-1 Col6 text-center">{{move[2].pp}}</td>
-                  <td class="col-1 Col7 text-center">{{move[2].accuracy}}</td>
-                  <td class="col-1 Col8 text-center">{{move[2].priority}}</td>
-                  <td class="col-1 Col9 text-center">{{move[2].generation_id}}</td>
                 </tr>
-              </ng-container>
-              <tr class="disableClicking" *ngIf="movesList.length==0&&movesListLoaded==true">
-                <td class="col text-center NotFoundText" style="padding-top: 8.5rem;">
-                  <ng-container
-                    *ngIf="!availableInSelectedGen(pokemon.speciesDetails['Gen']); else noMovesLearnt">
-                    This Pokémon didn't exist
-                    in the selected
-                    Games!
-                  </ng-container>
-                  <ng-template #noMovesLearnt>No moves learned by this method in the selected Games.</ng-template>
-                </td>
-              </tr>
               </tbody>
             </table>
           </div>
@@ -1460,325 +694,265 @@
         <div class="row GameVersions text-center" style="display: flex">
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('red-blue')"
-                    [ngClass]="selectedGameVersion=='red-blue' ? pokemon.color : null">RB
+              [ngClass]="selectedGameVersion=='red-blue' ? pokemon.color : null">RB
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('yellow')"
-                    [ngClass]="selectedGameVersion=='yellow' ? pokemon.color : null">Y
+              [ngClass]="selectedGameVersion=='yellow' ? pokemon.color : null">Y
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('gold-silver')"
-                    [ngClass]="selectedGameVersion=='gold-silver' ? pokemon.color : null">GS
+              [ngClass]="selectedGameVersion=='gold-silver' ? pokemon.color : null">GS
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('crystal')"
-                    [ngClass]="selectedGameVersion=='crystal' ? pokemon.color : null">C
+              [ngClass]="selectedGameVersion=='crystal' ? pokemon.color : null">C
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('ruby-sapphire')"
-                    [ngClass]="selectedGameVersion=='ruby-sapphire' ? pokemon.color : null">RS
+              [ngClass]="selectedGameVersion=='ruby-sapphire' ? pokemon.color : null">RS
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('emerald')"
-                    [ngClass]="selectedGameVersion=='emerald' ? pokemon.color : null">E
+              [ngClass]="selectedGameVersion=='emerald' ? pokemon.color : null">E
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('firered-leafgreen')"
-                    [ngClass]="selectedGameVersion=='firered-leafgreen' ? pokemon.color : null">FRLG
+              [ngClass]="selectedGameVersion=='firered-leafgreen' ? pokemon.color : null">FRLG
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('diamond-pearl')"
-                    [ngClass]="selectedGameVersion=='diamond-pearl' ? pokemon.color : null">DP
+              [ngClass]="selectedGameVersion=='diamond-pearl' ? pokemon.color : null">DP
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('platinum')"
-                    [ngClass]="selectedGameVersion=='platinum' ? pokemon.color : null">P
+              [ngClass]="selectedGameVersion=='platinum' ? pokemon.color : null">P
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('heartgold-soulsilver')"
-                    [ngClass]="selectedGameVersion=='heartgold-soulsilver' ? pokemon.color : null">HGSS
+              [ngClass]="selectedGameVersion=='heartgold-soulsilver' ? pokemon.color : null">HGSS
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('black-white')"
-                    [ngClass]="selectedGameVersion=='black-white' ? pokemon.color : null">BW
+              [ngClass]="selectedGameVersion=='black-white' ? pokemon.color : null">BW
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('black-2-white-2')"
-                    [ngClass]="selectedGameVersion=='black-2-white-2' ? pokemon.color : null">B2W2
+              [ngClass]="selectedGameVersion=='black-2-white-2' ? pokemon.color : null">B2W2
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('x-y')"
-                    [ngClass]="selectedGameVersion=='x-y' ? pokemon.color : null">XY
+              [ngClass]="selectedGameVersion=='x-y' ? pokemon.color : null">XY
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('omega-ruby-alpha-sapphire')"
-                    [ngClass]="selectedGameVersion=='omega-ruby-alpha-sapphire' ? pokemon.color : null">ORAS
+              [ngClass]="selectedGameVersion=='omega-ruby-alpha-sapphire' ? pokemon.color : null">ORAS
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('sun-moon')"
-                    [ngClass]="selectedGameVersion=='sun-moon' ? pokemon.color : null">SM
+              [ngClass]="selectedGameVersion=='sun-moon' ? pokemon.color : null">SM
             </button>
           </div>
           <div class="col">
             <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('ultra-sun-ultra-moon')"
-                    [ngClass]="selectedGameVersion=='ultra-sun-ultra-moon' ? pokemon.color : null">USUM
+              [ngClass]="selectedGameVersion=='ultra-sun-ultra-moon' ? pokemon.color : null">USUM
+            </button>
+          </div>
+          <div class="col">
+            <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('lets-go-pikachu-lets-go-eevee')"
+              [ngClass]="selectedGameVersion=='lets-go-pikachu-lets-go-eevee' ? pokemon.color : null">LGPLGE
+            </button>
+          </div>
+          <div class="col">
+            <button class="btn rounded-pill font-weight-bold" (click)="selectGameVersion('sword-shield')"
+              [ngClass]="selectedGameVersion=='sword-shield' ? pokemon.color : null">SS
             </button>
           </div>
         </div>
       </div>
     </div>
-    <!-- Ability Modal -->
-    <div class="modal fade" id="abilityModal" tabindex="-1" role="dialog" aria-labelledby="abilityModal"
-         aria-hidden="true" #abilityModal>
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content" *ngIf="allAbilitiesReceived">
-          <div class="">
-            <div class="text-center">
-              <div class="row" style="margin-top: 20px">
-                <h5 class="col-12 text-uppercase text-center">{{pokemon.abilities[abilitySelected]['n']}}</h5>
-              </div>
-              <span class="{{pokemon.color}} rounded justify-content-center" style="padding: 4px 6px"
-                    *ngIf="pokemon.abilities[abilitySelected]!=undefined&&pokemon.abilities[abilitySelected]['isH']">HIDDEN</span>
+  </div>
+  <!-- Ability Modal -->
+  <div class="modal fade" id="abilityModal" tabindex="-1" role="dialog" aria-labelledby="abilityModal" aria-hidden="true" #abilityModal>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" *ngIf="allAbilitiesReceived">
+        <div class="">
+          <div class="text-center">
+            <div class="row" style="margin-top: 20px">
+              <h5 class="col-12 text-uppercase text-center">{{pokemon.abilities[abilitySelected]['n']}}</h5>
             </div>
-            <hr style="margin-top: 10px;margin-bottom: 5px">
+            <span class="{{pokemon.color}} rounded justify-content-center" style="padding: 4px 6px"
+              *ngIf="pokemon.abilities[abilitySelected]!=undefined&&pokemon.abilities[abilitySelected]['isH']">HIDDEN</span>
           </div>
-          <div class="modal-body justify-content-center text-center">
-            <p style="padding-top: 6px"
-               *ngIf="unavailableAbilityText!=='';else availableAbility">{{unavailableAbilityText}}</p>
-            <ng-template #availableAbility>
-          <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
-                style="padding: 4px; font-size: larger">GAME DESCRIPTION</span>
-              <p style="padding-top: 6px">{{selectedAbilityFlavorText}}</p>
-              <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
-                    style="padding: 4px; font-size: larger">EFFECT</span>
-              <p style="padding-top: 6px">{{selectedAbilityShortEffect}}</p>
-              <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
-                    style="padding: 4px; font-size: larger;">IN-DEPTH EFFECT</span>
-              <p style="padding-top: 6px; white-space: pre-wrap;">{{selectedAbilityEffect}}</p>
-            </ng-template>
-          </div>
-          <div class="modal-footer justify-content-center">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
+          <hr style="margin-top: 10px;margin-bottom: 5px">
+        </div>
+        <div class="modal-body justify-content-center text-center">
+          <p style="padding-top: 6px" *ngIf="unavailableAbilityText!=='';else availableAbility">
+            {{unavailableAbilityText}}</p>
+          <ng-template #availableAbility>
+            <span class="{{pokemon.color}} rounded text-center font-weight-bolder" style="padding: 4px; font-size: larger">GAME DESCRIPTION</span>
+            <p style="padding-top: 6px">{{selectedAbilityFlavorText}}</p>
+            <span class="{{pokemon.color}} rounded text-center font-weight-bolder" style="padding: 4px; font-size: larger">EFFECT</span>
+            <p style="padding-top: 6px">{{selectedAbilityShortEffect}}</p>
+            <span class="{{pokemon.color}} rounded text-center font-weight-bolder" style="padding: 4px; font-size: larger;">IN-DEPTH EFFECT</span>
+            <p style="padding-top: 6px; white-space: pre-wrap;">{{selectedAbilityEffect}}</p>
+          </ng-template>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
-    <!--FlavorTextModal-->
-    <div class="modal fade" id="descModal" tabindex="-1" role="dialog" aria-labelledby="descModal"
-         aria-hidden="true" #descModal>
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content" *ngIf="pokemon.speciesDetails!==undefined">
-          <div class="">
-            <div class="text-center">
-              <div class="row" style="margin-top: 20px">
-                <h5 class="col-12 text-uppercase text-center">{{pokemon.name}}</h5>
-              </div>
-              <span class="{{pokemon.color}} rounded justify-content-center"
-                    style="padding: 4px 6px">Pokédex Entries</span>
+  </div>
+  <!--FlavorTextModal-->
+  <div class="modal fade" id="descModal" tabindex="-1" role="dialog" aria-labelledby="descModal" aria-hidden="true" #descModal>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" *ngIf="pokemon.speciesDetails!==undefined">
+        <div class="">
+          <div class="text-center">
+            <div class="row" style="margin-top: 20px">
+              <h5 class="col-12 text-uppercase text-center">{{pokemon.name}}</h5>
             </div>
-            <hr style="margin-top: 10px;margin-bottom: 5px">
+            <span class="{{pokemon.color}} rounded justify-content-center" style="padding: 4px 6px">Pokédex
+              Entries</span>
           </div>
-          <div class="modal-body justify-content-center text-center">
-            <ng-container *ngFor="let entry of pokemon.speciesDetails['FTE']">
-            <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
-                  style="padding: 4px; font-size: larger">Pokémon {{entry['v'].replace('-', ' ')|titlecase}}</span>
-                <p style="padding-top: 6px">{{entry['e'].replace('', ' ')}}</p>
-            </ng-container>
-          </div>
-          <div class="modal-footer justify-content-center">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
+          <hr style="margin-top: 10px;margin-bottom: 5px">
+        </div>
+        <div class="modal-body justify-content-center text-center">
+          <ng-container *ngFor="let entry of pokemon.speciesDetails['FTE']">
+            <span class="{{pokemon.color}} rounded text-center font-weight-bolder" style="padding: 4px; font-size: larger">Pokémon {{entry['v'].replace('-', '
+              ')|titlecase}}</span>
+            <p style="padding-top: 6px">{{entry['e'].replace('', ' ')}}</p>
+          </ng-container>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
-    <!--FormsDescModal-->
-    <div class="modal fade" id="formsModal" tabindex="-1" role="dialog" aria-labelledby="formsModal"
-         aria-hidden="true" #formsModal>
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content" *ngIf="pokemon.speciesDetails!==undefined">
-          <div class="">
-            <div class="text-center">
-              <div class="row" style="margin-top: 20px">
-                <h5 class="col-12 text-uppercase text-center">{{pokemonForms[0].name + "'s Forms"}}</h5>
-              </div>
-              <span class="{{pokemon.color}} rounded justify-content-center text-capitalize"
-                    style="padding: 4px 6px">{{pokemon.speciesDetails['FoS'] ? 'Forms Switchable' : 'Forms Not Switchable'}}</span>
+  </div>
+  <!--FormsDescModal-->
+  <div class="modal fade" id="formsModal" tabindex="-1" role="dialog" aria-labelledby="formsModal" aria-hidden="true" #formsModal>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" *ngIf="pokemon.speciesDetails!==undefined">
+        <div class="">
+          <div class="text-center">
+            <div class="row" style="margin-top: 20px">
+              <h5 class="col-12 text-uppercase text-center">{{pokemonForms[0].name + "'s Forms"}}</h5>
             </div>
-            <hr style="margin-top: 10px;margin-bottom: 5px">
+            <span class="{{pokemon.color}} rounded justify-content-center text-capitalize" style="padding: 4px 6px">
+              {{pokemon.speciesDetails['FoS'] ? 'Forms Switchable' : 'Forms Not Switchable'}}</span>
           </div>
-          <div class="modal-body justify-content-center text-center">
-                <p style="padding-top: 6px">{{pokemon.speciesDetails['FD']}}</p>
-          </div>
-          <div class="modal-footer justify-content-center">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
+          <hr style="margin-top: 10px;margin-bottom: 5px">
+        </div>
+        <div class="modal-body justify-content-center text-center">
+          <p style="padding-top: 6px">{{pokemon.speciesDetails['FD']}}</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
-    <!--GenderDifferencesModal-->
-    <div class="modal fade" id="genderModal" tabindex="-1" role="dialog" aria-labelledby="genderModal"
-         aria-hidden="true" #genderModal>
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content" *ngIf="pokemon.speciesDetails!==undefined">
-          <div>
-            <div class="text-center">
-              <div class="row" style="margin-top: 20px">
-                <h5 class="col-12 text-uppercase text-center">Gender Differences</h5>
-              </div>
+  </div>
+  <!--GenderDifferencesModal-->
+  <div class="modal fade" id="genderModal" tabindex="-1" role="dialog" aria-labelledby="genderModal" aria-hidden="true" #genderModal>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" *ngIf="pokemon.speciesDetails!==undefined">
+        <div>
+          <div class="text-center">
+            <div class="row" style="margin-top: 20px">
+              <h5 class="col-12 text-uppercase text-center">Gender Differences</h5>
             </div>
-            <hr style="margin-top: 10px;margin-bottom: 5px">
           </div>
-          <div class="modal-body justify-content-center text-center">
-            <p style="padding-top: 6px">{{genderDifferences[pad(pokemon.id, 3)]}}.</p>
-          </div>
-          <div class="modal-footer justify-content-center">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
+          <hr style="margin-top: 10px;margin-bottom: 5px">
+        </div>
+        <div class="modal-body justify-content-center text-center">
+          <p style="padding-top: 6px">{{genderDifferences[pad(pokemon.id, 3)]}}.</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
-    <!--    MovesModal-->
-    <div class="modal fade" id="moveModal" tabindex="-1" role="dialog" aria-labelledby="moveModal"
-         aria-hidden="true" #moveModal>
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content" *ngIf="moveDetails.length>0&&currentMoveData!==undefined&&currentMoveID!==null">
-          <div>
-            <div class="text-center">
-              <div class="row" style="margin-top: 20px">
-                <h5 class="col-12 text-uppercase text-center">{{movesList[currentMoveID][0]}}</h5>
+  </div>
+  <!--MovesModal-->
+  <div class="modal fade" id="moveModal" tabindex="-1" role="dialog" aria-labelledby="moveModal" aria-hidden="true" #moveModal>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" *ngIf="moveDetails.length>0&&currentMoveData!==undefined&&currentMoveID!==null">
+        <div>
+          <div class="text-center">
+            <div class="row" style="margin-top: 20px">
+              <h5 class="col-12 text-uppercase text-center">{{movesList[currentMoveID][0]}}</h5>
+            </div>
+            <hr style="margin-top: 0;margin-bottom: 10px">
+            <div style="padding: 0;flex-wrap: nowrap;display: flex;justify-content: center">
+              <div class="row icon {{types[movesList[currentMoveID][2].type_id-1]}} moveDetails">
+                <span class="col-8 text-white text-capitalize">{{types[movesList[currentMoveID][2].type_id-1]}}</span>
+                <span class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/{{types[movesList[currentMoveID][2].type_id-1]}}.png">
+                </span>
               </div>
-              <hr style="margin-top: 0;margin-bottom: 10px">
-              <div style="padding: 0;flex-wrap: nowrap;display: flex;justify-content: center">
-                <ng-container [ngSwitch]="typeFromID[movesList[currentMoveID][2].type_id-1]">
-                  <div class="row icon bug moveDetails" *ngSwitchCase="'bug'"><span
-                    class="col-8 text-white">Bug</span><span
-                    class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/bug.png"></span></div>
-                  <div class="row icon dark moveDetails" *ngSwitchCase="'dark'"><span
-                    class="col-8 text-white">Dark</span><span
-                    class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/dark.png"></span></div>
-                  <div class="row icon dragon moveDetails" *ngSwitchCase="'dragon'"><span
-                    class="col-8 text-white">Dragon</span><span class="col-4"><img alt="" class="img-fluid"
-                                                                                   src="assets/type-icons/png/dragon.png"></span>
-                  </div>
-                  <div class="row icon electric moveDetails" *ngSwitchCase="'electric'"><span
-                    class="col-8 text-white">Electric</span><span class="col-4"><img alt="" class="img-fluid"
-                                                                                     src="assets/type-icons/png/electric.png"></span>
-                  </div>
-                  <div class="row icon fire moveDetails" *ngSwitchCase="'fire'"><span
-                    class="col-8 text-white">Fire</span><span
-                    class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/fire.png"></span></div>
-                  <div class="row icon fairy moveDetails" *ngSwitchCase="'fairy'"><span
-                    class="col-8 text-white">Fairy</span><span
-                    class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/fairy.png"></span></div>
-                  <div class="row icon fighting moveDetails" *ngSwitchCase="'fighting'"><span
-                    class="col-8 text-white">Fighting</span><span class="col-4"><img alt="" class="img-fluid"
-                                                                                     src="assets/type-icons/png/fighting.png"></span>
-                  </div>
-                  <div class="row icon flying  moveDetails" *ngSwitchCase="'flying'"><span
-                    class="col-8 text-white">Flying</span><span class="col-4"><img alt="" class="img-fluid"
-                                                                                   src="assets/type-icons/png/flying.png"></span>
-                  </div>
-                  <div class="row icon ghost moveDetails" *ngSwitchCase="'ghost'"><span
-                    class="col-8 text-white">Ghost</span><span
-                    class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/ghost.png"></span></div>
-                  <div class="row icon grass moveDetails" *ngSwitchCase="'grass'"><span
-                    class="col-8 text-white">Grass</span><span
-                    class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/grass.png"></span></div>
-                  <div class="row icon ground moveDetails" *ngSwitchCase="'ground'"><span
-                    class="col-8 text-white">Ground</span><span class="col-4"><img alt="" class="img-fluid"
-                                                                                   src="assets/type-icons/png/ground.png"></span>
-                  </div>
-                  <div class="row icon ice moveDetails" *ngSwitchCase="'ice'"><span
-                    class="col-8 text-white">Ice</span><span
-                    class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/ice.png"></span></div>
-                  <div class="row icon normal moveDetails" *ngSwitchCase="'normal'"><span
-                    class="col-8 text-white">Normal</span><span class="col-4"><img alt="" class="img-fluid"
-                                                                                   src="assets/type-icons/png/normal.png"></span>
-                  </div>
-                  <div class="row icon poison moveDetails" *ngSwitchCase="'poison'"><span
-                    class="col-8 text-white">Poison</span><span class="col-4"><img alt="" class="img-fluid"
-                                                                                   src="assets/type-icons/png/poison.png"></span>
-                  </div>
-                  <div class="row icon psychic moveDetails" *ngSwitchCase="'psychic'"><span
-                    class="col-8 text-white">Psychic</span><span class="col-4"><img alt="" class="img-fluid"
-                                                                                    src="assets/type-icons/png/psychic.png"></span>
-                  </div>
-                  <div class="row icon rock moveDetails" *ngSwitchCase="'rock'"><span
-                    class="col-8 text-white">Rock</span><span
-                    class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/rock.png"></span></div>
-                  <div class="row icon steel moveDetails" *ngSwitchCase="'steel'"><span
-                    class="col-8 text-white">Steel</span><span
-                    class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/steel.png"></span></div>
-                  <div class="row icon water moveDetails" *ngSwitchCase="'water'"><span
-                    class="col-8 text-white">Water</span><span
-                    class="col-4"><img alt="" class="img-fluid" src="assets/type-icons/png/water.png"></span></div>
-                </ng-container>
-                <div class="row icon {{getDamageClass(movesList[currentMoveID][2].damage_class_id)}} moveDetails"><span
+              <div class="row icon {{getDamageClass(movesList[currentMoveID][2].damage_class_id)}} moveDetails"><span
                   class="col-8 text-white">{{getDamageClass(movesList[currentMoveID][2].damage_class_id)}}</span>
-                  <span class="col-4">
+                <span class="col-4">
                   <img alt="" class="img-fluid damage-cat"
-                       src="assets/damage-category-icons/{{getDamageClass(movesList[currentMoveID][2].damage_class_id)}}-white.png"
-                       style="width: 80%;margin-left: 0;margin-right: 2px;"></span>
-                </div>
-                <ng-container *ngIf="movesList[currentMoveID][2].contest_type_id!=='-'">
-                  <div class="row icon water moveDetails {{moveContestType[movesList[currentMoveID][2].contest_type_id-1]}}"><span
-                    class="col-12 text-white text-capitalize"
+                    src="assets/damage-category-icons/{{getDamageClass(movesList[currentMoveID][2].damage_class_id)}}-white.png"
+                    style="width: 80%;margin-left: 0;margin-right: 2px;"></span>
+              </div>
+              <ng-container *ngIf="movesList[currentMoveID][2].contest_type_id!=='-'">
+                <div class="row icon water moveDetails {{moveContestType[movesList[currentMoveID][2].contest_type_id-1]}}">
+                  <span class="col-12 text-white text-capitalize"
                     style="align-self: center">{{moveContestType[movesList[currentMoveID][2].contest_type_id-1]}}</span>
-                  </div>
-                </ng-container>
-              </div>
-            </div>
-            <hr style="margin-top: 10px;margin-bottom: 10px">
-            <div class="row text-center" style="margin-right: unset; margin-left: unset;">
-              <div class="col flex-column">
-                <div class="propertyValue {{pokemon.color+'-text'}}">{{movesList[currentMoveID][2].power}}</div>
-                <div class="movePropertyName">Power</div>
-              </div>
-              <div class="col">
-                <div class="propertyValue {{pokemon.color+'-text'}}">{{movesList[currentMoveID][2].accuracy}}
-                  <ng-container *ngIf="movesList[currentMoveID][2].accuracy!=='-'">%</ng-container>
                 </div>
-                <div class="movePropertyName">Accuracy</div>
-              </div>
-              <div class="col">
-                <div class="propertyValue {{pokemon.color+'-text'}}">{{movesList[currentMoveID][2].pp}}</div>
-                <div class="movePropertyName">PP</div>
-              </div>
-              <div class="col">
-                <div class="propertyValue {{pokemon.color+'-text'}}">{{movesList[currentMoveID][2].priority}}</div>
-                <div class="movePropertyName">Priority</div>
-              </div>
+              </ng-container>
             </div>
-            <hr style="margin-top: 10px;margin-bottom: 5px">
           </div>
-          <div class="modal-body justify-content-center text-center">
-          <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
-                style="padding: 4px; font-size: larger">GAME DESCRIPTION</span>
-            <p style="padding-top: 6px">{{moveFlavorTextEntry}}</p>
-            <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
-                  style="padding: 4px; font-size: larger">EFFECT</span>
-            <p style="padding-top: 6px;">{{moveShortEffect}}</p>
-            <span class="{{pokemon.color}} rounded text-center font-weight-bolder"
-                  style="padding: 4px; font-size: larger">IN-DEPTH EFFECT</span>
-            <p style="padding-top: 6px;white-space: pre-wrap">{{moveEffect}}</p>
+          <hr style="margin-top: 10px;margin-bottom: 10px">
+          <div class="row text-center" style="margin-right: unset; margin-left: unset;">
+            <div class="col flex-column">
+              <div class="propertyValue {{pokemon.color+'-text'}}">{{movesList[currentMoveID][2].power}}</div>
+              <div class="movePropertyName">Power</div>
+            </div>
+            <div class="col">
+              <div class="propertyValue {{pokemon.color+'-text'}}">{{movesList[currentMoveID][2].accuracy}}
+                <ng-container *ngIf="movesList[currentMoveID][2].accuracy!=='-'">%</ng-container>
+              </div>
+              <div class="movePropertyName">Accuracy</div>
+            </div>
+            <div class="col">
+              <div class="propertyValue {{pokemon.color+'-text'}}">{{movesList[currentMoveID][2].pp}}</div>
+              <div class="movePropertyName">PP</div>
+            </div>
+            <div class="col">
+              <div class="propertyValue {{pokemon.color+'-text'}}">{{movesList[currentMoveID][2].priority}}</div>
+              <div class="movePropertyName">Priority</div>
+            </div>
           </div>
-          <div class="modal-footer justify-content-center">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
+          <hr style="margin-top: 10px;margin-bottom: 5px">
+        </div>
+        <div class="modal-body justify-content-center text-center">
+          <span class="{{pokemon.color}} rounded text-center font-weight-bolder" style="padding: 4px; font-size: larger">GAME DESCRIPTION</span>
+          <p style="padding-top: 6px">{{moveFlavorTextEntry}}</p>
+          <span class="{{pokemon.color}} rounded text-center font-weight-bolder" style="padding: 4px; font-size: larger">EFFECT</span>
+          <p style="padding-top: 6px;">{{moveShortEffect}}</p>
+          <span class="{{pokemon.color}} rounded text-center font-weight-bolder" style="padding: 4px; font-size: larger">IN-DEPTH EFFECT</span>
+          <p style="padding-top: 6px;white-space: pre-wrap">{{moveEffect}}</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>

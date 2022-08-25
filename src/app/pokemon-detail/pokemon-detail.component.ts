@@ -1,8 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {PokemonService} from '../shared/pokemon.service';
-import {Pokemon} from '../shared/pokemon.model';
-import {Subject} from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PokemonService } from '../shared/pokemon.service';
+import { Pokemon } from '../shared/pokemon.model';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -69,6 +69,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     'minior-orange-meteor': 'red', // Because its second in list actually its minior-red
     'necrozma-ultra': 'yellow',
     'magearna-original': 'red',
+    'rattata-alola': 'black',
     'raticate-alola': 'black',
     'raichu-alola': 'brown',
     'sandshrew-alola': 'blue',
@@ -79,8 +80,54 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     'persian-alola': 'gray',
     'grimer-alola': 'green',
     'muk-alola': 'green',
-    'marowak-alola': 'black'
+    'marowak-alola': 'black',
+    'meowth-galar': 'brown',
+    'ponyta-galar': 'pink',
+    'rapidash-galar': 'pink',
+    'mr-mime-galar': 'blue',
+    'corsola-galar': 'white',
+    'zigzagoon-galar': 'black',
+    'linoone-galar': 'black',
+    'darumaka-galar': 'white',
+    'darmanitan-galar-standard': 'white',
+    'darmanitan-galar-zen': 'white',
+    'stunfisk-galar': 'gray',
+    'articuno-galar': 'purple',
+    'zapdos-galar': 'red',
+    'moltres-galar': 'black',
+    'slowking-galar': 'purple',
+    'growlithe-hisui': 'red',
+    'arcanine-hisui': 'gray',
+    'voltorb-hisui': 'red',
+    'electrode-hisui': 'red',
+    'qwilfish-hisui': 'black',
+    'sneasel-hisui': 'purple',
+    'zorua-hisui': 'white',
+    'zoroark-hisui': 'white',
+    'braviary-hisui': 'white'
   };
+
+  formNameFormatted = {
+    'darmanitan-galar-zen': 'Galarian Darmanitan Zen',
+    'zygarde-10': '10%',
+    'zygarde-50': '50%',
+    'zygarde-10-power-construct': '10% Power Construct',
+    'zygarde-50-power-construct': '50% Power Construct',
+    'zygarde-complete': 'Complete',
+    'oricorio-pau': 'pa\'u',
+    'minior-red': 'core',
+    'minior-red-meteor': 'meteor',
+    'necrozma-dusk': 'Dusk Mane Necrozma',
+    'necrozma-dawn': 'Dawn Wings Necrozma',
+    'necrozma-ultra': 'Ultra Necrozma',
+    'toxtricity-amped-gmax': 'Gigantamax Amped',
+    'toxtricity-low-key-gmax': 'Gigantamax Low Key',
+    'urshifu-single-strike-gmax': 'Gigantamax Single Strike',
+    'urshifu-rapid-strike-gmax': 'Gigantamax Rapid Strike',
+    'eternatus-eternamax': 'Eternamax Eternatus',
+    'calyrex-ice': 'Ice Rider Calyrex',
+    'calyrex-shadow': 'Shadow Rider Calyrex'
+  }
 
 
   visible = true;
@@ -106,11 +153,14 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     'ralts',
     'cosmog'];
   evolutionChainExceptions_12 = [
+    'meowth',
     'slowpoke',
     'nincada',
     'snorunt',
     'clamperl',
-    'burmy'];
+    'burmy',
+    'applin',
+    'yamask'];//toxel,kubfu after form specific chains?
   evolutionChainExceptions_122 = [
     'wurmple',
   ];
@@ -121,73 +171,51 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     'eevee'];
 
 
-  typeDefences = {'4x': [], '2x': [], '1x': [], '0.5x': [], '0.25x': [], '0x': []};
-  typeChart = [{'name': 'normal', 'immunes': ['ghost'], 'weaknesses': ['rock', 'steel'], 'strengths': []},
-    {'name': 'fire', 'immunes': [], 'weaknesses': ['fire', 'water', 'rock', 'dragon'], 'strengths': ['grass', 'ice', 'bug', 'steel']},
-    {'name': 'water', 'immunes': [], 'weaknesses': ['water', 'grass', 'dragon'], 'strengths': ['fire', 'ground', 'rock']},
-    {'name': 'electric', 'immunes': ['ground'], 'weaknesses': ['electric', 'grass', 'dragon'], 'strengths': ['water', 'flying']},
-    {
-      'name': 'grass',
-      'immunes': [],
-      'weaknesses': ['fire', 'grass', 'poison', 'flying', 'bug', 'dragon', 'steel'],
-      'strengths': ['water', 'ground', 'rock']
-    },
-    {
-      'name': 'ice',
-      'immunes': [],
-      'weaknesses': ['fire', 'water', 'ice', 'steel'],
-      'strengths': ['grass', 'ground', 'flying', 'dragon']
-    },
-    {
-      'name': 'fighting',
-      'immunes': ['ghost'],
-      'weaknesses': ['poison', 'flying', 'psychic', 'bug', 'fairy'],
-      'strengths': ['normal', 'ice', 'rock', 'dark', 'steel']
-    },
-    {'name': 'poison', 'immunes': ['steel'], 'weaknesses': ['poison', 'ground', 'rock', 'ghost'], 'strengths': ['grass', 'fairy']},
-    {
-      'name': 'ground',
-      'immunes': ['flying'],
-      'weaknesses': ['grass', 'bug'],
-      'strengths': ['fire', 'electric', 'poison', 'rock', 'steel']
-    },
-    {'name': 'flying', 'immunes': [], 'weaknesses': ['electric', 'rock', 'steel'], 'strengths': ['grass', 'fighting', 'bug']},
-    {'name': 'psychic', 'immunes': ['dark'], 'weaknesses': ['psychic', 'steel'], 'strengths': ['fighting', 'poison']},
-    {
-      'name': 'bug',
-      'immunes': [],
-      'weaknesses': ['fire', 'fighting', 'poison', 'flying', 'ghost', 'steel', 'fairy'],
-      'strengths': ['grass', 'psychic', 'dark']
-    },
-    {'name': 'rock', 'immunes': [], 'weaknesses': ['fighting', 'ground', 'steel'], 'strengths': ['fire', 'ice', 'flying', 'bug']},
-    {'name': 'ghost', 'immunes': ['normal'], 'weaknesses': ['dark'], 'strengths': ['psychic', 'ghost']},
-    {'name': 'dragon', 'immunes': ['fairy'], 'weaknesses': ['steel'], 'strengths': ['dragon']},
-    {'name': 'dark', 'immunes': [], 'weaknesses': ['fighting', 'dark', 'fairy'], 'strengths': ['psychic', 'ghost']},
-    {'name': 'steel', 'immunes': [], 'weaknesses': ['fire', 'water', 'electric', 'steel'], 'strengths': ['ice', 'rock', 'fairy']},
-    {'name': 'fairy', 'immunes': [], 'weaknesses': ['fire', 'poison', 'steel'], 'strengths': ['fighting', 'dragon', 'dark']}];
-  // types = {
-  //   'normal': 1,
-  //   'fighting': 2,
-  //   'flying': 3,
-  //   'poison': 4,
-  //   'ground': 5,
-  //   'rock': 6,
-  //   'bug': 7,
-  //   'ghost': 8,
-  //   'steel': 9,
-  //   'fire': 10,
-  //   'water': 11,
-  //   'grass': 12,
-  //   'electric': 13,
-  //   'psychic': 14,
-  //   'ice': 15,
-  //   'dragon': 16,
-  //   'dark': 17,
-  //   'fairy': 18,
-  //   'unknown': 19,
-  //   'shadow': 20
-  // };
-  typeFromID = [
+  typeDefences = { '4x': [], '2x': [], '1x': [], '0.5x': [], '0.25x': [], '0x': [] };
+  typeChart = [{ 'name': 'normal', 'immunes': ['ghost'], 'weaknesses': ['rock', 'steel'], 'strengths': [] },
+  { 'name': 'fire', 'immunes': [], 'weaknesses': ['fire', 'water', 'rock', 'dragon'], 'strengths': ['grass', 'ice', 'bug', 'steel'] },
+  { 'name': 'water', 'immunes': [], 'weaknesses': ['water', 'grass', 'dragon'], 'strengths': ['fire', 'ground', 'rock'] },
+  { 'name': 'electric', 'immunes': ['ground'], 'weaknesses': ['electric', 'grass', 'dragon'], 'strengths': ['water', 'flying'] },
+  {
+    'name': 'grass',
+    'immunes': [],
+    'weaknesses': ['fire', 'grass', 'poison', 'flying', 'bug', 'dragon', 'steel'],
+    'strengths': ['water', 'ground', 'rock']
+  },
+  {
+    'name': 'ice',
+    'immunes': [],
+    'weaknesses': ['fire', 'water', 'ice', 'steel'],
+    'strengths': ['grass', 'ground', 'flying', 'dragon']
+  },
+  {
+    'name': 'fighting',
+    'immunes': ['ghost'],
+    'weaknesses': ['poison', 'flying', 'psychic', 'bug', 'fairy'],
+    'strengths': ['normal', 'ice', 'rock', 'dark', 'steel']
+  },
+  { 'name': 'poison', 'immunes': ['steel'], 'weaknesses': ['poison', 'ground', 'rock', 'ghost'], 'strengths': ['grass', 'fairy'] },
+  {
+    'name': 'ground',
+    'immunes': ['flying'],
+    'weaknesses': ['grass', 'bug'],
+    'strengths': ['fire', 'electric', 'poison', 'rock', 'steel']
+  },
+  { 'name': 'flying', 'immunes': [], 'weaknesses': ['electric', 'rock', 'steel'], 'strengths': ['grass', 'fighting', 'bug'] },
+  { 'name': 'psychic', 'immunes': ['dark'], 'weaknesses': ['psychic', 'steel'], 'strengths': ['fighting', 'poison'] },
+  {
+    'name': 'bug',
+    'immunes': [],
+    'weaknesses': ['fire', 'fighting', 'poison', 'flying', 'ghost', 'steel', 'fairy'],
+    'strengths': ['grass', 'psychic', 'dark']
+  },
+  { 'name': 'rock', 'immunes': [], 'weaknesses': ['fighting', 'ground', 'steel'], 'strengths': ['fire', 'ice', 'flying', 'bug'] },
+  { 'name': 'ghost', 'immunes': ['normal'], 'weaknesses': ['dark'], 'strengths': ['psychic', 'ghost'] },
+  { 'name': 'dragon', 'immunes': ['fairy'], 'weaknesses': ['steel'], 'strengths': ['dragon'] },
+  { 'name': 'dark', 'immunes': [], 'weaknesses': ['fighting', 'dark', 'fairy'], 'strengths': ['psychic', 'ghost'] },
+  { 'name': 'steel', 'immunes': [], 'weaknesses': ['fire', 'water', 'electric', 'steel'], 'strengths': ['ice', 'rock', 'fairy'] },
+  { 'name': 'fairy', 'immunes': [], 'weaknesses': ['fire', 'poison', 'steel'], 'strengths': ['fighting', 'dragon', 'dark'] }];
+  types = [
     'normal',
     'fighting',
     'flying',
@@ -232,7 +260,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     '123': 'Female\'s abdomen is larger',
     '129': 'Male has yellow whiskers and Female has white whiskers',
     '130': 'Male has blue whiskers and female has white whiskers',
-    '133': 'Unlike other Eevee, in Pokémon: Let\'s Go, Pikachu! and Let\'s Go, Eevee!, the partner Eevee has gender differences. Male partner Eevee look the same as all other Eevee, but female partner Eevee have a unique heart-shaped tail pattern. In Generation VIII, this gender difference was applied to all female Eevee.',
+    '133': 'Unlike other Eevee, in Pokémon: Let\'s Go, Pikachu! and Let\'s Go, Eevee!, the partner Eevee has gender differences. Male partner Eevee look the same as all other Eevee, but female partner Eevee have a unique heart-shaped tail pattern. In Generation VIII, this gender difference was applied to all female Eevee',
     '154': 'Female has smaller antennae',
     '165': 'Female has smaller antennae',
     '166': 'Female has smaller antennae',
@@ -307,28 +335,44 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     '521': 'Male has a pink mask with long extensions while the female has a curved feather on the back of her head. Male has a green underside and female has a brown underside.',
     '592': 'Male is blue, frowns, and has a ruffled collar, smooth, diamond-patterned tentacles, and one upper eyelash per eye. Female is pink, smiles, and has a bulbous collar, frilled tentacles, and one lower eyelash per eye. Males have a star-shaped head pattern and a stiff crown while females have a flower-shaped pattern and a limp crown.',
     '593': 'Body color, eyes, head pattern, and tentacle differences are much the same as with Frillish, but the Female\'s eyes are now larger and have two eyelashes each. Males have a facial covering resembling a large moustache while Females have one resembling a fluffy collar. Female has a heart-shaped mouth and the male\'s is hidden inside the "moustache"',
-    '668': 'Male has a large mane shaped like the kanji character 大 ō (big or great), a stockier body, and half-brown front legs. Female has long, flowing hair similar to a ponytail and mostly-brown legs. Male\'s tail has a split in it.',
-    '678': 'Males are mostly blue with white highlights, the inverse of Females. Male\'s eyes are green with light blue sclerae, while Female\'s are red and yellow. Unlike most Pokémon, the moves Meowstic can learn vary by gender, with males learning more status moves and Females learning more attack moves. Male Meowstic have the Hidden Ability Prankster, while Female Meowstic have the Hidden Ability Competitive.',
-    '876': 'Males have lowered eyes, a triangular mouth pointing upwards like a frown, and more black on its torso, made to resemble a suit. Females have wider eyes, a triangular mouth pointing downwards like a smile, and more white on its torso, made to resemble an apron. Male Indeedee have more Attack, Special Attack, and Speed, while female Indeedee have more Defense, Special Defense, and HP.The two genders also have different moves.'
+    '668': 'Male has a large mane shaped like the kanji character 大 ō (big or great), a stockier body, and half-brown front legs. Female has long, flowing hair similar to a ponytail and mostly-brown legs. Male\'s tail has a split in it',
+    '678': 'Males are mostly blue with white highlights, the inverse of Females. Male\'s eyes are green with light blue sclerae, while Female\'s are red and yellow. Unlike most Pokémon, the moves Meowstic can learn vary by gender, with males learning more status moves and Females learning more attack moves. Male Meowstic have the Hidden Ability Prankster, while Female Meowstic have the Hidden Ability Competitive',
+    '876': 'Males have lowered eyes, a triangular mouth pointing upwards like a frown, and more black on its torso, made to resemble a suit. Females have wider eyes, a triangular mouth pointing downwards like a smile, and more white on its torso, made to resemble an apron. Male Indeedee have more Attack, Special Attack, and Speed, while female Indeedee have more Defense, Special Defense, and HP. The two genders also have different moves',
+    '902': 'Males have red accents, fierce-looking eyes, longer barbels, and two additional growths on their chin resembling a stubble. Females have pale-blue accents, sad-looking eyes, shorter barbels, and additional accents around their lips and eyes. Male Basculegion have higher Attack, while female Basculegion have higher Special Attack'
   };
 
   movesList = [];
   delayMovesListLoad = true;
+  movesListTimeout;
   movesListLoaded = false;
   levelUpMovesList = [];
   machineMovesList = [];
   eggMovesList = [];
   tutorMovesList = [];
   selectedMove = 'level-up';
-  selectedMoveFirstColHeader = {'level-up': 'Level', 'machine': '#', 'egg': '-', 'tutor': '-'};
+  selectedMoveFirstColHeader = { 'level-up': 'Level', 'machine': '#', 'egg': '-', 'tutor': '-' };
 
-  selectedGameVersion = 'ultra-sun-ultra-moon';
+  selectedGameVersion;
 
   versions = {
     'red-blue': 1, 'yellow': 2, 'gold-silver': 3, 'crystal': 4, 'ruby-sapphire': 5, 'emerald': 6,
     'firered-leafgreen': 7, 'diamond-pearl': 8, 'platinum': 9, 'heartgold-soulsilver': 10, 'black-white': 11, 'colosseum': 12,
-    'xd': 13, 'black-2-white-2': 14, 'x-y': 15, 'omega-ruby-alpha-sapphire': 16, 'sun-moon': 17, 'ultra-sun-ultra-moon': 18
+    'xd': 13, 'black-2-white-2': 14, 'x-y': 15, 'omega-ruby-alpha-sapphire': 16, 'sun-moon': 17, 'ultra-sun-ultra-moon': 18, "lets-go-pikachu-lets-go-eevee": 19, "sword-shield": 20
   };
+  generations = {
+    'generation-i': 1,
+    'generation-ii': 2,
+    'generation-iii': 3,
+    'generation-iv': 4,
+    'generation-v': 5,
+    'generation-vi': 6,
+    'generation-vii': 7,
+    'generation-viii': 8
+  }
+  versionToGeneration = {
+    'red-blue': 1, 'yellow': 1, 'gold-silver': 2, 'crystal': 2, 'ruby-sapphire': 3, 'emerald': 3,
+    'firered-leafgreen': 3, 'diamond-pearl': 4, 'platinum': 4, 'heartgold-soulsilver': 4, 'black-white': 5, 'black-2-white-2': 5, 'x-y': 6, 'omega-ruby-alpha-sapphire': 6, 'sun-moon': 7, 'ultra-sun-ultra-moon': 7, "lets-go-pikachu-lets-go-eevee": 7, "sword-shield": 8
+  }
 
   currentMoveData;
   currentMoveID = null;
@@ -337,7 +381,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   moveMachineDetails = [];
   moveEggDetails = [];
   moveTutorDetails = [];
-  moveMachineNos = [];
   moveFlavorTextEntry;
   moveShortEffect;
   moveEffect;
@@ -346,11 +389,17 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   isOnline;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private pokemonService: PokemonService) {
+    private pokemonService: PokemonService) {
     this.megaEvolveAnimationEnabled = !this.pokemonService.isMobile;
   }
 
   ngOnInit(): void {
+    if (this.pokemonService.versionMainSwitch) {
+      this.selectedGameVersion = localStorage.getItem('SelectedVersion');
+    } else {
+      this.selectedGameVersion = 'sword-shield';
+      localStorage.setItem('SelectedVersion', this.selectedGameVersion);
+    }
     // Initialization Logic after Pokemon Fetching in Both If and Else Conditions
     this.activatedRoute.params.subscribe(
       (params) => {
@@ -442,6 +491,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     if (this.pokemon.is_default) {
       this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
         this.pad(this.pokemon.id, 3) + '.png';
+      // this.pokemonImageUrl = 'assets/images/' + this.pad(this.pokemon.id, 3) + '.png';
     }
     // }
     this.getGenera();
@@ -563,33 +613,33 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   requestAbilityDetails() {
-    // const requests = [];
     this.abilities = [];
     for (const ability of this.pokemon.abilities) {
       const abilityID = ability['id'];
       this.abilities.push(this.pokemonService.abilityJSON[abilityID - 1]);
-      // requests.push(this.pokemonService.getAbility(ability['ability']['url']));
     }
-    this.allAbilitiesReceived = true;
+    if (this.abilities.length != 0) {
+      this.allAbilitiesReceived = true;
+    }
   }
 
-  abilitySelect(no: number) {
+  selectAbility(no: number) {
     this.abilitySelected = no;
     this.unavailableAbilityText = '';
-    if (['red-blue', 'yellow', 'gold-silver', 'crystal'].indexOf(this.selectedGameVersion) !== -1) {
-      this.unavailableAbilityText = 'Abilities were introduced in Generation III Games!';
-    } else if (!this.availableInSelectedGen(this.abilities[no]['generation']['name'])) {
-      this.unavailableAbilityText = 'This ability didn\'t exist in the selected Games!';
+    if (['red-blue', 'yellow', 'gold-silver', 'crystal', 'lets-go-pikachu-lets-go-eevee'].indexOf(this.selectedGameVersion) !== -1) {
+      this.unavailableAbilityText = 'Abilities unavailable in the selected games!';
+    } else if (!this.availableInSelectedGen(this.abilities[no]['generation'])) {
+      this.unavailableAbilityText = 'This ability didn\'t exist in the selected games!';
     } else {
-      // for (const entry of this.abilities[no]['flavor_text_entries']) {
-      //   if (entry['language']['name'] === 'en' && entry['version_group']['name'] === this.selectedGameVersion) {
-      //     this.selectedAbilityFlavorText = (entry['flavor_text']);
-      //     break;
-      //   }
-      // }
       this.selectedAbilityFlavorText = this.abilities[no]['flavor_text_entries'][this.versions[this.selectedGameVersion]];
-      this.selectedAbilityEffect = this.abilities[no]['effect_entries']['effect'];
-      this.selectedAbilityShortEffect = this.abilities[no]['effect_entries']['short_effect'];
+      if (this.abilities[no]['effect_entries'] == undefined) {
+        this.selectedAbilityEffect = "Unavailable";
+        this.selectedAbilityShortEffect = "Unavailable";
+      }
+      else {
+        this.selectedAbilityEffect = this.abilities[no]['effect_entries']['effect'];
+        this.selectedAbilityShortEffect = this.abilities[no]['effect_entries']['short_effect'];
+      }
     }
   }
 
@@ -602,39 +652,31 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     for (let i = 0; i < this.pokemon.varieties.length; i++) {
       var formattedName;
       var name = this.pokemon.varieties[i]['n'];
-      if (this.pokemon.id !== 774) { // excluding Minior
+      formattedName = this.formNameFormatted[name];
+      if (formattedName === undefined) {
         if (name.indexOf('-totem') !== -1 || name.indexOf('-battle-bond') !== -1) {
-          continue;
-        } else if (name.indexOf('-mega') !== -1 || name.indexOf('-primal') !== -1 || name === 'greninja-ash'
-          || this.pokemon.id === 800 // Necrozma
-        ) {
-          if (name === 'necrozma-dusk') {
-            formattedName = 'Dusk Mane Necrozma';
-          } else if (name === 'necrozma-dawn') {
-            formattedName = 'Dawn Wings Necrozma';
-          } else {
-            const re = '(' + this.pokemon.species['n'] + ')[-]([a-z]*)';
-            const regExp = new RegExp(re, 'g');
-            formattedName = name.replace(regExp, '$2 $1');
-            formattedName = formattedName.replace(/-/g, ' ');
-          }
+          continue;// Skipping these forms
+        } else if (name.indexOf('-mega') !== -1 || name.indexOf('-primal') !== -1 || name === 'greninja-ash') {
+          const re = '(' + this.pokemon.species['n'] + ')[-]([a-z]*)';
+          const regExp = new RegExp(re, 'g');
+          formattedName = name.replace(regExp, '$2 $1');
+          formattedName = formattedName.replace(/-/g, ' ');
         } else if (name.indexOf('-alola') !== -1 && this.pokemon.id !== 25) { // Excluding Alola-Cap Pikachu
           formattedName = 'Alolan ' + this.pokemon.species['n'];
-        } else {
+        }
+        else if (name.indexOf('-galar') !== -1) {
+          formattedName = 'Galarian ' + this.pokemon.species['n'];
+        } else if (name.indexOf('-hisui') !== -1) {
+          formattedName = 'Hisuian ' + this.pokemon.species['n'];
+        } else if (name.indexOf('-gmax') !== -1) {
+          formattedName = 'Gigantamax ' + this.pokemon.species['n'];
+        } else { // Rest Species
           const re = '(' + this.pokemon.species['n'] + ')[-]([a-z]*)';
           const regExp = new RegExp(re, 'g');
           formattedName = name.replace(regExp, '$2');
           if (this.pokemon.id !== 250) { // excluding Ho-Oh
             formattedName = formattedName.replace(/-/g, ' ');
           }
-        }
-      } else { // If minior
-        if (name === 'minior-red') {
-          formattedName = 'core';
-        } else if (name === 'minior-red-meteor') {
-          formattedName = 'meteor';
-        } else {
-          continue;
         }
       }
       this.formattedFormNames.push(formattedName);
@@ -650,8 +692,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     if (this.pokemon.id !== 774) { // Skipping Minior
       for (const variety of this.pokemon.varieties.slice(1)) {
         if (variety['n'].indexOf('-totem') !== -1 || variety['n'] === 'greninja-battle-bond') {
-          continue;
-          // Skipping these forms
+          continue;// Skipping these forms
         }
         formIDs.push(variety['id']);
         // formRequests.push(this.pokemonService.getPokemonByURL(variety['id']));
@@ -710,14 +751,19 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         && ((this.pokemonForms[i].name.indexOf('-mega') !== -1)
           || (this.pokemonForms[i].name.indexOf('-primal') !== -1)
           || (this.pokemonForms[i].name.indexOf('-alola') !== -1)
+          || (this.pokemonForms[i].name.indexOf('-galar') !== -1)
+          || (this.pokemonForms[i].name.indexOf('-hisui') !== -1)
+          || (this.pokemonForms[i].name.indexOf('-gmax') !== -1)
           || (this.pokemonForms[i].name === 'greninja-ash')
-          || (this.pokemon.id === 800)) // Necrozma
+          || (this.pokemon.id === 800) // Necrozma
+          || (this.pokemon.id === 890) // Eternatus
+          || (this.pokemon.id === 898) // Calyrex
+        )
       ) {
         this.pokemon.name = this.formattedFormNames[i];
       } else {
         this.pokemon.name = this.pokemon.species['n'] + ' [' + this.formattedFormNames[i] + ']';
       }
-
       this.pokemon.types = this.pokemonForms[i].types;
       this.pokemon.abilities = this.pokemonForms[i].abilities;
       this.pokemon.height = this.pokemonForms[i].height;
@@ -735,6 +781,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         const str = this.pokemonForms[i].name.replace(regExp, '$2');
         this.pokemonImageUrl = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' +
           this.pad(this.pokemon.id, 3) + '-' + this.capitalizeSplitJoin(str, '-', '-') + '.png';
+        // this.pokemonImageUrl = 'assets/images/' + this.pad(this.pokemon.id, 3) + '-' + this.capitalizeSplitJoin(str, '-', '-') + '.png';
       }
       // For Default Forms and Initializing Fields
       this.initializePokemonFields();
@@ -792,6 +839,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     const evoID = this.pokemon.evolutionChainID;
     const response = this.pokemonService.evolutionChains[evoID - 1];
     this.evolutionChain = [];
+    if (response === undefined) {
+      return;
+    }
     let chain = response['chain'];
     if (this.evolutionChainExceptions_112.indexOf(chain['species']['name']) > -1) {
       this.exceptionalChainType = '112';
@@ -810,7 +860,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         do {
           this.evolutionChain.push([
             chain['species']['name'], // 0
-            this.getIdfromURL(chain['species']['url']), // 1
+            chain['species']['id'], // 1
             chain['is_baby'], // 2
             chain['evolution_details'] // 3
           ]);
@@ -821,14 +871,14 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         nextChain = chain;
         this.evolutionChain.push([
           nextChain['species']['name'], // 0
-          this.getIdfromURL(nextChain['species']['url']), // 1
+          nextChain['species']['id'], // 1
           nextChain['is_baby'], // 2
           nextChain['evolution_details'] // 3
         ]);
         nextChain = chain['evolves_to'][0];
         this.evolutionChain.push([
           nextChain['species']['name'], // 0
-          this.getIdfromURL(nextChain['species']['url']), // 1
+          nextChain['species']['id'], // 1
           nextChain['is_baby'], // 2
           nextChain['evolution_details'] // 3
         ]);
@@ -838,7 +888,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           nextChain = chain['evolves_to'][0]['evolves_to'][i];
           this.evolutionChain[2].push([
             nextChain['species']['name'], // 0
-            this.getIdfromURL(nextChain['species']['url']), // 1
+            nextChain['species']['id'], // 1
             nextChain['is_baby'], // 2
             nextChain['evolution_details'] // 3
           ]);
@@ -851,7 +901,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         nextChain = chain;
         this.evolutionChain.push([
           nextChain['species']['name'], // 0
-          this.getIdfromURL(nextChain['species']['url']), // 1
+          nextChain['species']['id'], // 1
           nextChain['is_baby'], // 2
           nextChain['evolution_details'] // 3
         ]);
@@ -861,7 +911,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           nextChain = chain['evolves_to'][i];
           this.evolutionChain[1].push([
             nextChain['species']['name'], // 0
-            this.getIdfromURL(nextChain['species']['url']), // 1
+            nextChain['species']['id'], // 1
             nextChain['is_baby'], // 2
             nextChain['evolution_details'] // 3
           ]);
@@ -872,7 +922,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         nextChain = chain;
         this.evolutionChain.push([
           nextChain['species']['name'], // 0
-          this.getIdfromURL(nextChain['species']['url']), // 1
+          nextChain['species']['id'], // 1
           nextChain['is_baby'], // 2
           nextChain['evolution_details'] // 3
         ]);
@@ -880,14 +930,14 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         nextChain = chain['evolves_to'][0]; // silcoon
         this.evolutionChain[1].push([
           nextChain['species']['name'], // 0
-          this.getIdfromURL(nextChain['species']['url']), // 1
+          nextChain['species']['id'], // 1
           nextChain['is_baby'], // 2
           nextChain['evolution_details'] // 3
         ]);
         nextChain = chain['evolves_to'][1]; // cascoon
         this.evolutionChain[1].push([
           nextChain['species']['name'], // 0
-          this.getIdfromURL(nextChain['species']['url']), // 1
+          nextChain['species']['id'], // 1
           nextChain['is_baby'], // 2
           nextChain['evolution_details'] // 3
         ]);
@@ -895,14 +945,14 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         nextChain = chain['evolves_to'][0]['evolves_to'][0]; // Beautifly
         this.evolutionChain[2].push([
           nextChain['species']['name'], // 0
-          this.getIdfromURL(nextChain['species']['url']), // 1
+          nextChain['species']['id'], // 1
           nextChain['is_baby'], // 2
           nextChain['evolution_details'] // 3
         ]);
         nextChain = chain['evolves_to'][1]['evolves_to'][0]; // Dustox
         this.evolutionChain[2].push([
           nextChain['species']['name'], // 0
-          this.getIdfromURL(nextChain['species']['url']), // 1
+          nextChain['species']['id'], // 1
           nextChain['is_baby'], // 2
           nextChain['evolution_details'] // 3
         ]);
@@ -966,13 +1016,13 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         break;
       case '122':
         this.evolutionDesc = [['Level 7 based on PV', 'Level 7 based on PV'],
-          ['Level 10+', 'Level 10+']];
+        ['Level 10+', 'Level 10+']];
     }
   }
 
   generateEvolutionMethodsLogic(stage) {
     let desc = '';
-    switch (stage['trigger']['name']) {
+    switch (stage['trigger']) {
       case 'level-up':
         if (stage['min_level'] !== null) {
           desc = 'Level ' + stage['min_level'] + '+';
@@ -1087,6 +1137,21 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       case 'shed':
         desc = 'Level 20, with empty PokéBall and an open slot in party';
         break;
+      case 'spin':
+        desc = 'Spin holding a Sweet';
+        break;
+      case 'tower-of-darkness':
+        desc = 'Train in the Tower of Darkness/ Waters';// Add forms support to Evolution Chain (sometime... someday...)
+        break;
+      case 'tower-of-waters':
+        desc = 'Train in the Tower of Waters';
+        break;
+      case 'three-critical-hits':
+        desc = 'Land three critical hits in a battle';
+        break;
+      case 'take-damage':
+        desc = 'Travel under the stone bridge in Dusty Bowl after taking at least 49 HP in damage from attacks without fainting';
+        break;
     }
     return desc;
   }
@@ -1150,7 +1215,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   calculateTypeEffectiveness() {
-    this.typeDefences = {'4x': [], '2x': [], '1x': [], '0.5x': [], '0.25x': [], '0x': []};
+    this.typeDefences = { '4x': [], '2x': [], '1x': [], '0.5x': [], '0.25x': [], '0x': [] };
     let type1 = this.pokemon.types[0]['n'];
     let type2;
     if (this.pokemon.types[1] !== undefined) {
@@ -1209,9 +1274,13 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.machineMovesList = [];
     this.eggMovesList = [];
     this.tutorMovesList = [];
+    this.movesList = [];
     this.movesListLoaded = false;
+    if(this.movesListTimeout){
+      clearTimeout(this.movesListTimeout);
+    }
     if (this.delayMovesListLoad) {
-      setTimeout(() => {
+      this.movesListTimeout = setTimeout(() => {
         this.getMovesLogic(version);
       }, 2000);
     } else {
@@ -1222,59 +1291,81 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   getMovesLogic(version) {
     // const moveLearnMethods = {'level-up': 1, 'egg': 2, 'tutor': 3, 'machine': 4};
     const versionID = this.versions[version];
-    for (const move of this.pokemon.moves) {
-      // for (const versionGroup of move['version_group_details']) {
-      if (move.version_group_id == versionID) {
-        const moveDetails = this.pokemonService.movesDetails[move.move_id - 1];
-        switch (move.pokemon_move_method_id) {
-          case '1': // level-up
-            this.levelUpMovesList.push([this.capitalizeSplitJoin(moveDetails.identifier, '-', ' '), move.level,
-              moveDetails, move.move_id]);
-            break;
-          case '2': // egg
-            this.eggMovesList.push([this.capitalizeSplitJoin(moveDetails.identifier, '-', ' '), move.level,
-              moveDetails, move.move_id]);
-            break;
-          case '3': // tutor
-            this.tutorMovesList.push([this.capitalizeSplitJoin(moveDetails.identifier, '-', ' '), move.level,
-              moveDetails, move.move_id]);
-            break;
-          case '4': // machine
-            this.machineMovesList.push([this.capitalizeSplitJoin(moveDetails.identifier, '-', ' '), move.level,
-              moveDetails, move.move_id]);
-            // this.moveMachineNos.push(this.fetchMachineDetailsFromCSVDataSlow(moveDetails.id, versionID));
-            break;
+    if (this.pokemon.moves) {
+      for (const move of this.pokemon.moves) {
+        // for (const versionGroup of move['version_group_details']) {
+        if (move.version_group_id == versionID) {
+          const moveDetails = this.pokemonService.movesDetails[move.move_id - 1];
+          switch (move.pokemon_move_method_id) {
+            case '1': // level-up
+              this.levelUpMovesList.push([this.capitalizeSplitJoin(moveDetails.identifier, '-', ' '), move.level,
+                moveDetails, move.move_id]);
+              break;
+            case '2': // egg
+              this.eggMovesList.push([this.capitalizeSplitJoin(moveDetails.identifier, '-', ' '), move.level,
+                moveDetails, move.move_id]);
+              break;
+            case '3': // tutor
+              this.tutorMovesList.push([this.capitalizeSplitJoin(moveDetails.identifier, '-', ' '), move.level,
+                moveDetails, move.move_id]);
+              break;
+            case '4': // machine
+              this.machineMovesList.push([this.capitalizeSplitJoin(moveDetails.identifier, '-', ' '), move.level,
+                moveDetails, move.move_id]);
+              break;
+          }
+        }
+        // }
+      }
+      this.levelUpMovesList = this.levelUpMovesList.sort((obj1, obj2) => {
+        if (+obj1[1] > +obj2[1]) {
+          return 1;
+        }
+        if (+obj1[1] < +obj2[1]) {
+          return -1;
+        }
+        return 0;
+      });
+      for (const move of this.machineMovesList) {
+        const moveID = move[3];
+        const machines = this.pokemonService.moveJSON[moveID - 1]['machines'];
+        const machineID = machines[this.versions[this.selectedGameVersion]];
+        move.push(this.pokemonService.machineDetails[machineID - 1].machine_number);
+      }
+      this.machineMovesList = this.machineMovesList.sort((obj1, obj2) => {
+        if (+obj1[4] > +obj2[4]) {
+          return 1;
+        }
+        if (+obj1[4] < +obj2[4]) {
+          return -1;
+        }
+        return 0;
+      });
+      for (const move of this.machineMovesList) {
+        const machineNumber = move[4];
+        if (this.selectedGameVersion == 'sword-shield') {
+          move[4] = +machineNumber < 100 ? 'TM' + this.pad(machineNumber, 2) : 'TR' + this.pad(machineNumber - 100, 2);
+        } else {
+          move[4] = +machineNumber <= 100 ? 'TM' + this.pad(machineNumber, 2) : 'HM' + this.pad(machineNumber - 100, 2);
         }
       }
-      // }
-    }
-    this.levelUpMovesList = this.levelUpMovesList.sort((obj1, obj2) => {
-      if (+obj1[1] > +obj2[1]) {
-        return 1;
+      switch (this.selectedMove) {
+        case 'level-up':
+          this.movesList = this.levelUpMovesList;
+          break;
+        case 'machine':
+          this.movesList = this.machineMovesList;
+          break;
+        case 'egg':
+          this.movesList = this.eggMovesList;
+          break;
+        case 'tutor':
+          this.movesList = this.tutorMovesList;
+          break;
       }
-
-      if (+obj1[1] < +obj2[1]) {
-        return -1;
-      }
-
-      return 0;
-    });
-    switch (this.selectedMove) {
-      case 'level-up':
-        this.movesList = this.levelUpMovesList;
-        break;
-      case 'machine':
-        this.movesList = this.machineMovesList;
-        break;
-      case 'egg':
-        this.movesList = this.eggMovesList;
-        break;
-      case 'tutor':
-        this.movesList = this.tutorMovesList;
-        break;
+      this.getMoveDetails();
     }
     this.movesListLoaded = true;
-    this.getMoveDetails();
   }
 
   selectMovesByLearnMethod(moveToSelect) {
@@ -1322,6 +1413,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     if (this.selectedGameVersion === name) {
       return;
     } else {
+      if (this.pokemonService.versionMainSwitch) {
+        localStorage.setItem('SelectedVersion', name);
+      }
       this.delayMovesListLoad = false;
       this.selectedGameVersion = name;
       this.currentMoveID = null;
@@ -1331,86 +1425,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   availableInSelectedGen(whatWeChecking) {
-    let gen;
-    let selectedGameGen;
-    switch (whatWeChecking) {
-      case 'generation-i':
-        gen = 1;
-        break;
-      case 'generation-ii':
-        gen = 2;
-        break;
-      case 'generation-iii':
-        gen = 3;
-        break;
-      case 'generation-iv':
-        gen = 4;
-        break;
-      case 'generation-v':
-        gen = 5;
-        break;
-      case 'generation-vi':
-        gen = 6;
-        break;
-      case 'generation-vii':
-        gen = 7;
-        break;
-    }
-    switch (this.selectedGameVersion) {
-      case 'red-blue':
-        selectedGameGen = 1;
-        break;
-      case 'yellow':
-        selectedGameGen = 1;
-        break;
-      case 'gold-silver':
-        selectedGameGen = 2;
-        break;
-      case 'crystal':
-        selectedGameGen = 2;
-        break;
-      case 'ruby-sapphire':
-        selectedGameGen = 3;
-        break;
-      case 'emerald':
-        selectedGameGen = 3;
-        break;
-      case 'firered-leafgreen':
-        selectedGameGen = 3;
-        break;
-      case 'diamond-pearl':
-        selectedGameGen = 4;
-        break;
-      case 'platinum':
-        selectedGameGen = 4;
-        break;
-      case 'heartgold-soulsilver':
-        selectedGameGen = 4;
-        break;
-      case 'black-white':
-        selectedGameGen = 5;
-        break;
-      case 'black-2-white-2':
-        selectedGameGen = 5;
-        break;
-      case 'x-y':
-        selectedGameGen = 6;
-        break;
-      case 'omega-ruby-alpha-sapphire':
-        selectedGameGen = 6;
-        break;
-      case 'sun-moon':
-        selectedGameGen = 7;
-        break;
-      case 'ultra-sun-ultra-moon':
-        selectedGameGen = 7;
-        break;
-    }
-    if (gen > selectedGameGen) {
-      return false;
-    } else {
-      return true;
-    }
+    let gen = this.generations[whatWeChecking];
+    let selectedGameGen = this.versionToGeneration[this.selectedGameVersion];
+    return gen <= selectedGameGen;
   }
 
   selectMove(id) {
@@ -1419,7 +1436,12 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     }
     this.currentMoveData = this.moveDetails[id];
     this.currentMoveID = id;
-    if (this.currentMoveData['effect_chance'] !== null) {
+    //Effect Texts
+    if (this.currentMoveData['effect_entries'] === undefined) {
+      this.moveShortEffect = "Unavailable";
+      this.moveEffect = "Unavailable";
+    }
+    else if (this.currentMoveData['effect_chance'] !== null) {
       this.moveShortEffect = this.currentMoveData['effect_entries']['short_effect'].replace(/\$effect_chance/g,
         this.movesList[id][2].effect_chance);
       this.moveEffect = this.currentMoveData['effect_entries']['effect'].replace(/\$effect_chance/g,
@@ -1428,15 +1450,13 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       this.moveShortEffect = this.currentMoveData['effect_entries']['short_effect'];
       this.moveEffect = this.currentMoveData['effect_entries']['effect'];
     }
+    //Flavor Text
     if (this.selectedGameVersion === 'red-blue' || this.selectedGameVersion === 'yellow') {
       this.moveFlavorTextEntry = 'Selected games had no flavor text entries!';
     } else {
-      // for (const entry of this.currentMoveData['flavor_text_entries']) {
       if (this.currentMoveData['flavor_text_entries'][this.versions[this.selectedGameVersion]] !== undefined) {
         this.moveFlavorTextEntry = this.currentMoveData['flavor_text_entries'][this.versions[this.selectedGameVersion]];
-        // break;
       }
-      // }
     }
   }
 
@@ -1445,26 +1465,22 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.moveDetails = [];
     this.moveLevelDetails = [];
     this.moveMachineDetails = [];
-    this.moveMachineNos = [];
     this.moveEggDetails = [];
     this.moveTutorDetails = [];
     for (const move of this.levelUpMovesList) {
-      const moveID = move[3].replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/move\/(\d+)\//, '$2');
+      const moveID = move[3]
       this.moveLevelDetails.push(this.pokemonService.moveJSON[moveID - 1]);
-      // moveRequests[0].push(this.pokemonService.getMoveByURL(move[3]));
     }
     for (const move of this.machineMovesList) {
-      const moveID = move[3].replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/move\/(\d+)\//, '$2');
+      const moveID = move[3];
       this.moveMachineDetails.push(this.pokemonService.moveJSON[moveID - 1]);
-      this.getAndAddMachineNo(this.pokemonService.moveJSON[moveID - 1]['machines']);
     }
     for (const move of this.eggMovesList) {
-      const moveID = move[3].replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/move\/(\d+)\//, '$2');
+      const moveID = move[3];
       this.moveEggDetails.push(this.pokemonService.moveJSON[moveID - 1]);
-      // moveRequests[2].push(this.pokemonService.getMoveByURL(move[3]));
     }
     for (const move of this.tutorMovesList) {
-      const moveID = move[3].replace(/http(s)?:\/\/pokeapi.co\/api\/v2\/move\/(\d+)\//, '$2');
+      const moveID = move[3];
       this.moveTutorDetails.push(this.pokemonService.moveJSON[moveID - 1]);
     }
     switch (this.selectedMove) {
@@ -1481,16 +1497,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         this.moveDetails = this.moveTutorDetails;
         break;
     }
-  }
-
-  getAndAddMachineNo(machines) {
-    this.moveMachineNos.push(this.fetchMachineNumberFromCSVData(machines[this.versions[this.selectedGameVersion]]));
-  }
-
-  fetchMachineNumberFromCSVData(machineID) {
-    const machineNumber = this.pokemonService.machineDetails[machineID - 1].machine_number;
-    return +machineNumber <= 100 ? 'TM' + this.pad(machineNumber, 2)
-      : 'HM' + this.pad(machineNumber - 100, 2);
   }
 
   capitalizeSplitJoin(str, split: string, join: string) {

@@ -14,14 +14,23 @@ export class HeaderComponent implements OnInit {
   showSearch = true;
   _timeout: any = null;
   megaSwitch;
+  versionSwitch;
   @ViewChild('menu') menu: ElementRef;
 
   ngOnInit(): void {
     if (localStorage.getItem('megaEnabled') == null) {
       localStorage.setItem('megaEnabled', 'true');
     }
+    if (localStorage.getItem('saveSelectedVersion') == null) {
+      localStorage.setItem('saveSelectedVersion', 'true');
+    }
+    if(localStorage.getItem('SelectedVersion')==null){
+      localStorage.setItem('SelectedVersion', 'sword-shield');
+    }
     this.megaSwitch = localStorage.getItem('megaEnabled') == 'true';
+    this.versionSwitch = localStorage.getItem('saveSelectedVersion') == 'true';
     this.pokemonService.megaSwitchSubscription.next(this.megaSwitch);
+    this.pokemonService.versionSwitchSubscription.next(this.versionSwitch);
     this.color = this.pokemonService.activePokemon.subscribe(
       response => {
         if (response === null) {
@@ -93,9 +102,14 @@ export class HeaderComponent implements OnInit {
     this.meta.updateTag({name: 'apple-mobile-web-app-status-bar-style', content: hexColor});
   }
 
-  checkBoxChange(values: any) {
+  checkBoxMega(values: any) {
     this.pokemonService.megaSwitchSubscription.next(values.currentTarget.checked);
     localStorage.setItem('megaEnabled', values.currentTarget.checked.toString());
+  }
+
+  checkBoxVersion(values: any) {
+    this.pokemonService.versionSwitchSubscription.next(values.currentTarget.checked);
+    localStorage.setItem('saveSelectedVersion', values.currentTarget.checked.toString());
   }
 
   openMenu() {

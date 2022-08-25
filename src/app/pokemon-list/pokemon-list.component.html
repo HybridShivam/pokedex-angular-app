@@ -1,23 +1,20 @@
-<!--Angular CDK Virtual Scroll-->
-<!--<cdk-virtual-scroll-viewport style="height: 90vh" itemSize="128" minBufferPx="150" maxBufferPx="250">-->
-<!--  <span *cdkVirtualFor="let pokemon of pokemons |  searchFilter: searchItem ; let i = index; templateCacheSize: 0">-->
-<!--    <app-pokemon-item [pokemon]="pokemon"></app-pokemon-item>-->
-<!--  </span>-->
-<!--</cdk-virtual-scroll-viewport>-->
-<!--<button (click)="focusOnAnItem(100)">Focus</button>-->
-
-
-<div class="pokemon-list row justify-content-center faded" #scrollingBlock [ngClass]="{fade:scrolled}">
-  <virtual-scroller #scroll [items]="pokemons| searchFilter: searchItem" [parentScroll]="scrollingBlock"
-                    class="justify-content-center" scrollAnimationTime="0">
-    <app-pokemon-item *ngFor="let pokemon of scroll.viewPortItems; trackBy: myTrackByFunction; let i = index;"
-                      [pokemon]="pokemon"></app-pokemon-item>
+<div class="pokemon-list faded" #scrollingBlock [ngClass]="{fade:scrolled}">
+  <virtual-scroller #scroll [items]="pokemons| searchFilter: searchItem" [parentScroll]="scrollingBlock" scrollAnimationTime="0">
+    <app-pokemon-item *ngFor="let pokemon of scroll.viewPortItems; trackBy: trackByPokemonID; let i = index;"
+      [pokemon]="pokemon"></app-pokemon-item>
   </virtual-scroller>
 </div>
 
 
-<!--Simple Scrolling-->
-<!--<div class="row justify-content-center">-->
-<!--    <app-pokemon-item *ngFor="let pokemon of pokemons | searchFilter: searchItem; let i = index;"-->
-<!--                      [pokemon]="pokemon"></app-pokemon-item>-->
-<!--</div>-->
+<!-- Simple Scrolling -->
+<!-- <div class="row justify-content-center">
+   <app-pokemon-item *ngFor="let pokemon of pokemons | searchFilter: searchItem; let i = index;"
+                     [pokemon]="pokemon"></app-pokemon-item>
+</div> -->
+
+<!--Angular CDK Virtual Scroll-->
+<!-- <cdk-virtual-scroll-viewport style="height: 90vh" itemSize="128" minBufferPx="150" maxBufferPx="250">
+ <span *cdkVirtualFor="let pokemon of pokemons |  searchFilter: searchItem ; let i = index; templateCacheSize: 0">
+   <app-pokemon-item [pokemon]="pokemon"></app-pokemon-item>
+ </span>
+</cdk-virtual-scroll-viewport> -->

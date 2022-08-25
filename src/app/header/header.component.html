@@ -3,14 +3,11 @@
     <button type="button" class="btn back-arrow" routerLink="/pokemon" [ngClass]="{'back-arrow-fade': showSearch}">
       <i class="fa fa-arrow-left"></i></button>
     <li class="nav-item search-bar-form" [ngClass]="{'search-fade': !showSearch}" style="display: inline-flex">
-
       <form>
         <div class="bg-light rounded rounded-pill shadow-sm align-content-center" style="max-width: 40vw">
           <div class="search-bar input-group rounded-pill" style="background-color: #f6f6f6">
-            <input name="search" autocomplete="off" placeholder="Search..." type="text" [(ngModel)]="searchText"
-                   (ngModelChange)="typingStopped()"
-                   aria-describedby="button-addon1" class="form-control border-0 rounded-pill"
-                   style="background-color: #f6f6f6">
+            <input name="search" autocomplete="off" placeholder="Search..." type="text" [(ngModel)]="searchText" (ngModelChange)="typingStopped()"
+              aria-describedby="button-addon1" class="form-control border-0 rounded-pill" style="background-color: #f6f6f6">
             <div class="input-group-append" style="max-height: 26px">
               <button id="searchIcon" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i>
               </button>
@@ -22,8 +19,7 @@
   </ul>
   <a class="navbar-brand ml-auto" data-toggle="modal" data-target="#aboutModal" #menu>PokéDex</a>
 </nav>
-<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModal"
-     aria-hidden="true" #aboutModal>
+<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModal" aria-hidden="true" #aboutModal>
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div>
@@ -34,45 +30,58 @@
           <hr style="margin-top: 10px;margin-bottom: 5px">
         </div>
         <div class="modal-body justify-content-center text-center">
-          <p style="padding: 10px;margin: 0" *ngIf="pokemonService.firstTime">Open this menu anytime by clicking <strong>PokéDex</strong></p>
-          <div class="row mt-1 mb-4">
-            <div class="col-12" *ngIf="Pwa.promptEvent"><span class="installBtn" (click)="installPwa()">INSTALL APP</span></div>
-            <p style="padding: 10px;margin: auto">App can be used <strong>offline</strong> right away but for best experience let all the thumbnails (about 3MB only) load in background first.<br>
-            Main images are loaded only when opened and once loaded they will be available for offline usage.</p>
+          <div *ngIf="pokemonService.firstTime">
+            <p>Open this menu anytime by clicking <strong>PokéDex</strong></p>
+            <p><i class="fa fa-refresh fa-spin" aria-hidden="true"></i> Preloading thumbnails for offline usage.<br>
+              <br>App can be used <strong>offline</strong> right away but for best experience let all the thumbnails load first.
+              Main images require internet connection but once loaded they will be available offline.
+            </p>
           </div>
-          <div [ngClass]="{'hideSettingsOnMobile':this.pokemonService.isMobile}">
-          <span class="rounded text-center font-weight-bolder"
-                style="padding: 4px; font-size: larger">SETTINGS</span>
-            <div class="row mt-2 mb-1">
+          <p>
+            <span class="installBtn" *ngIf="Pwa.promptEvent" (click)="installPwa()">INSTALL APP</span>
+          </p>
+          <div [ngClass]="{'d-none':this.pokemonService.isMobile}">
+            <p class="heading text-center font-weight-bolder">SETTINGS</p>
+            <div class="row my-1">
               <div class="col-8 text-right" style="font-size: medium">Mega Evolution Animation</div>
               <div class="col-4 text-left" style="align-self: center">
-                <input id="s2" type="checkbox" class="switch" checked name="megaSwitch" [(ngModel)]="megaSwitch"
-                       (change)="checkBoxChange($event)"></div>
+                <input type="checkbox" class="switch" checked name="megaSwitch" [(ngModel)]="megaSwitch" (change)="checkBoxMega($event)">
+              </div>
             </div>
-            <p>If enabled, the animation takes place once for each species after the base form's image have been
+            <p>If enabled, the animation takes place once for each species after the base form's image has been
               downloaded.</p>
           </div>
-          <span class="rounded text-center font-weight-bolder"
-                style="padding: 4px; font-size: larger">ABOUT</span>
-          <p style="padding-top: 6px">v1.0<br>The current PokéDex is up to date with the data from the PokéAPI (Uptu Gen VII). Earlier this app used to call the API but
-            now all the data is completely stored locally to facilitate offline usage. So this app works independently from the API.
-            <br>Made with <i class="fa fa-heart" aria-hidden="true"></i> for Pokémon.</p>
-          <span class="rounded text-center font-weight-bolder"
-                style="padding: 4px; font-size: larger">SPECIAL THANKS</span>
-          <p style="padding-top: 6px;"><a href="https://github.com/PokeAPI/pokeapi" target="_blank">PokéAPI.co</a> & <a href="https://github.com/veekun/pokedex" target="_blank">Veekun</a> for the data, <a
-            href="https://bulbapedia.bulbagarden.net/wiki/Main_Page" target="_blank">Bulbapedia</a> for the images, <a
-            href="https://github.com/duiker101/pokemon-type-svg-icons" target="_blank">duiker101</a> for the type icons and of course to
+          <div class="row my-1">
+            <div class="col-8 text-right" style="font-size: medium">Save Selected Games</div>
+            <div class="col-4 text-left" style="align-self: center">
+              <input type="checkbox" class="switch" checked name="versionSwitch" [(ngModel)]="versionSwitch" (change)="checkBoxVersion($event)">
+            </div>
+          </div>
+          <p>If enabled, the selected game version is saved, else the latest version is used. Game versions
+            affect moves and ability flavor texts.</p>
+          <p class="heading text-center font-weight-bolder">ABOUT</p>
+          <p>v2.0<br>The current PokéDex is up to date with the data from the PokéAPI (Uptu Gen
+            VIII). Earlier in Development this app used to call the API but
+            now all the data is completely stored locally to facilitate offline usage. The PokéAPI database is accurate
+            but its not perfect. Therefore, some data might be inconsistent.
+            <br>Made with <i class="fa fa-heart" aria-hidden="true"></i> for Pokémon.
+          </p>
+          <p class="heading text-center font-weight-bolder">SPECIAL THANKS</p>
+          <p><a href="https://github.com/PokeAPI/pokeapi" target="_blank">PokéAPI.co</a> & <a href="https://github.com/veekun/pokedex"
+              target="_blank">Veekun</a> for the data, <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page" target="_blank">Bulbapedia</a> for the
+            images, <a href="https://github.com/duiker101/pokemon-type-svg-icons" target="_blank">duiker101</a> for the type
+            icons and of course to
             Nintendo, Game Freak, and The Pokémon Company for making such an awesome series of games.</p>
-          <span class="rounded text-center font-weight-bolder"
-                style="padding: 4px; font-size: larger">CONTACT</span>
-          <p style="padding-top: 6px;white-space: pre-wrap">
+          <p class="heading text-center font-weight-bolder">CONTACT</p>
+          <p style="white-space: pre-wrap">
             If you liked it you can <i class="fa fa-star" aria-hidden="true"></i> the repo.
             <a href="https://github.com/HybridShivam/pokedex-angular-app" target="_blank">@Github/PokéDex</a><br>
             And here's the repo. containing all other resources (images) <a href="https://github.com/HybridShivam/Pokemon" target="_blank">@Github/Pokémon</a>
-            <br>Report any bugs to my <a href="mailto:shivamunlimited@gmail.com">MailBox</a>.</p>
-          <span class="rounded text-center font-weight-bolder"
-                style="padding: 4px; font-size: larger">DISCLAIMER</span>
-          <p style="padding-top: 6px">This is an unofficial, fan-made app and is NOT affiliated, endorsed or supported by Nintendo, Game Freak and The Pokémon Company in any way.
+            <br>Report any bugs to my <a href="mailto:shivamunlimited@gmail.com">MailBox</a>.
+          </p>
+          <p class="heading text-center font-weight-bolder">DISCLAIMER</p>
+          <p>This is an unofficial, fan-made app and is NOT affiliated, endorsed or supported
+            by Nintendo, Game Freak and The Pokémon Company in any way.
             <br>No copyright infringement intended.
         </div>
         <div class="modal-footer justify-content-center">

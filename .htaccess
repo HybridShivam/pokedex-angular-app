@@ -1,0 +1,37 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    FileETag None
+
+    # Serve correct content types, and prevent double compression.
+
+    # Static brotli
+    <Files *.js.br>
+    AddType "text/javascript" .br
+    AddEncoding br .br
+    </Files>
+    <Files *.css.br>
+    AddType "text/css" .br
+    AddEncoding br .br
+    </Files>
+    <Files *.json.br>
+    AddType "application/json" .br
+    AddEncoding br .br
+    </Files>
+    <Files *.csv.br>
+    AddType "text/csv" .br
+    AddEncoding br .br
+    </Files>
+
+    # Redirect br
+    RewriteCond %{HTTP:Accept-Encoding} br
+    RewriteCond %{REQUEST_FILENAME}.br -f
+    RewriteRule ^(.*)$ $1.br [L]
+
+    # Don't rewrite files or directories
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Rewrite everything else to index.html to allow html5 state links
+    RewriteRule ^ index.html [L]
+</IfModule>

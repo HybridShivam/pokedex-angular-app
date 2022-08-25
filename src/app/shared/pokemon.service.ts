@@ -1,13 +1,13 @@
-import {Injectable, Output} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Pokemon} from './pokemon.model';
-import {forkJoin, Subject} from 'rxjs';
-import {Observable, Observer, fromEvent, merge} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {NotificationsService} from 'angular2-notifications';
-import {Move} from './moves.model';
-import {Machine} from './machine.model';
-import {PokemonMove} from './pokemon-move.model';
+import { Injectable, Output } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Pokemon } from './pokemon.model';
+import { forkJoin, Subject } from 'rxjs';
+import { Observable, Observer, fromEvent, merge } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { NotificationsService } from 'angular2-notifications';
+import { Move } from './moves.model';
+import { Machine } from './machine.model';
+import { PokemonMove } from './pokemon-move.model';
 
 @Injectable({
   providedIn: 'root'
@@ -31,14 +31,62 @@ export class PokemonService {
   pokemonMovesCSV;
   firstTime = false;
   megaEvolutionMainSwitch;
+  versionMainSwitch;
+  renamedNames = {
+    29: 'Nidoran♀',
+    32: 'Nidoran♂',
+    83: 'Farfetch\'d',
+    122: 'Mr. Mime',
+    386: 'Deoxys',
+    413: 'Wormadam',
+    439: 'Mime Jr.',
+    487: 'Giratina',
+    492: 'Shaymin',
+    550: 'Basculin',
+    555: 'Darmanitan',
+    641: 'Tornadus',
+    642: 'Thundurus',
+    645: 'Landorus',
+    647: 'Keldeo',
+    648: 'Meloetta',
+    669: 'Flabébé',
+    678: 'Meowstic',
+    681: 'Aegislash',
+    710: 'Pumpkaboo',
+    711: 'Gourgeist',
+    718: 'Zygarde',
+    741: 'Oricorio',
+    745: 'Lycanroc',
+    746: 'Wishiwashi',
+    772: 'Type: Null',
+    774: 'Minior',
+    778: 'Mimikyu',
+    785: 'Tapu Koko',
+    786: 'Tapu Lele',
+    787: 'Tapu Bulu',
+    788: 'Tapu Fini',
+    849: 'Toxtricity',
+    865: 'Sirfetch\'d',
+    866: 'Mr. Rime',
+    875: 'Eiscue',
+    876: 'Indeedee',
+    877: 'Morpeko',
+    892: 'Urshifu',
+    902: 'Basculegion',
+    905: 'Enamorus'
+  }
   @Output() searchItemSubject: Subject<string> = new Subject<string>();
   @Output() EverythingLoaded: Subject<boolean> = new Subject<boolean>();
   @Output() megaSwitchSubscription: Subject<boolean> = new Subject<boolean>();
+  @Output() versionSwitchSubscription: Subject<boolean> = new Subject<boolean>();
   @Output() OpenMenu: Subject<boolean> = new Subject<boolean>();
 
   constructor(private http: HttpClient, public _notifications: NotificationsService) {
     this.megaSwitchSubscription.subscribe((res) => {
       this.megaEvolutionMainSwitch = res;
+    });
+    this.versionSwitchSubscription.subscribe((res) => {
+      this.versionMainSwitch = res;
     });
     if (localStorage.getItem('visitedOnce') === null) {
       this.firstTime = true;
@@ -88,10 +136,10 @@ export class PokemonService {
 
   getPokemonMovesFromCSV() {
     this.pokemonMovesCSV = {};
-    this.http.get('assets/data/pokemon-moves.csv', {responseType: 'text'})
+    this.http.get('assets/data/pokemon-moves.csv', { responseType: 'text' })
       .subscribe(
         data => {
-          const allTextLines = data.split(/\r|\n|\r/);
+          const allTextLines = data.split(/\r\n|\r|\n/);
           const headers = allTextLines[0].split(',');
           for (let i = 1; i < allTextLines.length; i++) {
             // split content based on comma
@@ -118,104 +166,12 @@ export class PokemonService {
       (response) => {
         this.getMoveDetailsFromCSV();
         this.pokemonJSON = response['pokemon'];
-        for (let i = 0; i < 807; i++) {
+        for (let i = 0; i < 905; i++) {
           const pokemonData = this.pokemonJSON[(i + 1).toString()];
           const pokemonSpeciesData = this.pokemonSpeciesJSON[i];
           let name = pokemonData['N'];
-          switch (pokemonData['id']) { // Renaming Manually
-            case 29:
-              name = 'Nidoran♀';
-              break;
-            case 32:
-              name = 'Nidoran♂';
-              break;
-            case 83:
-              name = 'Farfetch\'d';
-              break;
-            case 122:
-              name = 'Mr. Mime';
-              break;
-            case 386:
-              name = 'Deoxys';
-              break;
-            case 413:
-              name = 'Wormadam';
-              break;
-            case 439:
-              name = 'Mime Jr.';
-              break;
-            case 487:
-              name = 'Giratina';
-              break;
-            case 492:
-              name = 'Shaymin';
-              break;
-            case 550:
-              name = 'Basculin';
-              break;
-            case 555:
-              name = 'Darmanitan';
-              break;
-            case 641:
-              name = 'Tornadus';
-              break;
-            case 642:
-              name = 'Thundurus';
-              break;
-            case 645:
-              name = 'Landorus';
-              break;
-            case 647:
-              name = 'Keldeo';
-              break;
-            case 648:
-              name = 'Meloetta';
-              break;
-            case 669:
-              name = 'Flabébé';
-              break;
-            case 678:
-              name = 'Meowstic';
-              break;
-            case 681:
-              name = 'Aegislash';
-              break;
-            case 710:
-              name = 'Pumpkaboo';
-              break;
-            case 711:
-              name = 'Gourgeist';
-              break;
-            case 741:
-              name = 'Oricorio';
-              break;
-            case 745:
-              name = 'Lycanroc';
-              break;
-            case 746:
-              name = 'Wishiwashi';
-              break;
-            case 772:
-              name = 'Type: Null';
-              break;
-            case 774:
-              name = 'Minior';
-              break;
-            case 778:
-              name = 'Mimikyu';
-              break;
-            case 785:
-              name = 'Tapu Koko';
-              break;
-            case 786:
-              name = 'Tapu Lele';
-              break;
-            case 787:
-              name = 'Tapu Bulu';
-              break;
-            case 788:
-              name = 'Tapu Fini';
-              break;
+          if (this.renamedNames[pokemonData['id']] !== undefined) {
+            name = this.renamedNames[pokemonData['id']];// Renaming Manually
           }
           this.pokemons.push(new Pokemon(
             // from pokemon
@@ -244,7 +200,7 @@ export class PokemonService {
             pokemonSpeciesData['EvC']
           ));
         }
-        this.newPokemonsLoaded.next(807);
+        this.newPokemonsLoaded.next(905);
         this.pokemonsListChanged.next(this.pokemons);
       }
     );
@@ -252,11 +208,11 @@ export class PokemonService {
 
   getMoveDetailsFromCSV() {
     this.movesDetails = [];
-    this.http.get('assets/data/moves.csv', {responseType: 'text'})
+    this.http.get('assets/data/moves.csv', { responseType: 'text' })
       .subscribe(
         data => {
           this.getMachinesFromCSV();
-          const allTextLines = data.split(/\r|\n|\r/);
+          const allTextLines = data.split(/\r\n|\r|\n/);
           const headers = allTextLines[0].split(',');
           for (let i = 1; i < allTextLines.length; i++) {
             const move = new Move();
@@ -279,11 +235,11 @@ export class PokemonService {
 
   getMachinesFromCSV() {
     this.machineDetails = [];
-    this.http.get('assets/data/machines.csv', {responseType: 'text'})
+    this.http.get('assets/data/machines.csv', { responseType: 'text' })
       .subscribe(
         data => {
           this.getMovesFlavorFromJSON();
-          const allTextLines = data.split(/\r|\n|\r/);
+          const allTextLines = data.split(/\r\n|\r|\n/);
           const headers = allTextLines[0].split(',');
           for (let i = 1; i < allTextLines.length; i++) {
             const machine = new Machine();
@@ -330,7 +286,7 @@ export class PokemonService {
   requestALL() {
     const requests = [];
     requests.push(this.http.get('assets/data/pokemon-species.json'));
-    requests.push(this.http.get('assets/data/pokemon-moves.csv', {responseType: 'text'}));
+    requests.push(this.http.get('assets/data/pokemon-moves.csv', { responseType: 'text' }));
     // requests.push(this.http.get('assets/data/pokemon.json'));
     // requests.push(this.http.get('assets/data/moves.csv', {responseType: 'text'}));
     // requests.push(this.http.get('assets/data/machines.csv', {responseType: 'text'}));
@@ -342,7 +298,7 @@ export class PokemonService {
       this.getPokemonFromJSON();
       this.pokemonSpeciesJSON = species['pokemon-species'];
       const data = movesCSV;
-      const allTextLines = data.split(/\r|\n|\r/);
+      const allTextLines = data.split(/\r\n|\r|\n/);
       const headers = allTextLines[0].split(',');
       for (let i = 1; i < allTextLines.length; i++) {
         // split content based on comma

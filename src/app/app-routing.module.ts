@@ -10,7 +10,8 @@ const routes: Routes = [
   {
     path: 'pokemon', component: PokemonListComponent
   },
-  {path: 'pokemon/:id', component: PokemonDetailComponent}
+  {path: 'pokemon/:id', component: PokemonDetailComponent},
+  {path: '**', redirectTo: '/pokemon'}
 ];
 
 @NgModule({

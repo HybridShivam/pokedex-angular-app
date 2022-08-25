@@ -1,32 +1,24 @@
 virtual-scroller {
-  //width: /;
   display: flex;
   flex: auto;
   flex-direction: column;
-  //max-width: max-content;
   height: calc(100vh - 64px);
-  //height: calc(100vh - #{$nav-height});
   text-align: center;
-  justify-content: center !important;
-  //display: flex;
 }
 
 .pokemon-list{
-  will-change: transform;
+  will-change: scroll-position;
+  margin-left: -15px;
+  margin-right: -15px;
 }
 
 .scrollable-content {
-  justify-content: center !important;
+  will-change: scroll-position;
 }
 
 app-pokemon-item {
-  display: inline-flex !important;
+  display: inline-block;
 }
-
-.row {
-  justify-content: center !important;
-}
-
 
 .faded {
   opacity: 0;

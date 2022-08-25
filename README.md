@@ -74,7 +74,7 @@
     * With Service Worker
       1. As service worker is enabled here, it can only be viewed on production builds so use `ng build --prod` , this creates a build in `\dist` directory.
       1. To serve this you'll need http server : `npm install -g http-server`
-      1. Run the server using `http-server -c-1 dist\pokedex`
+      1. Run the server using `http-server -c-1 dist/pokedex`
 
 **Upgrading Angular CLI version**
 * Run the below commands - use "sudo" only on Mac/ Linux.

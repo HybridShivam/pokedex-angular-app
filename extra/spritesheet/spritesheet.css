@@ -1,0 +1,4532 @@
+.sprite{
+    zoom: 0.7;
+  }
+  @media (max-width:500px) {
+    .sprite{
+      zoom: 0.435;
+    }
+  }
+  .bg-001 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -0;
+  }
+  
+  .bg-002 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -0;
+  }
+  
+  .bg-003 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -156px;
+  }
+  
+  .bg-021 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -156px;
+  }
+  
+  .bg-029 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -0;
+  }
+  
+  .bg-030 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -156px;
+  }
+  
+  .bg-017 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -312px;
+  }
+  
+  .bg-018 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -312px;
+  }
+  
+  .bg-013 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -312px;
+  }
+  
+  .bg-016 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -0;
+  }
+  
+  .bg-022 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -156px;
+  }
+  
+  .bg-043 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -312px;
+  }
+  
+  .bg-041 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -468px;
+  }
+  
+  .bg-026 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -468px;
+  }
+  
+  .bg-039 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -468px;
+  }
+  
+  .bg-035 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -468px;
+  }
+  
+  .bg-019 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -0;
+  }
+  
+  .bg-047 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -156px;
+  }
+  
+  .bg-050 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -312px;
+  }
+  
+  .bg-025 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -468px;
+  }
+  
+  .bg-036 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -624px;
+  }
+  
+  .bg-051 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -624px;
+  }
+  
+  .bg-015 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -624px;
+  }
+  
+  .bg-049 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -624px;
+  }
+  
+  .bg-007 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -624px;
+  }
+  
+  .bg-024 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -0;
+  }
+  
+  .bg-053 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -156px;
+  }
+  
+  .bg-038 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -312px;
+  }
+  
+  .bg-037 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -468px;
+  }
+  
+  .bg-009 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -624px;
+  }
+  
+  .bg-011 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -780px;
+  }
+  
+  .bg-027 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -780px;
+  }
+  
+  .bg-054 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -780px;
+  }
+  
+  .bg-055 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -780px;
+  }
+  
+  .bg-056 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -780px;
+  }
+  
+  .bg-008 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -780px;
+  }
+  
+  .bg-057 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -0;
+  }
+  
+  .bg-044 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -156px;
+  }
+  
+  .bg-058 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -312px;
+  }
+  
+  .bg-006 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -468px;
+  }
+  
+  .bg-045 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -624px;
+  }
+  
+  .bg-046 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -780px;
+  }
+  
+  .bg-061 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -936px;
+  }
+  
+  .bg-062 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -936px;
+  }
+  
+  .bg-075 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -936px;
+  }
+  
+  .bg-010 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -936px;
+  }
+  
+  .bg-078 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -936px;
+  }
+  
+  .bg-073 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -936px;
+  }
+  
+  .bg-079 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -936px;
+  }
+  
+  .bg-012 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -0;
+  }
+  
+  .bg-077 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -156px;
+  }
+  
+  .bg-066 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -312px;
+  }
+  
+  .bg-076 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -468px;
+  }
+  
+  .bg-084 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -624px;
+  }
+  
+  .bg-086 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -780px;
+  }
+  
+  .bg-087 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -936px;
+  }
+  
+  .bg-033 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -1092px;
+  }
+  
+  .bg-034 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -1092px;
+  }
+  
+  .bg-004 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -1092px;
+  }
+  
+  .bg-081 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -1092px;
+  }
+  
+  .bg-092 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -1092px;
+  }
+  
+  .bg-074 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -1092px;
+  }
+  
+  .bg-067 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -1092px;
+  }
+  
+  .bg-068 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -1092px;
+  }
+  
+  .bg-095 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -0;
+  }
+  
+  .bg-063 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -156px;
+  }
+  
+  .bg-032 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -312px;
+  }
+  
+  .bg-052 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -468px;
+  }
+  
+  .bg-089 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -624px;
+  }
+  
+  .bg-072 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -780px;
+  }
+  
+  .bg-023 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -936px;
+  }
+  
+  .bg-093 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -1092px;
+  }
+  
+  .bg-091 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -1248px;
+  }
+  
+  .bg-014 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -1248px;
+  }
+  
+  .bg-104 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -1248px;
+  }
+  
+  .bg-082 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -1248px;
+  }
+  
+  .bg-020 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -1248px;
+  }
+  
+  .bg-048 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -1248px;
+  }
+  
+  .bg-099 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -1248px;
+  }
+  
+  .bg-059 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -1248px;
+  }
+  
+  .bg-107 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -1248px;
+  }
+  
+  .bg-113 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -0;
+  }
+  
+  .bg-031 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -156px;
+  }
+  
+  .bg-106 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -312px;
+  }
+  
+  .bg-096 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -468px;
+  }
+  
+  .bg-114 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -624px;
+  }
+  
+  .bg-118 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -780px;
+  }
+  
+  .bg-098 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -936px;
+  }
+  
+  .bg-105 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -1092px;
+  }
+  
+  .bg-064 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -1248px;
+  }
+  
+  .bg-065 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -1404px;
+  }
+  
+  .bg-116 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -1404px;
+  }
+  
+  .bg-122 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -1404px;
+  }
+  
+  .bg-085 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -1404px;
+  }
+  
+  .bg-080 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -1404px;
+  }
+  
+  .bg-028 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -1404px;
+  }
+  
+  .bg-005 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -1404px;
+  }
+  
+  .bg-060 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -1404px;
+  }
+  
+  .bg-110 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -1404px;
+  }
+  
+  .bg-131 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -1404px;
+  }
+  
+  .bg-144 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -0;
+  }
+  
+  .bg-102 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -156px;
+  }
+  
+  .bg-115 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -312px;
+  }
+  
+  .bg-123 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -468px;
+  }
+  
+  .bg-146 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -624px;
+  }
+  
+  .bg-125 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -780px;
+  }
+  
+  .bg-121 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -936px;
+  }
+  
+  .bg-147 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -1092px;
+  }
+  
+  .bg-133 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -1248px;
+  }
+  
+  .bg-132 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -1404px;
+  }
+  
+  .bg-130 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -1560px;
+  }
+  
+  .bg-127 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -1560px;
+  }
+  
+  .bg-040 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -1560px;
+  }
+  
+  .bg-088 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -1560px;
+  }
+  
+  .bg-090 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -1560px;
+  }
+  
+  .bg-141 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -1560px;
+  }
+  
+  .bg-143 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -1560px;
+  }
+  
+  .bg-135 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -1560px;
+  }
+  
+  .bg-097 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -1560px;
+  }
+  
+  .bg-109 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -1560px;
+  }
+  
+  .bg-126 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -1560px;
+  }
+  
+  .bg-119 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -0;
+  }
+  
+  .bg-120 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -156px;
+  }
+  
+  .bg-142 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -312px;
+  }
+  
+  .bg-108 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -468px;
+  }
+  
+  .bg-137 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -624px;
+  }
+  
+  .bg-155 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -780px;
+  }
+  
+  .bg-139 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -936px;
+  }
+  
+  .bg-140 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -1092px;
+  }
+  
+  .bg-138 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -1248px;
+  }
+  
+  .bg-154 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -1404px;
+  }
+  
+  .bg-148 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -1560px;
+  }
+  
+  .bg-134 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -1716px;
+  }
+  
+  .bg-153 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -1716px;
+  }
+  
+  .bg-124 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -1716px;
+  }
+  
+  .bg-156 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -1716px;
+  }
+  
+  .bg-163 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -1716px;
+  }
+  
+  .bg-136 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -1716px;
+  }
+  
+  .bg-164 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -1716px;
+  }
+  
+  .bg-160 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -1716px;
+  }
+  
+  .bg-159 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -1716px;
+  }
+  
+  .bg-042 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -1716px;
+  }
+  
+  .bg-166 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -1716px;
+  }
+  
+  .bg-165 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -1716px;
+  }
+  
+  .bg-167 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -0;
+  }
+  
+  .bg-145 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -156px;
+  }
+  
+  .bg-162 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -312px;
+  }
+  
+  .bg-128 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -468px;
+  }
+  
+  .bg-129 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -624px;
+  }
+  
+  .bg-171 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -780px;
+  }
+  
+  .bg-172 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -936px;
+  }
+  
+  .bg-173 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -1092px;
+  }
+  
+  .bg-149 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -1248px;
+  }
+  
+  .bg-174 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -1404px;
+  }
+  
+  .bg-069 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -1560px;
+  }
+  
+  .bg-070 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -1716px;
+  }
+  
+  .bg-071 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -1872px;
+  }
+  
+  .bg-161 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -1872px;
+  }
+  
+  .bg-083 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -1872px;
+  }
+  
+  .bg-176 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -1872px;
+  }
+  
+  .bg-175 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -1872px;
+  }
+  
+  .bg-177 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -1872px;
+  }
+  
+  .bg-178 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -1872px;
+  }
+  
+  .bg-179 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -1872px;
+  }
+  
+  .bg-180 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -1872px;
+  }
+  
+  .bg-181 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -1872px;
+  }
+  
+  .bg-182 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -1872px;
+  }
+  
+  .bg-183 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -1872px;
+  }
+  
+  .bg-169 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -1872px;
+  }
+  
+  .bg-184 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -0;
+  }
+  
+  .bg-185 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -156px;
+  }
+  
+  .bg-170 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -312px;
+  }
+  
+  .bg-152 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -468px;
+  }
+  
+  .bg-187 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -624px;
+  }
+  
+  .bg-188 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -780px;
+  }
+  
+  .bg-189 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -936px;
+  }
+  
+  .bg-190 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -1092px;
+  }
+  
+  .bg-151 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -1248px;
+  }
+  
+  .bg-191 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -1404px;
+  }
+  
+  .bg-192 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -1560px;
+  }
+  
+  .bg-168 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -1716px;
+  }
+  
+  .bg-150 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -1872px;
+  }
+  
+  .bg-195 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -2028px;
+  }
+  
+  .bg-196 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -2028px;
+  }
+  
+  .bg-094 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -2028px;
+  }
+  
+  .bg-194 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -2028px;
+  }
+  
+  .bg-197 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -2028px;
+  }
+  
+  .bg-199 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -2028px;
+  }
+  
+  .bg-198 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -2028px;
+  }
+  
+  .bg-200 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -2028px;
+  }
+  
+  .bg-201 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -2028px;
+  }
+  
+  .bg-202 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -2028px;
+  }
+  
+  .bg-203 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -2028px;
+  }
+  
+  .bg-204 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -2028px;
+  }
+  
+  .bg-193 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -2028px;
+  }
+  
+  .bg-206 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -2028px;
+  }
+  
+  .bg-207 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -0;
+  }
+  
+  .bg-208 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -156px;
+  }
+  
+  .bg-209 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -312px;
+  }
+  
+  .bg-210 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -468px;
+  }
+  
+  .bg-211 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -624px;
+  }
+  
+  .bg-213 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -780px;
+  }
+  
+  .bg-214 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -936px;
+  }
+  
+  .bg-215 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -1092px;
+  }
+  
+  .bg-216 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -1248px;
+  }
+  
+  .bg-212 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -1404px;
+  }
+  
+  .bg-217 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -1560px;
+  }
+  
+  .bg-117 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -1716px;
+  }
+  
+  .bg-219 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -1872px;
+  }
+  
+  .bg-220 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -2028px;
+  }
+  
+  .bg-112 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -2184px;
+  }
+  
+  .bg-158 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -2184px;
+  }
+  
+  .bg-218 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -2184px;
+  }
+  
+  .bg-222 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -2184px;
+  }
+  
+  .bg-205 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -2184px;
+  }
+  
+  .bg-223 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -2184px;
+  }
+  
+  .bg-224 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -2184px;
+  }
+  
+  .bg-225 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -2184px;
+  }
+  
+  .bg-100 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -2184px;
+  }
+  
+  .bg-226 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -2184px;
+  }
+  
+  .bg-227 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -2184px;
+  }
+  
+  .bg-228 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -2184px;
+  }
+  
+  .bg-101 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -2184px;
+  }
+  
+  .bg-229 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -2184px;
+  }
+  
+  .bg-230 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -2184px;
+  }
+  
+  .bg-231 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -0;
+  }
+  
+  .bg-232 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -156px;
+  }
+  
+  .bg-157 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -312px;
+  }
+  
+  .bg-233 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -468px;
+  }
+  
+  .bg-234 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -624px;
+  }
+  
+  .bg-103 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -780px;
+  }
+  
+  .bg-235 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -936px;
+  }
+  
+  .bg-111 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -1092px;
+  }
+  
+  .bg-236 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -1248px;
+  }
+  
+  .bg-237 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -1404px;
+  }
+  
+  .bg-186 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -1560px;
+  }
+  
+  .bg-238 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -1716px;
+  }
+  
+  .bg-239 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -1872px;
+  }
+  
+  .bg-240 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -2028px;
+  }
+  
+  .bg-241 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -2184px;
+  }
+  
+  .bg-242 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -2340px;
+  }
+  
+  .bg-243 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -2340px;
+  }
+  
+  .bg-244 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -2340px;
+  }
+  
+  .bg-245 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -2340px;
+  }
+  
+  .bg-246 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -2340px;
+  }
+  
+  .bg-247 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -2340px;
+  }
+  
+  .bg-248 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -2340px;
+  }
+  
+  .bg-249 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -2340px;
+  }
+  
+  .bg-250 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -2340px;
+  }
+  
+  .bg-251 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -2340px;
+  }
+  
+  .bg-252 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -2340px;
+  }
+  
+  .bg-254 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -2340px;
+  }
+  
+  .bg-255 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -2340px;
+  }
+  
+  .bg-256 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -2340px;
+  }
+  
+  .bg-257 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -2340px;
+  }
+  
+  .bg-258 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -2340px;
+  }
+  
+  .bg-259 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -0;
+  }
+  
+  .bg-260 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -156px;
+  }
+  
+  .bg-261 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -312px;
+  }
+  
+  .bg-262 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -468px;
+  }
+  
+  .bg-253 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -624px;
+  }
+  
+  .bg-263 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -780px;
+  }
+  
+  .bg-264 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -936px;
+  }
+  
+  .bg-265 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -1092px;
+  }
+  
+  .bg-266 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -1248px;
+  }
+  
+  .bg-221 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -1404px;
+  }
+  
+  .bg-268 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -1560px;
+  }
+  
+  .bg-269 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -1716px;
+  }
+  
+  .bg-270 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -1872px;
+  }
+  
+  .bg-267 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -2028px;
+  }
+  
+  .bg-271 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -2184px;
+  }
+  
+  .bg-272 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -2340px;
+  }
+  
+  .bg-273 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -2496px;
+  }
+  
+  .bg-274 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -2496px;
+  }
+  
+  .bg-275 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -2496px;
+  }
+  
+  .bg-276 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -2496px;
+  }
+  
+  .bg-278 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -2496px;
+  }
+  
+  .bg-279 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -2496px;
+  }
+  
+  .bg-281 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -2496px;
+  }
+  
+  .bg-282 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -2496px;
+  }
+  
+  .bg-283 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -2496px;
+  }
+  
+  .bg-284 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -2496px;
+  }
+  
+  .bg-285 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -2496px;
+  }
+  
+  .bg-286 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -2496px;
+  }
+  
+  .bg-280 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -2496px;
+  }
+  
+  .bg-277 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -2496px;
+  }
+  
+  .bg-287 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -2496px;
+  }
+  
+  .bg-288 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -2496px;
+  }
+  
+  .bg-289 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -2496px;
+  }
+  
+  .bg-290 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -0;
+  }
+  
+  .bg-291 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -156px;
+  }
+  
+  .bg-292 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -312px;
+  }
+  
+  .bg-293 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -468px;
+  }
+  
+  .bg-294 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -624px;
+  }
+  
+  .bg-295 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -780px;
+  }
+  
+  .bg-296 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -936px;
+  }
+  
+  .bg-297 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -1092px;
+  }
+  
+  .bg-298 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -1248px;
+  }
+  
+  .bg-299 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -1404px;
+  }
+  
+  .bg-300 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -1560px;
+  }
+  
+  .bg-301 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -1716px;
+  }
+  
+  .bg-302 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -1872px;
+  }
+  
+  .bg-303 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -2028px;
+  }
+  
+  .bg-304 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -2184px;
+  }
+  
+  .bg-305 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -2340px;
+  }
+  
+  .bg-306 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -2496px;
+  }
+  
+  .bg-307 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -2652px;
+  }
+  
+  .bg-308 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -2652px;
+  }
+  
+  .bg-309 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -2652px;
+  }
+  
+  .bg-310 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -2652px;
+  }
+  
+  .bg-311 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -2652px;
+  }
+  
+  .bg-312 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -2652px;
+  }
+  
+  .bg-313 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -2652px;
+  }
+  
+  .bg-314 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -2652px;
+  }
+  
+  .bg-315 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -2652px;
+  }
+  
+  .bg-316 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -2652px;
+  }
+  
+  .bg-317 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -2652px;
+  }
+  
+  .bg-318 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -2652px;
+  }
+  
+  .bg-319 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -2652px;
+  }
+  
+  .bg-320 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -2652px;
+  }
+  
+  .bg-321 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -2652px;
+  }
+  
+  .bg-322 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -2652px;
+  }
+  
+  .bg-323 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -2652px;
+  }
+  
+  .bg-324 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -2652px;
+  }
+  
+  .bg-325 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -0;
+  }
+  
+  .bg-326 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -156px;
+  }
+  
+  .bg-327 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -312px;
+  }
+  
+  .bg-328 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -468px;
+  }
+  
+  .bg-329 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -624px;
+  }
+  
+  .bg-330 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -780px;
+  }
+  
+  .bg-331 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -936px;
+  }
+  
+  .bg-332 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -1092px;
+  }
+  
+  .bg-333 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -1248px;
+  }
+  
+  .bg-334 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -1404px;
+  }
+  
+  .bg-335 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -1560px;
+  }
+  
+  .bg-336 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -1716px;
+  }
+  
+  .bg-337 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -1872px;
+  }
+  
+  .bg-338 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -2028px;
+  }
+  
+  .bg-339 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -2184px;
+  }
+  
+  .bg-340 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -2340px;
+  }
+  
+  .bg-341 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -2496px;
+  }
+  
+  .bg-342 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -2652px;
+  }
+  
+  .bg-343 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -2808px;
+  }
+  
+  .bg-344 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -2808px;
+  }
+  
+  .bg-345 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -2808px;
+  }
+  
+  .bg-346 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -2808px;
+  }
+  
+  .bg-347 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -2808px;
+  }
+  
+  .bg-348 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -2808px;
+  }
+  
+  .bg-349 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -2808px;
+  }
+  
+  .bg-350 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -2808px;
+  }
+  
+  .bg-351 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -2808px;
+  }
+  
+  .bg-352 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -2808px;
+  }
+  
+  .bg-353 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -2808px;
+  }
+  
+  .bg-354 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -2808px;
+  }
+  
+  .bg-355 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -2808px;
+  }
+  
+  .bg-356 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -2808px;
+  }
+  
+  .bg-357 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -2808px;
+  }
+  
+  .bg-358 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -2808px;
+  }
+  
+  .bg-359 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -2808px;
+  }
+  
+  .bg-360 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -2808px;
+  }
+  
+  .bg-361 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -2808px;
+  }
+  
+  .bg-362 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -0;
+  }
+  
+  .bg-363 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -156px;
+  }
+  
+  .bg-364 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -312px;
+  }
+  
+  .bg-365 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -468px;
+  }
+  
+  .bg-366 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -624px;
+  }
+  
+  .bg-367 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -780px;
+  }
+  
+  .bg-368 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -936px;
+  }
+  
+  .bg-369 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -1092px;
+  }
+  
+  .bg-370 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -1248px;
+  }
+  
+  .bg-371 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -1404px;
+  }
+  
+  .bg-372 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -1560px;
+  }
+  
+  .bg-373 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -1716px;
+  }
+  
+  .bg-374 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -1872px;
+  }
+  
+  .bg-375 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -2028px;
+  }
+  
+  .bg-376 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -2184px;
+  }
+  
+  .bg-377 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -2340px;
+  }
+  
+  .bg-378 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -2496px;
+  }
+  
+  .bg-379 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -2652px;
+  }
+  
+  .bg-380 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -2808px;
+  }
+  
+  .bg-381 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -2964px;
+  }
+  
+  .bg-382 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -2964px;
+  }
+  
+  .bg-383 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -2964px;
+  }
+  
+  .bg-384 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -2964px;
+  }
+  
+  .bg-385 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -2964px;
+  }
+  
+  .bg-386 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -2964px;
+  }
+  
+  .bg-387 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -2964px;
+  }
+  
+  .bg-388 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -2964px;
+  }
+  
+  .bg-389 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -2964px;
+  }
+  
+  .bg-390 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -2964px;
+  }
+  
+  .bg-391 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -2964px;
+  }
+  
+  .bg-392 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -2964px;
+  }
+  
+  .bg-393 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -2964px;
+  }
+  
+  .bg-394 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -2964px;
+  }
+  
+  .bg-395 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -2964px;
+  }
+  
+  .bg-396 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -2964px;
+  }
+  
+  .bg-397 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -2964px;
+  }
+  
+  .bg-398 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -2964px;
+  }
+  
+  .bg-399 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -2964px;
+  }
+  
+  .bg-400 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -2964px;
+  }
+  
+  .bg-401 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -0;
+  }
+  
+  .bg-402 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -156px;
+  }
+  
+  .bg-403 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -312px;
+  }
+  
+  .bg-404 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -468px;
+  }
+  
+  .bg-405 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -624px;
+  }
+  
+  .bg-406 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -780px;
+  }
+  
+  .bg-407 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -936px;
+  }
+  
+  .bg-408 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -1092px;
+  }
+  
+  .bg-409 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -1248px;
+  }
+  
+  .bg-410 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -1404px;
+  }
+  
+  .bg-411 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -1560px;
+  }
+  
+  .bg-412 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -1716px;
+  }
+  
+  .bg-413 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -1872px;
+  }
+  
+  .bg-414 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -2028px;
+  }
+  
+  .bg-415 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -2184px;
+  }
+  
+  .bg-416 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -2340px;
+  }
+  
+  .bg-417 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -2496px;
+  }
+  
+  .bg-418 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -2652px;
+  }
+  
+  .bg-419 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -2808px;
+  }
+  
+  .bg-420 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -2964px;
+  }
+  
+  .bg-421 {
+    width: 152px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4680px -468px;
+  }
+  
+  .bg-422 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -3120px;
+  }
+  
+  .bg-423 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -3120px;
+  }
+  
+  .bg-424 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -3120px;
+  }
+  
+  .bg-425 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -3120px;
+  }
+  
+  .bg-426 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -3120px;
+  }
+  
+  .bg-427 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -3120px;
+  }
+  
+  .bg-428 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -3120px;
+  }
+  
+  .bg-429 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -3120px;
+  }
+  
+  .bg-430 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -3120px;
+  }
+  
+  .bg-431 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -3120px;
+  }
+  
+  .bg-432 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -3120px;
+  }
+  
+  .bg-433 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -3120px;
+  }
+  
+  .bg-434 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -3120px;
+  }
+  
+  .bg-435 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -3120px;
+  }
+  
+  .bg-436 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -3120px;
+  }
+  
+  .bg-437 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -3120px;
+  }
+  
+  .bg-438 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -3120px;
+  }
+  
+  .bg-439 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -3120px;
+  }
+  
+  .bg-440 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -3120px;
+  }
+  
+  .bg-441 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -3120px;
+  }
+  
+  .bg-442 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -3120px;
+  }
+  
+  .bg-443 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -0;
+  }
+  
+  .bg-444 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -156px;
+  }
+  
+  .bg-445 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -312px;
+  }
+  
+  .bg-446 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -468px;
+  }
+  
+  .bg-447 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -624px;
+  }
+  
+  .bg-448 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -780px;
+  }
+  
+  .bg-449 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -936px;
+  }
+  
+  .bg-450 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -1092px;
+  }
+  
+  .bg-451 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -1248px;
+  }
+  
+  .bg-452 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -1404px;
+  }
+  
+  .bg-453 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -1560px;
+  }
+  
+  .bg-454 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -1716px;
+  }
+  
+  .bg-455 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -1872px;
+  }
+  
+  .bg-456 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -2028px;
+  }
+  
+  .bg-457 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -2184px;
+  }
+  
+  .bg-458 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -2340px;
+  }
+  
+  .bg-459 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -2496px;
+  }
+  
+  .bg-460 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -2652px;
+  }
+  
+  .bg-461 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -2808px;
+  }
+  
+  .bg-462 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -2964px;
+  }
+  
+  .bg-463 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -3120px;
+  }
+  
+  .bg-464 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -3276px;
+  }
+  
+  .bg-465 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -3276px;
+  }
+  
+  .bg-466 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -3276px;
+  }
+  
+  .bg-467 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -3276px;
+  }
+  
+  .bg-468 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -3276px;
+  }
+  
+  .bg-469 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -3276px;
+  }
+  
+  .bg-470 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -3276px;
+  }
+  
+  .bg-471 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -3276px;
+  }
+  
+  .bg-472 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -3276px;
+  }
+  
+  .bg-473 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -3276px;
+  }
+  
+  .bg-474 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -3276px;
+  }
+  
+  .bg-475 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -3276px;
+  }
+  
+  .bg-476 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -3276px;
+  }
+  
+  .bg-477 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -3276px;
+  }
+  
+  .bg-478 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -3276px;
+  }
+  
+  .bg-479 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -3276px;
+  }
+  
+  .bg-480 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -3276px;
+  }
+  
+  .bg-481 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -3276px;
+  }
+  
+  .bg-482 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -3276px;
+  }
+  
+  .bg-483 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -3276px;
+  }
+  
+  .bg-484 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -3276px;
+  }
+  
+  .bg-485 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -3276px;
+  }
+  
+  .bg-486 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -0;
+  }
+  
+  .bg-487 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -156px;
+  }
+  
+  .bg-488 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -312px;
+  }
+  
+  .bg-489 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -468px;
+  }
+  
+  .bg-490 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -624px;
+  }
+  
+  .bg-491 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -780px;
+  }
+  
+  .bg-492 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -936px;
+  }
+  
+  .bg-493 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -1092px;
+  }
+  
+  .bg-494 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -1248px;
+  }
+  
+  .bg-495 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -1404px;
+  }
+  
+  .bg-496 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -1560px;
+  }
+  
+  .bg-497 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -1716px;
+  }
+  
+  .bg-498 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -1872px;
+  }
+  
+  .bg-499 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -2028px;
+  }
+  
+  .bg-500 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -2184px;
+  }
+  
+  .bg-501 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -2340px;
+  }
+  
+  .bg-502 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -2496px;
+  }
+  
+  .bg-503 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -2652px;
+  }
+  
+  .bg-504 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -2808px;
+  }
+  
+  .bg-505 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -2964px;
+  }
+  
+  .bg-506 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -3120px;
+  }
+  
+  .bg-507 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -3276px;
+  }
+  
+  .bg-508 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -3432px;
+  }
+  
+  .bg-509 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -3432px;
+  }
+  
+  .bg-510 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -3432px;
+  }
+  
+  .bg-511 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -3432px;
+  }
+  
+  .bg-512 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -3432px;
+  }
+  
+  .bg-513 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -3432px;
+  }
+  
+  .bg-514 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -3432px;
+  }
+  
+  .bg-515 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -3432px;
+  }
+  
+  .bg-516 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -3432px;
+  }
+  
+  .bg-517 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -3432px;
+  }
+  
+  .bg-518 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -3432px;
+  }
+  
+  .bg-519 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -3432px;
+  }
+  
+  .bg-520 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -3432px;
+  }
+  
+  .bg-521 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -3432px;
+  }
+  
+  .bg-522 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -3432px;
+  }
+  
+  .bg-523 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -3432px;
+  }
+  
+  .bg-524 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -3432px;
+  }
+  
+  .bg-525 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -3432px;
+  }
+  
+  .bg-526 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -3432px;
+  }
+  
+  .bg-527 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -3432px;
+  }
+  
+  .bg-528 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -3432px;
+  }
+  
+  .bg-529 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -3432px;
+  }
+  
+  .bg-530 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -3432px;
+  }
+  
+  .bg-531 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -0;
+  }
+  
+  .bg-532 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -156px;
+  }
+  
+  .bg-533 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -312px;
+  }
+  
+  .bg-534 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -468px;
+  }
+  
+  .bg-535 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -624px;
+  }
+  
+  .bg-536 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -780px;
+  }
+  
+  .bg-537 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -936px;
+  }
+  
+  .bg-538 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -1092px;
+  }
+  
+  .bg-539 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -1248px;
+  }
+  
+  .bg-540 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -1404px;
+  }
+  
+  .bg-541 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -1560px;
+  }
+  
+  .bg-542 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -1716px;
+  }
+  
+  .bg-543 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -1872px;
+  }
+  
+  .bg-544 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -2028px;
+  }
+  
+  .bg-545 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -2184px;
+  }
+  
+  .bg-546 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -2340px;
+  }
+  
+  .bg-547 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -2496px;
+  }
+  
+  .bg-548 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -2652px;
+  }
+  
+  .bg-549 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -2808px;
+  }
+  
+  .bg-550 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -2964px;
+  }
+  
+  .bg-551 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -3120px;
+  }
+  
+  .bg-552 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -3276px;
+  }
+  
+  .bg-553 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -3432px;
+  }
+  
+  .bg-554 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -3588px;
+  }
+  
+  .bg-555 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -3588px;
+  }
+  
+  .bg-556 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -3588px;
+  }
+  
+  .bg-557 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -3588px;
+  }
+  
+  .bg-558 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -3588px;
+  }
+  
+  .bg-559 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -3588px;
+  }
+  
+  .bg-560 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -3588px;
+  }
+  
+  .bg-561 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -3588px;
+  }
+  
+  .bg-562 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -3588px;
+  }
+  
+  .bg-563 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -3588px;
+  }
+  
+  .bg-564 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -3588px;
+  }
+  
+  .bg-565 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -3588px;
+  }
+  
+  .bg-566 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -3588px;
+  }
+  
+  .bg-567 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -3588px;
+  }
+  
+  .bg-568 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -3588px;
+  }
+  
+  .bg-569 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -3588px;
+  }
+  
+  .bg-570 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -3588px;
+  }
+  
+  .bg-571 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -3588px;
+  }
+  
+  .bg-572 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -3588px;
+  }
+  
+  .bg-573 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -3588px;
+  }
+  
+  .bg-574 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -3588px;
+  }
+  
+  .bg-575 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -3588px;
+  }
+  
+  .bg-576 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -3588px;
+  }
+  
+  .bg-577 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -3588px;
+  }
+  
+  .bg-578 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -0;
+  }
+  
+  .bg-579 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -156px;
+  }
+  
+  .bg-580 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -312px;
+  }
+  
+  .bg-581 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -468px;
+  }
+  
+  .bg-582 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -624px;
+  }
+  
+  .bg-583 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -780px;
+  }
+  
+  .bg-584 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -936px;
+  }
+  
+  .bg-585 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -1092px;
+  }
+  
+  .bg-586 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -1248px;
+  }
+  
+  .bg-587 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -1404px;
+  }
+  
+  .bg-588 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -1560px;
+  }
+  
+  .bg-589 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -1716px;
+  }
+  
+  .bg-590 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -1872px;
+  }
+  
+  .bg-591 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -2028px;
+  }
+  
+  .bg-592 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -2184px;
+  }
+  
+  .bg-593 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -2340px;
+  }
+  
+  .bg-594 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -2496px;
+  }
+  
+  .bg-595 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -2652px;
+  }
+  
+  .bg-596 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -2808px;
+  }
+  
+  .bg-597 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -2964px;
+  }
+  
+  .bg-598 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -3120px;
+  }
+  
+  .bg-599 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -3276px;
+  }
+  
+  .bg-600 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -3432px;
+  }
+  
+  .bg-601 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -3588px;
+  }
+  
+  .bg-602 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -3744px;
+  }
+  
+  .bg-603 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -3744px;
+  }
+  
+  .bg-604 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -3744px;
+  }
+  
+  .bg-605 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -3744px;
+  }
+  
+  .bg-606 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -3744px;
+  }
+  
+  .bg-607 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -3744px;
+  }
+  
+  .bg-608 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -3744px;
+  }
+  
+  .bg-609 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -3744px;
+  }
+  
+  .bg-610 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -3744px;
+  }
+  
+  .bg-611 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -3744px;
+  }
+  
+  .bg-612 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -3744px;
+  }
+  
+  .bg-613 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -3744px;
+  }
+  
+  .bg-614 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -3744px;
+  }
+  
+  .bg-615 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -3744px;
+  }
+  
+  .bg-616 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -3744px;
+  }
+  
+  .bg-617 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -3744px;
+  }
+  
+  .bg-618 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -3744px;
+  }
+  
+  .bg-619 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -3744px;
+  }
+  
+  .bg-620 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -3744px;
+  }
+  
+  .bg-621 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -3744px;
+  }
+  
+  .bg-622 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -3744px;
+  }
+  
+  .bg-623 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -3744px;
+  }
+  
+  .bg-624 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -3744px;
+  }
+  
+  .bg-625 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -3744px;
+  }
+  
+  .bg-626 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -3744px;
+  }
+  
+  .bg-627 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -0;
+  }
+  
+  .bg-628 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -156px;
+  }
+  
+  .bg-629 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -312px;
+  }
+  
+  .bg-630 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -468px;
+  }
+  
+  .bg-631 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -624px;
+  }
+  
+  .bg-632 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -780px;
+  }
+  
+  .bg-633 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -936px;
+  }
+  
+  .bg-634 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -1092px;
+  }
+  
+  .bg-635 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -1248px;
+  }
+  
+  .bg-636 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -1404px;
+  }
+  
+  .bg-637 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -1560px;
+  }
+  
+  .bg-638 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -1716px;
+  }
+  
+  .bg-639 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -1872px;
+  }
+  
+  .bg-640 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -2028px;
+  }
+  
+  .bg-641 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -2184px;
+  }
+  
+  .bg-642 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -2340px;
+  }
+  
+  .bg-643 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -2496px;
+  }
+  
+  .bg-644 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -2652px;
+  }
+  
+  .bg-645 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -2808px;
+  }
+  
+  .bg-646 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -2964px;
+  }
+  
+  .bg-647 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -3120px;
+  }
+  
+  .bg-648 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -3276px;
+  }
+  
+  .bg-649 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -3432px;
+  }
+  
+  .bg-650 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -3588px;
+  }
+  
+  .bg-651 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -3744px;
+  }
+  
+  .bg-652 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -3900px;
+  }
+  
+  .bg-653 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -3900px;
+  }
+  
+  .bg-654 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -3900px;
+  }
+  
+  .bg-655 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -3900px;
+  }
+  
+  .bg-656 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -3900px;
+  }
+  
+  .bg-657 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -3900px;
+  }
+  
+  .bg-658 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -3900px;
+  }
+  
+  .bg-659 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -3900px;
+  }
+  
+  .bg-660 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -3900px;
+  }
+  
+  .bg-661 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -3900px;
+  }
+  
+  .bg-662 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -3900px;
+  }
+  
+  .bg-663 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -3900px;
+  }
+  
+  .bg-664 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -3900px;
+  }
+  
+  .bg-665 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -3900px;
+  }
+  
+  .bg-666 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -3900px;
+  }
+  
+  .bg-667 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -3900px;
+  }
+  
+  .bg-668 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -3900px;
+  }
+  
+  .bg-669 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -3900px;
+  }
+  
+  .bg-670 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -3900px;
+  }
+  
+  .bg-671 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -3900px;
+  }
+  
+  .bg-672 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -3900px;
+  }
+  
+  .bg-673 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -3900px;
+  }
+  
+  .bg-674 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -3900px;
+  }
+  
+  .bg-675 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -3900px;
+  }
+  
+  .bg-676 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -3900px;
+  }
+  
+  .bg-677 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -3900px;
+  }
+  
+  .bg-678 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -0;
+  }
+  
+  .bg-679 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -156px;
+  }
+  
+  .bg-680 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -312px;
+  }
+  
+  .bg-681 {
+    width: 156px; height: 146px;
+    background: url('^assets/spritesheet/hq_compress.png') -4680px -624px;
+  }
+  
+  .bg-682 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -468px;
+  }
+  
+  .bg-683 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -624px;
+  }
+  
+  .bg-684 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -780px;
+  }
+  
+  .bg-685 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -936px;
+  }
+  
+  .bg-686 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -1092px;
+  }
+  
+  .bg-687 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -1248px;
+  }
+  
+  .bg-688 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -1404px;
+  }
+  
+  .bg-689 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -1560px;
+  }
+  
+  .bg-690 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -1716px;
+  }
+  
+  .bg-691 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -1872px;
+  }
+  
+  .bg-692 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -2028px;
+  }
+  
+  .bg-693 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -2184px;
+  }
+  
+  .bg-694 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -2340px;
+  }
+  
+  .bg-695 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -2496px;
+  }
+  
+  .bg-696 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -2652px;
+  }
+  
+  .bg-697 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -2808px;
+  }
+  
+  .bg-698 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -2964px;
+  }
+  
+  .bg-699 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -3120px;
+  }
+  
+  .bg-700 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -3276px;
+  }
+  
+  .bg-701 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -3432px;
+  }
+  
+  .bg-702 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -3588px;
+  }
+  
+  .bg-703 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -3744px;
+  }
+  
+  .bg-704 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -3900px;
+  }
+  
+  .bg-705 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -4056px;
+  }
+  
+  .bg-706 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -4056px;
+  }
+  
+  .bg-707 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -4056px;
+  }
+  
+  .bg-708 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -4056px;
+  }
+  
+  .bg-709 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -4056px;
+  }
+  
+  .bg-710 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -4056px;
+  }
+  
+  .bg-711 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -4056px;
+  }
+  
+  .bg-712 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -4056px;
+  }
+  
+  .bg-713 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -4056px;
+  }
+  
+  .bg-714 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -4056px;
+  }
+  
+  .bg-715 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -4056px;
+  }
+  
+  .bg-716 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -4056px;
+  }
+  
+  .bg-717 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -4056px;
+  }
+  
+  .bg-718 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -4056px;
+  }
+  
+  .bg-719 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -4056px;
+  }
+  
+  .bg-720 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -4056px;
+  }
+  
+  .bg-721 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -4056px;
+  }
+  
+  .bg-722 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -4056px;
+  }
+  
+  .bg-723 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -4056px;
+  }
+  
+  .bg-724 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -4056px;
+  }
+  
+  .bg-725 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -4056px;
+  }
+  
+  .bg-726 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -4056px;
+  }
+  
+  .bg-727 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -4056px;
+  }
+  
+  .bg-728 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -4056px;
+  }
+  
+  .bg-729 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -4056px;
+  }
+  
+  .bg-730 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -4056px;
+  }
+  
+  .bg-731 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -4056px;
+  }
+  
+  .bg-732 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -0;
+  }
+  
+  .bg-733 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -156px;
+  }
+  
+  .bg-734 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -312px;
+  }
+  
+  .bg-735 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -468px;
+  }
+  
+  .bg-736 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -624px;
+  }
+  
+  .bg-737 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -780px;
+  }
+  
+  .bg-738 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -936px;
+  }
+  
+  .bg-739 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -1092px;
+  }
+  
+  .bg-740 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -1248px;
+  }
+  
+  .bg-741 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -1404px;
+  }
+  
+  .bg-742 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -1560px;
+  }
+  
+  .bg-743 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -1716px;
+  }
+  
+  .bg-744 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -1872px;
+  }
+  
+  .bg-745 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -2028px;
+  }
+  
+  .bg-746 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -2184px;
+  }
+  
+  .bg-747 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -2340px;
+  }
+  
+  .bg-748 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -2496px;
+  }
+  
+  .bg-749 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -2652px;
+  }
+  
+  .bg-750 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -2808px;
+  }
+  
+  .bg-751 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -2964px;
+  }
+  
+  .bg-752 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -3120px;
+  }
+  
+  .bg-753 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -3276px;
+  }
+  
+  .bg-754 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -3432px;
+  }
+  
+  .bg-755 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -3588px;
+  }
+  
+  .bg-756 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -3744px;
+  }
+  
+  .bg-757 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -3900px;
+  }
+  
+  .bg-758 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -4056px;
+  }
+  
+  .bg-759 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -4212px;
+  }
+  
+  .bg-760 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -4212px;
+  }
+  
+  .bg-761 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -4212px;
+  }
+  
+  .bg-762 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -4212px;
+  }
+  
+  .bg-763 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -4212px;
+  }
+  
+  .bg-764 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -4212px;
+  }
+  
+  .bg-765 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -4212px;
+  }
+  
+  .bg-766 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -4212px;
+  }
+  
+  .bg-767 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -4212px;
+  }
+  
+  .bg-768 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -4212px;
+  }
+  
+  .bg-769 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -4212px;
+  }
+  
+  .bg-770 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -4212px;
+  }
+  
+  .bg-771 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -4212px;
+  }
+  
+  .bg-772 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -4212px;
+  }
+  
+  .bg-773 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -4212px;
+  }
+  
+  .bg-774 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -4212px;
+  }
+  
+  .bg-775 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -4212px;
+  }
+  
+  .bg-776 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -4212px;
+  }
+  
+  .bg-777 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -4212px;
+  }
+  
+  .bg-778 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -4212px;
+  }
+  
+  .bg-779 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -4212px;
+  }
+  
+  .bg-780 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -4212px;
+  }
+  
+  .bg-781 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -4212px;
+  }
+  
+  .bg-782 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -4212px;
+  }
+  
+  .bg-783 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -4212px;
+  }
+  
+  .bg-784 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -4212px;
+  }
+  
+  .bg-785 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -4212px;
+  }
+  
+  .bg-786 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -4212px;
+  }
+  
+  .bg-787 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -0;
+  }
+  
+  .bg-788 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -156px;
+  }
+  
+  .bg-789 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -312px;
+  }
+  
+  .bg-790 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -468px;
+  }
+  
+  .bg-791 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -624px;
+  }
+  
+  .bg-792 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -780px;
+  }
+  
+  .bg-793 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -936px;
+  }
+  
+  .bg-794 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -1092px;
+  }
+  
+  .bg-795 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -1248px;
+  }
+  
+  .bg-796 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -1404px;
+  }
+  
+  .bg-797 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -1560px;
+  }
+  
+  .bg-798 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -1716px;
+  }
+  
+  .bg-799 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -1872px;
+  }
+  
+  .bg-800 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -2028px;
+  }
+  
+  .bg-801 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -2184px;
+  }
+  
+  .bg-802 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -2340px;
+  }
+  
+  .bg-803 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -2496px;
+  }
+  
+  .bg-804 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -2652px;
+  }
+  
+  .bg-805 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -2808px;
+  }
+  
+  .bg-806 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -2964px;
+  }
+  
+  .bg-807 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -3120px;
+  }
+  
+  .bg-808 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -3276px;
+  }
+  
+  .bg-809 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -3432px;
+  }
+  
+  .bg-810 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -3588px;
+  }
+  
+  .bg-811 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -3744px;
+  }
+  
+  .bg-812 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -3900px;
+  }
+  
+  .bg-813 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -4056px;
+  }
+  
+  .bg-814 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -4212px;
+  }
+  
+  .bg-815 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -4368px;
+  }
+  
+  .bg-816 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -4368px;
+  }
+  
+  .bg-817 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -4368px;
+  }
+  
+  .bg-818 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -4368px;
+  }
+  
+  .bg-819 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -4368px;
+  }
+  
+  .bg-820 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -4368px;
+  }
+  
+  .bg-821 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -4368px;
+  }
+  
+  .bg-822 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -4368px;
+  }
+  
+  .bg-823 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -4368px;
+  }
+  
+  .bg-824 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -4368px;
+  }
+  
+  .bg-825 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -4368px;
+  }
+  
+  .bg-826 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -4368px;
+  }
+  
+  .bg-827 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -4368px;
+  }
+  
+  .bg-828 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -4368px;
+  }
+  
+  .bg-829 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -4368px;
+  }
+  
+  .bg-830 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -4368px;
+  }
+  
+  .bg-831 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -4368px;
+  }
+  
+  .bg-832 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -4368px;
+  }
+  
+  .bg-833 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -4368px;
+  }
+  
+  .bg-834 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -4368px;
+  }
+  
+  .bg-835 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -4368px;
+  }
+  
+  .bg-836 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -4368px;
+  }
+  
+  .bg-837 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -4368px;
+  }
+  
+  .bg-838 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -4368px;
+  }
+  
+  .bg-839 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -4368px;
+  }
+  
+  .bg-840 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -4368px;
+  }
+  
+  .bg-841 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -4368px;
+  }
+  
+  .bg-842 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -4368px;
+  }
+  
+  .bg-843 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -4368px;
+  }
+  
+  .bg-844 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -0;
+  }
+  
+  .bg-845 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -156px;
+  }
+  
+  .bg-846 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -312px;
+  }
+  
+  .bg-847 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -468px;
+  }
+  
+  .bg-848 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -624px;
+  }
+  
+  .bg-849 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -780px;
+  }
+  
+  .bg-850 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -936px;
+  }
+  
+  .bg-851 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -1092px;
+  }
+  
+  .bg-852 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -1248px;
+  }
+  
+  .bg-853 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -1404px;
+  }
+  
+  .bg-854 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -1560px;
+  }
+  
+  .bg-855 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -1716px;
+  }
+  
+  .bg-856 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -1872px;
+  }
+  
+  .bg-857 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -2028px;
+  }
+  
+  .bg-858 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -2184px;
+  }
+  
+  .bg-859 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -2340px;
+  }
+  
+  .bg-860 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -2496px;
+  }
+  
+  .bg-861 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -2652px;
+  }
+  
+  .bg-862 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -2808px;
+  }
+  
+  .bg-863 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -2964px;
+  }
+  
+  .bg-864 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -3120px;
+  }
+  
+  .bg-865 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -3276px;
+  }
+  
+  .bg-866 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -3432px;
+  }
+  
+  .bg-867 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -3588px;
+  }
+  
+  .bg-868 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -3744px;
+  }
+  
+  .bg-869 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -3900px;
+  }
+  
+  .bg-870 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -4056px;
+  }
+  
+  .bg-871 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -4212px;
+  }
+  
+  .bg-872 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -4368px;
+  }
+  
+  .bg-873 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -0 -4524px;
+  }
+  
+  .bg-874 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -156px -4524px;
+  }
+  
+  .bg-875 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -312px -4524px;
+  }
+  
+  .bg-876 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -468px -4524px;
+  }
+  
+  .bg-877 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -624px -4524px;
+  }
+  
+  .bg-878 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -780px -4524px;
+  }
+  
+  .bg-879 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -936px -4524px;
+  }
+  
+  .bg-880 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1092px -4524px;
+  }
+  
+  .bg-881 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1248px -4524px;
+  }
+  
+  .bg-882 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1404px -4524px;
+  }
+  
+  .bg-883 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1560px -4524px;
+  }
+  
+  .bg-884 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1716px -4524px;
+  }
+  
+  .bg-885 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -1872px -4524px;
+  }
+  
+  .bg-886 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2028px -4524px;
+  }
+  
+  .bg-887 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2184px -4524px;
+  }
+  
+  .bg-888 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2340px -4524px;
+  }
+  
+  .bg-889 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2496px -4524px;
+  }
+  
+  .bg-890 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2652px -4524px;
+  }
+  
+  .bg-891 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2808px -4524px;
+  }
+  
+  .bg-892 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -2964px -4524px;
+  }
+  
+  .bg-893 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3120px -4524px;
+  }
+  
+  .bg-894 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3276px -4524px;
+  }
+  
+  .bg-895 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3432px -4524px;
+  }
+  
+  .bg-896 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3588px -4524px;
+  }
+  
+  .bg-897 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3744px -4524px;
+  }
+  
+  .bg-898 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -3900px -4524px;
+  }
+  
+  .bg-899 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4056px -4524px;
+  }
+  
+  .bg-900 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4212px -4524px;
+  }
+  
+  .bg-901 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4368px -4524px;
+  }
+  
+  .bg-902 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4524px -4524px;
+  }
+  
+  .bg-903 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4680px -0;
+  }
+  
+  .bg-904 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4680px -156px;
+  }
+  
+  .bg-905 {
+    width: 156px; height: 156px;
+    background: url('^assets/spritesheet/hq_compress.png') -4680px -312px;
+  }

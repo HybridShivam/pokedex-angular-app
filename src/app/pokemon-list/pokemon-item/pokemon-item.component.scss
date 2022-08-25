@@ -1,67 +1,93 @@
-.card{
+.pokemon-card {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
   width: 9rem;
   height: 12rem;
-  border-radius: 0;
-  font-family: 'AlleynW01-Regular', sans-serif;
-  font-weight: lighter;
+  padding: 0.5rem 0.3rem 0.3rem 0.3rem;
   font-size: medium;
   color: gray;
   transition: background-color 3000ms ease;
+
+  .pokemon-card-info {
+    display: flex;
+
+    .id-name {
+      flex: 0 0 75%;
+      flex-grow: 1;
+      max-width: 75%;
+      text-align: left;
+      position: relative;
+      top: -6px;
+
+      .card-id {
+        font-size: 1.7rem;
+        margin: 0;
+      }
+    }
+
+    .icons {
+      flex: 0 0 25%;
+      max-width: 25%;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      flex-grow: 1;
+      max-width: 100%;
+      align-items: flex-end;
+
+      .icon:hover {
+        filter: saturate(200%);
+        transform: scale(1.1);
+        cursor: pointer;
+      }
+    }
+  }
+
+  .pokemon-card-img {
+    height: 100px;
+  }
 }
-.card:hover{
+
+.pokemon-card:hover {
   background-color: #dbdbdb;
   transition: background-color 300ms ease;
 }
-.card-title{
-  font-size: 1.7rem;
-  margin: 0;
-}
-.PokemonImage{
-  height: 88px;
-}
-
-.icon:hover {
-  filter: saturate(200%);
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
 
 @media (max-width: 500px) {
-  .card {
-    max-width: 25vw;
-    height: 8rem;
-    font-size: x-small;
-  }
-  //.card-body{
-  //  padding: 0;
-  //}
-  .PokemonImage {
-    height: 50px;
-  }
-
-  //For Type Icons
-  .icon {
-    border-radius: 100%;
-    height: 20px;
-    width: 20px;
-  }
-  .card-title{
-    font-size: 1.4rem;
-    margin: 0;
-  }
-}
-
-@media (max-width: 400px) {
-  .card {
+  .pokemon-card {
     max-width: 33.33vw;
     height: 8rem;
     font-size: x-small;
-  }
-}
-//End of type icons
 
-// Modal BackDrop Fix
-.modal-backdrop {
-  z-index: -1;
+    .pokemon-card-info {
+      .id-name {
+        position: unset;
+        top: unset;
+
+        .card-id {
+          font-size: 1.4rem;
+          line-height: 1.6rem;
+        }
+
+        .card-name {
+          font-size: 0.75rem;
+        }
+      }
+
+      .icons {
+        .icon {
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
+
+    .pokemon-card-img {
+      height: 68px;
+    }
+  }
+
 }

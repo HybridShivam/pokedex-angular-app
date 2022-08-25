@@ -4,23 +4,33 @@
 
 @font-face {
   font-family: "AlleynW01-Regular";
-  src: url("assets/fonts/AlleynW01-Regular/AlleynW01-Regular.eot"), /* IE9*/
-  url("assets/fonts/AlleynW01-Regular/AlleynW01-Regular.woff2") format("woff2"), /* chrome firefox */
-  url("assets/fonts/AlleynW01-Regular/AlleynW01-Regular.woff") format("woff"), /* chrome firefox */
-  url("assets/fonts/AlleynW01-Regular/AlleynW01-Regular.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
-  url("assets/fonts/AlleynW01-Regular/AlleynW01-Regular.svg#AlleynW01-Regular") format("svg"); /* iOS 4.1- */
+  src: url("assets/fonts/AlleynW01-Regular/AlleynW01-Regular.eot"),
+    /* IE9*/
+    url("assets/fonts/AlleynW01-Regular/AlleynW01-Regular.woff2") format("woff2"),
+    /* chrome firefox */
+    url("assets/fonts/AlleynW01-Regular/AlleynW01-Regular.woff") format("woff"),
+    /* chrome firefox */
+    url("assets/fonts/AlleynW01-Regular/AlleynW01-Regular.ttf") format("truetype"),
+    /* chrome firefox opera Safari, Android, iOS 4.2+*/
+    url("assets/fonts/AlleynW01-Regular/AlleynW01-Regular.svg#AlleynW01-Regular") format("svg");
+  /* iOS 4.1- */
 }
 
 //Prevent Body Text Selection
 /* Prevent text selection of a <body> element in all major browsers */
 body {
-  -youbkit-touch-callout: none; /* iOS Safari */
-  -youbkit-user-select: none; /* Chrome 6.0+, Safari 3.1+, Edge & Opera 15+ */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE 10+ and Edge */
+  font-family: "AlleynW01-Regular", sans-serif;
+  font-size: .9rem;
+  -youbkit-touch-callout: none;
+  /* iOS Safari */
+  -youbkit-user-select: none;
+  /* Chrome 6.0+, Safari 3.1+, Edge & Opera 15+ */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE 10+ and Edge */
   user-select: none;
-  /* Non-prefixed version,
-        currently supported by Chrome and Opera */
+  /* Non-prefixed version,currently supported by Chrome and Opera */
 }
 
 html {
@@ -33,48 +43,32 @@ body {
   overflow-x: hidden;
 }
 
-@media (pointer: none), (pointer: coarse) and (max-width: 768px) {
-  body {
-    overflow-x: unset;
-  }
-}
-
-// I love those lines man
-
-.modal-backdrop {
-  z-index: 995 !important;
-  opacity: 0 !important;
-  //filter: blur(1px);
-  //transition: opacity 1000ms linear !important;
-  //display: none !important;
-}
-
-.fade {
-  z-index: 995 !important;
-}
+// @media (pointer: none),
+// (pointer: coarse) and (max-width: 768px) {
+//   body {
+//     overflow-x: unset;
+//   }
+// }
 
 .modal {
-  z-index: 1000 !important;
+  z-index: 1050 !important;
+  will-change: opacity;
 }
 
-body.modal-open .background-container {
-  -webkit-filter: blur(4px);
-  -moz-filter: blur(4px);
-  -o-filter: blur(4px);
-  //-ms-filter: blur(4px);
-  //filter: blur(4px);
-  //filter: url("https://gist.githubusercontent.com/amitabhaghosh197/b7865b409e835b5a43b5/raw/1a255b551091924971e7dee8935fd38a7fdf7311/blur".svg#blur);
-  //filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
+.modal-dialog {
+  will-change: transform;
+}
+
+.modal-backdrop {
+  display: none;
+  // z-index: 995;
 }
 
 /**
  * Custom cross-browser styles for keyboard :focus overrides defaults.
  */
 *:focus {
-  //outline: 0 !important;
-  //  //box-shadow:
-  //  //  0 0 0 .2rem #fff,
-  //  //  0 0 0 .35rem #069 !important;
+
   z-index: 900;
 }
 
@@ -92,12 +86,7 @@ body.modal-open .background-container {
   border-radius: 100%;
   height: 30px;
   width: 30px;
-  //margin-left: auto;
   transition: 200ms all;
-  margin-right: 2px;
-  margin-top: 4px
-  //display: inline-flex;
-  //text-align: right;
 }
 
 
@@ -200,65 +189,11 @@ body.modal-open .background-container {
 //End of type icons
 
 
-body {
-  font-size: .9rem;
-}
-
-//.FixScrolling {
-//  position: fixed;
-//}
-
 .page-wrapper.toggled .sidebar {
   left: -300px;
 }
 
-// angular perfect scrollbar style
-@media (pointer: fine) {
-  .sidebar .ps.ps--scrolling-y > .ps__rail-y,
-  .sidebar > .ps.ps--scrolling-x > .ps__rail-x,
-  .ps .ps__rail-x:hover,
-  .ps .ps__rail-y:hover,
-  .ps .ps__rail-x:focus,
-  .ps .ps__rail-y:focus,
-  .ps .ps__rail-x.ps--clicking,
-  .ps .ps__rail-y.ps--clicking {
-    background-color: transparent !important;
-  }
 
-
-  .sidebar .ps.ps--active-y > .ps__rail-y:hover,
-  .sidebar > .ps.ps--active-y > .ps__rail-y.ps--clicking {
-    width: 10px !important;
-  }
-
-  .ps__thumb-y {
-    background-color: #fff !important;
-    width: 6px !important;
-    border-radius: 0px !important;
-    opacity: .5;
-
-  }
-
-  ////ScrollBar
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-}
 
 .gender-male {
   color: #23a2d6;
@@ -320,8 +255,8 @@ body {
 }
 
 .simple-notification-wrapper {
-  font-family: 'AlleynW01-Regular', sans-serif !important;
   max-width: 400px;
+
   .icon {
     margin-top: 0 !important;
     margin-right: 0 !important;
@@ -333,14 +268,15 @@ body {
     right: 0 !important;
     left: 0 !important;
   }
+
   .simple-notification-wrapper {
     width: 100% !important;
     max-width: 100% !important;
   }
 }
 
+//Loading Ring
 .lds-dual-ring {
-  display: inline-block;
   position: absolute;
   z-index: 100;
   left: calc(50% - 32px);
@@ -352,7 +288,6 @@ body {
   display: block;
   width: 64px;
   height: 64px;
-  margin: auto;
   border-radius: 50%;
   border: 6px solid #fff;
   border-color: #6f6f6f transparent #6f6f6f transparent;
@@ -363,7 +298,57 @@ body {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
+  }
+}
+
+// angular perfect scrollbar style
+@media (pointer: fine) {
+
+  .sidebar .ps.ps--scrolling-y>.ps__rail-y,
+  .sidebar>.ps.ps--scrolling-x>.ps__rail-x,
+  .ps .ps__rail-x:hover,
+  .ps .ps__rail-y:hover,
+  .ps .ps__rail-x:focus,
+  .ps .ps__rail-y:focus,
+  .ps .ps__rail-x.ps--clicking,
+  .ps .ps__rail-y.ps--clicking {
+    background-color: transparent !important;
+  }
+
+
+  .sidebar .ps.ps--active-y>.ps__rail-y:hover,
+  .sidebar>.ps.ps--active-y>.ps__rail-y.ps--clicking {
+    width: 10px !important;
+  }
+
+  .ps__thumb-y {
+    background-color: #fff !important;
+    width: 6px !important;
+    border-radius: 0px !important;
+    opacity: .5;
+
+  }
+
+  ////ScrollBar
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 }

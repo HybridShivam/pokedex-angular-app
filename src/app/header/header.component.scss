@@ -1,32 +1,41 @@
 .navbar {
-  width: 100%;
+  color: gray;
+  background-color: white;
   -webkit-box-shadow: 0px 0px 40px 8px rgba(0, 0, 0, 0.18);
   -moz-box-shadow: 0px 0px 40px 8px rgba(0, 0, 0, 0.18);
   box-shadow: 0px 0px 40px 8px rgba(0, 0, 0, 0.18);
-  z-index: 995;
-  background-color: white;
-  color: gray;
   transition: background-color 500ms ease-in, color 500ms ease-in;
-  //-webkit-transition: background-color,color 1000ms linear;
-  //-o-transition: background-color,color 1000ms linear;
-  //-moz-transition: background-color,color 1000ms linear;
-  font-family: 'AlleynW01-Regular', sans-serif;
-  //background-image: url("https://www.transparenttextures.com/patterns/light-wool.png");
 }
 
 .modal {
-  font-family: 'AlleynW01-Regular', sans-serif;
   color: gray;
+  a:hover {
+    text-decoration: none;
+  }
+  .heading{
+    font-size: larger;
+  }
+}
+.installBtn {
+  border: 1px solid gray;
+  padding: 3px 4px;
+  border-radius: 4px;
+  transition: all 250ms ease-in-out;
+  font-size: x-large;
 }
 
-.modal a:hover {
-  text-decoration: none;
+.installBtn:hover {
+  color: white;
+  background-color: gray;
+  cursor: pointer;
+  padding: 4px 6px;
 }
-
+.switch{
+  margin-top: 1px;
+}
 .navbar-brand {
   font-size: xx-large;
   padding: 0;
-  //transition: color 250ms linear !important;
 }
 
 .nav-link {
@@ -138,21 +147,7 @@
   color: white !important;
 }
 
-//////////////
-
-.form-control:focus {
-  box-shadow: none;
-}
-
-.form-control-underlined {
-  border-width: 0;
-  border-bottom-width: 1px;
-  border-radius: 0;
-  padding-left: 0;
-}
-
-
-// My SearchBar
+// SearchBar
 .search-bar {
   margin-top: -7px !important;
 }
@@ -181,23 +176,8 @@
   opacity: 0;
   visibility: hidden;
 }
-
-.installBtn {
-  border: 1px solid gray;
-  padding: 3px 4px;
-  border-radius: 4px;
-  transition: all 250ms ease-in-out;
-  font-size: x-large;
-}
-
-.installBtn:hover {
-  color: white;
-  background-color: gray;
-  cursor: pointer;
-  padding: 4px 6px;
-}
-.switch{
-  margin-top: 1px;
+.form-control:focus {
+  box-shadow: none;
 }
 
 // Material Buttons
@@ -354,10 +334,6 @@
       --s: .5;
     }
   }
-}
-
-.hideSettingsOnMobile{
-  display: none;
 }
 
 @media (max-width: 575px) {

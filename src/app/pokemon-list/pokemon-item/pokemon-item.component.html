@@ -1,38 +1,12 @@
-<div class="col-sm-12" style="padding: 0;">
-  <div class="card" routerLink="/pokemon/{{pokemon.id}}">
-    <div class="card-body" style="padding-top: 2px;padding-bottom: 0">
-      <div class="row">
-        <div class="col-xs-7 col-9" style="size: auto;padding: 0;text-align: left !important;">
-          <span class="card-title">{{pokemon.id}}</span>
-          <div class="text-capitalize text-left"
-               style="padding: 0; bottom: 0">{{pokemon.name}}</div>
-        </div>
-        <div class="col-xs-5 col-3" style="padding: 0;">
-          <ng-container *ngFor="let type of pokemon.types">
-            <ng-container [ngSwitch]="type['n']">
-              <div class="icon bug" *ngSwitchCase="'bug'"><img alt="" src="assets/type-icons/png/bug.png"></div>
-              <div class="icon dark" *ngSwitchCase="'dark'"><img alt="" src="assets/type-icons/png/dark.png"></div>
-              <div class="icon dragon" *ngSwitchCase="'dragon'"><img alt="" src="assets/type-icons/png/dragon.png"></div>
-              <div class="icon electric" *ngSwitchCase="'electric'"><img alt="" src="assets/type-icons/png/electric.png"></div>
-              <div class="icon fire" *ngSwitchCase="'fire'"><img alt="" src="assets/type-icons/png/fire.png"></div>
-              <div class="icon fairy" *ngSwitchCase="'fairy'"><img alt="" src="assets/type-icons/png/fairy.png"></div>
-              <div class="icon fighting" *ngSwitchCase="'fighting'"><img alt="" src="assets/type-icons/png/fighting.png"></div>
-              <div class="icon flying" *ngSwitchCase="'flying'"><img alt="" src="assets/type-icons/png/flying.png"></div>
-              <div class="icon ghost" *ngSwitchCase="'ghost'"><img alt="" src="assets/type-icons/png/ghost.png"></div>
-              <div class="icon grass" *ngSwitchCase="'grass'"><img alt="" src="assets/type-icons/png/grass.png"></div>
-              <div class="icon ground" *ngSwitchCase="'ground'"><img alt="" src="assets/type-icons/png/ground.png"></div>
-              <div class="icon ice" *ngSwitchCase="'ice'"><img alt="" src="assets/type-icons/png/ice.png"></div>
-              <div class="icon normal" *ngSwitchCase="'normal'"><img alt="" src="assets/type-icons/png/normal.png"></div>
-              <div class="icon poison" *ngSwitchCase="'poison'"><img alt="" src="assets/type-icons/png/poison.png"></div>
-              <div class="icon psychic" *ngSwitchCase="'psychic'"><img alt="" src="assets/type-icons/png/psychic.png"></div>
-              <div class="icon rock" *ngSwitchCase="'rock'"><img alt="" src="assets/type-icons/png/rock.png"></div>
-              <div class="icon steel" *ngSwitchCase="'steel'"><img alt="" src="assets/type-icons/png/steel.png"></div>
-              <div class="icon water" *ngSwitchCase="'water'"><img alt="" src="assets/type-icons/png/water.png"></div>
-            </ng-container>
-          </ng-container>
-        </div>
-      </div>
-      <div class="card-img"><img alt="" class="mx-auto d-block PokemonImage" src="assets/thumbnails-compressed/{{this.pad(this.pokemon.id, 3) + '.png'}}"></div>
+<div class="pokemon-card" routerLink="/pokemon/{{pokemon.id}}">
+  <div class="pokemon-card-info">
+    <div class="id-name">
+      <span class="card-id">{{pokemon.id}}</span>
+      <div class="card-name text-capitalize text-left text-truncate">{{pokemon.name}}</div>
+    </div>
+    <div class="icons">
+      <div class="icon {{type['n']}}" *ngFor="let type of pokemon.types"><img alt="" src="assets/type-icons/png/{{type['n']}}.png"></div>
     </div>
   </div>
+  <img class="pokemon-card-img mx-auto" alt="" src="assets/thumbnails-compressed/{{this.pad(this.pokemon.id, 3) + '.png'}}">
 </div>

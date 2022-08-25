@@ -1,27 +1,27 @@
+SET PathToFolder=deploy
 ::Building
-echo Building >Build.log
-CALL ng build --prod --baseHref /pokedex/ --serviceWorker true
+echo #Building >build.log
+CALL ng build --prod --baseHref /pokedex/ --serviceWorker true >>build.log
 
-::Clean Previous Build
-echo Cleaning >>Build.log
-rmdir /Q /S deploy\pokedex 
-del /f deploy\pokedex.zip
+::Clean Previous Deploy Build
+echo #Cleaning >>build.log
+rmdir /s/q "%PathToFolder%"
+mkdir "%PathToFolder%"
 
 ::Copy from dist\ to deploy\
-echo Copying >>Build.log
-Xcopy /E dist deploy\
+echo #Copying >>build.log
+Xcopy /E dist "%PathToFolder%"\  >>build.log
 
-::Copy .htaccess to deploy\pokedex
-echo .htaccess >>Build.log
-copy deploy\.htaccess deploy\pokedex\
+::Copy .htaccess to deploy\pokedexog
+echo #Add .htaccess >>build.log
+copy .htaccess "%PathToFolder%"\pokedex\ >>build.log
 
 ::Use Brotli Compression on generated js,css,json,csv etc.
-echo Brotli >>Build.log
-CALL gulp compress
-cd deploy\
+echo #Gulp Brotli Task >>build.log
+CALL gulp compress >>build.log
 
 ::Use 7zip to create archive of deploy folder
-cd deploy
-echo Zipping >Build.log
-7z a pokedex.zip pokedex\ >>Build.log
+echo #Zipping >>build.log
+cd "%PathToFolder%"
+7z a pokedex.zip pokedex\* >>..\build.log
 PAUSE

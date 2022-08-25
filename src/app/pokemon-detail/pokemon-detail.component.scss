@@ -1,5 +1,4 @@
 .MainDiv {
-  font-family: 'AlleynW01-Regular', sans-serif;
   color: #505050;
 }
 
@@ -12,11 +11,11 @@
 .statDiv {
 
 
-  .table > tr > td:first-child {
+  .table>tr>td:first-child {
     color: #505050;
   }
 
-  .table > tr:first-child > td > button {
+  .table>tr:first-child>td>button {
     color: #505050;
   }
 
@@ -53,6 +52,10 @@
 }
 
 .Image {
+  z-index: 100;
+  max-width: 85%;
+  height: auto;
+  padding-top: 10px;
   opacity: 1;
   transition: opacity .6s ease-in-out;
 }
@@ -104,11 +107,13 @@
 
 
 // Abilities Styling
-.abilities, .varieties:hover {
+.abilities,
+.varieties:hover {
   cursor: pointer;
 }
 
-.ability, .variety {
+.ability,
+.variety {
   border-radius: 2px;
   padding: 2px 3px;
   margin-right: 6px;
@@ -125,7 +130,9 @@
   padding-top: 8px;
 }
 
-.hiddenAbility, .selectedForm, .selectedEvo {
+.hiddenAbility,
+.selectedForm,
+.selectedEvo {
   filter: brightness(110%) saturate(50%);
 }
 
@@ -144,9 +151,12 @@
 
 // Fade-In Effect For Other Elements
 .fadeIn {
-  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 1s; /* Firefox < 16 */
-  -o-animation: fadein 1s; /* Opera < 12.1 */
+  -webkit-animation: fadein 1s;
+  /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 1s;
+  /* Firefox < 16 */
+  -o-animation: fadein 1s;
+  /* Opera < 12.1 */
   animation: fadein 1s;
   animation-name: fadein;
   animation-play-state: running;
@@ -156,6 +166,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -166,6 +177,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -176,6 +188,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -186,6 +199,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -196,6 +210,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -203,6 +218,7 @@
 
 // Perspective only for desktops
 @media only screen and (min-width: 992px) {
+
   // BioDIv
   .bioDiv {
     perspective: 400px; // Increases Effect
@@ -212,13 +228,13 @@
 
   .bioDiv:hover .inner {
     transform: rotate(0)
-
   }
 
   .bioDiv .inner {
     transition: .3s;
     transform: rotateY(30deg);
   }
+
   // statDiv
   .statDiv {
     perspective: 400px;
@@ -392,15 +408,20 @@
   .bioDiv {
     padding-left: 0 !important;
   }
+
   .bioDiv .inner {
     padding: 0 !important;
   }
-  .ability, .variety {
+
+  .ability,
+  .variety {
     white-space: pre !important;
   }
+
   table td {
     padding: 0.50rem;
   }
+
   .formsBlock {
     padding-top: 4px !important;
   }
@@ -410,36 +431,46 @@
   .Section-Heading {
     font-size: x-large;
   }
+
   table td {
     padding: 0.50rem;
   }
-  .abilities, .varieties {
+
+  .abilities,
+  .varieties {
     font-size: small !important;
   }
+
   .varieties {
     display: inline-block; // new
   }
+
   //.formsBlock {
   //  max-width: 75vw;
   //}
   .bioDiv .inner {
     width: min-content;
   }
+
   .statDiv .inner {
     padding-top: 1rem;
   }
+
   .statDiv {
     padding-right: 0 !important;
   }
+
   #abilityModal {
     font-size: small !important;
   }
+
   #descModal {
     font-size: small !important;
   }
 }
 
 @media(max-width: 340px) {
+
   //.abilities, .varieties {
   //  font-size: x-small !important;
   //}
@@ -447,9 +478,11 @@
     font-size: x-small !important;
     padding-top: 1rem;
   }
+
   #abilityModal {
     font-size: x-small !important;
   }
+
   #descModal {
     font-size: x-small !important;
   }
@@ -573,11 +606,12 @@
 
 .image-container {
   position: relative;
-  padding-bottom: calc(85% + 10px); /* ratio of image height to width */
+  padding-bottom: calc(85% + 10px);
+  /* ratio of image height to width */
   height: 0;
-  overflow: hidden;
+  // overflow: hidden;
   margin: auto;
-  //display: contents; to fix vertical align bug after fixing the species preload issue
+  // display: contents; //to fix vertical align bug after fixing the species preload issue
 }
 
 .image-container img {
@@ -597,13 +631,12 @@
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%, -50%);
-  z-index: 105;
+  z-index: 103;
   width: auto;
   height: 50%;
   animation-name: sigil-animation;
   animation-duration: 1s;
   animation-iteration-count: infinite;
-  //will-change: opacity, filter;
 }
 
 .sigil-animate {
@@ -620,12 +653,15 @@
   0% {
     filter: brightness(100%) saturate(100%);
   }
+
   25% {
     filter: brightness(125%) saturate(125%);
   }
+
   50% {
     filter: brightness(150%) saturate(150%);
   }
+
   100% {
     filter: brightness(100%) saturate(100%);
   }
@@ -635,16 +671,19 @@
   0% {
     transform: scale(1.0) translate(-50%, -50%);
   }
+
   25% {
     opacity: 1;
     filter: brightness(125%) saturate(125%);
     transform: scale(1.1) translate(-50%, -50%);
   }
+
   100% {
     opacity: 0;
     filter: brightness(150%) saturate(150%);
     transform: scale(1.2) translate(-50%, -50%);
   }
+
   //100% {
   //  opacity: 0;
   //  filter: brightness(200%) saturate(200%);
@@ -671,34 +710,47 @@
   animation-duration: 5s;
   animation-delay: 1s;
   //transform-origin: 0 0;
-  box-shadow: inset 0 0 20px 0px #fff, /*white-border*/
-  inset 0 0 50px 10px #fff, /*white*/
-  inset 0 -20px 30px 0px #f0f, /*pink*/
-  inset 0 -40px 30px 10px #4574f5, /*blue*/
-  inset 0 -45px 45px 40px #8cc2ff, /*sky-blue*/
-  inset 0 -90px 40px 30px #45ff5e, /*green*/
-  inset 0 -120px 40px 30px #c1ff45, /*yellow-green*/
-  inset 0 10px 10px 40px #fdffb5, /*yellow-white*/
-  inset 0 20px 300px 10px #f9ff42, /*yellow*/
-  0 0 50px #fff,
-  0 0px 10px #f0f,
-  //0 -5px 30px 0px #f9ff42,
-  //0 10px 80px #f0f;
+  box-shadow: inset 0 0 20px 0px #fff,
+    /*white-border*/
+    inset 0 0 50px 10px #fff,
+    /*white*/
+    inset 0 -20px 30px 0px #f0f,
+    /*pink*/
+    inset 0 -40px 30px 10px #4574f5,
+    /*blue*/
+    inset 0 -45px 45px 40px #8cc2ff,
+    /*sky-blue*/
+    inset 0 -90px 40px 30px #45ff5e,
+    /*green*/
+    inset 0 -120px 40px 30px #c1ff45,
+    /*yellow-green*/
+    inset 0 10px 10px 40px #fdffb5,
+    /*yellow-white*/
+    inset 0 20px 300px 10px #f9ff42,
+    /*yellow*/
+    0 0 50px #fff,
+    0 0px 10px #f0f,
+    //0 -5px 30px 0px #f9ff42,
+    //0 10px 80px #f0f;
 }
 
 @keyframes mega-sphere {
   0% {
     transform: translate(-50%, -50%) scale(0.9);
   }
+
   25% {
     transform: translate(-50%, -50%) scale(0.8);
   }
+
   50% {
     transform: translate(-50%, -50%) scale(0.9);
   }
+
   75% {
     transform: translate(-50%, -50%) scale(0.8);
   }
+
   100% {
     transform: translate(-50%, -50%) scale(0.9);
   }
@@ -713,6 +765,7 @@
 
 .bubbles {
   will-change: opacity;
+  position: absolute;
   opacity: 0;
   transition: opacity 1s ease-in-out;
   position: absolute;
@@ -744,7 +797,7 @@
   animation: move 2s infinite;
   animation-direction: reverse;
   box-shadow: 0 0 10px 5px #fff,
-  inset 0 0 10px 1px #FFF;
+    inset 0 0 10px 1px #FFF;
 }
 
 @for $i from 1 through 1000 {
@@ -775,6 +828,10 @@
   text-align: center;
   color: #626262;
   padding: 0.3rem;
+}
+
+.evo-img {
+  width: 100px;
 }
 
 .evo-img:hover {
@@ -808,7 +865,9 @@
   padding-bottom: 2px;
 }
 
-.evo-types, .typeDefencesRow, .moveTypes {
+.evo-types,
+.typeDefencesRow,
+.moveTypes {
   text-align: center;
   margin: 0;
 
@@ -865,7 +924,9 @@
 }
 
 
-.eeveeRow1, .eeveeRow2, .eeveeRow3 {
+.eeveeRow1,
+.eeveeRow2,
+.eeveeRow3 {
   display: flex;
   flex-basis: 100%;
   flex-direction: row;
@@ -955,8 +1016,9 @@
 
 .TypeEffDiv {
   .inner {
+
     /* Remove the top border when a table is missing the header */
-    .table > tr:first-child > td {
+    .table>tr:first-child>td {
       border: none;
     }
 
@@ -964,7 +1026,8 @@
     //.table > thead + tbody > tr:first-child > td {
     //  border-top: 1px solid #ddd;
     //}
-    table th, table td {
+    table th,
+    table td {
       vertical-align: middle;
     }
   }
@@ -1120,7 +1183,7 @@
 
   .table-fixed tbody td,
   .table-fixed tbody th,
-  .table-fixed thead > tr > th {
+  .table-fixed thead>tr>th {
     float: left;
     position: relative;
 
@@ -1218,7 +1281,7 @@
 }
 
 .GameVersions .col {
-  flex-basis: 12%;
+  flex-basis: 11.11%;
 }
 
 .moveDetails {
@@ -1278,7 +1341,9 @@
 @media (min-width: 1301px) {
   .SubSections {
     .inner {
-      table th, table td {
+
+      table th,
+      table td {
         padding: 0.33rem;
       }
     }
@@ -1286,13 +1351,18 @@
 }
 
 @media (max-width: 1300px) and (min-width: 992px) {
-  .table th, .table td {
+
+  .table th,
+  .table td {
     padding-right: 0.0rem;
     padding-left: 0.5rem;
   }
+
   .SubSections {
     .inner {
-      table th, table td {
+
+      table th,
+      table td {
         padding: 0.25rem;
       }
     }
@@ -1302,11 +1372,14 @@
 @media (max-width: 991px) {
   .SubSections {
     .inner {
-      table th, table td {
+
+      table th,
+      table td {
         padding: 0.25rem;
       }
     }
   }
+
   .GameVersions .col {
     flex-basis: 10%;
   }
@@ -1316,16 +1389,20 @@
   .row .col-sm {
     flex-basis: unset;
   }
+
   .evo-arrow {
     transform: rotate(90deg);
     padding: 10px;
   }
+
   .multi-evo-stage {
     flex-direction: row;
   }
+
   .arrow-div {
     //padding-top: 1rem;
   }
+
   .multi-arrow-stage {
     flex-direction: row;
     padding-top: 0.5rem;
@@ -1340,28 +1417,39 @@
       flex-basis: 100%;
     }
   }
+
   .Heading {
     font-size: medium;
   }
+
   .SubSections {
     .inner {
       font-size: small;
       width: auto;
 
-      table th, table td {
+      table th,
+      table td {
         padding: 0.25rem;
       }
     }
   }
+
   .damage-cat {
     max-width: 28px;
   }
+
   .SubSections .row .col {
     flex-basis: unset;
   }
+
+  .evo-img {
+    max-width: 64px;
+  }
+
   .GameVersions .col {
     flex-basis: 16% !important;
   }
+
   .MovesTable {
     padding-bottom: 3rem;
     padding-left: 0;
@@ -1385,9 +1473,18 @@
       padding-left: 0;
     }
   }
+
   .scrollableTable {
-    thead, tbody {
-      .Col1, .Col3, .Col4, .Col5, .Col6, .Col7 {
+
+    thead,
+    tbody {
+
+      .Col1,
+      .Col3,
+      .Col4,
+      .Col5,
+      .Col6,
+      .Col7 {
         flex: 0 0 9.722222%;
         max-width: 9.722222%;
       }
@@ -1397,7 +1494,8 @@
         max-width: 41.666666%;
       }
 
-      .Col8, .Col9 {
+      .Col8,
+      .Col9 {
         display: none;
       }
     }
@@ -1410,19 +1508,24 @@
     font-size: x-small;
     padding: 0 !important;
   }
+
   .evo-img {
     //max-width: 75%;
     max-width: 50px;
   }
+
   .evo-desc {
     font-size: x-small;
   }
+
   .Heading {
     font-size: medium;
   }
+
   .damage-cat {
     max-width: 28px;
   }
+
   .SubSections .row .col {
     flex-basis: 50%;
 
@@ -1430,14 +1533,19 @@
       font-size: x-small;
     }
   }
+
   .GameVersions .col {
     flex-basis: 21% !important;
   }
+
   #moveModal .modal-body {
     font-size: small;
   }
+
   .scrollableTable {
-    thead, tbody {
+
+    thead,
+    tbody {
       .Col1 {
         flex: 0 0 13%;
         max-width: 13%;
@@ -1469,7 +1577,8 @@
         max-width: 11.444444%;
       }
 
-      .Col8, .Col9 {
+      .Col8,
+      .Col9 {
         display: none;
       }
     }
@@ -1502,8 +1611,11 @@
     font-size: smaller !important;
     width: auto;
   }
+
   .scrollableTable {
-    thead, tbody {
+
+    thead,
+    tbody {
       .Col1 {
         flex: 0 0 13%;
         max-width: 13%;
@@ -1535,7 +1647,8 @@
         max-width: 12.444444%;
       }
 
-      .Col8, .Col9 {
+      .Col8,
+      .Col9 {
         display: none;
       }
     }
@@ -1567,9 +1680,11 @@
   .GameVersions .col {
     flex-basis: 26% !important;
   }
+
   .damage-icon {
     max-width: 23px !important;
   }
+
   .moveTypes .icon {
     height: 18px;
     width: 18px;
@@ -1583,29 +1698,40 @@
       width: auto;
     }
   }
+
   .ability {
     font-size: x-small;
   }
 }
 
 @media (max-width: 320px) {
+  .statDiv {
+    .btn {
+      font-size: xx-small;
+    }
+  }
+
   .evo-div {
     font-size: xx-small;
     padding: 0 !important;
   }
+
   .evo-img {
     //max-width: 75%;
     max-width: 50px;
   }
+
   .evo-desc {
     font-size: xx-small;
   }
+
   .SubSections {
     .inner {
       font-size: x-small;
       width: auto;
     }
   }
+
   .damage-cat {
     max-width: 22px;
   }
