@@ -24,13 +24,20 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/assets/type-icons/png/*.png",
-          "/assets/*.png",
-          "/assets/thumbnails-compressed/*.png",
+          "/assets/type-icons/png/*.png", 
           "/assets/damage-category-icons/*.png",
-          "/assets/**/*.json",
-          "/assets/**/*.csv",
-          "/assets/Fonts/AlleynW01-Regular/AlleynW01-Regular.woff2"
+          "/assets/data/*.(csv|json)",
+          "/assets/*.png"
+        ]
+      }
+    },
+    {
+      "name": "thumbnails",
+      "installMode": "prefetch",
+      "updateMode":"prefetch",
+      "resources": {
+        "files": [
+          "/assets/thumbnails-compressed/*.png"
         ]
       }
     },
@@ -40,10 +47,8 @@
       "updateMode": "lazy",
       "resources": {
         "files": [
-          "/assets/icons/*.png",
-          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)",
-          "/assets/Fonts/AlleynW01-Regular/*.(eot|svg|ttf|woff)"
-        ],
+          "/assets/fonts/AlleynW01-Regular/*.(eot|svg|ttf|woff|woff2)",
+          "/assets/icons/*.png"        ],
         "urls": [
           "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/*.png"
         ]

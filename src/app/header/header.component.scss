@@ -1,21 +1,36 @@
 .navbar {
   color: gray;
+  a, button {
+    color: inherit;
+    &:hover{
+      color: #2b2b2b;
+      cursor: pointer;
+    }
+  }
+  // a:hover{
+  //     color: #2b2b2b;
+  //     cursor: pointer;
+  // }
   background-color: white;
   -webkit-box-shadow: 0px 0px 40px 8px rgba(0, 0, 0, 0.18);
   -moz-box-shadow: 0px 0px 40px 8px rgba(0, 0, 0, 0.18);
   box-shadow: 0px 0px 40px 8px rgba(0, 0, 0, 0.18);
-  transition: background-color 500ms ease-in, color 500ms ease-in;
+  transition: background-color 500ms ease-in,
+  color 500ms ease-in;
 }
 
 .modal {
   color: gray;
+
   a:hover {
     text-decoration: none;
   }
-  .heading{
+
+  .heading {
     font-size: larger;
   }
 }
+
 .installBtn {
   border: 1px solid gray;
   padding: 3px 4px;
@@ -30,40 +45,40 @@
   cursor: pointer;
   padding: 4px 6px;
 }
-.switch{
+
+.switch {
   margin-top: 1px;
 }
+
 .navbar-brand {
   font-size: xx-large;
   padding: 0;
 }
 
-.nav-link {
-  padding-top: 0;
-  padding-bottom: 0;
-  font-size: x-large;
-  vertical-align: middle;
-  //color: darkgray;
-}
+// .nav-link {
+//   padding-top: 0;
+//   padding-bottom: 0;
+//   font-size: x-large;
+//   vertical-align: middle;
+// }
 
-.nav-link:hover {
-  color: #2b2b2b;
-  cursor: pointer;
-}
+// .nav-link:hover {
+//   color: #2b2b2b;
+//   cursor: pointer;
+// }
 
-.navbar-brand:hover {
-  color: #2b2b2b;
-  cursor: pointer;
-}
+
 
 @media (max-width: 575px) {
   .navbar {
     height: 2.5rem;
   }
+
   .nav-link {
     font-size: 1.0rem;
     padding-bottom: 0.2rem;
   }
+
   .navbar-brand {
     font-size: 1.3rem;
   }
@@ -73,10 +88,12 @@
   .navbar {
     height: 2.3rem;
   }
+
   .nav-link {
     font-size: 0.8rem;
     padding-bottom: 0.2rem;
   }
+
   .navbar-brand {
     font-size: 1.0rem;
   }
@@ -86,10 +103,12 @@
   .navbar {
     height: 2.0rem;
   }
+
   .nav-link {
     font-size: 0.5rem;
     padding-bottom: 0.2rem;
   }
+
   .navbar-brand {
     font-size: 0.9rem;
   }
@@ -98,53 +117,53 @@
 
 // Colors
 .black {
-  background-color: #607d8b !important;
-  color: white !important;
+  background-color: #607d8b ;
+  color: white;
 }
 
 .blue {
-  background-color: #81d4fa !important;
-  color: white !important;
+  background-color: #81d4fa ;
+  color: white;
 }
 
 .brown {
-  background-color: #bcaaa4 !important;
-  color: white !important;
+  background-color: #bcaaa4 ;
+  color: white;
 }
 
 .gray {
-  background-color: #a6a6a6 !important;
-  color: white !important;
+  background-color: #a6a6a6 ;
+  color: white;
 }
 
 .green {
-  background-color: #81c784 !important;
-  color: white !important;
+  background-color: #81c784 ;
+  color: white;
 }
 
 .pink {
-  background-color: #f8bbd0 !important;
-  color: white !important;
+  background-color: #f8bbd0 ;
+  color: white;
 }
 
 .purple {
-  background-color: #ad8ee7 !important;
-  color: white !important;
+  background-color: #ad8ee7 ;
+  color: white;
 }
 
 .red {
-  background-color: #ff8a80 !important;
-  color: white !important;
+  background-color: #ff8a80;
+  color: white;
 }
 
 .white {
-  background-color: #d5dbe1 !important;
-  color: dimgray !important;
+  background-color: #d5dbe1 ;
+  color: dimgray;
 }
 
 .yellow {
-  background-color: #ffd600 !important;
-  color: white !important;
+  background-color: #ffd600 ;
+  color: white;
 }
 
 // SearchBar
@@ -168,7 +187,7 @@
   padding-top: 0;
   padding-left: 0;
   opacity: 1;
-  transition: all 1s;
+  transition: opacity 1s;
   visibility: visible;
 }
 
@@ -176,12 +195,14 @@
   opacity: 0;
   visibility: hidden;
 }
+
 .form-control:focus {
   box-shadow: none;
 }
 
 // Material Buttons
 @supports (-webkit-appearance: none) or (-moz-appearance: none) {
+
   input[type='checkbox'],
   input[type='radio'] {
     --active: gray;
@@ -232,7 +253,7 @@
         --bc: var(--border);
       }
 
-      & + label {
+      &+label {
         cursor: not-allowed;
       }
     }
@@ -261,7 +282,7 @@
       }
     }
 
-    & + label {
+    &+label {
       font-size: 14px;
       line-height: 21px;
       display: inline-block;
@@ -270,6 +291,7 @@
       margin-left: 4px;
     }
   }
+
   input[type='checkbox'] {
     &:not(.switch) {
       border-radius: 7px;
@@ -318,6 +340,7 @@
       }
     }
   }
+
   input[type='radio'] {
     border-radius: 50%;
 
@@ -341,6 +364,7 @@
     padding-bottom: 0px;
     padding-top: 6px !important;
   }
+
   .search-bar {
     margin-top: -7px !important;
     max-height: 26px;
@@ -349,12 +373,15 @@
       max-height: 26px;
     }
   }
-  .modal-body{
+
+  .modal-body {
     font-size: smaller;
-    .installBtn{
+
+    .installBtn {
       font-size: medium;
     }
   }
+
   #searchIcon {
     padding: 0px 10px;
   }

@@ -4,15 +4,15 @@
 
 @font-face {
   font-family: "AlleynW01-Regular";
-  src: url("assets/fonts/AlleynW01-Regular/AlleynW01-Regular.eot"),
+  src: url("^assets/fonts/AlleynW01-Regular/AlleynW01-Regular.eot"),
     /* IE9*/
-    url("assets/fonts/AlleynW01-Regular/AlleynW01-Regular.woff2") format("woff2"),
+    url("^assets/fonts/AlleynW01-Regular/AlleynW01-Regular.woff2") format("woff2"),
     /* chrome firefox */
-    url("assets/fonts/AlleynW01-Regular/AlleynW01-Regular.woff") format("woff"),
+    url("^assets/fonts/AlleynW01-Regular/AlleynW01-Regular.woff") format("woff"),
     /* chrome firefox */
-    url("assets/fonts/AlleynW01-Regular/AlleynW01-Regular.ttf") format("truetype"),
+    url("^assets/fonts/AlleynW01-Regular/AlleynW01-Regular.ttf") format("truetype"),
     /* chrome firefox opera Safari, Android, iOS 4.2+*/
-    url("assets/fonts/AlleynW01-Regular/AlleynW01-Regular.svg#AlleynW01-Regular") format("svg");
+    url("^assets/fonts/AlleynW01-Regular/AlleynW01-Regular.svg#AlleynW01-Regular") format("svg");
   /* iOS 4.1- */
 }
 
