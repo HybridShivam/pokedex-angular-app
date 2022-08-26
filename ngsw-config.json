@@ -14,7 +14,7 @@
           "/*.js"
         ],
         "urls": [
-          "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/**/*"
+          "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/**"
         ]
       }
     },
