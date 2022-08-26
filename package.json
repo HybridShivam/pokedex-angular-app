@@ -6,7 +6,7 @@
     "start": "ng serve",
     "dev": "ng serve -o --host 0.0.0.0",
     "build": "ng build",
-    "prod" : "ng build --prod --baseHref /pokedex/ --serviceWorker true",
+    "prod": "ng build --prod --baseHref /pokedex/ --serviceWorker true",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
