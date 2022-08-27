@@ -2,13 +2,13 @@
   <a href="https://hybridshivam.com/pokedex/"><img src="https://raw.githubusercontent.com/HybridShivam/pokedex-angular-app/master/pokedex.png" width="250px"></a>
   
   ![Build](https://github.com/HybridShivam/pokedex-angular-app/actions/workflows/firebase-hosting-merge.yml/badge.svg)
-  ![Offline](https://img.shields.io/badge/Offline_Compatible-Yes-yellowgreen)
+  ![Offline](https://img.shields.io/badge/Offline_Compatible-Yes-yellow)
   ![Installable](https://img.shields.io/badge/Installable-Yes-brightgreen)
-  ![GitHub release](https://img.shields.io/badge/Version-1.0-brightgreen)
-  ![Made with](https://img.shields.io/badge/Angular-9.1.2-red)
-  ![Angular CLI](https://img.shields.io/badge/Angular_CLI-9.1.1-orange)
-  ![NPM](https://img.shields.io/badge/NPM-6.14.4-yellow)
-  ![Node](https://img.shields.io/badge/Node-13.12.0-blue)
+  ![GitHub release](https://img.shields.io/github/package-json/v/HybridShivam/pokedex-angular-app)
+  ![Made with](https://img.shields.io/github/package-json/dependency-version/HybridShivam/pokedex-angular-app/@angular/core?color=red)
+  ![Angular CLI](https://img.shields.io/github/package-json/dependency-version/HybridShivam/pokedex-angular-app/dev/@angular/cli)
+  ![NPM](https://img.shields.io/badge/NPM-8.15.0-yellow)
+  ![Node](https://img.shields.io/badge/Node-16.17.0-red)
   
 </div>
 <p align="center">
@@ -57,7 +57,7 @@
 1. IMP Note: You might need to use sudo depending on the npm configuration.
 1. Install Angular CLI as `npm install -g @angular/cli`
 1. Clone or download this repo.
-1. Run `npm install` inside this project folder to install all dependencies.
+1. Run `npm install --legacy-peer-deps` inside this project folder to install all dependencies.
 1. Make sure you use the latest version of the CLI (upgrade guide below)
 1. I have set the `serviceWorker` flag to `false` in `angular.json` : So Now there are two ways to start the server: 
   * If `false`
