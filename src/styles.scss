@@ -1,6 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import '~bootstrap/scss/bootstrap';
+@import 'assets/fontello/css/pokedex-fontello.css';
+@import 'assets/fontello/css/animation.css';
 
 @font-face {
   font-family: "AlleynW01-Regular";
@@ -41,6 +41,10 @@ html {
 body {
   max-width: 100%;
   overflow-x: hidden;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  margin: 0em;
 }
 
 // @media (pointer: none),

@@ -1173,28 +1173,47 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   generateGenderRates() {
     const rate = this.pokemon.speciesDetails['GeR'];
+    let maleRate, femaleRate;
     switch (rate) {
       case -1:
-        return '<span class="' + this.pokemon.color + '-text"' + '>Genderless <i class="fa fa-genderless"></i></span>';
+        return '<span class="' + this.pokemon.color + '-text"' + '>Genderless <i class="icon-genderless"></i></span>';
       case 0:
-        return '<span class="gender-male">100% <i class="fa fa-mars"></i></span>,<span class="gender-female"> 0% <i class="fa fa-venus"></i></span>';
+        maleRate = '100';
+        femaleRate = '0';
+        break;
       case 1:
-        return '<span class="gender-male">87.5% <i class="fa fa-mars"></i></span>,<span class="gender-female">  12.5% <i class="fa fa-venus"></i></span>';
+        maleRate = '87.5';
+        femaleRate = '12.5';
+        break;
       case 2:
-        return '<span class="gender-male">75% <i class="fa fa-mars"></i></span>,<span class="gender-female">  25% <i class="fa fa-venus"></i></span>';
+        maleRate = '75';
+        femaleRate = '25';
+        break;
       case 3:
-        return '<span class="gender-male">62.5% <i class="fa fa-mars"></i></span>,<span class="gender-female">  37.5% <i class="fa fa-venus"></i></span>';
+        maleRate = '62.5';
+        femaleRate = '37.5';
+        break;
       case 4:
-        return '<span class="gender-male">50% <i class="fa fa-mars"></i></span>,<span class="gender-female">  50% <i class="fa fa-venus"></i></span>';
+        maleRate = '50';
+        femaleRate = '50';
+        break;
       case 5:
-        return '<span class="gender-male">37.5% <i class="fa fa-mars"></i></span>,<span class="gender-female">  62.5% <i class="fa fa-venus"></i></span>';
+        maleRate = '37.5';
+        femaleRate = '62.5';
+        break;
       case 6:
-        return '<span class="gender-male">25% <i class="fa fa-mars"></i></span>,<span class="gender-female">  75% <i class="fa fa-venus"></i></span>';
+        maleRate = '25';
+        femaleRate = '75';
+        break;
       case 7:
-        return '<span class="gender-male">12.5% <i class="fa fa-mars"></i></span>,<span class="gender-female">  87.5% <i class="fa fa-venus"></i></span>';
+        maleRate = '12.5';
+        femaleRate = '87.5';
+        break;
       case 8:
-        return '<span class="gender-male">0% <i class="fa fa-mars"></i></span>,<span class="gender-female">  100% <i class="fa fa-venus"></i></span>';
+        maleRate = '0';
+        femaleRate = '100';
     }
+    return '<span class="gender-male">' + maleRate + '% <i class="icon-mars"></i></span>,<span class="gender-female"> ' + femaleRate + '% <i class="icon-venus"></i></span>';
   }
 
   getExperiencePoints(growth_rate: string) {
@@ -1276,7 +1295,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     this.tutorMovesList = [];
     this.movesList = [];
     this.movesListLoaded = false;
-    if(this.movesListTimeout){
+    if (this.movesListTimeout) {
       clearTimeout(this.movesListTimeout);
     }
     if (this.delayMovesListLoad) {

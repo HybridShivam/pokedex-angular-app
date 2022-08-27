@@ -35,6 +35,9 @@
               "node_modules/jquery/dist/jquery.slim.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/focus-visible/dist/focus-visible.min.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "@tweenjs/tween.js"
             ]
           },
           "configurations": {

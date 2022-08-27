@@ -1,15 +1,15 @@
 <nav class="navbar sticky-top navbar-expand" id="header" [ngClass]="color">
   <ul class="navbar-nav mt-2">
     <button type="button" class="btn back-arrow" routerLink="/pokemon" [ngClass]="{'back-arrow-fade': showSearch}">
-      <i class="fa fa-arrow-left"></i></button>
+      <i class="icon-left-big"></i></button>
     <li class="nav-item search-bar-form" [ngClass]="{'search-fade': !showSearch}" style="display: inline-flex">
       <form>
         <div class="bg-light rounded rounded-pill shadow-sm align-content-center" style="max-width: 40vw">
           <div class="search-bar input-group rounded-pill" style="background-color: #f6f6f6">
             <input name="search" autocomplete="off" placeholder="Search..." type="text" [(ngModel)]="searchText" (ngModelChange)="typingStopped()"
               aria-describedby="button-addon1" class="form-control border-0 rounded-pill" style="background-color: #f6f6f6">
-            <div class="input-group-append" style="max-height: 26px">
-              <button id="searchIcon" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i>
+            <div class="input-group-append">
+              <button id="searchIcon" type="submit" class="btn btn-link text-primary"><i class="icon-search"></i>
               </button>
             </div>
           </div>
@@ -32,7 +32,7 @@
         <div class="modal-body justify-content-center text-center">
           <div *ngIf="pokemonService.firstTime">
             <p>Open this menu anytime by clicking <strong>PokéDex</strong></p>
-            <p><i class="fa fa-refresh fa-spin" aria-hidden="true"></i> Preloading thumbnails for offline usage.<br>
+            <p><i class="icon-spin1 animate-spin" aria-hidden="true"></i> Preloading thumbnails for offline usage.<br>
               <br>App can be used <strong>offline</strong> right away but for best experience let all the thumbnails load first.
               Main images require internet connection but once loaded they will be available offline.
             </p>
@@ -64,7 +64,7 @@
             VIII). Earlier in Development this app used to call the API but
             now all the data is completely stored locally to facilitate offline usage. The PokéAPI database is accurate
             but its not perfect. Therefore, some data might be inconsistent.
-            <br>Made with <i class="fa fa-heart" aria-hidden="true"></i> for Pokémon.
+            <br>Made with <i class="icon-heart"></i> for Pokémon. 
           </p>
           <p class="heading text-center font-weight-bolder">SPECIAL THANKS</p>
           <p><a href="https://github.com/PokeAPI/pokeapi" target="_blank">PokéAPI.co</a> & <a href="https://github.com/veekun/pokedex"
@@ -74,7 +74,7 @@
             Nintendo, Game Freak, and The Pokémon Company for making such an awesome series of games.</p>
           <p class="heading text-center font-weight-bolder">CONTACT</p>
           <p style="white-space: pre-wrap">
-            If you liked it you can <i class="fa fa-star" aria-hidden="true"></i> the repo.
+            If you liked it you can <i class="icon-star" aria-hidden="true"></i> the repo.
             <a href="https://github.com/HybridShivam/pokedex-angular-app" target="_blank">@Github/PokéDex</a><br>
             And here's the repo. containing all other resources (images) <a href="https://github.com/HybridShivam/Pokemon" target="_blank">@Github/Pokémon</a>
             <br>Report any bugs to my <a href="mailto:shivamunlimited@gmail.com">MailBox</a>.
