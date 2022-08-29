@@ -34,7 +34,7 @@
     {
       "name": "thumbnails",
       "installMode": "prefetch",
-      "updateMode":"lazy",
+      "updateMode":"prefetch",
       "resources": {
         "files": [
           "/assets/thumbnails-compressed/*.png"
