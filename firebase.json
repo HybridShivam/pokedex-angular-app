@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "pocket-monsters",
     "public": "dist/pokedex",
     "ignore": [
       "firebase.json",
