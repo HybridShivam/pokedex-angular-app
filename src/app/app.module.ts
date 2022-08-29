@@ -40,7 +40,7 @@ import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.componen
     VirtualScrollerModule,
     // ScrollingModule,
     SimpleNotificationsModule.forRoot({ preventDuplicates: true }),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production, registrationStrategy: 'registerWithDelay:5000' })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production, registrationStrategy: 'registerImmediately' })
   ],
   providers: [
     {
