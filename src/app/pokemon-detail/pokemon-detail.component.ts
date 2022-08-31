@@ -683,7 +683,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       }
       this.formattedFormNames.push(formattedName);
     }
-    console.log(this.formattedFormNames)
   }
 
   requestForms() {
@@ -731,7 +730,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       );
       i = i + 1;
     }
-    console.log(this.pokemonForms);
   }
 
   selectForm(i) {
