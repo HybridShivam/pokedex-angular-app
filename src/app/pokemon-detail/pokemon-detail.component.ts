@@ -66,7 +66,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     'oricorio-sensu': 'purple',
     'lycanroc-midnight': 'red',
     'lycanroc-dusk': 'brown',
-    'minior-orange-meteor': 'red', // Because its second in list actually its minior-red
+    'minior-orange-meteor': 'red', // Because its second in "pokemon.varieties"; actually its minior-red
     'necrozma-ultra': 'yellow',
     'magearna-original': 'red',
     'rattata-alola': 'black',
@@ -104,7 +104,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     'sneasel-hisui': 'purple',
     'zorua-hisui': 'white',
     'zoroark-hisui': 'white',
-    'braviary-hisui': 'white'
+    'braviary-hisui': 'white',
+    'calyrex-ice': 'white',
+    'calyrex-shadow': 'purple'
   };
 
   formNameFormatted = {
@@ -654,7 +656,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       var name = this.pokemon.varieties[i]['n'];
       formattedName = this.formNameFormatted[name];
       if (formattedName === undefined) {
-        if (name.indexOf('-totem') !== -1 || name.indexOf('-battle-bond') !== -1) {
+        if (name.indexOf('-totem') !== -1 || name.indexOf('-battle-bond') !== -1 || name.indexOf('minior') !== -1) {
           continue;// Skipping these forms
         } else if (name.indexOf('-mega') !== -1 || name.indexOf('-primal') !== -1 || name === 'greninja-ash') {
           const re = '(' + this.pokemon.species['n'] + ')[-]([a-z]*)';
@@ -681,6 +683,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       }
       this.formattedFormNames.push(formattedName);
     }
+    console.log(this.formattedFormNames)
   }
 
   requestForms() {
@@ -728,6 +731,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       );
       i = i + 1;
     }
+    console.log(this.pokemonForms);
   }
 
   selectForm(i) {
