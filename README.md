@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://hybridshivam.com/pokedex/"><img src="https://raw.githubusercontent.com/HybridShivam/pokedex-angular-app/master/pokedex.png" width="250px"></a>
+  <a href="https://pokedex.hybridshivam.com"><img src="https://raw.githubusercontent.com/HybridShivam/pokedex-angular-app/master/pokedex.png" width="250px"></a>
   
   ![Build](https://github.com/HybridShivam/pokedex-angular-app/actions/workflows/firebase-hosting-merge.yml/badge.svg)
   ![Offline](https://img.shields.io/badge/Offline_Compatible-Yes-yellow)
@@ -12,11 +12,11 @@
   
 </div>
 <p align="center">
-   A PWA (Progressive Web App) Built using Angular 9 with Service Workers.
+   A PWA (Progressive Web App) Built using Angular 9 with Service Workers.<br>
    Works Offline and can be installed.<br>
    Built using the PokéAPI.
   
-   <p align="center">Website : <a href="https://hybridshivam.com/pokedex/">hybridshivam.com/pokedex</a><br>[For best experience use Chrome or any other Chromium-based browser]</p>
+   <p align="center">Live : <a href="https://pokedex.hybridshivam.com">pokedex.hybridshivam.com</a><br>[For best experience use Chrome or any other Chromium-based browser]</p>
 </p>
 
 <p align="center">Leave a :star: if you liked it, also share :link: with those who may be interested.<p>
@@ -37,7 +37,13 @@
  
  
 # Versions
- **v1.0**
+**v2.0.0**
+ * Updated with Gen 8 data (905 species)
+ * Option to enable saving of last selected game version.
+ * Various Performance Improvements
+ * Cleaned Code
+
+ **v1.0.0**
  * 807 Pokemon Species with all alternate forms including Alolan and Megas.
  * Special Mega Evolution Animation for Desktop Clients. (Can be disabled)
  * Abilities.
