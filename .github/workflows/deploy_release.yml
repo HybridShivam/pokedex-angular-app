@@ -16,6 +16,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
+      - name: Install cli angular
+        run: sudo npm install -g @angular/cli
       - name: Install dependencies and build
         run: npm ci --legacy-peer-deps && ng build --prod --serviceWorker true
       - name: build_tar
