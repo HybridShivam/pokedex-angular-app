@@ -1,5 +1,5 @@
 resource "aws_instance" "poke_app" {
-  ami           = "ami-09cd747c78a9add63"
+  ami           = data.aws_ami.ubuntu.id
   instance_type =  "t3.micro"
   vpc_security_group_ids      = [aws_security_group.app_pokemon_sg.id]
   associate_public_ip_address = true
@@ -11,6 +11,15 @@ resource "aws_instance" "poke_app" {
   }
 }
 
+data "aws_ami" "ubuntu" {
+  most_recent = true
+  owners      = ["099720109477"] /* Ubuntu Canonical owner*/
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+  }
+}
 
 resource "aws_security_group" "app_pokemon_sg" {
   name        = "app_pokemon_sg"
